@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>מה היה לנו בשכבת הקישור · מבוא לתקשורת מחשבים</title>
+<title>תרגול — IP, השהיות והצפנה · מבוא לתקשורת מחשבים</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -244,7 +244,7 @@ main { min-width: 0; }
     <li><a href="23-link-mac-arp.html" data-page="23"><span class="nav-num">4.4</span>MAC, ARP</a></li>
     <li><a href="24-link-switches.html" data-page="24"><span class="nav-num">4.5</span>סוויצ'ים</a></li>
     <li><a href="25-link-day-in-life.html" data-page="25"><span class="nav-num">4.6</span>יום בחיי הודעה</a></li>
-    <li><a href="sum-link.html" class="active" data-page="sum-link"><span class="nav-num">📌</span>סיכום השכבה</a></li>
+    <li><a href="sum-link.html" data-page="sum-link"><span class="nav-num">📌</span>סיכום השכבה</a></li>
   </ul>
 
   <div class="nav-label">5️⃣ השכבה הפיזית</div>
@@ -264,70 +264,522 @@ main { min-width: 0; }
   <div class="nav-label">📋 חזרה</div>
   <ul class="nav-list">
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
-    <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
+    <li><a href="32-practice-cidr-delays.html" class="active" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
 </aside>
 
 <main>
-  <span class="page-eyebrow">📌 סיכום שכבה · 4️⃣ שכבת הקישור</span>
-  <h1 class="page-title">מה היה לנו בשכבת הקישור</h1>
-  <p class="page-subtitle">שישה פרקים בדקה אחת — מהפריים הבודד ועד המסע המלא של הודעה ברשת.</p>
+  <span class="page-eyebrow">✏️ תרגול · חזרה</span>
+  <h1 class="page-title">תרגול — IP, השהיות והצפנה</h1>
+  <p class="page-subtitle">שלושת נושאי החישוב והנימוק הגדולים של המבחן: עבודה עם ‎/x, כל סוגי ה-d, והצפנה בסגנון אליס ובוב. שיטה, ואז תרגילים עם פתרון מלא.</p>
 
-<div class="box theory">
-  <div class="box-head"><span class="icon">🗺️</span>מפת השכבה</div>
-  <div class="box-body">
-    <table>
-      <thead><tr><th>פרק</th><th>שורה תחתונה</th></tr></thead>
-      <tbody>
-      <tr><td><a href="20-link-framing.html"><strong>4.1</strong> · Framing ושירותים</a></td><td>שכבה 2 אורזת דאטהגרמים לפריימים ומעבירה אותם <strong>על לינק בודד</strong>. שירותים: framing, גישה לערוץ, גילוי שגיאות (CRC).</td></tr>
-      <tr><td><a href="21-link-aloha.html"><strong>4.2</strong> · ALOHA</a></td><td>גישה אקראית נאיבית: משדרים בלי להאזין. ניצולת מקסימלית 18%; ‏Slotted (פרוסות זמן) מכפיל ל-37%.</td></tr>
-      <tr><td><a href="22-link-csma.html"><strong>4.3</strong> · CSMA, Ethernet</a></td><td>מאזינים לפני שידור; ‏CSMA/CD גם מזהה התנגשות תוך כדי ועוצר. מכאן גודל הפריים המינימלי של Ethernet.</td></tr>
-      <tr><td><a href="23-link-mac-arp.html"><strong>4.4</strong> · MAC, ARP</a></td><td>כתובת MAC‏: 48 ביט, שטוחה, קבועה, תקפה רק ב-LAN. ‏ARP מוצא MAC לפי IP — ‏query ב-broadcast, ‏reply ב-unicast.</td></tr>
-      <tr><td><a href="24-link-switches.html"><strong>4.5</strong> · סוויצ'ים</a></td><td>שכבה 2, שקוף לחלוטין: לומד לבד (self-learning) מכתובות המקור, מציף (flood) כשהיעד לא מוכר.</td></tr>
-      <tr><td><a href="25-link-day-in-life.html"><strong>4.6</strong> · יום בחיי הודעה</a></td><td>הסינתזה של כל הקורס: מ-DHCP דרך ARP‏, DNS‏, TCP ו-HTTP — כל הפרוטוקולים בפעולה אחת של גלישה.</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<div class="box formula">
-  <div class="box-head"><span class="icon">📐</span>הנוסחאות של השכבה</div>
-  <div class="box-body">
+  <h2>חלק א׳ · כתובות IP לפי ה-‎/x</h2>
 
-    <ul>
-      <li><strong>ניצולת:</strong> ‏ALOHA‏ $\approx 18\%$ ‏(חלון פגיעות של 2 יחידות זמן), ‏Slotted ALOHA‏ $\approx 37\%$ ‏(יחידה אחת).</li>
-      <li><strong>פריים מינימלי ב-CSMA/CD:</strong> תנאי לזיהוי התנגשות: $L \geq 2 \cdot R \cdot d_{prop}$. ב-Ethernet סטנדרטי: 64 בתים.</li>
-      <li><strong>Binary Exponential Backoff:</strong> אחרי $n$ התנגשויות בוחרים $K \in \{0,...,2^n-1\}$ וממתינים <span class="term">K × 512</span> זמני-ביט.</li>
-      <li><strong>Broadcast MAC:</strong> ‏<span class="term">FF:FF:FF:FF:FF:FF</span>.</li>
-    </ul>
+  <div class="box theory">
+    <div class="box-head"><span class="icon">🧭</span>השיטה: מה ה-‎/x באמת אומר</div>
+    <div class="box-body">
+      <p>ב-<span class="term">a.b.c.d/x</span>, המספר x אומר: <strong>x הביטים השמאליים = הרשת</strong> (זהים לכל המכשירים בסאבנט), והשאר — <span class="term">32 − x</span> ביטים — הם החלק של ה-host.</p>
+      <ul>
+        <li><strong>כמה כתובות בבלוק:</strong> $2^{32-x}$. <strong>כמה hosts חוקיים:</strong> $2^{32-x} - 2$ (מורידים את כתובת הרשת — כל אפסים בחלק ה-host, ואת ה-broadcast — כל אחדות).</li>
+        <li><strong>המסכה:</strong> x אחדות ואז אפסים. ‏/26 ← ‏<span class="term">255.255.255.192</span>, ‏/22 ← ‏<span class="term">255.255.252.0</span>.</li>
+        <li><strong>כתובת הרשת:</strong> ‏<span class="term">IP AND Mask</span> — מאפסים את ביטי ה-host.</li>
+      </ul>
+    </div>
   </div>
-</div>
-<div class="box warn">
-  <div class="box-head"><span class="icon">⚠️</span>טעויות נפוצות במבחן</div>
-  <div class="box-body">
 
-    <ul>
-      <li>ב"יום בחיי הודעה": כתובת ה-<strong>MAC מתחלפת בכל hop</strong>, כתובת ה-IP נשארת מקצה לקצה.</li>
-      <li>‏ARP עובד <strong>רק בתוך ה-LAN</strong>. ליעד מחוץ לרשת — שולחים ל-MAC של הראוטר (default gateway), לא של היעד.</li>
-      <li>סוויץ' לומד מכתובות ה<strong>מקור</strong> ומחליט לפי כתובת ה<strong>יעד</strong> — לא להתבלבל בכיוון.</li>
-      <li>‏18% מול 37%: לזכור מי ALOHA רגיל ומי Slotted, ולמה (חלון הפגיעות נחתך בחצי).</li>
-    </ul>
+  <div class="box formula">
+    <div class="box-head"><span class="icon">⚡</span>הטריק המהיר: האוקטט המעניין וגודל הבלוק</div>
+    <div class="box-body">
+      <p>לא חייבים בינארית מלאה. מזהים באיזה אוקטט "נופל" הגבול, ומחשבים את גודל הקפיצה:</p>
+      <ul>
+        <li>‏x בין 25–32 ← האוקטט <strong>הרביעי</strong> מעניין. ‏x בין 17–24 ← <strong>השלישי</strong>. ‏x בין 9–16 ← <strong>השני</strong>.</li>
+        <li><strong>גודל בלוק</strong> באוקטט המעניין: $2^{\,8-(x \bmod 8)}$. למשל ‎/26: ‏<span class="term">x mod 8 = 2</span> ← בלוק של <span class="term">64</span> ← הרשתות מתחילות ב-<span class="term">0, 64, 128, 192</span>.</li>
+        <li>מוצאים לאיזה בלוק הכתובת שייכת: <strong>הכפולה הגדולה ביותר של גודל הבלוק שקטנה או שווה לערך</strong>. זו כתובת הרשת; ה-broadcast הוא תחילת הבלוק הבא פחות 1.</li>
+      </ul>
+    </div>
   </div>
-</div>
-<div class="box summary">
-  <div class="box-head"><span class="icon">🎯</span>ומכאן — לתרגול</div>
-  <div class="box-body">
-    <p>סגרת את התאוריה של שכבת הקישור? עכשיו שאלות. <a href="https://eliorch.github.io/comque" target="_blank" rel="noopener"><strong>אתר השאלות</strong></a> מרכז שאלות מבחן לתרגול, ו<a href="31-cheatsheet.html">דף הנוסחאות</a> מרכז את כל מה שצריך לזכור בעל-פה.</p>
-  </div>
-</div>
 
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · רשת, broadcast וטווח</span>
+      <p>נתונה הכתובת <span class="term">192.168.10.77/26</span>. מצאו: את המסכה, את כתובת הרשת, את כתובת ה-broadcast, את טווח הכתובות החוקיות ואת מספר ה-hosts.</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · מסכה וגודל בלוק</div>
+        <p>‏/26 ← ‏26 אחדות: <span class="term">255.255.255.192</span>. האוקטט המעניין הוא הרביעי, גודל בלוק $2^{8-2} = 64$.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · כתובת הרשת</div>
+        <p>הבלוקים באוקטט הרביעי: 0, 64, 128, 192. הערך 77 נופל בבלוק שמתחיל ב-<strong>64</strong>:</p>
+        $$\text{Network} = 192.168.10.64$$
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 3 · broadcast וטווח</div>
+        <p>הבלוק הבא מתחיל ב-128, אז ה-broadcast הוא <span class="term">192.168.10.127</span>. הכתובות החוקיות:</p>
+        $$192.168.10.65 \;\text{—}\; 192.168.10.126$$
+        <p>מספר hosts: ‏$2^{6} - 2 = 62$.</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · אותו סאבנט?</span>
+      <p>האם <span class="term">172.16.4.200/22</span> ו-<span class="term">172.16.7.10/22</span> נמצאות באותו סאבנט? נמקו עם חישוב.</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · האוקטט המעניין</div>
+        <p>‏/22: ‏x בין 17–24 ← האוקטט <strong>השלישי</strong>. גודל בלוק: $2^{8-6} = 4$ ← בלוקים ב-<span class="term">0, 4, 8, 12, ...</span></p>
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · לאיזה בלוק כל כתובת שייכת</div>
+        <p>אצל הראשונה האוקטט השלישי הוא 4 ← בלוק שמתחיל ב-4. אצל השנייה הוא 7, וגם 7 נופל בבלוק 4–7 ← אותו בלוק.</p>
+        $$\text{Network} = 172.16.4.0/22, \quad \text{טווח: } 172.16.4.0 \;\text{—}\; 172.16.7.255$$
+      </div>
+      <div class="step">
+        <div class="step-label">מסקנה</div>
+        <p><strong>כן</strong> — שתיהן בסאבנט <span class="term">172.16.4.0/22</span>. הן יכולות לתקשר ישירות בלי ראוטר (ועם ARP למציאת ה-MAC).</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · אילו כתובות חוקיות ל-host?</span>
+      <p>ברשת <span class="term">10.0.5.0/29</span> — אילו מהכתובות הבאות אפשר להקצות למחשב? נמקו לכל אחת.</p>
+      <ol>
+        <li><span class="term">10.0.5.0</span></li>
+        <li><span class="term">10.0.5.3</span></li>
+        <li><span class="term">10.0.5.6</span></li>
+        <li><span class="term">10.0.5.7</span></li>
+        <li><span class="term">10.0.5.8</span></li>
+      </ol>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · גבולות הבלוק</div>
+        <p>‏/29 ← ‏3 ביטי host ← בלוק של $2^3 = 8$ כתובות: מ-<span class="term">10.0.5.0</span> (רשת) עד <span class="term">10.0.5.7</span> (broadcast). חוקיות: <span class="term">.1 — .6</span>.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · פסיקה לכל מועמדת</div>
+        <ul>
+          <li><span class="term">10.0.5.0</span> — ❌ כתובת הרשת עצמה.</li>
+          <li><span class="term">10.0.5.3</span> — ✅ בתוך הטווח.</li>
+          <li><span class="term">10.0.5.6</span> — ✅ הכתובת החוקית האחרונה.</li>
+          <li><span class="term">10.0.5.7</span> — ❌ ‏broadcast (כל ביטי ה-host דלוקים).</li>
+          <li><span class="term">10.0.5.8</span> — ❌ שייכת כבר לבלוק הבא (<span class="term">10.0.5.8/29</span>).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · חלוקה לסאבנטים</span>
+      <p>קיבלתם את הרשת <span class="term">192.168.1.0/24</span> וצריך לחלק אותה ל-<strong>4 סאבנטים שווים</strong>. מהו הפריפיקס החדש, מהם 4 הטווחים, וכמה hosts בכל אחד?</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · כמה ביטים להוסיף</div>
+        <p>‏4 סאבנטים ← צריך $\log_2 4 = 2$ ביטים נוספים לרשת: ‏<span class="term">/24 ← /26</span>. גודל בלוק: 64.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · ארבעת הטווחים</div>
+        <ul>
+          <li><span class="term">192.168.1.0/26</span> — ‏.0 עד .63</li>
+          <li><span class="term">192.168.1.64/26</span> — ‏.64 עד .127</li>
+          <li><span class="term">192.168.1.128/26</span> — ‏.128 עד .191</li>
+          <li><span class="term">192.168.1.192/26</span> — ‏.192 עד .255</li>
+        </ul>
+        <p>בכל סאבנט: $2^6 - 2 = 62$ ‏hosts (הראשון והאחרון בכל טווח הם רשת/broadcast).</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · בחירת פריפיקס לפי דרישה</span>
+      <p>ארגון צריך סאבנט שמכיל <strong>500 מחשבים</strong>. מהו הפריפיקס הגדול ביותר (הכי חסכוני) שמספיק? כמה כתובות "מתבזבזות"?</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · כמה ביטי host צריך</div>
+        <p>דורשים $2^{h} - 2 \geq 500$. ‏$h=8$ נותן 254 — לא מספיק. ‏$h=9$ נותן $510$ — מספיק.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · הפריפיקס</div>
+        $$x = 32 - 9 = 23 \;\;\Rightarrow\;\; /23$$
+        <p>למשל <span class="term">10.20.0.0/23</span>: ‏512 כתובות, 510 חוקיות. בזבוז: ‏<span class="term">510 − 500 = 10</span> כתובות פנויות.</p>
+        <p><strong>מלכודת:</strong> לענות ‎/24 כי "500 קרוב ל-512"— ‏/24 נותן רק 254 ‏hosts.</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · Longest Prefix Match</span>
+      <p>בטבלת הניתוב של ראוטר:</p>
+      <ul>
+        <li><span class="term">200.23.16.0/21</span> ← ‏Interface 0</li>
+        <li><span class="term">200.23.24.0/22</span> ← ‏Interface 1</li>
+        <li><span class="term">200.23.24.0/24</span> ← ‏Interface 2</li>
+        <li>אחרת (default) ← ‏Interface 3</li>
+      </ul>
+      <p>לאן יישלחו פאקטות עם היעדים: ‏(א) <span class="term">200.23.20.130</span> ‏(ב) <span class="term">200.23.24.17</span> ‏(ג) <span class="term">200.23.26.100</span> ‏(ד) <span class="term">200.23.30.5</span>?</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · לתרגם כל שורה לטווח</div>
+        <ul>
+          <li>‏/21 ← בלוק 8 באוקטט השלישי: <span class="term">200.23.16.0 — 200.23.23.255</span></li>
+          <li>‏/22 ← בלוק 4: ‏<span class="term">200.23.24.0 — 200.23.27.255</span></li>
+          <li>‏/24 ← ‏<span class="term">200.23.24.0 — 200.23.24.255</span> בלבד</li>
+        </ul>
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · הכלל: כשיש כמה התאמות — הפריפיקס הארוך מנצח</div>
+        <ul>
+          <li>(א) ‏20 בטווח 16–23 ← מתאים רק ל-/21 ← <strong>Interface 0</strong></li>
+          <li>(ב) ‏24 מתאים גם ל-/22 וגם ל-/24 ← הארוך מנצח ← <strong>Interface 2</strong></li>
+          <li>(ג) ‏26 בטווח 24–27 אבל לא בטווח של /24 ← <strong>Interface 1</strong></li>
+          <li>(ד) ‏30 לא באף טווח ← ‏default ← <strong>Interface 3</strong></li>
+        </ul>
+        <p>זה בדיוק איך ראוטר בוחר לאן להעביר: <strong>ההתאמה הספציפית ביותר תמיד גוברת</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <h2>חלק ב׳ · חישובי ה-d — כל סוגי ההשהיה</h2>
+
+  <div class="box formula">
+    <div class="box-head"><span class="icon">📐</span>ארבעת ה-d + נוסחת הצינור</div>
+    <div class="box-body">
+      <ul>
+        <li>$d_{proc}$ — עיבוד בראוטר (בדיקת header, לאן להעביר). בדרך כלל נתון או זניח.</li>
+        <li>$d_{queue}$ — המתנה בתור. תלוי בעומס; אינטנסיביות: $\dfrac{L \cdot a}{R}$.</li>
+        <li>$d_{trans} = \dfrac{L}{R}$ — הזמן לדחוף את כל הביטים אל הלינק.</li>
+        <li>$d_{prop} = \dfrac{d}{s}$ — הזמן לביט לנסוע לאורך הלינק.</li>
+      </ul>
+      <p>סה"כ בצומת: $d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}$.</p>
+      <p><strong>Store-and-Forward על N לינקים</strong> (פאקטה אחת, לינקים זהים, בלי proc/queue): $N \cdot \dfrac{L}{R}$ + כל הפרופגיישנים. <strong>‏P פאקטות ברצף:</strong> $(N + P - 1) \cdot \dfrac{L}{R}$.</p>
+    </div>
+  </div>
+
+  <div class="box warn">
+    <div class="box-head"><span class="icon">⚠️</span>מלכודות היחידות — כאן נופלים רוב הנקודות</div>
+    <div class="box-body">
+      <ul>
+        <li><strong>Bytes ← bits:</strong> ‏×8. ‏1500 Bytes = ‏12,000 bits. רוב ה-R נתונים ב-bits לשנייה.</li>
+        <li><strong>Mbps</strong> = $10^6$ ביטים לשנייה (לא $2^{20}$).</li>
+        <li><strong>‏d מול s:</strong> ‏d = מרחק (km ← להמיר למטרים!), ‏s = מהירות התפשטות (בדרך כלל $2 \cdot 10^8$ או $2.5 \cdot 10^8$ m/s).</li>
+        <li>לפעמים נותנים <strong>גורם פרופגיישן הפוך</strong> (למשל µsec/km) — אז פשוט מכפילים במרחק, בלי לחלק.</li>
+        <li>‏$d_{trans}$ תלוי באורך הפאקטה אבל <strong>לא במרחק</strong>; ‏$d_{prop}$ תלוי במרחק אבל <strong>לא באורך הפאקטה</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · טרנסמישן + פרופגיישן</span>
+      <p>פאקטה של <span class="term">1500 Bytes</span> נשלחת על לינק ישיר: ‏<span class="term">R = 10 Mbps</span>, אורך <span class="term">2500 km</span>, מהירות התפשטות <span class="term">2.5 × 10⁸ m/s</span>. הזניחו עיבוד ותור. חשבו את $d_{trans}$, את $d_{prop}$ ואת ההשהיה הכוללת.</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · המרות</div>
+        <p>‏1500 Bytes ← ‏$1500 \times 8 = 12{,}000$ bits. ‏2500 km ← ‏$2.5 \times 10^6$ m.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · טרנסמישן</div>
+        $$d_{trans} = \frac{L}{R} = \frac{12{,}000}{10 \times 10^6} = 1.2 \,\text{ms}$$
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 3 · פרופגיישן</div>
+        $$d_{prop} = \frac{d}{s} = \frac{2.5 \times 10^6}{2.5 \times 10^8} = 10 \,\text{ms}$$
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 4 · סה"כ</div>
+        $$d = 1.2 + 10 = 11.2 \,\text{ms}$$
+        <p>שימו לב: על מרחקים גדולים הפרופגיישן שולט; על לינקים איטיים — הטרנסמישן.</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · Store-and-Forward</span>
+      <p>פאקטה של <span class="term">8000 bits</span> עוברת מ-A ל-B דרך <strong>שני ראוטרים</strong> (כלומר 3 לינקים), כל לינק <span class="term">R = 2 Mbps</span>. הזניחו פרופגיישן, עיבוד ותור. כמה זמן עד שהפאקטה כולה מגיעה ל-B?</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · טרנסמישן על לינק אחד</div>
+        $$\frac{L}{R} = \frac{8000}{2 \times 10^6} = 4 \,\text{ms}$$
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · העיקרון</div>
+        <p>‏Store-and-Forward: כל ראוטר חייב לקבל את <strong>הפאקטה כולה</strong> לפני שהוא משדר הלאה — אז משלמים את ה-$\frac{L}{R}$ מחדש על כל לינק:</p>
+        $$d = N \cdot \frac{L}{R} = 3 \times 4 = 12 \,\text{ms}$$
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · כמה פאקטות בצינור</span>
+      <p>אותה רשת (3 לינקים, ‏<span class="term">L/R = 4 ms</span> לכל לינק), אבל עכשיו שולחים <strong>4 פאקטות ברצף</strong>. מתי הפאקטה האחרונה מסיימת להגיע?</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · אינטואיציה של צינור</div>
+        <p>הפאקטה הראשונה מגיעה אחרי $N \cdot \frac{L}{R} = 12$ ‏ms. מכאן, בכל $\frac{L}{R}$ נוסף "נפלטת" פאקטה נוספת מהצד השני — הלינקים עובדים במקביל.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · הנוסחה</div>
+        $$d = (N + P - 1) \cdot \frac{L}{R} = (3 + 4 - 1) \times 4 = 24 \,\text{ms}$$
+        <p>בדיקת שפיות: ‏12 ‏ms לראשונה + ‏3 פאקטות נוספות × ‏4 ‏ms = ‏24 ‏ms. ✓</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · אינטנסיביות תעבורה (התור)</span>
+      <p>לראוטר מגיעות בממוצע <span class="term">a = 500</span> פאקטות בשנייה, כל אחת באורך <span class="term">L = 2000 bits</span>. קצב היציאה: ‏<span class="term">R = 1.5 Mbps</span>. חשבו את אינטנסיביות התעבורה והסבירו מה יקרה לתור. מה היה קורה עם ‏<span class="term">a = 800</span>?</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · חישוב</div>
+        $$\frac{L \cdot a}{R} = \frac{2000 \times 500}{1.5 \times 10^6} = \frac{10^6}{1.5 \times 10^6} \approx 0.67$$
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · פירוש</div>
+        <p>הכללים: קרוב ל-0 ← תור זניח; מתקרב ל-1 ← ההשהיה מזנקת; <strong>גדול מ-1 ← נכנס יותר ממה שיוצא</strong>, התור גדל בלי גבול (ובפועל — פאקטות נזרקות).</p>
+        <p>‏0.67 ← עומס בינוני, תור מורגש אבל יציב.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 3 · עם a = 800</div>
+        $$\frac{2000 \times 800}{1.5 \times 10^6} \approx 1.07 > 1$$
+        <p>גירעון קבוע — התור מתפוצץ. זו התשובה שהמבחן מחפש: <strong>לזהות שהיחס עבר את 1</strong>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · מתי d_trans = d_prop?</span>
+      <p>לינק באורך <span class="term">120 km</span>, מהירות התפשטות <span class="term">2.4 × 10⁸ m/s</span>, קצב <span class="term">R = 1 Mbps</span>. מה צריך להיות אורך הפאקטה כדי ש-$d_{trans} = d_{prop}$?</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · הפרופגיישן</div>
+        $$d_{prop} = \frac{1.2 \times 10^5}{2.4 \times 10^8} = 5 \times 10^{-4} \,\text{s} = 0.5 \,\text{ms}$$
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · משוואה על L</div>
+        $$\frac{L}{R} = d_{prop} \;\Rightarrow\; L = R \cdot d_{prop} = 10^6 \times 5 \times 10^{-4} = 500 \,\text{bits}$$
+        <p>דרך אגב, ‏$R \cdot d_{prop}$ זה בדיוק "כמה ביטים נמצאים על הלינק בו-זמנית" (Bandwidth-Delay Product).</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <h2>חלק ג׳ · הצפנה — אליס, בוב וטרודי</h2>
+
+  <div class="box theory">
+    <div class="box-head"><span class="icon">🎭</span>השחקנים והסימונים</div>
+    <div class="box-body">
+      <p><strong>אליס</strong> רוצה לשלוח הודעה, <strong>בוב</strong> אמור לקבל אותה, ו<strong>טרודי</strong> (Intruder) מנסה לצוטט, לזייף או להתחזות. לכל צד יש זוג מפתחות: $PK$ ציבורי (כולם מכירים) ו-$SK$ פרטי (רק הבעלים).</p>
+      <p>שני כללי הזהב — מהם נגזר הכול:</p>
+      <ul>
+        <li><strong>סודיות</strong> (שרק בוב יקרא): מצפינים עם <strong>$PK_B$ — הציבורי של המקבל</strong>. רק $SK_B$ פותח.</li>
+        <li><strong>אימות/חתימה</strong> (הוכחה שאליס שלחה): מצפינים עם <strong>$SK_A$ — הפרטי של השולחת</strong>. כל אחד מאמת עם $PK_A$.</li>
+      </ul>
+      <p>מבחן עצמי מהיר לכל תרגיל: <em>מפני מי מגינים — מקורא זר (סודיות) או ממתחזה (אימות)?</em> התשובה קובעת את המפתח.</p>
+    </div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · סודיות בסיסית</span>
+      <p>אליס רוצה לשלוח לבוב את ההודעה $M$ כך ש<strong>רק בוב</strong> יוכל לקרוא אותה. טרודי מצוטטת לערוץ ורואה כל מה שעובר.</p>
+      <ol>
+        <li>מה אליס שולחת, ובאיזה מפתח?</li>
+        <li>איך בוב מפענח?</li>
+        <li>טרודי תפסה את ההודעה המוצפנת — מה היא יכולה לעשות איתה?</li>
+      </ol>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">סעיף 1 · ההצפנה</div>
+        $$C = Enc(PK_B,\; M)$$
+        <p>סודיות ← המפתח <strong>הציבורי של המקבל</strong>. הוא ציבורי, אז לאליס אין בעיה להשיג אותו.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">סעיף 2 · הפענוח</div>
+        $$M = Dec(SK_B,\; C)$$
+        <p>רק בוב מחזיק ב-$SK_B$ — לכן רק הוא פותח.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">סעיף 3 · מה טרודי רואה</div>
+        <p>ג׳יבריש. יש לה את $C$ ואת $PK_B$ (ציבורי), אבל בלי $SK_B$ אין פענוח. <strong>אבל שימו לב:</strong> היא כן יכולה לשלוח לבוב הודעות משלה מוצפנות ב-$PK_B$ — סודיות לא מונעת התחזות. על זה בתרגיל הבא.</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · חתימה דיגיטלית</span>
+      <p>עכשיו אליס שולחת לבוב הודעה $M$ (לא סודית), אבל בוב צריך <strong>הוכחה שזו באמת אליס</strong> ושההודעה לא שונתה בדרך.</p>
+      <ol>
+        <li>מה אליס מצרפת להודעה, ובאיזה מפתח?</li>
+        <li>למה חותמים על $Hash(M)$ ולא על $M$ עצמה?</li>
+        <li>איך בוב מאמת?</li>
+      </ol>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">סעיף 1 · החתימה</div>
+        $$\sigma = Enc(SK_A,\; Hash(M))$$
+        <p>אליס שולחת את הזוג $(M, \sigma)$. אימות ← המפתח <strong>הפרטי של השולחת</strong> — ההיפך הגמור מסודיות, וכאן הולכות רוב הנקודות במבחן.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">סעיף 2 · למה Hash</div>
+        <p>יעילות: הצפנה אסימטרית איטית (פי ~1000 מסימטרית), אז חותמים על תקציר קצר וקבוע-אורך במקום על כל ההודעה. ה-Hash גם מבטיח שלמות — שינוי ביט אחד ב-$M$ משנה את התקציר לגמרי.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">סעיף 3 · האימות אצל בוב</div>
+        <p>בוב מחשב בעצמו $Hash(M)$, פותח את החתימה עם המפתח הציבורי: $Dec(PK_A, \sigma)$, ומשווה:</p>
+        $$Dec(PK_A, \sigma) \stackrel{?}{=} Hash(M)$$
+        <p>שווה ← רק מי שמחזיק $SK_A$ (כלומר אליס) יכול היה לייצר את זה, וההודעה לא שונתה. טרודי לא יכולה לזייף חתימה בלי $SK_A$.</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · גם סודיות וגם אימות</span>
+      <p>אליס שולחת לבוב הודעה שהיא <strong>גם סודית וגם חתומה</strong>. כתבו את הביטוי המלא שאליס שולחת, ופרטו מה בוב עושה, שלב אחרי שלב, כדי גם לקרוא וגם לאמת.</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · בניית ההודעה אצל אליס</div>
+        <p>קודם חותמים, ואז מצפינים את הכול יחד:</p>
+        $$C = Enc\big(PK_B,\; \big[\,M,\; Enc(SK_A, Hash(M))\,\big]\big)$$
+        <p>שני מפתחות שונים, כל אחד בתפקידו: $SK_A$ לחתימה, $PK_B$ לסודיות.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · הפירוק אצל בוב</div>
+        <ol>
+          <li>מפענח עם הפרטי שלו: $Dec(SK_B, C)$ ← מקבל את $M$ ואת החתימה $\sigma$.</li>
+          <li>מחשב $Hash(M)$.</li>
+          <li>מאמת: $Dec(PK_A, \sigma) \stackrel{?}{=} Hash(M)$.</li>
+        </ol>
+      </div>
+      <div class="step">
+        <div class="step-label">נקודה למבחן · למה לחתום לפני ההצפנה</div>
+        <p>אם חותמים על ההודעה הגלויה ואז מצפינים — החתימה מוגנת בתוך המעטפת, וטרודי לא יכולה "לקלף" אותה ולהדביק על הודעה אחרת. סדר הפעולות הוא שאלת נימוק קלאסית.</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · מפתח סשן (הצפנה היברידית)</span>
+      <p>אליס ובוב צריכים להעביר <strong>קובץ של 2GB</strong> בצורה מאובטחת. למה לא מצפינים את כולו ב-RSA? תארו את הפרוטוקול המלא שהם יריצו בפועל (רמז: זה בדיוק מה ש-SSL עושה).</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · למה לא RSA על הכול</div>
+        <p>אסימטרי איטי בסדרי גודל מסימטרי. על 2GB זה לא מעשי. אז משתמשים באסימטרי רק בשביל <strong>לתאם מפתח</strong>, ובסימטרי (AES) בשביל הדאטה.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · הפרוטוקול</div>
+        <ol>
+          <li>אליס מגרילה מפתח סשן סימטרי $K_S$.</li>
+          <li>שולחת אותו מוצפן: $Enc(PK_B, K_S)$ — רק בוב יכול לחלץ.</li>
+          <li>מכאן והלאה: כל הקובץ עובר ב-$AES$ עם $K_S$ — מהיר.</li>
+        </ol>
+      </div>
+      <div class="step">
+        <div class="step-label">הקשר ל-SSL</div>
+        <p>זה בדיוק ה-Handshake של SSL/TLS: ‏Premaster Secret מוצפן עם $PK_{Server}$ מתוך התעודה, שני הצדדים גוזרים ממנו $K_{session}$, וכל תעבורת ה-HTTP מוצפנת סימטרית. <a href="30-sec-ssl.html">פרק 6.4</a> לפירוט.</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · ההתקפה של טרודי</span>
+      <p>טרודי שולחת לבוב: $Enc(PK_B, \text{"היי, זו אליס! תעביר 500 ש"ח לחשבון 123"})$.</p>
+      <ol>
+        <li>האם בוב יצליח לפענח את ההודעה?</li>
+        <li>האם ההצפנה הזו מוכיחה שההודעה מאליס? למה?</li>
+        <li>מה חסר כדי שבוב יוכל לסמוך על הזהות, ואיזו בעיה נוספת פותרת תעודה (Certificate)?</li>
+      </ol>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">סעיף 1 · הפענוח</div>
+        <p>כן — ההודעה מוצפנת ב-$PK_B$ ולבוב יש $SK_B$. הפענוח עובד חלק.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">סעיף 2 · ולמה זה לא מוכיח כלום</div>
+        <p>‏$PK_B$ <strong>ציבורי</strong> — כל אחד בעולם, כולל טרודי, יכול להצפין איתו. סודיות עונה על "מי יכול לקרוא", לא על "מי כתב". זו הנקודה שהתרגיל הזה בודק.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">סעיף 3 · מה חסר</div>
+        <p><strong>חתימה</strong>: $Enc(SK_A, Hash(M))$ — את זה טרודי לא מסוגלת לייצר. אבל נשארת פרצה אחת: מאיפה בוב יודע ש-$PK_A$ שיש לו באמת שייך לאליס? טרודי יכולה לפרסם מפתח משלה בשם "אליס" (Man-in-the-Middle). את זה פותרת <strong>תעודה</strong> — גוף מהימן (CA) שחותם על הקישור בין הזהות למפתח הציבורי.</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">תרגול · Brute Force על צופן החלפה</span>
+      <p>אליס ובוב משתמשים בצופן החלפה מונו-אלפביתי מעל אלפבית של <span class="term">22 אותיות</span> (נניח, עברית). טרודי יירטה הודעה קצרה שמופיעות בה <strong>5 אותיות שונות</strong> בלבד.</p>
+      <ol>
+        <li>כמה מפתחות אפשריים טרודי צריכה לשקול (רק על האותיות שמופיעות)?</li>
+        <li>כמה ניסיונות תעשה <strong>בממוצע</strong> עד שתמצא?</li>
+      </ol>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">סעיף 1 · ספירת המפתחות</div>
+        <p>לאות הראשונה 22 אפשרויות מיפוי, לשנייה 21, וכן הלאה — סידור של $k$ מתוך $n$:</p>
+        $$\frac{n!}{(n-k)!} = \frac{22!}{17!} = 22 \cdot 21 \cdot 20 \cdot 19 \cdot 18 = 3{,}160{,}080$$
+      </div>
+      <div class="step">
+        <div class="step-label">סעיף 2 · הממוצע</div>
+        $$\frac{3{,}160{,}080}{2} = 1{,}580{,}040$$
+        <p>הכלל מדף הנוסחאות: ב-brute force בודקים <strong>בממוצע חצי ממרחב המפתחות</strong>. ולמסקנה המעשית — מרחב של מיליונים בודדים הוא כלום למחשב; לכן צריך מפתחות של 128+ ביט.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box summary">
+    <div class="box-head"><span class="icon">📌</span>סיכום מהיר לשני החלקים</div>
+    <div class="box-body">
+      <ul>
+        <li><strong>‏/x:</strong> גודל בלוק $= 2^{8-(x \bmod 8)}$ באוקטט המעניין; רשת = תחילת הבלוק; ‏broadcast = סוף הבלוק; ‏hosts $= 2^{32-x}-2$; בניתוב — הפריפיקס הארוך מנצח.</li>
+        <li><strong>הצפנה:</strong> סודיות = $PK$ של המקבל; חתימה = $SK$ של השולח (על ה-Hash); נפחים גדולים = מפתח סשן סימטרי; זהות של מפתח ציבורי = תעודה.</li>
+        <li><strong>‏d:</strong> ‏$d_{trans} = L/R$, ‏$d_{prop} = d/s$; ‏Store-and-Forward: ‏$(N+P-1) \cdot L/R$; תור: ‏$La/R$ מעל 1 = אסון. ותמיד — <strong>bytes ×8</strong>.</li>
+      </ul>
+      <p>עוד על התאוריה: <a href="15-net-ip-addressing.html">כתובות IP</a> ו-<a href="01-delays.html">השהיות ברשת</a>. לתרגול נוסף — <a href="https://eliorch.github.io/comque" target="_blank" rel="noopener"><strong>אתר השאלות</strong></a>.</p>
+    </div>
+  </div>
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="25-link-day-in-life.html"><span class="dir">→ לנושא הקודם</span><span class="name">יום בחיי הודעה</span></a>
-  <a class="next" href="26-phys-signals.html"><span class="dir">לנושא הבא ←</span><span class="name">השכבה הפיזית</span></a>
+  <a class="prev" href="sum-sec.html"><span class="dir">→ לנושא הקודם</span><span class="name">סיכום — אבטחה וקריפטוגרפיה</span></a>
+  <a class="next" href="31-cheatsheet.html"><span class="dir">לנושא הבא ←</span><span class="name">דף נוסחאות</span></a>
 </nav>
-
 </main>
 
 </div>
