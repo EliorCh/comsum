@@ -114,7 +114,7 @@
   td.num, th.num { font-family: var(--mono); direction: ltr; text-align: center; font-size: 14px; }
   td.highlight { background: var(--c-formula-bg); font-weight: 700; color: var(--c-formula-h); }
   .exercise-card { background: #fff; border-radius: 10px; margin: 14px 0; border: 1px solid var(--c-exercise-edge); overflow: hidden; }
-  .exercise-tag { display: inline-block; font-size: 11px; font-weight: 700; background: var(--c-exercise-h); color: #fff; padding: 3px 10px; border-radius: 99px; margin-bottom: 10px; font-family: var(--mono); letter-spacing: .05em; direction: ltr; }
+  .exercise-tag { display: inline-block; font-size: 11px; font-weight: 700; background: var(--c-exercise-h); color: #fff; padding: 3px 10px; border-radius: 99px; margin-bottom: 10px; font-family: var(--mono); letter-spacing: .05em; unicode-bidi: plaintext; }
   .exercise-q { padding: 20px 24px; background: #fafaf9; border-bottom: 1px solid var(--rule-soft); }
   .exercise-q p:last-child { margin-bottom: 0; }
   .reveal-btn { display: block; width: 100%; background: var(--c-exercise-bg); border: none; border-top: 1px solid var(--c-exercise-edge); padding: 13px; font-family: var(--sans); font-size: 14px; font-weight: 700; color: var(--c-exercise-h); cursor: pointer; transition: background .15s ease; }
@@ -156,56 +156,6 @@
   details.enrichment .enrichment-note { font-size: 12px; color: #9a9080; font-style: italic; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px dotted #d8d3c2; }
   @media (max-width: 900px) { .app { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } main { padding: 32px 24px 80px; } h1.page-title { font-size: 34px; } h2 { font-size: 25px; } }
 
-/* ===== glossary-tooltips-v1 ===== */
-.gloss {
-  border-bottom: 1px dashed var(--indigo-3, #c7d2fe);
-  cursor: help;
-  position: relative;
-}
-.gloss::after {
-  content: attr(data-tip);
-  position: absolute;
-  bottom: calc(100% + 8px);
-  right: 50%;
-  transform: translateX(50%);
-  background: var(--ink, #1c1917);
-  color: var(--bg, #fbf9f3);
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 12.5px;
-  font-weight: 400;
-  line-height: 1.55;
-  white-space: normal;
-  width: max-content;
-  max-width: 320px;
-  z-index: 100;
-  direction: rtl;
-  text-align: right;
-  box-shadow: 0 4px 16px rgba(60,55,50,0.18);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s;
-  font-family: 'Assistant', sans-serif;
-}
-.gloss::before {
-  content: '';
-  position: absolute;
-  bottom: calc(100% + 3px);
-  right: 50%;
-  transform: translateX(50%);
-  border: 5px solid transparent;
-  border-top-color: var(--ink, #1c1917);
-  z-index: 100;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s;
-}
-.gloss:hover::after, .gloss:hover::before,
-.gloss:focus::after, .gloss:focus::before,
-.gloss.tap::after,  .gloss.tap::before {
-  opacity: 1;
-}
-
 /* ===== pager-v1 ===== */
 .pager { display:flex; justify-content:space-between; gap:12px; margin-top:40px; padding-top:22px; border-top:1px solid var(--rule, #e7e5e0); }
 .pager a { display:flex; flex-direction:column; gap:3px; text-decoration:none; padding:12px 16px; border:1px solid var(--rule, #e7e5e0); border-radius:10px; background:var(--bg-paper, #fffefa); max-width:48%; transition:border-color .15s, box-shadow .15s; }
@@ -213,6 +163,30 @@
 .pager a.next { margin-inline-start:auto; text-align:left; }
 .pager .dir { font-size:12px; color:var(--ink-mute, #78716c); font-weight:600; }
 .pager .name { font-size:14.5px; color:var(--indigo-7, #4f46e5); font-weight:700; }
+
+/* ===== glossary-tooltips-v2 ===== */
+.gloss { border-bottom: 1px dashed var(--indigo-3, #c7d2fe); cursor: help; }
+#gloss-tip {
+  position: fixed; z-index: 9999; max-width: 320px;
+  background: var(--ink, #1c1917); color: var(--bg, #fbf9f3);
+  padding: 10px 14px; border-radius: 8px;
+  font-size: 12.5px; font-weight: 400; line-height: 1.55;
+  direction: rtl; text-align: right; font-family: 'Assistant', sans-serif;
+  box-shadow: 0 4px 16px rgba(60,55,50,.22);
+  opacity: 0; pointer-events: none; transition: opacity .12s;
+}
+#gloss-tip.show { opacity: 1; }
+#gloss-tip .arrow {
+  position: absolute; width: 0; height: 0;
+  border: 6px solid transparent;
+}
+#gloss-tip.above .arrow { top: 100%; border-top-color: var(--ink, #1c1917); }
+#gloss-tip.below .arrow { bottom: 100%; border-bottom-color: var(--ink, #1c1917); }
+#gloss-tip bdi { unicode-bidi: isolate; }
+/* ===== layout-guards-v2: keep wide content from blowing the grid column ===== */
+main { min-width: 0; }
+.box-body { overflow-x: auto; }
+.figure svg { max-width: 100%; height: auto; }
 </style>
 </head>
 <body>
@@ -443,128 +417,190 @@
 
 </div>
 
+
 <script>
-/* ===== glossary-tooltips-v1 =====
-   Wraps known technical terms in <span class="gloss" data-tip="..."> after
-   KaTeX finishes rendering. DOM TreeWalker on text nodes only, so it never
-   touches attributes, math, code blocks, links, or the sidebar. */
+/* ===== glossary-tooltips-v2 =====
+   One floating tooltip element on <body>, positioned with JS (position:fixed),
+   so it is never clipped by tables, boxes, or overflow containers, and is
+   clamped to the viewport. English expansions are bidi-isolated. */
 (function () {
-  const GLOSSARY = {
-    // --- Transport ---
-    'TCP': 'Transmission Control Protocol — פרוטוקול תעבורה אמין ומבוסס-חיבור בשכבה 4. מבטיח סדר וללא איבוד.',
-    'UDP': 'User Datagram Protocol — פרוטוקול תעבורה ללא חיבור בשכבה 4. מהיר, בלי ערבויות.',
-    'RUDP': 'Reliable UDP — תוספת מנגנוני אמינות (ACK, מספור) מעל UDP באפליקציה.',
-    'RTT': 'Round Trip Time — הזמן שלוקח לחבילה להגיע ליעד ולחזור עם אישור.',
-    'ACK': 'Acknowledgment — אישור קבלה של סגמנט/פריים.',
-    'SEQ': 'Sequence Number — מספר סידורי של הבית הראשון בסגמנט TCP.',
-    'ISN': 'Initial Sequence Number — מספר הסידורי ההתחלתי שנבחר אקראית ב-handshake.',
-    'SYN': 'Synchronize — דגל TCP לפתיחת חיבור (שלב 1 ו-2 ב-3-Way Handshake).',
-    'FIN': 'Finish — דגל TCP לסגירה מסודרת של חיבור.',
-    'MSS': 'Maximum Segment Size — גודל מרבי של חלק הנתונים בסגמנט TCP.',
-    'RDT': 'Reliable Data Transfer — משפחת פרוטוקולים תיאורטיים (rdt1.0–3.0) להעברה אמינה.',
-    'CW': 'Congestion Window — חלון הגודש: כמה בייטים מותר לשלוח בלי אישור, לפי מצב הרשת.',
-    'RW': 'Receive Window — חלון הקבלה: כמה מקום פנוי נשאר בבאפר של המקבל (בקרת זרימה).',
-    'AIMD': 'Additive Increase Multiplicative Decrease — עלייה ליניארית, ירידה כפולית: העיקרון של בקרת גודש ב-TCP.',
-    'ssthresh': 'Slow Start Threshold — הסף שמפריד בין Slow Start (גדילה מעריכית) ל-Congestion Avoidance (ליניארית).',
+  const DEFS = [
+    // [definition, ...term variants]
+    ['Transmission Control Protocol — פרוטוקול תעבורה אמין ומבוסס-חיבור בשכבה 4. מבטיח סדר וללא איבוד.', 'TCP'],
+    ['User Datagram Protocol — פרוטוקול תעבורה ללא חיבור בשכבה 4. מהיר, בלי ערבויות.', 'UDP'],
+    ['Reliable UDP — תוספת מנגנוני אמינות (ACK, מספור) מעל UDP באפליקציה.', 'RUDP'],
+    ['Round Trip Time — הזמן שלוקח לחבילה להגיע ליעד ולחזור עם אישור.', 'RTT'],
+    ['Acknowledgment — אישור קבלה של סגמנט/פריים.', 'ACK'],
+    ['Sequence Number — מספר סידורי של הבית הראשון בסגמנט TCP.', 'SEQ'],
+    ['Initial Sequence Number — המספר הסידורי ההתחלתי שנבחר אקראית בהקמת קשר.', 'ISN'],
+    ['Synchronize — דגל TCP לפתיחת חיבור (שלב 1 ו-2 בהקמת קשר).', 'SYN'],
+    ['Finish — דגל TCP לסגירה מסודרת של חיבור.', 'FIN'],
+    ['Maximum Segment Size — גודל מרבי של חלק הנתונים בסגמנט TCP.', 'MSS'],
+    ['Reliable Data Transfer — משפחת פרוטוקולים תיאורטיים (rdt1.0–3.0) להעברה אמינה.', 'RDT'],
+    ['Congestion Window — חלון הגודש: כמה בייטים מותר לשלוח בלי אישור, לפי מצב הרשת.', 'CW'],
+    ['Receive Window — חלון הקבלה: כמה מקום פנוי נשאר בבאפר של המקבל (בקרת זרימה).', 'RW'],
+    ['Additive Increase Multiplicative Decrease — עלייה ליניארית, ירידה כפולית: העיקרון של בקרת גודש ב-TCP.', 'AIMD'],
+    ['Slow Start Threshold — הסף שמפריד בין Slow Start (גדילה מעריכית) ל-Congestion Avoidance (ליניארית).', 'ssthresh'],
+    ['Internet Protocol — פרוטוקול הרשת בשכבה 3: כתובות וניתוב, ללא אמינות.', 'IP'],
+    ['Internet Protocol version 4 — הגרסה הקלאסית, כתובות של 32 ביט.', 'IPv4'],
+    ['Internet Protocol version 6 — הגרסה החדשה, כתובות של 128 ביט.', 'IPv6'],
+    ['Network Address Translation — מיפוי כתובות פרטיות לכתובת ציבורית אחת לפי פורטים.', 'NAT'],
+    ['Dynamic Host Configuration Protocol — מקצה כתובות IP אוטומטית (תהליך DORA).', 'DHCP'],
+    ['Discover, Offer, Request, ACK — ארבעת שלבי הקצאת כתובת ב-DHCP.', 'DORA'],
+    ['Internet Control Message Protocol — הודעות שגיאה ובקרה בשכבת הרשת (ping, TTL exceeded).', 'ICMP'],
+    ['Time To Live — מונה קפיצות בכותרת IP; יורד ב-1 בכל ראוטר, ב-0 החבילה נזרקת.', 'TTL'],
+    ['Classless Inter-Domain Routing — רישום כתובת/פריפיקס (למשל ‎/24) במקום מחלקות.', 'CIDR'],
+    ['Autonomous System — מערכת אוטונומית: אוסף רשתות תחת ניהול אחד (למשל ספקית).', 'AS'],
+    ['Open Shortest Path First — פרוטוקול ניתוב תוך-AS מבוסס Link State (דייקסטרה).', 'OSPF'],
+    ['Border Gateway Protocol — פרוטוקול הניתוב בין AS-ים, מבוסס Path Vector ומדיניות.', 'BGP'],
+    ['Routing Information Protocol — פרוטוקול ניתוב מבוסס Distance Vector (בלמן-פורד).', 'RIP'],
+    ['Distance Vector — גישת ניתוב מבוזרת: כל ראוטר משתף שכנים בטבלת המרחקים שלו.', 'DV'],
+    ['Link State — גישת ניתוב גלובלית: כל ראוטר מכיר את כל הטופולוגיה ומריץ דייקסטרה.', 'LS'],
+    ['Hypertext Transfer Protocol — פרוטוקול הבקשות/תשובות של ה-web, מעל TCP פורט 80.', 'HTTP'],
+    ['HTTP Secure — HTTP מעל SSL/TLS, פורט 443, לתקשורת מוצפנת.', 'HTTPS'],
+    ['Hypertext Markup Language — שפת הסימון של דפי web.', 'HTML'],
+    ['Domain Name System — ממיר שמות דומיין לכתובות IP. היררכי, מעל UDP פורט 53.', 'DNS'],
+    ['Top Level Domain — הרמה העליונה בהיררכיית DNS‏ (com, org, il).', 'TLD'],
+    ['Canonical Name — רשומת DNS שממפה שם נרדף לשם הקנוני.', 'CNAME'],
+    ['Internet Corporation for Assigned Names and Numbers — הגוף שמנהל שמות דומיין וכתובות.', 'ICANN'],
+    ['Simple Mail Transfer Protocol — פרוטוקול שליחת דואר, מעל TCP פורט 25.', 'SMTP'],
+    ['Internet Message Access Protocol — פרוטוקול גישה לתיבת דואר בשרת.', 'IMAP'],
+    ['File Transfer Protocol — פרוטוקול העברת קבצים עם חיבור בקרה וחיבור נתונים נפרדים.', 'FTP'],
+    ['Uniform Resource Locator — כתובת של משאב ברשת: פרוטוקול, שרת ונתיב.', 'URL'],
+    ['Peer to Peer — ארכיטקטורה בלי שרת מרכזי: הקצוות מדברים ישירות זה עם זה.', 'P2P'],
+    ['Application Programming Interface — ממשק תכנותי בין רכיבי תוכנה (למשל Socket API).', 'API'],
+    ['Media Access Control — כתובת חומרה של 48 ביט של כרטיס הרשת; וגם שכבת הגישה לערוץ.', 'MAC'],
+    ['Address Resolution Protocol — מוצא כתובת MAC עבור כתובת IP ידועה באותה רשת.', 'ARP'],
+    ['CSMA with Collision Detection — מאזין לפני שידור ומזהה התנגשות תוך כדי (Ethernet קווי).', 'CSMA/CD'],
+    ['Carrier Sense Multiple Access — פרוטוקול גישה לערוץ: מאזין לפני ששולח.', 'CSMA'],
+    ['פרוטוקול הגישה האקראית הראשון: משדרים בלי להאזין. ניצולת מקס׳ 18% (או 37% ב-Slotted).', 'ALOHA'],
+    ['Time Division Multiple Access — חלוקת הערוץ לפרוסות זמן קבועות בין המשתמשים.', 'TDMA'],
+    ['Frequency Division Multiple Access — חלוקת הערוץ לתדרים קבועים בין המשתמשים.', 'FDMA'],
+    ['Cyclic Redundancy Check — קוד גילוי שגיאות שמחושב לכל פריים בשכבת הקישור.', 'CRC'],
+    ['Organizationally Unique Identifier — שלושת הבייטים הראשונים בכתובת MAC, מזהים את היצרן.', 'OUI'],
+    ['Local Area Network — רשת מקומית (בניין/קמפוס), בדרך כלל Ethernet או WiFi.', 'LAN'],
+    ['טכנולוגיית ה-LAN הקווית הנפוצה: פריימים עם כתובות MAC, ‏CSMA/CD היסטורית.', 'Ethernet'],
+    ['Rivest–Shamir–Adleman — אלגוריתם הצפנה אסימטרי (מפתח ציבורי) מבוסס פירוק לגורמים.', 'RSA'],
+    ['Advanced Encryption Standard — אלגוריתם ההצפנה הסימטרי הסטנדרטי כיום.', 'AES'],
+    ['Triple DES — הפעלת DES שלוש פעמים ברצף לחיזוק המפתח.', '3DES'],
+    ['Data Encryption Standard — אלגוריתם הצפנה סימטרי ישן (מפתח 56 ביט, נחשב חלש).', 'DES'],
+    ['Transport Layer Security — היורש המודרני של SSL; מצפין תעבורה מעל TCP.', 'TLS'],
+    ['Secure Sockets Layer — שכבת הצפנה בין האפליקציה ל-TCP‏; הבסיס של HTTPS.', 'SSL'],
+    ['Public Key — המפתח הציבורי: גלוי לכולם, מצפינים איתו הודעות אל הבעלים.', 'PK'],
+    ['Secret/Private Key — המפתח הפרטי: רק הבעלים מחזיק בו, מפענח וחותם.', 'SK'],
+    ['Distributed Denial of Service — מתקפת מניעת שירות ממקורות רבים במקביל.', 'DDoS'],
+    ['Denial of Service — מתקפה שמציפה שרת בבקשות עד שקורס או לא זמין.', 'DoS'],
+    ['Internet Service Provider — ספקית שירותי אינטרנט.', 'ISP'],
+    ['Open Systems Interconnection — מודל 7 השכבות של ISO.', 'OSI'],
+    ['International Organization for Standardization — ארגון התקנים הבינלאומי.', 'ISO'],
+    ['Maximum Transmission Unit — הגודל המרבי של חבילה בלינק; מעליו נדרשת פרגמנטציה.', 'MTU'],
+    // --- added in v2 ---
+    ['תחום התנגשות — קבוצת התקנים שחולקים ערוץ ויכולים להתנגש זה בזה. Hub = תחום אחד גדול; Switch מפריד תחום נפרד לכל פורט.', 'Collision Domains', 'Collision Domain', 'collision domains', 'collision domain'],
+    ['חבר-והפעל — עובד מהרגע הראשון בלי שום הגדרה ידנית. סוויץ׳, למשל, לומד את הרשת לבד.', 'Plug-and-Play', 'plug-and-play', 'Plug and Play', 'plug and play'],
+    ['שכבה 2 (הקישור) — פריימים וכתובות MAC. סוויץ׳ הוא התקן שכבה 2: לא מסתכל על IP בכלל.', 'Layer 2', 'layer 2'],
+    ['שכבה 3 (הרשת) — IP וניתוב בין רשתות. ראוטר הוא התקן שכבה 3.', 'Layer 3', 'layer 3'],
+    ['רכזת — התקן פיזי "טיפש" שמשכפל כל ביט לכל הפורטים. כולם שומעים הכול: תחום התנגשות אחד גדול.', 'Hub', 'hub'],
+    ['מתג — התקן שכבה 2 שמעביר פריים רק לפורט הנכון, לפי טבלת MAC שהוא לומד לבד (self-learning).', 'Switch', 'switch'],
+    ['שידור לכולם — הודעה לכל ההתקנים ברשת (כתובת MAC‏: FF:FF:FF:FF:FF:FF).', 'Broadcast', 'broadcast'],
+    ['שידור ליעד יחיד — התקשורת הרגילה של אחד-אל-אחד.', 'Unicast', 'unicast'],
+    ['שידור לקבוצה — ההודעה מגיעה רק למי שנרשם לקבוצה מסוימת.', 'Multicast', 'multicast'],
+    ['שידור לקרוב ביותר — ההודעה מגיעה לאחד (הקרוב) מתוך קבוצת שרתים זהים.', 'Anycast', 'anycast'],
+    ['הצפה — כשהסוויץ׳ לא מכיר את יעד ה-MAC בטבלה, הוא שולח את הפריים לכל הפורטים חוץ ממקור ההגעה.', 'Flooding', 'flooding'],
+    ['למידה עצמית — הסוויץ׳ ממלא את טבלת ה-MAC לבד, מכתובות המקור של פריימים שעוברים דרכו.', 'Self-Learning', 'self-learning', 'Self Learning'],
+    ['אחסן-והעבר — הראוטר/סוויץ׳ קולט את החבילה במלואה לפני שהוא מתחיל לשדר אותה הלאה.', 'Store-and-Forward', 'store-and-forward', 'Store and Forward'],
+  ];
 
-    // --- Network ---
-    'IP': 'Internet Protocol — פרוטוקול הרשת בשכבה 3: כתובות וניתוב, ללא אמינות.',
-    'IPv4': 'Internet Protocol version 4 — הגרסה הקלאסית, כתובות של 32 ביט.',
-    'IPv6': 'Internet Protocol version 6 — הגרסה החדשה, כתובות של 128 ביט.',
-    'NAT': 'Network Address Translation — מיפוי כתובות פרטיות לכתובת ציבורית אחת לפי פורטים.',
-    'DHCP': 'Dynamic Host Configuration Protocol — מקצה כתובות IP אוטומטית (תהליך DORA).',
-    'DORA': 'Discover, Offer, Request, ACK — ארבעת שלבי הקצאת כתובת ב-DHCP.',
-    'ICMP': 'Internet Control Message Protocol — הודעות שגיאה ובקרה בשכבת הרשת (ping, TTL exceeded).',
-    'TTL': 'Time To Live — מונה קפיצות בכותרת IP; יורד ב-1 בכל ראוטר, ב-0 החבילה נזרקת.',
-    'CIDR': 'Classless Inter-Domain Routing — רישום כתובת/פריפיקס (למשל ‎/24) במקום מחלקות.',
-    'AS': 'Autonomous System — מערכת אוטונומית: אוסף רשתות תחת ניהול אחד (למשל ספקית).',
-    'OSPF': 'Open Shortest Path First — פרוטוקול ניתוב תוך-AS מבוסס Link State (דייקסטרה).',
-    'BGP': 'Border Gateway Protocol — פרוטוקול הניתוב בין AS-ים, מבוסס Path Vector ומדיניות.',
-    'RIP': 'Routing Information Protocol — פרוטוקול ניתוב מבוסס Distance Vector (בלמן-פורד).',
-    'DV': 'Distance Vector — גישת ניתוב מבוזרת: כל ראוטר משתף שכנים בטבלת המרחקים שלו.',
-    'LS': 'Link State — גישת ניתוב גלובלית: כל ראוטר מכיר את כל הטופולוגיה ומריץ דייקסטרה.',
-
-    // --- Application ---
-    'HTTP': 'Hypertext Transfer Protocol — פרוטוקול הבקשות/תשובות של ה-web, מעל TCP פורט 80.',
-    'HTTPS': 'HTTP Secure — HTTP מעל SSL/TLS, פורט 443, לתקשורת מוצפנת.',
-    'HTML': 'Hypertext Markup Language — שפת הסימון של דפי web.',
-    'DNS': 'Domain Name System — ממיר שמות דומיין לכתובות IP. היררכי, מעל UDP פורט 53.',
-    'TLD': 'Top Level Domain — הרמה העליונה בהיררכיית DNS‏ (com, org, il).',
-    'CNAME': 'Canonical Name — רשומת DNS שממפה שם נרדף לשם הקנוני.',
-    'ICANN': 'Internet Corporation for Assigned Names and Numbers — הגוף שמנהל שמות דומיין וכתובות.',
-    'SMTP': 'Simple Mail Transfer Protocol — פרוטוקול שליחת דואר, מעל TCP פורט 25.',
-    'IMAP': 'Internet Message Access Protocol — פרוטוקול גישה לתיבת דואר בשרת.',
-    'FTP': 'File Transfer Protocol — פרוטוקול העברת קבצים עם חיבור בקרה וחיבור נתונים נפרדים.',
-    'URL': 'Uniform Resource Locator — כתובת של משאב ברשת: פרוטוקול, שרת ונתיב.',
-    'P2P': 'Peer to Peer — ארכיטקטורה בלי שרת מרכזי: הקצוות מדברים ישירות זה עם זה.',
-    'API': 'Application Programming Interface — ממשק תכנותי בין רכיבי תוכנה (למשל Socket API).',
-
-    // --- Link ---
-    'MAC': 'Media Access Control — כתובת חומרה של 48 ביט של כרטיס הרשת; וגם שכבת הגישה לערוץ.',
-    'ARP': 'Address Resolution Protocol — מוצא כתובת MAC עבור כתובת IP ידועה באותה רשת.',
-    'CSMA/CD': 'CSMA with Collision Detection — מאזין לפני שידור ומזהה התנגשות תוך כדי (Ethernet קווי).',
-    'CSMA': 'Carrier Sense Multiple Access — פרוטוקול גישה לערוץ: מאזין לפני ששולח.',
-    'ALOHA': 'פרוטוקול הגישה האקראית הראשון: משדרים בלי להאזין. ניצולת מקס׳ 18% (או 37% ב-Slotted).',
-    'TDMA': 'Time Division Multiple Access — חלוקת הערוץ לפרוסות זמן קבועות בין המשתמשים.',
-    'FDMA': 'Frequency Division Multiple Access — חלוקת הערוץ לתדרים קבועים בין המשתמשים.',
-    'CRC': 'Cyclic Redundancy Check — קוד גילוי שגיאות שמחושב לכל פריים בשכבת הקישור.',
-    'OUI': 'Organizationally Unique Identifier — שלושת הבייטים הראשונים בכתובת MAC, מזהים את היצרן.',
-    'LAN': 'Local Area Network — רשת מקומית (בניין/קמפוס), בדרך כלל Ethernet או WiFi.',
-    'Ethernet': 'טכנולוגיית ה-LAN הקווית הנפוצה: פריימים עם כתובות MAC, ‏CSMA/CD היסטורית.',
-
-    // --- Security ---
-    'RSA': 'Rivest–Shamir–Adleman — אלגוריתם הצפנה אסימטרי (מפתח ציבורי) מבוסס פירוק לגורמים.',
-    'AES': 'Advanced Encryption Standard — אלגוריתם ההצפנה הסימטרי הסטנדרטי כיום.',
-    '3DES': 'Triple DES — הפעלת DES שלוש פעמים ברצף לחיזוק המפתח.',
-    'DES': 'Data Encryption Standard — אלגוריתם הצפנה סימטרי ישן (מפתח 56 ביט, נחשב חלש).',
-    'TLS': 'Transport Layer Security — היורש המודרני של SSL; מצפין תעבורה מעל TCP.',
-    'SSL': 'Secure Sockets Layer — שכבת הצפנה בין האפליקציה ל-TCP‏; הבסיס של HTTPS.',
-    'PK': 'Public Key — המפתח הציבורי: גלוי לכולם, מצפינים איתו הודעות אל הבעלים.',
-    'SK': 'Secret/Private Key — המפתח הפרטי: רק הבעלים מחזיק בו, מפענח וחותם.',
-    'DDoS': 'Distributed Denial of Service — מתקפת מניעת שירות ממקורות רבים במקביל.',
-    'DoS': 'Denial of Service — מתקפה שמציפה שרת בבקשות עד שקורס או לא זמין.',
-
-    // --- General ---
-    'ISP': 'Internet Service Provider — ספקית שירותי אינטרנט.',
-    'OSI': 'Open Systems Interconnection — מודל 7 השכבות של ISO.',
-    'ISO': 'International Organization for Standardization — ארגון התקנים הבינלאומי.',
-    'MTU': 'Maximum Transmission Unit — הגודל המרבי של חבילה בלינק; מעליו נדרשת פרגמנטציה.',
-  };
+  const GLOSSARY = {};
+  for (const row of DEFS) for (let i = 1; i < row.length; i++) GLOSSARY[row[i]] = row[0];
 
   const TERMS = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length);
-  const PATTERN = TERMS
-    .map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-    .join('|');
-  // Whole word: no Latin letter/digit before or after (Hebrew around is fine)
+  const PATTERN = TERMS.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
   const RE = new RegExp('(?<![A-Za-z0-9])(' + PATTERN + ')(?![A-Za-z0-9])', 'g');
 
   const SKIP_TAGS = new Set(['SCRIPT', 'STYLE', 'CODE', 'PRE', 'TEXTAREA', 'A', 'BUTTON', 'H1']);
+  const SKIP_CLASSES = ['gloss', 'katex', 'katex-display', 'sidebar', 'exercise-tag',
+                        'page-eyebrow', 'card-tags', 'tag', 'pager', 'badge', 'nav-num'];
 
   function insideSkipped(el) {
     for (let n = el; n && n.nodeType === 1; n = n.parentElement) {
       if (SKIP_TAGS.has(n.tagName)) return true;
       const c = n.classList;
-      if (c && (c.contains('gloss') || c.contains('katex') ||
-                c.contains('katex-display') || c.contains('sidebar'))) return true;
+      if (c) for (const cls of SKIP_CLASSES) if (c.contains(cls)) return true;
     }
     return false;
+  }
+
+  // ---- tooltip element ----
+  let tip = null, arrow = null, current = null;
+  function ensureTip() {
+    if (tip) return;
+    tip = document.createElement('div');
+    tip.id = 'gloss-tip';
+    arrow = document.createElement('div');
+    arrow.className = 'arrow';
+    tip.appendChild(arrow);
+    document.body.appendChild(tip);
+  }
+
+  const HEB = /[\u0590-\u05FF]/;
+  function setContent(text) {
+    // isolate a leading English expansion ("Media Access Control — ...")
+    while (tip.childNodes.length > 1) tip.removeChild(tip.firstChild);
+    const sep = text.indexOf(' — ');
+    if (sep > 0 && !HEB.test(text.slice(0, sep))) {
+      const bdi = document.createElement('bdi');
+      bdi.dir = 'ltr';
+      bdi.textContent = text.slice(0, sep);
+      tip.insertBefore(document.createTextNode(text.slice(sep)), tip.firstChild);
+      tip.insertBefore(bdi, tip.firstChild);
+    } else {
+      tip.insertBefore(document.createTextNode(text), tip.firstChild);
+    }
+  }
+
+  function show(span) {
+    ensureTip();
+    current = span;
+    setContent(span.getAttribute('data-tip') || '');
+    tip.classList.remove('above', 'below');
+    tip.classList.add('show');
+    // measure after content set
+    const r = span.getBoundingClientRect();
+    const vw = window.innerWidth, margin = 8, gap = 9;
+    const tw = Math.min(tip.offsetWidth, vw - 2 * margin);
+    tip.style.maxWidth = (vw - 2 * margin) + 'px';
+    let left = r.left + r.width / 2 - tw / 2;
+    left = Math.max(margin, Math.min(left, vw - tw - margin));
+    const th = tip.offsetHeight;
+    let top = r.top - th - gap;
+    if (top < margin) { top = r.bottom + gap; tip.classList.add('below'); }
+    else tip.classList.add('above');
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    // arrow points at the term's center, clamped inside the tip
+    let ax = r.left + r.width / 2 - left - 6;
+    ax = Math.max(10, Math.min(ax, tw - 22));
+    arrow.style.left = ax + 'px';
+  }
+
+  function hide() {
+    current = null;
+    if (tip) tip.classList.remove('show');
   }
 
   function run() {
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
         const t = node.nodeValue;
-        if (!t || t.indexOf('$') !== -1) return NodeFilter.FILTER_REJECT; // leave raw math alone
+        if (!t || t.indexOf('$') !== -1) return NodeFilter.FILTER_REJECT;
         RE.lastIndex = 0;
         if (!RE.test(t)) return NodeFilter.FILTER_REJECT;
         if (insideSkipped(node.parentElement)) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
     });
-
     const nodes = [];
     while (walker.nextNode()) nodes.push(walker.currentNode);
-
     for (const node of nodes) {
       const text = node.nodeValue;
       const frag = document.createDocumentFragment();
@@ -583,21 +619,22 @@
       node.parentNode.replaceChild(frag, node);
     }
 
-    // Touch devices: tap toggles the tooltip (hover doesn't exist on mobile)
-    document.body.addEventListener('click', (e) => {
-      const g = e.target.closest('.gloss');
-      document.querySelectorAll('.gloss.tap').forEach(x => { if (x !== g) x.classList.remove('tap'); });
-      if (g) g.classList.toggle('tap');
+    document.body.addEventListener('mouseover', e => {
+      const g = e.target.closest && e.target.closest('.gloss');
+      if (g && g !== current) show(g);
+      else if (!g && current) hide();
     });
+    document.body.addEventListener('click', e => {
+      const g = e.target.closest && e.target.closest('.gloss');
+      if (g) { (g === current && tip.classList.contains('show')) ? hide() : show(g); }
+      else hide();
+    });
+    window.addEventListener('scroll', hide, { passive: true });
+    window.addEventListener('resize', hide);
   }
 
-  // Registered after the head script's DOMContentLoaded listener,
-  // so this runs AFTER renderMathInElement has replaced $...$ with KaTeX spans.
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', run);
-  } else {
-    run();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
 })();
 </script>
 
