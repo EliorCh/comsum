@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>רשת האינטרנט והשכבות · מבוא לתקשורת מחשבים</title>
+<title>מה היה לנו בשכבת הרשת · מבוא לתקשורת מחשבים</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -225,7 +225,7 @@
 
   <div class="nav-label first">📘 מבוא</div>
   <ul class="nav-list">
-    <li><a href="00-intro.html" class="active" data-page="00"><span class="nav-num">0.1</span>רשת האינטרנט והשכבות</a></li>
+    <li><a href="00-intro.html" data-page="00"><span class="nav-num">0.1</span>רשת האינטרנט והשכבות</a></li>
     <li><a href="01-delays.html" data-page="01"><span class="nav-num">0.2</span>השהיות ברשת</a></li>
   </ul>
 
@@ -259,7 +259,7 @@
     <li><a href="17-net-nat-ipv6.html" data-page="17"><span class="nav-num">3.5</span>NAT, IPv6, ICMP</a></li>
     <li><a href="18-net-routing.html" data-page="18"><span class="nav-num">3.6</span>ראוטינג — DV, LS</a></li>
     <li><a href="19-net-ospf-bgp.html" data-page="19"><span class="nav-num">3.7</span>OSPF, BGP, AS</a></li>
-    <li><a href="sum-net.html" data-page="sum-net"><span class="nav-num">📌</span>סיכום השכבה</a></li>
+    <li><a href="sum-net.html" class="active" data-page="sum-net"><span class="nav-num">📌</span>סיכום השכבה</a></li>
   </ul>
 
   <div class="nav-label">4️⃣ שכבת הקישור</div>
@@ -296,462 +296,62 @@
 </aside>
 
 <main>
-  <span class="page-eyebrow">פרק 0.1 · מבוא</span>
-  <h1 class="page-title">רשת האינטרנט והמבנה השכבתי</h1>
-  <p class="page-subtitle">מאיזה אבני בניין מורכבת הרשת, ולמה ארגנו את הכל ב-5 שכבות.</p>
+  <span class="page-eyebrow">📌 סיכום שכבה · 3️⃣ שכבת הרשת</span>
+  <h1 class="page-title">מה היה לנו בשכבת הרשת</h1>
+  <p class="page-subtitle">שבעה פרקים בדקה אחת — מדאטהגרם בודד ועד ניתוב בין מערכות אוטונומיות.</p>
 
-  <div class="figure">
-    <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="המודל ה-5 שכבתי של האינטרנט">
-      <defs>
-        <marker id="arrowdown01" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="6" markerHeight="6" orient="auto">
-          <path d="M 0 0 L 10 0 L 5 10 z" fill="#4f46e5"/>
-        </marker>
-      </defs>
-      <!-- 5 layers stacked -->
-      <g font-family="Assistant, sans-serif" font-size="13" text-anchor="middle">
-        <rect x="40" y="20" width="120" height="30" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
-        <text x="100" y="40" fill="#047857" font-weight="700">Application</text>
-
-        <rect x="40" y="55" width="120" height="30" rx="6" fill="#fef9e7" stroke="#b45309" stroke-width="1.5"/>
-        <text x="100" y="75" fill="#b45309" font-weight="700">Transport</text>
-
-        <rect x="40" y="90" width="120" height="30" rx="6" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.5"/>
-        <text x="100" y="110" fill="#6d28d9" font-weight="700">Network</text>
-
-        <rect x="40" y="125" width="120" height="30" rx="6" fill="#fff1f2" stroke="#be123c" stroke-width="1.5"/>
-        <text x="100" y="145" fill="#be123c" font-weight="700">Link</text>
-
-        <rect x="40" y="160" width="120" height="30" rx="6" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
-        <text x="100" y="180" fill="#0891b2" font-weight="700">Physical</text>
-      </g>
-
-      <!-- Encapsulation flow -->
-      <g font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">
-        <text x="240" y="35" fill="#1c1917">M</text>
-        <rect x="225" y="42" width="30" height="14" rx="2" fill="#fef9e7" stroke="#b45309"/>
-        <text x="270" y="53" fill="#1c1917">M</text>
-
-        <rect x="290" y="77" width="20" height="14" rx="2" fill="#f5f3ff" stroke="#6d28d9"/>
-        <rect x="313" y="77" width="18" height="14" rx="2" fill="#fef9e7" stroke="#b45309"/>
-        <text x="345" y="88" fill="#1c1917">M</text>
-
-        <rect x="365" y="112" width="18" height="14" rx="2" fill="#fff1f2" stroke="#be123c"/>
-        <rect x="386" y="112" width="18" height="14" rx="2" fill="#f5f3ff" stroke="#6d28d9"/>
-        <rect x="407" y="112" width="18" height="14" rx="2" fill="#fef9e7" stroke="#b45309"/>
-        <text x="438" y="123" fill="#1c1917">M</text>
-
-        <rect x="455" y="147" width="20" height="14" rx="2" fill="#fff1f2" stroke="#be123c"/>
-        <rect x="478" y="147" width="20" height="14" rx="2" fill="#f5f3ff" stroke="#6d28d9"/>
-        <rect x="501" y="147" width="20" height="14" rx="2" fill="#fef9e7" stroke="#b45309"/>
-        <text x="535" y="158" fill="#1c1917">M</text>
-      </g>
-
-      <!-- bits at physical layer -->
-      <g font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" fill="#0891b2">
-        <text x="400" y="180" font-weight="700">10110010 01110101 11001010 ...</text>
-      </g>
-
-      <!-- Encapsulation label -->
-      <text x="540" y="16" font-family="Assistant, sans-serif" font-size="12" fill="#4f46e5" font-weight="700" text-anchor="end">אינקפסולציה (כותרת בכל שכבה)</text>
-      <line x1="200" y1="35" x2="700" y2="170" stroke="#4f46e5" stroke-width="1" stroke-dasharray="4,4" marker-end="url(#arrowdown01)"/>
-    </svg>
-    <div class="cap">ההודעה יוצאת מהאפליקציה, ובכל שכבה למטה נוספת כותרת. מגיעה לפיזית כביטים נטו.</div>
+<div class="box theory">
+  <div class="box-head"><span class="icon">🗺️</span>מפת השכבה</div>
+  <div class="box-body">
+    <table>
+      <thead><tr><th>פרק</th><th>שורה תחתונה</th></tr></thead>
+      <tbody>
+      <tr><td><a href="13-net-intro.html"><strong>3.1</strong> · IP דאטהגרם</a></td><td>שכבה 3 = כתובות + ניתוב, בלי אמינות. מבנה כותרת ה-IP‏: TTL‏, פרוטוקול, כתובות מקור/יעד.</td></tr>
+      <tr><td><a href="14-net-fragmentation.html"><strong>3.2</strong> · פרגמנטציה</a></td><td>חבילה גדולה מ-MTU נחתכת לפרגמנטים: אותו ID, שדה Offset ביחידות של 8 בתים, ‏MF=1 לכולם חוץ מהאחרון.</td></tr>
+      <tr><td><a href="15-net-ip-addressing.html"><strong>3.3</strong> · כתובות IP</a></td><td>‏32 ביט, רישום CIDR‏ (‏a.b.c.d/x). ה-subnet מתקבל מ-AND עם המסכה.</td></tr>
+      <tr><td><a href="16-net-dhcp.html"><strong>3.4</strong> · DHCP</a></td><td>קבלת כתובת אוטומטית בארבעה שלבים — <strong>DORA</strong>: ‏Discover, Offer, Request, ACK‏ (broadcast, פורטים 67/68).</td></tr>
+      <tr><td><a href="17-net-nat-ipv6.html"><strong>3.5</strong> · NAT, IPv6, ICMP</a></td><td>‏NAT ממפה רשת פרטית שלמה לכתובת ציבורית אחת לפי פורטים. ‏IPv6 = ‏128 ביט. ‏ICMP = הודעות שגיאה (ping, traceroute).</td></tr>
+      <tr><td><a href="18-net-routing.html"><strong>3.6</strong> · ראוטינג — DV, LS</a></td><td>שתי גישות: ‏Distance Vector (מבוזר, בלמן-פורד, שיתוף שכנים) מול Link State (גלובלי, דייקסטרה).</td></tr>
+      <tr><td><a href="19-net-ospf-bgp.html"><strong>3.7</strong> · OSPF, BGP, AS</a></td><td>בתוך AS‏: OSPF‏ (LS). בין AS-ים: ‏BGP‏ (Path Vector, מבוסס מדיניות ולא בהכרח המסלול הקצר).</td></tr>
+      </tbody>
+    </table>
   </div>
+</div>
+<div class="box formula">
+  <div class="box-head"><span class="icon">📐</span>הנוסחאות של השכבה</div>
+  <div class="box-body">
 
-  <p class="lead">
-    האינטרנט הוא רשת של רשתות. למבחן צריך לדעת <strong>מי מורכב ממה</strong> (מכשירי קצה, נתבים, לינקים), <strong>למה השכבות</strong> (חמש במודל שאנחנו לומדים), ו<strong>מה קורה לכל הודעה</strong> כשהיא יורדת בשכבות עד לכבל.
-  </p>
-
-  <h2>מה זה בעצם האינטרנט?</h2>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>שלושת מרכיבי הרשת</div>
-    <div class="box-body">
-      <p>כל רשת מורכבת משלושה סוגים של ישויות:</p>
-      <ol>
-        <li><strong>מכשירי קצה (Hosts):</strong> טלפון, לפטופ, שרת, שעון חכם — כל מי שמריץ אפליקציה.</li>
-        <li><strong>נתבים (Routers):</strong> מאפשרים העברה של פאקטות בין מכשירי קצה שלא מחוברים ישירות.</li>
-        <li><strong>לינקים (קווי תקשורת):</strong> סיב אופטי, כבל נחושת, או אלחוטי. לכל לינק יש <span class="term">רוחב פס</span> מסוים (בביטים לשנייה).</li>
-      </ol>
-      <p>האינטרנט מורכב מאינספור רשתות קטנות. כל רשת מנוהלת על-ידי <strong>ספקית אינטרנט (ISP)</strong> — לאו דווקא בזק או פרטנר; גם רשת ה-Wifi בבית או אפקה (האקדמיה) הם ISP.</p>
-    </div>
+    <ul>
+      <li><strong>פרגמנטציה:</strong> נתונים לפרגמנט ≤ <span class="term">MTU − 20</span>, חייב כפולה של 8. ‏<span class="term">Offset = (נתונים שקדמו) / 8</span>. מספר פרגמנטים: $\lceil \text{Data} / (\text{MTU}-20) \rceil$.</li>
+      <li><strong>כתובות בסאבנט:</strong> $2^{32-x} - 2$ (מורידים כתובת רשת ו-broadcast).</li>
+      <li><strong>בלמן-פורד (DV):</strong> $d_X(Y) = \min_v \{c(X,v) + d_v(Y)\}$.</li>
+      <li><strong>טווחים פרטיים:</strong> ‏<span class="term">10.0.0.0/8</span>, ‏<span class="term">172.16.0.0/12</span>, ‏<span class="term">192.168.0.0/16</span>.</li>
+    </ul>
   </div>
+</div>
+<div class="box warn">
+  <div class="box-head"><span class="icon">⚠️</span>טעויות נפוצות במבחן</div>
+  <div class="box-body">
 
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>פרוטוקול — הגדרה</div>
-    <div class="box-body">
-      <p>פרוטוקול הוא <strong>מסמך</strong> שכותבים ארגוני תקינה. הוא מגדיר ארבעה דברים:</p>
-      <ul>
-        <li><strong>מבנה ההודעה</strong> — איזה שדות, באיזה אורך, באיזה סדר.</li>
-        <li><strong>סדר ההודעה</strong> — מי שולח קודם, מי עונה.</li>
-        <li><strong>משמעות כל שדה</strong> — מה אומרת הכותרת, מה אומר ה-Body.</li>
-        <li><strong>פעולות בתגובה</strong> — מה לעשות בכל סוג של הודעה שמתקבלת.</li>
-      </ul>
-      <p>דוגמאות: <span class="term">HTTP</span>, <span class="term">TCP</span>, <span class="term">IP</span>, <span class="term">WiFi</span>, <span class="term">4G</span>, <span class="term">Skype</span>.</p>
-    </div>
+    <ul>
+      <li>‏Offset נמדד <strong>ביחידות של 8 בתים</strong>, לא בבתים — לכתוב 480 במקום 60 זו הטעות הכי נפוצה בתרגיל.</li>
+      <li>ה-<span class="term">MTU</span> כולל את הכותרת: הנתונים בפועל הם <span class="term">MTU − 20</span>.</li>
+      <li>‏TTL יורד ב-1 <strong>בכל ראוטר</strong>; כשמגיע ל-0 החבילה נזרקת ונשלח ICMP‏ (ככה traceroute עובד).</li>
+      <li>‏RIP מגדיר אינסוף = 16 כדי לעצור ספירה לאינסוף; ‏BGP בוחר לפי <strong>מדיניות</strong>, לא לפי מרחק.</li>
+    </ul>
   </div>
-
-  <h2>למה בכלל לפצל לשכבות?</h2>
-
-  <p>אפשר היה לבנות פרוטוקול ענק אחד שעושה הכל. אבל אז כל שינוי קטן (החלפה של כבל נחושת לסיב אופטי) דורש לכתוב הכל מחדש. במקום זה — מחלקים לשכבות. <strong>כל שכבה מספקת שירות לזו שמעליה ומשתמשת בשירות של זו שמתחתיה.</strong></p>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>יתרונות העיצוב השכבתי</div>
-    <div class="box-body">
-      <ul>
-        <li><strong>זיהוי ואיפיון פשוט</strong> של תפקיד כל רכיב במערכת.</li>
-        <li><strong>שקיפות</strong> — כל שכבה לא צריכה לדעת את הפנים של השכבות אחרות.</li>
-        <li><strong>תחזוקה ושינויים קלים</strong> — אפשר להחליף Ethernet ל-WiFi בלי לגעת ב-HTTP.</li>
-      </ul>
-    </div>
+</div>
+<div class="box summary">
+  <div class="box-head"><span class="icon">🎯</span>ומכאן — לתרגול</div>
+  <div class="box-body">
+    <p>סגרת את התאוריה של שכבת הרשת? עכשיו שאלות. <a href="https://eliorch.github.io/comque" target="_blank" rel="noopener"><strong>אתר השאלות</strong></a> מרכז שאלות מבחן לתרגול, ו<a href="31-cheatsheet.html">דף הנוסחאות</a> מרכז את כל מה שצריך לזכור בעל-פה.</p>
   </div>
-
-  <h2>מודל 5 השכבות</h2>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>5 שכבות (במקור 7)</div>
-    <div class="box-body">
-      <p>המודל המקורי (OSI) הוא בן 7 שכבות. אנחנו לומדים את מודל ה-TCP/IP — חמש שכבות, ושתיים נוספות (תצוגה וסשן) מובלעות בתוך שכבת האפליקציה.</p>
-    </div>
-  </div>
-
-  <table>
-    <thead>
-      <tr>
-        <th style="width: 22%">שכבה</th>
-        <th style="width: 30%">מה היא עושה</th>
-        <th>פרוטוקולים מרכזיים</th>
-        <th>שם יחידת הנתונים</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong style="color: #047857">1️⃣ Application</strong></td>
-        <td>תומכת באפליקציות רשת (גלישה, מייל)</td>
-        <td><span class="term green">HTTP</span> <span class="term green">SMTP</span> <span class="term green">DNS</span> <span class="term green">IMAP</span></td>
-        <td>הודעה (Message)</td>
-      </tr>
-      <tr>
-        <td><strong style="color: #b45309">2️⃣ Transport</strong></td>
-        <td>העברת מידע בין <strong>תהליכים</strong> (אפליקציות)</td>
-        <td><span class="term amber">TCP</span> <span class="term amber">UDP</span></td>
-        <td>סגמנט (TCP) / דאטהגרם (UDP)</td>
-      </tr>
-      <tr>
-        <td><strong style="color: #6d28d9">3️⃣ Network</strong></td>
-        <td>ניתוב פאקטות בין <strong>מחשבים</strong> ממקור ליעד</td>
-        <td><span class="term purple">IP</span> <span class="term purple">RIP</span> <span class="term purple">OSPF</span> <span class="term purple">BGP</span></td>
-        <td>IP דאטהגרם / פאקטה</td>
-      </tr>
-      <tr>
-        <td><strong style="color: #be123c">4️⃣ Link</strong></td>
-        <td>העברת נתונים בין <strong>שכנים</strong> מחוברים פיזית</td>
-        <td><span class="term red">Ethernet</span> <span class="term red">802.11 WiFi</span> <span class="term red">PPP</span></td>
-        <td>פריים (Frame)</td>
-      </tr>
-      <tr>
-        <td><strong style="color: #0891b2">5️⃣ Physical</strong></td>
-        <td>העברה <strong>פיזית של ביטים</strong> בקווים</td>
-        <td><span class="term cyan">סיב אופטי</span> <span class="term cyan">גלי רדיו</span> <span class="term cyan">כבל נחושת</span></td>
-        <td>ביטים</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="keypoint">
-    שאלת מבחן קלאסית: ההבדל בין שכבת התעבורה לרשת. <strong>תעבורה</strong> = ערוץ לוגי בין <em>תהליכים</em> (אפליקציות שונות על אותו מחשב). <strong>רשת</strong> = ערוץ לוגי בין <em>מחשבים</em>. שתיהן ביחד מאפשרות תקשורת end-to-end.
-  </div>
-
-  <h2>אינקפסולציה — איך הודעה יורדת בשכבות</h2>
-
-  <p>כשאפליקציה רוצה לשלוח הודעה, ההודעה <strong>יורדת בשכבות</strong>. בכל שכבה <strong>נוספת כותרת (Header)</strong>. ביעד, ההודעה <strong>עולה בשכבות</strong>, ובכל שכבה הכותרת המתאימה <strong>מוסרת</strong>.</p>
-
-  <div class="figure">
-    <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="תהליך האינקפסולציה">
-      <defs>
-        <marker id="arrowEnc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
-        </marker>
-      </defs>
-      <g font-family="Assistant, sans-serif" font-size="13">
-        <!-- Application -->
-        <rect x="40" y="20" width="160" height="40" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
-        <text x="120" y="45" fill="#047857" font-weight="700" text-anchor="middle">App ←</text>
-        <g transform="translate(230, 30)">
-          <rect width="40" height="22" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
-          <text x="20" y="16" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#047857">M</text>
-        </g>
-
-        <!-- Transport -->
-        <rect x="40" y="80" width="160" height="40" rx="6" fill="#fef9e7" stroke="#b45309" stroke-width="1.5"/>
-        <text x="120" y="105" fill="#b45309" font-weight="700" text-anchor="middle">Transport ←</text>
-        <g transform="translate(230, 90)">
-          <rect width="32" height="22" fill="#fef9e7" stroke="#b45309" stroke-width="1.5"/>
-          <text x="16" y="16" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#b45309">Ht</text>
-          <rect x="32" width="40" height="22" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
-          <text x="52" y="16" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#047857">M</text>
-          <text x="120" y="16" text-anchor="middle" font-size="11" fill="#78716c">סגמנט</text>
-        </g>
-
-        <!-- Network -->
-        <rect x="40" y="140" width="160" height="40" rx="6" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.5"/>
-        <text x="120" y="165" fill="#6d28d9" font-weight="700" text-anchor="middle">Network ←</text>
-        <g transform="translate(230, 150)">
-          <rect width="32" height="22" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.5"/>
-          <text x="16" y="16" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#6d28d9">Hn</text>
-          <rect x="32" width="32" height="22" fill="#fef9e7" stroke="#b45309" stroke-width="1.5"/>
-          <text x="48" y="16" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#b45309">Ht</text>
-          <rect x="64" width="40" height="22" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
-          <text x="84" y="16" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#047857">M</text>
-          <text x="160" y="16" text-anchor="middle" font-size="11" fill="#78716c">דאטהגרם / פאקטה</text>
-        </g>
-
-        <!-- Link -->
-        <rect x="40" y="200" width="160" height="40" rx="6" fill="#fff1f2" stroke="#be123c" stroke-width="1.5"/>
-        <text x="120" y="225" fill="#be123c" font-weight="700" text-anchor="middle">Link ←</text>
-        <g transform="translate(230, 210)">
-          <rect width="32" height="22" fill="#fff1f2" stroke="#be123c" stroke-width="1.5"/>
-          <text x="16" y="16" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#be123c">Hl</text>
-          <rect x="32" width="32" height="22" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.5"/>
-          <text x="48" y="16" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#6d28d9">Hn</text>
-          <rect x="64" width="32" height="22" fill="#fef9e7" stroke="#b45309" stroke-width="1.5"/>
-          <text x="80" y="16" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#b45309">Ht</text>
-          <rect x="96" width="40" height="22" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
-          <text x="116" y="16" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#047857">M</text>
-          <text x="180" y="16" text-anchor="middle" font-size="11" fill="#78716c">פריים</text>
-        </g>
-
-        <!-- Physical -->
-        <rect x="40" y="260" width="160" height="40" rx="6" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
-        <text x="120" y="285" fill="#0891b2" font-weight="700" text-anchor="middle">Physical ←</text>
-        <text x="430" y="285" font-family="JetBrains Mono, monospace" font-size="12" fill="#0891b2" text-anchor="middle">01001011 11010101 10101100 10101110...</text>
-
-        <!-- Down arrow -->
-        <line x1="690" y1="40" x2="690" y2="270" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowEnc)"/>
-        <text x="705" y="155" font-size="11" fill="#475569" transform="rotate(-90 705 155)">כיוון הירידה</text>
-      </g>
-    </svg>
-    <div class="cap">בכל שכבה למטה — עוד כותרת. הביטים יוצאים לכבל ביציאה מהשכבה הפיזית.</div>
-  </div>
-
-  <div class="box warn">
-    <div class="box-head"><span class="icon">⚠</span>נקודה לזכור — שמות יחידות הנתונים</div>
-    <div class="box-body">
-      <p>במבחן ישאלו אותך מה השם של יחידת הנתונים בכל שכבה. שינון:</p>
-      <ul>
-        <li>אפליקציה: <strong>הודעה (Message)</strong></li>
-        <li>תעבורה: <strong>סגמנט</strong> (TCP) או <strong>דאטהגרם</strong> (UDP)</li>
-        <li>רשת: <strong>פאקטה</strong> או <strong>IP דאטהגרם</strong></li>
-        <li>לינק: <strong>פריים (Frame)</strong></li>
-        <li>פיזית: <strong>ביטים</strong></li>
-      </ul>
-      <p><strong>פח שכיח:</strong> "דאטהגרם" משמש פעמיים — גם ב-UDP (תעבורה) וגם ב-IP (רשת). הקשר מבהיר לאיזה מהם מתכוונים.</p>
-    </div>
-  </div>
-
-  <h2>שתי שיטות העברה — Packet Switching ו-Circuit Switching</h2>
-
-  <div class="figure">
-    <svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Packet vs Circuit Switching">
-      <g font-family="Assistant, sans-serif" font-size="12">
-        <!-- Packet Switching -->
-        <text x="180" y="20" text-anchor="middle" font-size="14" font-weight="700" fill="#4f46e5">Packet Switching</text>
-
-        <!-- Source -->
-        <circle cx="40" cy="100" r="18" fill="#fef9e7" stroke="#b45309" stroke-width="2"/>
-        <text x="40" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#b45309">S</text>
-
-        <!-- Routers -->
-        <rect x="100" y="85" width="28" height="28" rx="4" fill="#eef2ff" stroke="#4f46e5"/>
-        <text x="114" y="103" text-anchor="middle" font-size="10" fill="#4f46e5">R1</text>
-
-        <rect x="170" y="85" width="28" height="28" rx="4" fill="#eef2ff" stroke="#4f46e5"/>
-        <text x="184" y="103" text-anchor="middle" font-size="10" fill="#4f46e5">R2</text>
-
-        <rect x="240" y="85" width="28" height="28" rx="4" fill="#eef2ff" stroke="#4f46e5"/>
-        <text x="254" y="103" text-anchor="middle" font-size="10" fill="#4f46e5">R3</text>
-
-        <!-- Destination -->
-        <circle cx="320" cy="100" r="18" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
-        <text x="320" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">D</text>
-
-        <!-- Lines -->
-        <line x1="58" y1="100" x2="100" y2="100" stroke="#475569" stroke-width="2"/>
-        <line x1="128" y1="100" x2="170" y2="100" stroke="#475569" stroke-width="2"/>
-        <line x1="198" y1="100" x2="240" y2="100" stroke="#475569" stroke-width="2"/>
-        <line x1="268" y1="100" x2="302" y2="100" stroke="#475569" stroke-width="2"/>
-
-        <!-- Packets (small rects) -->
-        <rect x="70" y="92" width="10" height="6" fill="#fbbf24"/>
-        <rect x="140" y="92" width="10" height="6" fill="#fbbf24"/>
-        <rect x="210" y="92" width="10" height="6" fill="#fbbf24"/>
-
-        <text x="180" y="155" text-anchor="middle" font-size="11" fill="#1c1917">פקטות זורמות עצמאית, כל אחת בנפרד</text>
-        <text x="180" y="172" text-anchor="middle" font-size="11" fill="#78716c">Store and Forward בכל ראוטר</text>
-        <text x="180" y="190" text-anchor="middle" font-size="11" fill="#047857" font-weight="700">✓ שימוש יעיל ברוחב פס · ✓ פשוט · ✗ אין הבטחת איכות</text>
-
-        <!-- Divider -->
-        <line x1="360" y1="40" x2="360" y2="220" stroke="#e7e5e0" stroke-width="1" stroke-dasharray="4,4"/>
-
-        <!-- Circuit Switching -->
-        <text x="540" y="20" text-anchor="middle" font-size="14" font-weight="700" fill="#4f46e5">Circuit Switching</text>
-
-        <circle cx="400" cy="100" r="18" fill="#fef9e7" stroke="#b45309" stroke-width="2"/>
-        <text x="400" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#b45309">S</text>
-
-        <rect x="460" y="85" width="28" height="28" rx="4" fill="#eef2ff" stroke="#4f46e5"/>
-        <text x="474" y="103" text-anchor="middle" font-size="10" fill="#4f46e5">R1</text>
-
-        <rect x="530" y="85" width="28" height="28" rx="4" fill="#eef2ff" stroke="#4f46e5"/>
-        <text x="544" y="103" text-anchor="middle" font-size="10" fill="#4f46e5">R2</text>
-
-        <rect x="600" y="85" width="28" height="28" rx="4" fill="#eef2ff" stroke="#4f46e5"/>
-        <text x="614" y="103" text-anchor="middle" font-size="10" fill="#4f46e5">R3</text>
-
-        <circle cx="680" cy="100" r="18" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
-        <text x="680" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">D</text>
-
-        <!-- Dedicated circuit -->
-        <line x1="418" y1="100" x2="460" y2="100" stroke="#be123c" stroke-width="4"/>
-        <line x1="488" y1="100" x2="530" y2="100" stroke="#be123c" stroke-width="4"/>
-        <line x1="558" y1="100" x2="600" y2="100" stroke="#be123c" stroke-width="4"/>
-        <line x1="628" y1="100" x2="662" y2="100" stroke="#be123c" stroke-width="4"/>
-
-        <text x="540" y="155" text-anchor="middle" font-size="11" fill="#1c1917">מסלול ייעודי שמוקצה מראש</text>
-        <text x="540" y="172" text-anchor="middle" font-size="11" fill="#78716c">FDM (תדרים) או TDM (זמן)</text>
-        <text x="540" y="190" text-anchor="middle" font-size="11" fill="#be123c" font-weight="700">✓ הבטחת רוחב פס · ✓ אין תור · ✗ בזבזני</text>
-      </g>
-    </svg>
-    <div class="cap">פאקט סוויץ' (משמאל) — הראוטרים עובדים, אבל הרשת חולקת בין כולם. סירקט סוויץ' (מימין) — קו ייעודי אך בזבזני.</div>
-  </div>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>Packet Switching</div>
-    <div class="box-body">
-      <p><strong>רעיון מרכזי:</strong> חלוקת ההודעה לפאקטות עצמאיות. כל פאקטה מטופלת בנפרד.</p>
-      <h4>תהליך Store and Forward</h4>
-      <ol>
-        <li>הראוטר <strong>חייב לקבל את כל הפאקטה</strong> לפני שיכול לעשות משהו (כי הכותרת מתחילה את הפאקטה — בלי כל הביטים אין החלטה).</li>
-        <li>אחרי קבלה — מסתכל בטבלת הפורוורדינג ומחליט באיזו רגל לשלוח.</li>
-        <li>שולח החוצה.</li>
-      </ol>
-      <h4>שני מנגנונים מרכזיים</h4>
-      <ul>
-        <li><strong>Routing:</strong> בחירת המסלול. בונה את <strong>טבלת הפורוורדינג</strong>.</li>
-        <li><strong>Forwarding:</strong> פעולת ההעברה — מסתכל בטבלה ושולח לרגל המתאימה.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>Circuit Switching</div>
-    <div class="box-body">
-      <p><strong>רעיון מרכזי:</strong> הקצאת מסלול ייעודי לשיחה לפני שמתחילים. המסלול שמור לכל אורכה.</p>
-      <h4>שתי שיטות חלוקה של רוחב הפס</h4>
-      <ul>
-        <li><strong>FDM (Frequency Division):</strong> חלוקה לפי תדרים. כל שיחה מקבלת טווח תדרים משלה.</li>
-        <li><strong>TDM (Time Division):</strong> חלוקה לפי זמן. כל שיחה מקבלת חלון זמן ובו כל רוחב הפס.</li>
-      </ul>
-      <p><strong>איפה זה משמש?</strong> בעיקר במרכזיות טלפון — אחרי שחייגנו, לא רוצים שייקטע.</p>
-    </div>
-  </div>
-
-  <div class="box example">
-    <div class="box-head"><span class="icon">💡</span>למה האינטרנט בחר ב-PS ולא ב-CS?</div>
-    <div class="box-body">
-      <p>נתון: ראוטר עם רוחב פס 1 גיגה. רוצים לחבר ‎N משתמשים. כל אחד צורך 100 מגה. כל אחד פעיל רק 10% מהזמן.</p>
-      <h4>אם הראוטר עובד ב-CS:</h4>
-      <p>כל משתמש "תופס" 100 מגה רצוף. ‎1000/100 = <strong>10 משתמשים מקסימום</strong>.</p>
-      <h4>אם הראוטר עובד ב-PS:</h4>
-      <p>אפשר לחבר ‎35 משתמשים. הסיכוי שכולם פעילים בו-זמנית הוא קטן (בהתחשב ב-10% פעילות). חישוב בינומי נותן הסתברות לעומס $≈ 0.0004$.</p>
-      <div class="final-answer">PS מאפשר פי 3.5 יותר משתמשים, במחיר אובדן ‎0.04% מההודעות. שווה את הסיכון.</div>
-    </div>
-  </div>
-
-  <h2>מבנה האינטרנט בגדול — ספקיות ו-IXP</h2>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>היררכיית ספקים</div>
-    <div class="box-body">
-      <p>האינטרנט בנוי בהיררכיה של ספקיות:</p>
-      <ul>
-        <li>משתמש מקומי משלם ל-<strong>ISP מקומית</strong> (אפקה, ביתי, סלולר).</li>
-        <li>ה-ISP המקומית משלמת לספק <strong>אזורי/לאומי</strong>.</li>
-        <li>הספקים הלאומיים מתחברים זה לזה דרך <strong>IXP — Internet Exchange Point</strong>.</li>
-        <li>חברות ענק (גוגל, מייקרוסופט, נטפליקס) פורסות רשת משלהן שמתחברת ישירות ל-IXP, ולפעמים גם ישירות ל-ISP מקומיות (CDN, Edge Servers).</li>
-      </ul>
-    </div>
-  </div>
-
-  <h2>תרגילים</h2>
-
-  <div class="exercise-card">
-    <div class="exercise-q">
-      <span class="exercise-tag">סיכום למבחן · נושא: PS vs CS</span>
-      <p><strong>שאלה:</strong> מהם שני היתרונות העיקריים של Circuit Switching על Packet Switching? סמן מה <em>אינו</em> יתרון של CS.</p>
-    </div>
-    <button class="reveal-btn">הראה פתרון</button>
-    <div class="solution">
-      <div class="step">
-        <div class="step-label">היתרונות של CS על PS</div>
-        <ul>
-          <li><strong>הבטחה של רוחב פס</strong> לחיבור — אחרי הקמת הקשר, השיחה מקבלת רוחב פס קבוע ולא תאבד אותו לעולם.</li>
-          <li><strong>הבטחה של עיכוב</strong> לחיבור — אין תורים, אין המתנה. הזמן מקצה לקצה צפוי לחלוטין.</li>
-        </ul>
-      </div>
-      <div class="step">
-        <div class="step-label">מה לא יתרון</div>
-        <p><strong>אפשרות ליותר משתמשים</strong> ברשת — זה דווקא היתרון של PS. ב-CS, אם כל משתמש "תופס" קו, אנחנו מוגבלים למספר קווים פיזיים. ב-PS, בזכות סטטיסטיקה (לא כולם פעילים בו-זמנית), אפשר לדחוס הרבה יותר משתמשים.</p>
-      </div>
-      <div class="final-answer">CS עדיף ב-<strong>אמינות והבטחת איכות</strong>; PS עדיף ב-<strong>יעילות וניצולת</strong>. האינטרנט בחר ב-PS כי 99.96% מהזמן זה עובד מצוין.</div>
-    </div>
-  </div>
-
-  <div class="exercise-card">
-    <div class="exercise-q">
-      <span class="exercise-tag">סקירה · אינקפסולציה</span>
-      <p>הודעת HTTP יוצאת מהדפדפן ויורדת בשכבות עד לכבל. מה השם של יחידת הנתונים בכל שכבה?</p>
-    </div>
-    <button class="reveal-btn">הראה פתרון</button>
-    <div class="solution">
-      <div class="step">
-        <div class="step-label">בכל שכבה</div>
-        <ul>
-          <li><strong>אפליקציה</strong> ← הודעת HTTP</li>
-          <li><strong>תעבורה</strong> (TCP בדרך כלל ל-HTTP) ← <strong>סגמנט TCP</strong> (התוספת: ה-Header של TCP)</li>
-          <li><strong>רשת</strong> ← <strong>פאקטה / IP דאטהגרם</strong> (התוספת: ה-Header של IP — IP מקור, IP יעד)</li>
-          <li><strong>לינק</strong> ← <strong>פריים Ethernet</strong> (התוספת: ה-Header של Ethernet עם MAC מקור ו-MAC יעד)</li>
-          <li><strong>פיזית</strong> ← סדרה של <strong>ביטים</strong> בכבל</li>
-        </ul>
-      </div>
-      <div class="step">
-        <div class="step-label">ביעד — סדר הפוך</div>
-        <p>הביטים מגיעים לכרטיס הרשת. השכבה הפיזית מרכיבה אותם לפריים. הלינק מוריד את ה-Header שלו ומעלה דאטהגרם לרשת. הרשת מורידה את ה-Header שלה ומעלה סגמנט לתעבורה. וכן הלאה.</p>
-      </div>
-      <div class="final-answer">כל שכבה רואה רק את הרמה שלה. אפליקציה לא יודעת על MAC, ולינק לא יודע על HTTP.</div>
-    </div>
-  </div>
-
-  <div class="box summary">
-    <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
-    <div class="box-body">
-      <ul>
-        <li>הרשת = <strong>מכשירי קצה + ראוטרים + לינקים</strong></li>
-        <li>פרוטוקול = מסמך שמגדיר מבנה, סדר, משמעות ופעולה</li>
-        <li>5 שכבות (מלמעלה): <span class="term green">App</span> · <span class="term amber">Transport</span> · <span class="term purple">Network</span> · <span class="term red">Link</span> · <span class="term cyan">Physical</span></li>
-        <li>אינקפסולציה: כל שכבה למטה <strong>מוסיפה כותרת</strong>. ביעד — הסרה לפי הסדר ההפוך</li>
-        <li>שמות יחידות: הודעה ← סגמנט/דאטהגרם ← פאקטה ← פריים ← ביטים</li>
-        <li>PS = פאקטות עצמאיות, יעיל, ברירת מחדל באינטרנט</li>
-        <li>CS = מסלול ייעודי, מבטיח איכות, משמש בטלפוניה</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- chapter content ends above this line -->
+</div>
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="next" href="01-delays.html"><span class="dir">לנושא הבא ←</span><span class="name">השהיות ברשת</span></a>
+  <a class="prev" href="19-net-ospf-bgp.html"><span class="dir">→ לנושא הקודם</span><span class="name">OSPF, BGP, AS</span></a>
+  <a class="next" href="20-link-framing.html"><span class="dir">לנושא הבא ←</span><span class="name">Framing ושירותים</span></a>
 </nav>
 
 </main>
