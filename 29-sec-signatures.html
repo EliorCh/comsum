@@ -334,8 +334,8 @@ main { min-width: 0; }
     </div>
   </div>
 
-  <details class="enrichment">
-    <summary>חתימה דיגיטלית — קונספט מלא (העשרה)</summary>
+  <details class="enrichment" open>
+    <summary>חתימה דיגיטלית — קונספט מלא (הופיע במבחני עבר — ללמוד!)</summary>
     <div class="enrichment-body">
       <p class="enrichment-note">חתימה דיגיטלית היא נושא חשוב באבטחה. ‎לא נדרש למבחן הזה, אבל קיים בקונספט של SSL.</p>
 
@@ -411,6 +411,39 @@ main { min-width: 0; }
       </table>
     </div>
   </details>
+
+
+  <h2>MAC — Message Authentication Code</h2>
+
+  <div class="box theory">
+    <div class="box-head"><span class="icon">🔏</span>אימות בלי מפתח ציבורי</div>
+    <div class="box-body">
+      <p>כשלאליס ובוב כבר יש <strong>סוד משותף</strong> $s$, אפשר לאמת הודעות בזול, בלי RSA: אליס מחשבת $MAC = Hash(M + s)$ ומצרפת להודעה. בוב, שמכיר את $s$, מחשב אותו דבר ומשווה.</p>
+      <p>מה זה נותן? <strong>שניים במחיר אחד:</strong></p>
+      <ul>
+        <li><strong>שלמות (Integrity)</strong> — כל שינוי ב-$M$ משנה את ה-Hash.</li>
+        <li><strong>אימות מקור (Authentication)</strong> — רק מי שמחזיק ב-$s$ יכול היה לייצר את ה-MAC.</li>
+      </ul>
+      <p>מה זה <em>לא</em> נותן: <strong>סודיות</strong> — ההודעה עוברת גלויה; ו<strong>אי-הכחשה</strong> — גם בוב מחזיק ב-$s$, אז הוא לא יכול להוכיח לצד שלישי שדווקא אליס כתבה (בניגוד לחתימה דיגיטלית, שבה רק לאליס יש $SK_A$).</p>
+      <p>⚠️ <strong>ואל תתבלבלו:</strong> באבטחה MAC = ‏Message Authentication Code. בשכבה 2, ‏MAC = כתובת חומרה. אותו קיצור, עולמות שונים — המבחן יודע את זה.</p>
+    </div>
+  </div>
+
+  <h2>Nonce — ההגנה מפני Playback Attack</h2>
+
+  <div class="box theory">
+    <div class="box-head"><span class="icon">🎬</span>ההתקפה: הקלט ושדר מחדש</div>
+    <div class="box-body">
+      <p>‏<strong>Playback (Replay) Attack:</strong> טרודי לא צריכה לפצח כלום — היא <strong>מקליטה</strong> הודעת אימות לגיטימית של אליס (למשל "אני אליס" + סיסמה מוצפנת) ופשוט <strong>משדרת אותה שוב</strong> מאוחר יותר. ההודעה אותנטית לגמרי... רק לא חיה.</p>
+      <p><strong>הפתרון — Nonce</strong> (<em>Number used ONCE</em>): מספר חד-פעמי שבוב מגריל לכל התחברות.</p>
+      <ol>
+        <li>אליס: "אני אליס".</li>
+        <li>בוב שולח אתגר: nonce טרי $R$.</li>
+        <li>אליס מחזירה את $R$ מוצפן במפתח (המשותף או הפרטי שלה): $Enc(K, R)$.</li>
+      </ol>
+      <p>הקלטה ישנה של טרודי חסרת ערך — היא מכילה תשובה ל-$R$ <strong>אחר</strong>. ההצפנה מוכיחה זהות, וה-nonce מוכיח שהתשובה נוצרה <strong>עכשיו</strong>. (על אותו עיקרון בנויים גם ה-nonces ב-SSL Handshake.)</p>
+    </div>
+  </div>
 
   <div class="box summary">
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>

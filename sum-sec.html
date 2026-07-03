@@ -298,6 +298,7 @@ main { min-width: 0; }
       <li><strong>חתימה:</strong> ‏<span class="term">Enc(SK_שלי, Hash(M))</span> — עם המפתח <em>הפרטי</em> של השולח. הפוך מהצפנה!</li>
       <li><strong>Brute Force על החלפה מונו-אלפביתית:</strong> שפה עם $n$ אותיות, $k$ מופיעות בטקסט: $\frac{n!}{(n-k)!}$ מפתחות; בממוצע בודקים חצי.</li>
       <li><strong>DES:</strong> ‏56 ביט (חלש). ‏<strong>AES:</strong> ‏128/256. ‏<strong>RSA:</strong> ‏2048.</li>
+      <li><strong>RSA keygen:</strong> $n = pq$, ‏$\varphi = (p-1)(q-1)$, ‏$e \cdot d \equiv 1 \pmod{\varphi}$, ‏$1 < e < \varphi$.</li>
     </ul>
   </div>
 </div>
@@ -307,7 +308,8 @@ main { min-width: 0; }
 
     <ul>
       <li>הצפנה = מפתח ציבורי של <strong>המקבל</strong>; חתימה = מפתח פרטי של <strong>השולח</strong>. רוב הנקודות במבחן הולכות לאיבוד כאן.</li>
-      <li>‏MAC בהקשר אבטחה = ‏Message Authentication Code — לא כתובת החומרה משכבה 2.</li>
+      <li>‏MAC בהקשר אבטחה = ‏Message Authentication Code — נותן שלמות + אימות (לא סודיות!), ולא כתובת החומרה משכבה 2.</li>
+      <li>‏Nonce מונע <strong>Playback Attack</strong> — הקלטה של אימות ישן לא עונה על אתגר טרי.</li>
       <li>‏SSL לא מחליף את TCP — הוא רץ <strong>מעליו</strong>, בין האפליקציה לתעבורה.</li>
       <li>אסימטרי לא "יותר טוב" — הוא איטי מדי לנפחים גדולים; לכן תמיד משלבים (היברידי).</li>
     </ul>

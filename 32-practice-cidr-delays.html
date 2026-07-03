@@ -764,6 +764,106 @@ main { min-width: 0; }
     </div>
   </div>
 
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">מבחני עבר · Nonce</span>
+      <p>למדנו על מנגנון nonce. איזו התקפה הוא נועד למנוע? הסבירו גם <em>איך</em>.</p>
+      <ol>
+        <li>Playback Attack</li>
+        <li>DDoS Attack</li>
+        <li>DoS Attack</li>
+        <li>Truncation Attack</li>
+      </ol>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">התשובה</div>
+        <p><strong>1 — Playback Attack.</strong></p>
+      </div>
+      <div class="step">
+        <div class="step-label">ההסבר</div>
+        <p>ב-Playback טרודי מקליטה הודעת אימות אמיתית ומשדרת אותה שוב. ה-nonce (מספר חד-פעמי) הופך כל התחברות לאתגר טרי: בוב שולח $R$ חדש, אליס מחזירה $Enc(K, R)$ — והקלטה ישנה עונה על $R$ הלא-נכון. ‏DoS/DDoS הן התקפות הצפה — לא קשורות לאימות.</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">מבחני עבר · יצירת מפתחות RSA</span>
+      <p>בוב משתמש בהצפנת RSA עם הראשוניים $p = 5$, ‏$q = 7$, והמפתח הפרטי שלו הוא $d = 29$. מהו המפתח הציבורי $(e, n)$?</p>
+      <ol>
+        <li>$(5, 35)$</li>
+        <li>$(29, 35)$</li>
+        <li>$(5, 24)$</li>
+        <li>$(12, 35)$</li>
+      </ol>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · n ו-φ</div>
+        $$n = p \cdot q = 35, \qquad \varphi(n) = (p-1)(q-1) = 4 \cdot 6 = 24$$
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · התנאי על e</div>
+        <p>צריך $e \cdot d \equiv 1 \pmod{24}$. מפשטים: $29 \equiv 5 \pmod{24}$, אז מחפשים $e$ עם $5e \equiv 1 \pmod{24}$:</p>
+        $$e = 5: \quad 5 \cdot 5 = 25 \equiv 1 \pmod{24} \;\checkmark$$
+        <p><strong>התשובה: 1 — $(5, 35)$.</strong></p>
+      </div>
+      <div class="step">
+        <div class="step-label">למה 2 היא המלכודת</div>
+        <p>גם $e=29$ מקיים את הקונגרואנציה ($29 \equiv 5$), אבל הוא נופל בתנאי הטווח $1 < e < \varphi(n) = 24$. ותשובה 3 היא מלכודת הפוכה: ‏$e$ נכון אבל $n$ הוחלף ב-$\varphi(n)$ — המפתח הציבורי תמיד עם $n$, לא עם $\varphi$.</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">מבחני עבר · צופן קיסר</span>
+      <p>הצפינו את ההודעה <span class="term">HI HOW ARE YOU</span> באמצעות צופן יוליוס קיסר הקלאסי.</p>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">שלב 1 · הכלל</div>
+        <p>"הקלאסי" = הזזה של <strong>3 קדימה</strong>, עם גלגול בסוף האלפבית (X→A, Y→B, Z→C).</p>
+      </div>
+      <div class="step">
+        <div class="step-label">שלב 2 · אות-אות</div>
+        <ul>
+          <li><span class="term">HI</span>: ‏H→K, I→L ← ‏<span class="term">KL</span></li>
+          <li><span class="term">HOW</span>: ‏H→K, O→R, W→Z ← ‏<span class="term">KRZ</span></li>
+          <li><span class="term">ARE</span>: ‏A→D, R→U, E→H ← ‏<span class="term">DUH</span></li>
+          <li><span class="term">YOU</span>: ‏<strong>Y→B (גלגול!)</strong>, O→R, U→X ← ‏<span class="term">BRX</span></li>
+        </ul>
+        $$\text{KL KRZ DUH BRX}$$
+        <p>המלכודת הקבועה: לשכוח את הגלגול ב-Y. מסיח שמתחיל ב-<span class="term">JK</span> = הזזה של 1 בלבד — בדיקה מהירה של האות הראשונה מפילה אותו.</p>
+      </div>
+    </div>
+  </div>
+  <div class="exercise-card">
+    <div class="exercise-q">
+      <span class="exercise-tag">מבחני עבר · תפקיד ה-MAC</span>
+      <p>‏Message Authentication Code (MAC) משמש ל:</p>
+      <ol>
+        <li>זיהוי שההודעה לא שונתה בדרך.</li>
+        <li>זיהוי מי כתב את ההודעה.</li>
+        <li>הצפנת ההודעה.</li>
+        <li>‏1 ו-2 נכונות.</li>
+      </ol>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="step">
+        <div class="step-label">התשובה</div>
+        <p><strong>4 — גם שלמות וגם אימות מקור.</strong></p>
+      </div>
+      <div class="step">
+        <div class="step-label">ההסבר</div>
+        <p>‏$MAC = Hash(M + s)$ עם סוד משותף $s$: כל שינוי ב-$M$ משנה את התוצאה (שלמות), ורק מי שמחזיק ב-$s$ יכול לייצר אותה (אימות). מה שהוא <em>לא</em> עושה: הצפנה — ההודעה עוברת גלויה (לכן 3 שגויה), ואי-הכחשה — בשביל זה צריך חתימה עם מפתח פרטי.</p>
+      </div>
+    </div>
+  </div>
+
   <div class="box summary">
     <div class="box-head"><span class="icon">📌</span>סיכום מהיר לשני החלקים</div>
     <div class="box-body">

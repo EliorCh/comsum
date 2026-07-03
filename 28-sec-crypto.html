@@ -352,8 +352,8 @@ main { min-width: 0; }
     </div>
   </div>
 
-  <details class="enrichment">
-    <summary>פירוט טכני נוסף — אלגוריתמים, אורכי מפתח, השוואות (העשרה)</summary>
+  <details class="enrichment" open>
+    <summary>פירוט טכני נוסף — אלגוריתמים, אורכי מפתח, השוואות (הופיע במבחני עבר — ללמוד!)</summary>
     <div class="enrichment-body">
       <p class="enrichment-note">לא נדרש למבחן. ‎לרקע בלבד.</p>
 
@@ -394,6 +394,42 @@ main { min-width: 0; }
       <p>זה בדיוק מה ש-SSL/TLS עושה (פרק 6.4).</p>
     </div>
   </details>
+
+
+  <h2>צפנים קלאסיים — קיסר והחלפה</h2>
+
+  <div class="box theory">
+    <div class="box-head"><span class="icon">🏛️</span>צופן יוליוס קיסר</div>
+    <div class="box-body">
+      <p>הצופן הסימטרי העתיק ביותר: <strong>מזיזים כל אות 3 צעדים קדימה</strong> באלפבית (הגרסה ה"קלאסית" — ההזזה היא תמיד 3, וזה בעצם המפתח). בסוף האלפבית מתגלגלים להתחלה: ‏<span class="term">X→A, Y→B, Z→C</span>.</p>
+      <p>דוגמה: ‏<span class="term">HI HOW ARE YOU</span> ← ‏<span class="term">KL KRZ DUH BRX</span>. שימו לב ל-Y שמתגלגל: ‏<span class="term">Y→B</span>.</p>
+      <p><strong>למה הוא שביר:</strong> יש רק 25 הזזות אפשריות — brute force של שניות. השדרוג הוא <strong>החלפה מונו-אלפביתית</strong>: כל אות ממופה לאות שרירותית אחרת. שם מרחב המפתחות קופץ ל-$26!$, אבל הוא עדיין נשבר בניתוח שכיחויות.</p>
+      <p>ספירת מפתחות בהחלפה כשמופיעות רק $k$ אותיות שונות מתוך אלפבית של $n$: $\dfrac{n!}{(n-k)!}$, וב-brute force בודקים בממוצע <strong>חצי</strong> מהמרחב.</p>
+    </div>
+  </div>
+
+  <h2>המתמטיקה של RSA — איך נוצרים המפתחות</h2>
+
+  <div class="box formula">
+    <div class="box-head"><span class="icon">🔑</span>מתכון יצירת המפתחות</div>
+    <div class="box-body">
+      <ol>
+        <li>בוחרים שני ראשוניים $p, q$ ומחשבים $n = p \cdot q$.</li>
+        <li>מחשבים את פונקציית אוילר: $\varphi(n) = (p-1)(q-1)$.</li>
+        <li>בוחרים $e$ כך ש-$1 < e < \varphi(n)$ ו-$\gcd(e, \varphi(n)) = 1$ (זרים).</li>
+        <li>מוצאים $d$ כך ש-$e \cdot d \equiv 1 \pmod{\varphi(n)}$.</li>
+      </ol>
+      <p><strong>המפתח הציבורי:</strong> $(e, n)$. <strong>הפרטי:</strong> $(d, n)$. הצפנה: $c = m^e \bmod n$; פענוח: $m = c^d \bmod n$.</p>
+      <p>הביטחון: מי שרואה את $n$ הציבורי צריך <strong>לפרק אותו לגורמים</strong> כדי לגלות את $\varphi(n)$ — וזה קשה כשהראשוניים ענקיים.</p>
+    </div>
+  </div>
+
+  <div class="box warn">
+    <div class="box-head"><span class="icon">⚠️</span>המלכודת של שאלות המפתחות</div>
+    <div class="box-body">
+      <p>התנאי $e \cdot d \equiv 1 \pmod{\varphi(n)}$ מתקיים לכל $e$ באותה מחלקת שקילות — למשל גם $e$ וגם $e + \varphi(n)$ "עובדים" אריתמטית. במבחן, התשובה הנכונה היא זו שמקיימת גם את <strong>תנאי הטווח $1 < e < \varphi(n)$</strong>. מסיחים אוהבים לשים ערך מחוץ לטווח שנראה תקין.</p>
+    </div>
+  </div>
 
   <div class="box summary">
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
