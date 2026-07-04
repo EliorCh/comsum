@@ -187,9 +187,46 @@
 main { min-width: 0; }
 .box-body { overflow-x: auto; }
 .figure svg { max-width: 100%; height: auto; }
+
+/* ===== ui-fixes-v3 ===== */
+/* (1) sidebar collapse */
+.menu-toggle {
+  position: fixed; top: 14px; inset-inline-start: 14px; z-index: 60;
+  width: 42px; height: 42px; border: none; border-radius: 10px;
+  background: #312e81; color: #e0e7ff; font-size: 20px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(30,27,75,.28); display: none;
+  align-items: center; justify-content: center; line-height: 1;
+}
+.menu-toggle:hover { background: #3730a3; }
+body.nav-hidden .app { grid-template-columns: 1fr; }
+body.nav-hidden .sidebar { display: none; }
+body.nav-hidden .menu-toggle { display: flex; }
+.menu-toggle.always { display: flex; }
+/* keep the toggle from covering the H1 when the menu is hidden */
+body.nav-hidden main { padding-top: 68px; }
+
+/* (3) pager arrows follow logical order in RTL */
+.pager .dir .arw { font-style: normal; }
+
+/* (4) breathing room after inline bold labels (colons pulled inside) */
+.box-body strong, main p strong, main li strong { margin-inline-end: .2em; }
+
+/* ===== pager-home-v3 ===== */
+.pager { align-items: stretch; }
+.pager a.home { text-align: center; align-items: center; max-width: 30%; background: var(--indigo-1, #eef2ff); }
+.pager a.home .name { font-weight: 600; font-size: 13px; color: var(--ink-mute, #78716c); }
+.pager a.prev { text-align: right; }
+.pager a.next { text-align: left; }
+.pager a.next .arw, .pager a.prev .arw { font-weight: 700; }
+@media (max-width: 600px) {
+  .pager { flex-wrap: wrap; }
+  .pager a { max-width: 100%; flex: 1 1 100%; }
+  .pager a.home { order: 3; }
+}
 </style>
 </head>
 <body>
+<button class="menu-toggle" id="menuToggle" aria-label="הצג/הסתר תפריט" title="הצג/הסתר תפריט">☰</button>
 <div class="app">
 
 <aside class="sidebar">
@@ -516,7 +553,7 @@ main { min-width: 0; }
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>שאילתה רקורסיבית (Recursive)</div>
     <div class="box-body">
-      <p>במקום שה-Local DNS יעבור שרת-שרת — <strong>הוא שואל את ה-Root, וה-Root ממשיך בעצמו</strong>: שואל את ה-TLD, שמשאל את ה-Auth, והתשובה <strong>חוזרת בשרשרת</strong>.</p>
+      <p>במקום שה-Local DNS יעבור שרת-שרת — <strong>הוא שואל את ה-Root, וה-Root ממשיך בעצמו:</strong> שואל את ה-TLD, שמשאל את ה-Auth, והתשובה <strong>חוזרת בשרשרת</strong>.</p>
       <h4>תהליך</h4>
       <ol>
         <li>Local DNS שואל את ה-Root: "מה ה-IP של gaia.cs.umass.edu?"</li>
@@ -596,7 +633,7 @@ main { min-width: 0; }
       <ul>
         <li><strong>Identification (16 ביט):</strong> ‎ID של השאילתה — כך התגובה תוכל להיות מקושרת לבקשה הנכונה.</li>
         <li><strong>Flags:</strong> שאילתה/תגובה, האם רקורסיבי, האם authoritative.</li>
-        <li><strong># questions, # answers, # authority, # additional</strong>: כמה רשומות בכל חלק.</li>
+        <li><strong># questions, # answers, # authority, # additional:</strong> כמה רשומות בכל חלק.</li>
       </ul>
       <h4>Body</h4>
       <ul>
@@ -662,7 +699,7 @@ main { min-width: 0; }
       </div>
       <div class="step">
         <div class="step-label">המימוש</div>
-        <p>הפונקציה תבצע <strong>שאילתה איטרטיבית בעצמה</strong>:</p>
+        <p>הפונקציה תבצע <strong>שאילתה איטרטיבית בעצמה:</strong></p>
         <ol>
           <li>שואלת את ה-Local DNS. אם יש לו תשובה (במטמון) — מחזירה.</li>
           <li>אם לא — הלוקאל יחזיר "שאל את ה-Root" עם ה-IP שלו.</li>
@@ -697,7 +734,7 @@ main { min-width: 0; }
       </div>
       <div class="step">
         <div class="step-label">למה איטרטיבי עדיף</div>
-        <p>איטרטיבי <strong>מקל על שרתי השורש וה-TLD</strong>:</p>
+        <p>איטרטיבי <strong>מקל על שרתי השורש וה-TLD:</strong></p>
         <ul>
           <li>ב-Iterative: Root מקבל שאלה, נותן תשובה קצרה, ושכח.</li>
           <li>ב-Recursive: Root מקבל שאלה, ממשיך לשאול בעצמו את TLD, ממתין, מקבל תשובה, מעביר חזרה. הוא <strong>חייב לעבוד יותר ולזכור</strong>.</li>
@@ -724,10 +761,10 @@ main { min-width: 0; }
       <div class="step">
         <div class="step-label">בדיקה משפט-משפט</div>
         <ul>
-          <li><strong>‎1. מבוזר ✓ נכון.</strong> מיליוני שרתי DNS בעולם, מסודרים בעץ. לא מרכז אחד.</li>
-          <li><strong>‎2. סדרתי ✗ לא נכון.</strong> ה-DNS הוא <strong>היררכי</strong> ולא סדרתי. כל רמה ממליצה על הבאה — לא רץ ברצף לינארי.</li>
-          <li><strong>‎3. גופים פרטיים בלבד ✗ לא נכון.</strong> Root ו-TLD מנוהלים ע״י ארגונים בינלאומיים (ICANN, Verisign). Authoritative יכולים להיות פרטיים, אבל לא רק.</li>
-          <li><strong>‎4. אינטרנט נופל ✗ לא נכון.</strong> אם DNS נופל, רק <strong>תרגום שמות</strong> נפסק. מי שיודע IP יכול עדיין להגיע. הליבה ממשיכה לעבוד.</li>
+          <li><strong><bdi>1. מבוזר ✓ נכון.</bdi></strong> מיליוני שרתי DNS בעולם, מסודרים בעץ. לא מרכז אחד.</li>
+          <li><strong><bdi>2. סדרתי ✗ לא נכון.</bdi></strong> ה-DNS הוא <strong>היררכי</strong> ולא סדרתי. כל רמה ממליצה על הבאה — לא רץ ברצף לינארי.</li>
+          <li><strong><bdi>3. גופים פרטיים בלבד ✗ לא נכון.</bdi></strong> Root ו-TLD מנוהלים ע״י ארגונים בינלאומיים (ICANN, Verisign). Authoritative יכולים להיות פרטיים, אבל לא רק.</li>
+          <li><strong><bdi>4. אינטרנט נופל ✗ לא נכון.</bdi></strong> אם DNS נופל, רק <strong>תרגום שמות</strong> נפסק. מי שיודע IP יכול עדיין להגיע. הליבה ממשיכה לעבוד.</li>
         </ul>
       </div>
       <div class="final-answer">רק <strong>הצהרה 1 נכונה</strong>. מבוזר, היררכי (לא סדרתי), משולב פרטי/ציבורי, לא Single Point of Failure.</div>
@@ -770,8 +807,9 @@ main { min-width: 0; }
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="05-app-cookies.html"><span class="dir">→ לנושא הקודם</span><span class="name">Cookies</span></a>
-  <a class="next" href="sum-app.html"><span class="dir">לנושא הבא ←</span><span class="name">סיכום — שכבת האפליקציה</span></a>
+  <a class="prev" href="05-app-cookies.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">Cookies</span></a>
+  <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
+  <a class="next" href="sum-app.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">סיכום — שכבת האפליקציה</span></a>
 </nav>
 
 </main>
@@ -996,6 +1034,27 @@ main { min-width: 0; }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
   else run();
+})();
+</script>
+
+
+<script>
+/* ===== ui-fixes-v3: sidebar toggle ===== */
+(function () {
+  var btn = document.getElementById('menuToggle');
+  if (!btn) return;
+  // restore last state (per-tab, no storage API: use a URL-independent global on window.name)
+  try { if (window.name === 'nav-hidden') document.body.classList.add('nav-hidden'); } catch (e) {}
+  function sync() {
+    var hidden = document.body.classList.contains('nav-hidden');
+    btn.classList.toggle('always', !hidden); // stay visible even when menu shown
+    try { window.name = hidden ? 'nav-hidden' : ''; } catch (e) {}
+  }
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('nav-hidden');
+    sync();
+  });
+  sync();
 })();
 </script>
 

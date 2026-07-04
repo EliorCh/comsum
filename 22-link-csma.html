@@ -187,9 +187,46 @@
 main { min-width: 0; }
 .box-body { overflow-x: auto; }
 .figure svg { max-width: 100%; height: auto; }
+
+/* ===== ui-fixes-v3 ===== */
+/* (1) sidebar collapse */
+.menu-toggle {
+  position: fixed; top: 14px; inset-inline-start: 14px; z-index: 60;
+  width: 42px; height: 42px; border: none; border-radius: 10px;
+  background: #312e81; color: #e0e7ff; font-size: 20px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(30,27,75,.28); display: none;
+  align-items: center; justify-content: center; line-height: 1;
+}
+.menu-toggle:hover { background: #3730a3; }
+body.nav-hidden .app { grid-template-columns: 1fr; }
+body.nav-hidden .sidebar { display: none; }
+body.nav-hidden .menu-toggle { display: flex; }
+.menu-toggle.always { display: flex; }
+/* keep the toggle from covering the H1 when the menu is hidden */
+body.nav-hidden main { padding-top: 68px; }
+
+/* (3) pager arrows follow logical order in RTL */
+.pager .dir .arw { font-style: normal; }
+
+/* (4) breathing room after inline bold labels (colons pulled inside) */
+.box-body strong, main p strong, main li strong { margin-inline-end: .2em; }
+
+/* ===== pager-home-v3 ===== */
+.pager { align-items: stretch; }
+.pager a.home { text-align: center; align-items: center; max-width: 30%; background: var(--indigo-1, #eef2ff); }
+.pager a.home .name { font-weight: 600; font-size: 13px; color: var(--ink-mute, #78716c); }
+.pager a.prev { text-align: right; }
+.pager a.next { text-align: left; }
+.pager a.next .arw, .pager a.prev .arw { font-weight: 700; }
+@media (max-width: 600px) {
+  .pager { flex-wrap: wrap; }
+  .pager a { max-width: 100%; flex: 1 1 100%; }
+  .pager a.home { order: 3; }
+}
 </style>
 </head>
 <body>
+<button class="menu-toggle" id="menuToggle" aria-label="הצג/הסתר תפריט" title="הצג/הסתר תפריט">☰</button>
 <div class="app">
 
 <aside class="sidebar">
@@ -344,7 +381,7 @@ main { min-width: 0; }
       <p>בלי CD: המקבל יודע שהיתה התנגשות כי ה-CRC לא תואם.</p>
       <p>עם CD: השולח עצר ב<strong>אמצע הפריים</strong>. ה-CRC כלל לא נשלח. המקבל לא יודע.</p>
       <h4>הפתרון: JAM Signal</h4>
-      <p>כל מי שזיהה התנגשות שולח <strong>‎48 ביט (או 32 ביט) של "רעש"</strong> — JAM Signal. ככה כל הרשת יודעת שהיתה התנגשות.</p>
+      <p>כל מי שזיהה התנגשות שולח <strong><bdi>48 ביט (או 32 ביט) של "רעש"</bdi></strong> — JAM Signal. ככה כל הרשת יודעת שהיתה התנגשות.</p>
     </div>
   </div>
 
@@ -372,7 +409,7 @@ main { min-width: 0; }
     <div class="box-head"><span class="icon">📘</span>גודל מינימלי סטנדרטי ב-Ethernet</div>
     <div class="box-body">
       <p>בהנחות הסטנדרטיות (10 Mbps Ethernet, פרופוגיישן טיפוסי), חישוב מגיע ל:</p>
-      <p><strong>‎64 בתים = 512 ביטים</strong> — גודל הפריים המינימלי.</p>
+      <p><strong><bdi>64 בתים = 512 ביטים</bdi></strong> — גודל הפריים המינימלי.</p>
       <p>אם הדאטה קטנה יותר — מוסיפים <strong>padding</strong>.</p>
     </div>
   </div>
@@ -461,7 +498,7 @@ main { min-width: 0; }
         <li><strong>Dest MAC</strong> (6 בתים): כתובת ה-MAC של המקבל. <strong>למה ראשון אחרי ה-Preamble?</strong> כי המקבל רוצה לדעת קודם אם זה אליו לפני שממשיך לקרוא.</li>
         <li><strong>Src MAC</strong> (6 בתים): כתובת ה-MAC של השולח.</li>
         <li><strong>Type</strong> (2 בתים): איזה פרוטוקול נמצא מעלינו (IPv4, IPv6, ARP...).</li>
-        <li><strong>Data</strong>: נתונים, ‎46-1500 בתים. אם הנתונים קצרים יותר — padding.</li>
+        <li><strong>Data:</strong> נתונים, ‎46-1500 בתים. אם הנתונים קצרים יותר — padding.</li>
         <li><strong>CRC</strong> (4 בתים): בדיקת שגיאות.</li>
       </ul>
     </div>
@@ -477,7 +514,7 @@ main { min-width: 0; }
       <tr><td>ALOHA</td><td>לא</td><td>בדיעבד</td><td>‎18%</td></tr>
       <tr><td>Slotted ALOHA</td><td>לא</td><td>בדיעבד</td><td>‎37%</td></tr>
       <tr><td>CSMA</td><td>כן</td><td>בדיעבד</td><td>בינוני</td></tr>
-      <tr><td>CSMA/CD (Ethernet)</td><td>כן</td><td>תוך כדי + JAM</td><td><strong>‎95%</strong></td></tr>
+      <tr><td>CSMA/CD (Ethernet)</td><td>כן</td><td>תוך כדי + JAM</td><td><strong><bdi>95%</bdi></strong></td></tr>
     </tbody>
   </table>
 
@@ -534,13 +571,13 @@ main { min-width: 0; }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li><strong>CSMA</strong>: <em>תקשיב לפני שתשלח</em>. אם תפוס — לא משדר</li>
+        <li><strong>CSMA:</strong> <em>תקשיב לפני שתשלח</em>. אם תפוס — לא משדר</li>
         <li>Persistent-1 (חמדן) vs Non-Persistent (סבלני)</li>
         <li>בגלל propagation delay — עדיין יש התנגשויות ← <strong>CSMA/CD</strong></li>
-        <li><strong>CSMA/CD</strong>: מזהה התנגשות תוך כדי שידור ← <strong>עוצר</strong> + JAM signal</li>
+        <li><strong>CSMA/CD:</strong> מזהה התנגשות תוך כדי שידור ← <strong>עוצר</strong> + JAM signal</li>
         <li>גודל פריים מינימלי: <strong>L ≥ 2 · R · d_prop</strong> (ב-Ethernet סטנדרטי: 64 בתים)</li>
-        <li><strong>Binary Exponential Backoff</strong>: K אקראי בטווח [0, 2^n − 1], זמן = K × 512 bit times</li>
-        <li><strong>Ethernet</strong>: CSMA/CD + Persistent-1. ‎ניצולת <strong>95%</strong></li>
+        <li><strong>Binary Exponential Backoff:</strong> K אקראי בטווח [0, 2^n − 1], זמן = K × 512 bit times</li>
+        <li><strong>Ethernet:</strong> CSMA/CD + Persistent-1. ‎ניצולת <strong>95%</strong></li>
         <li>אין הקמת קשר, אין ACK. ‎אמינות = TCP מעל</li>
       </ul>
     </div>
@@ -550,8 +587,9 @@ main { min-width: 0; }
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="21-link-aloha.html"><span class="dir">→ לנושא הקודם</span><span class="name">ALOHA</span></a>
-  <a class="next" href="23-link-mac-arp.html"><span class="dir">לנושא הבא ←</span><span class="name">MAC, ARP</span></a>
+  <a class="prev" href="21-link-aloha.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">ALOHA</span></a>
+  <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
+  <a class="next" href="23-link-mac-arp.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">MAC, ARP</span></a>
 </nav>
 
 </main>
@@ -776,6 +814,27 @@ main { min-width: 0; }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
   else run();
+})();
+</script>
+
+
+<script>
+/* ===== ui-fixes-v3: sidebar toggle ===== */
+(function () {
+  var btn = document.getElementById('menuToggle');
+  if (!btn) return;
+  // restore last state (per-tab, no storage API: use a URL-independent global on window.name)
+  try { if (window.name === 'nav-hidden') document.body.classList.add('nav-hidden'); } catch (e) {}
+  function sync() {
+    var hidden = document.body.classList.contains('nav-hidden');
+    btn.classList.toggle('always', !hidden); // stay visible even when menu shown
+    try { window.name = hidden ? 'nav-hidden' : ''; } catch (e) {}
+  }
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('nav-hidden');
+    sync();
+  });
+  sync();
 })();
 </script>
 

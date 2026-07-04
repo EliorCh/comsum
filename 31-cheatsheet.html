@@ -187,9 +187,46 @@
 main { min-width: 0; }
 .box-body { overflow-x: auto; }
 .figure svg { max-width: 100%; height: auto; }
+
+/* ===== ui-fixes-v3 ===== */
+/* (1) sidebar collapse */
+.menu-toggle {
+  position: fixed; top: 14px; inset-inline-start: 14px; z-index: 60;
+  width: 42px; height: 42px; border: none; border-radius: 10px;
+  background: #312e81; color: #e0e7ff; font-size: 20px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(30,27,75,.28); display: none;
+  align-items: center; justify-content: center; line-height: 1;
+}
+.menu-toggle:hover { background: #3730a3; }
+body.nav-hidden .app { grid-template-columns: 1fr; }
+body.nav-hidden .sidebar { display: none; }
+body.nav-hidden .menu-toggle { display: flex; }
+.menu-toggle.always { display: flex; }
+/* keep the toggle from covering the H1 when the menu is hidden */
+body.nav-hidden main { padding-top: 68px; }
+
+/* (3) pager arrows follow logical order in RTL */
+.pager .dir .arw { font-style: normal; }
+
+/* (4) breathing room after inline bold labels (colons pulled inside) */
+.box-body strong, main p strong, main li strong { margin-inline-end: .2em; }
+
+/* ===== pager-home-v3 ===== */
+.pager { align-items: stretch; }
+.pager a.home { text-align: center; align-items: center; max-width: 30%; background: var(--indigo-1, #eef2ff); }
+.pager a.home .name { font-weight: 600; font-size: 13px; color: var(--ink-mute, #78716c); }
+.pager a.prev { text-align: right; }
+.pager a.next { text-align: left; }
+.pager a.next .arw, .pager a.prev .arw { font-weight: 700; }
+@media (max-width: 600px) {
+  .pager { flex-wrap: wrap; }
+  .pager a { max-width: 100%; flex: 1 1 100%; }
+  .pager a.home { order: 3; }
+}
 </style>
 </head>
 <body>
+<button class="menu-toggle" id="menuToggle" aria-label="הצג/הסתר תפריט" title="הצג/הסתר תפריט">☰</button>
 <div class="app">
 
 <aside class="sidebar">
@@ -303,9 +340,9 @@ main { min-width: 0; }
     <div class="box-head"><span class="icon">📐</span>RTT ו-RDT</div>
     <div class="box-body">
       <ul>
-        <li><strong>EstimatedRTT</strong>: <span class="term">(1 − α) · EstimatedRTT + α · SampleRTT</span>. טיפוסי: <span class="term">α = 0.125</span></li>
-        <li><strong>DevRTT</strong>: <span class="term">(1 − β) · DevRTT + β · |SampleRTT − EstimatedRTT|</span>. טיפוסי: <span class="term">β = 0.25</span></li>
-        <li><strong>TimeoutInterval</strong>: <span class="term">EstimatedRTT + 4 · DevRTT</span></li>
+        <li><strong>EstimatedRTT:</strong> <span class="term">(1 − α) · EstimatedRTT + α · SampleRTT</span>. טיפוסי: <span class="term">α = 0.125</span></li>
+        <li><strong>DevRTT:</strong> <span class="term">(1 − β) · DevRTT + β · |SampleRTT − EstimatedRTT|</span>. טיפוסי: <span class="term">β = 0.25</span></li>
+        <li><strong>TimeoutInterval:</strong> <span class="term">EstimatedRTT + 4 · DevRTT</span></li>
       </ul>
     </div>
   </div>
@@ -333,10 +370,10 @@ main { min-width: 0; }
     <div class="box-head"><span class="icon">📐</span>‎Congestion Control (TCP Reno)</div>
     <div class="box-body">
       <ul>
-        <li><strong>Slow Start</strong>: ‎cwnd מתחיל ב-1 MSS. ‎כפול בכל RTT (אקספוננציאלי).</li>
+        <li><strong>Slow Start:</strong> ‎cwnd מתחיל ב-1 MSS. ‎כפול בכל RTT (אקספוננציאלי).</li>
         <li>מעבר ל-AIMD כש-cwnd מגיע ל-ssthresh.</li>
-        <li><strong>AIMD</strong>: ‎+1 MSS בכל RTT (לינארי).</li>
-        <li><strong>Timeout</strong>: ‎ssthresh = cwnd/2, cwnd = 1, חוזרים ל-slow start.</li>
+        <li><strong>AIMD:</strong> ‎+1 MSS בכל RTT (לינארי).</li>
+        <li><strong>Timeout:</strong> ‎ssthresh = cwnd/2, cwnd = 1, חוזרים ל-slow start.</li>
         <li><strong>3 Dup ACKs</strong> (Fast Retransmit): ‎ssthresh = cwnd/2, cwnd = ssthresh, ‎AIMD מיד.</li>
       </ul>
     </div>
@@ -369,12 +406,12 @@ main { min-width: 0; }
     <div class="box-body">
       <ul>
         <li>‎IP = 32 ביט = ‎4 שמיניות של 8 ביט (0-255)</li>
-        <li><strong>CIDR</strong>: ‎a.b.c.d / x — ‎x ביטים ל-subnet</li>
-        <li><strong>Subnet Mask</strong>: ‎x אחדים, ‎(32 − x) אפסים</li>
+        <li><strong>CIDR:</strong> ‎a.b.c.d / x — ‎x ביטים ל-subnet</li>
+        <li><strong>Subnet Mask:</strong> ‎x אחדים, ‎(32 − x) אפסים</li>
         <li><strong>Subnet</strong> = ‎IP AND Mask</li>
         <li>‎כתובות בסאבנט: ‎2^(32 − x) − 2 (פחות subnet ו-broadcast)</li>
       </ul>
-      <p><strong>טווחים פרטיים</strong>: ‎10.0.0.0/8, ‎172.16.0.0/12, ‎192.168.0.0/16</p>
+      <p><strong>טווחים פרטיים:</strong> ‎10.0.0.0/8, ‎172.16.0.0/12, ‎192.168.0.0/16</p>
     </div>
   </div>
 
@@ -407,7 +444,7 @@ main { min-width: 0; }
           <tr><td>ALOHA</td><td>‎1/(2e) ≈ 18%</td><td>2 יחידות זמן</td></tr>
           <tr><td>Slotted ALOHA</td><td>‎1/e ≈ 37%</td><td>1 יחידת זמן</td></tr>
           <tr><td>‎CSMA</td><td>בינוני (תלוי בפרופוגיישן)</td><td>חלון פרופוגיישן</td></tr>
-          <tr><td>‎CSMA/CD (Ethernet)</td><td><strong>‎~95%</strong></td><td>‎חלון פרופוגיישן (קצר ע"י עצירה)</td></tr>
+          <tr><td>‎CSMA/CD (Ethernet)</td><td><strong><bdi>~95%</bdi></strong></td><td>‎חלון פרופוגיישן (קצר ע"י עצירה)</td></tr>
         </tbody>
       </table>
     </div>
@@ -420,7 +457,7 @@ main { min-width: 0; }
       $$d_{trans} \geq 2 \cdot d_{prop}$$
       $$\frac{L}{R} \geq 2 \cdot d_{prop}$$
       $$L \geq 2 \cdot R \cdot d_{prop}$$
-      <p><strong>Ethernet סטנדרטי</strong>: 64 בתים = 512 ביטים</p>
+      <p><strong>Ethernet סטנדרטי:</strong> 64 בתים = 512 ביטים</p>
     </div>
   </div>
 
@@ -465,7 +502,7 @@ main { min-width: 0; }
           <tr><td>שימוש מומלץ</td><td>נפחים גדולים</td><td>החלפת מפתח, חתימות</td></tr>
         </tbody>
       </table>
-      <p><strong>שילוב</strong>: ‎RSA להחלפת מפתח סשן, ‎AES להצפנת הנתונים בפועל. ‎זה SSL/TLS.</p>
+      <p><strong>שילוב:</strong> ‎RSA להחלפת מפתח סשן, ‎AES להצפנת הנתונים בפועל. ‎זה SSL/TLS.</p>
     </div>
   </div>
 
@@ -483,8 +520,8 @@ main { min-width: 0; }
     <div class="box-head"><span class="icon">📐</span>‎חתימה דיגיטלית</div>
     <div class="box-body">
       <ul>
-        <li><strong>שולח</strong>: ‎h = Hash(M), ‎s = Enc(SK_שולח, h). ‎שולח (M, s)</li>
-        <li><strong>מקבל</strong>: ‎h' = Hash(M), ‎h = Dec(PK_שולח, s). ‎בדיקה: ‎h == h'?</li>
+        <li><strong>שולח:</strong> ‎h = Hash(M), ‎s = Enc(SK_שולח, h). ‎שולח (M, s)</li>
+        <li><strong>מקבל:</strong> ‎h' = Hash(M), ‎h = Dec(PK_שולח, s). ‎בדיקה: ‎h == h'?</li>
       </ul>
       <p><strong>הצפנה</strong> = ‎Enc(PK_מקבל, M). ‎<strong>חתימה</strong> = ‎Enc(SK_שולח, Hash(M)). ‎הפוך!</p>
     </div>
@@ -560,7 +597,7 @@ main { min-width: 0; }
         <li>אם אין — Local שולח ל-<span class="term"><strong>Root</strong> → <strong>TLD</strong> (com, org...) → <strong>Authoritative</strong></span></li>
         <li>שליחה איטרטיבית או רקורסיבית</li>
       </ol>
-      <p><strong>Records</strong>: A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), NS (name server)</p>
+      <p><strong>Records:</strong> A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), NS (name server)</p>
     </div>
   </div>
 
@@ -618,12 +655,12 @@ main { min-width: 0; }
   <div class="keypoint">
     <ul>
       <li><strong>חלון התנגשות של ALOHA</strong> = ‎2 יחידות. ‎Slotted ALOHA = ‎1 יחידה</li>
-      <li><strong>אורך פריים מינימלי</strong>: ‎L ≥ 2 × R × d_prop</li>
-      <li><strong>פרגמנט offset</strong>: כפול 8 (כי 13 ביט בלבד)</li>
+      <li><strong>אורך פריים מינימלי:</strong> ‎L ≥ 2 × R × d_prop</li>
+      <li><strong>פרגמנט offset:</strong> כפול 8 (כי 13 ביט בלבד)</li>
       <li><strong>RIP אינסוף</strong> = ‎16 hops</li>
       <li><strong>MAC משתנה בכל hop, IP לא</strong></li>
       <li><strong>הצפנה</strong> = PK של מקבל. ‎<strong>חתימה</strong> = SK של שולח</li>
-      <li>‎<strong>תקורה</strong>: ‎TCP header + IP header = ‎40 בתים</li>
+      <li>‎<strong>תקורה:</strong> ‎TCP header + IP header = ‎40 בתים</li>
       <li>‎<strong>MSS</strong> טיפוסי = 1460 בתים (1500 MTU − 40 headers)</li>
     </ul>
   </div>
@@ -651,7 +688,8 @@ main { min-width: 0; }
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="32-practice-cidr-delays.html"><span class="dir">→ לנושא הקודם</span><span class="name">תרגול — IP, השהיות והצפנה</span></a>
+  <a class="prev" href="32-practice-cidr-delays.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">תרגול — IP, השהיות והצפנה</span></a>
+  <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
 </nav>
 
 </main>
@@ -876,6 +914,27 @@ main { min-width: 0; }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
   else run();
+})();
+</script>
+
+
+<script>
+/* ===== ui-fixes-v3: sidebar toggle ===== */
+(function () {
+  var btn = document.getElementById('menuToggle');
+  if (!btn) return;
+  // restore last state (per-tab, no storage API: use a URL-independent global on window.name)
+  try { if (window.name === 'nav-hidden') document.body.classList.add('nav-hidden'); } catch (e) {}
+  function sync() {
+    var hidden = document.body.classList.contains('nav-hidden');
+    btn.classList.toggle('always', !hidden); // stay visible even when menu shown
+    try { window.name = hidden ? 'nav-hidden' : ''; } catch (e) {}
+  }
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('nav-hidden');
+    sync();
+  });
+  sync();
 })();
 </script>
 
