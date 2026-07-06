@@ -223,10 +223,110 @@ body.nav-hidden main { padding-top: 68px; }
   .pager a { max-width: 100%; flex: 1 1 100%; }
   .pager a.home { order: 3; }
 }
+
+/* ===== bidi-prose-v4 ===== */
+/* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
+   embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
+main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
+  unicode-bidi: plaintext;
+}
+
+/* ===== ui-fixes-v5 ===== */
+/* toggle no longer overlaps titles */
+body:not(.nav-hidden) .sidebar .brand { padding-top: 40px; }   /* clear the button when menu open */
+.menu-toggle { top: 12px; inset-inline-start: 12px; }
+body:not(.nav-hidden) .menu-toggle {                            /* when menu open, sit over dark sidebar */
+  background: rgba(255,255,255,.14); box-shadow: none;
+}
+body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
+
+/* ===== site search ===== */
+.search-fab {
+  position: fixed; bottom: 22px; inset-inline-start: 22px; z-index: 70;
+  width: 50px; height: 50px; border: none; border-radius: 50%;
+  background: #4f46e5; color: #fff; font-size: 21px; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(79,70,229,.4); display: flex;
+  align-items: center; justify-content: center;
+}
+.search-fab:hover { background: #4338ca; }
+.search-overlay {
+  position: fixed; inset: 0; z-index: 200; background: rgba(28,25,23,.45);
+  display: none; align-items: flex-start; justify-content: center; padding-top: 12vh;
+  backdrop-filter: blur(2px);
+}
+.search-overlay.open { display: flex; }
+.search-panel {
+  width: min(560px, 92vw); background: var(--bg-paper, #fffefa); border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(28,25,23,.35); overflow: hidden; direction: rtl;
+}
+.search-panel input {
+  width: 100%; border: none; border-bottom: 1px solid var(--rule, #e7e5e0);
+  padding: 18px 22px; font-family: var(--sans, sans-serif); font-size: 18px; outline: none;
+  background: transparent; color: var(--ink, #1c1917);
+}
+.search-results { max-height: 50vh; overflow-y: auto; }
+.search-results a {
+  display: flex; align-items: center; gap: 10px; padding: 13px 22px;
+  text-decoration: none; color: var(--ink, #1c1917); border-bottom: 1px solid var(--rule-soft, #f1efe9);
+  font-size: 15px;
+}
+.search-results a:hover, .search-results a.sel { background: var(--indigo-1, #eef2ff); }
+.search-results .r-num { font-family: var(--mono, monospace); font-size: 12px; color: var(--indigo-7, #4f46e5); font-weight: 700; min-width: 34px; }
+.search-empty { padding: 22px; text-align: center; color: var(--ink-mute, #78716c); }
+.search-hint { padding: 9px 22px; font-size: 12px; color: var(--ink-mute, #78716c); background: var(--rule-soft, #f1efe9); }
 </style>
 </head>
 <body>
 <button class="menu-toggle" id="menuToggle" aria-label="הצג/הסתר תפריט" title="הצג/הסתר תפריט">☰</button>
+<button class="search-fab" id="searchFab" aria-label="חיפוש באתר" title="חיפוש (מקש /)">🔍</button>
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-panel">
+    <input type="text" id="siteSearch" placeholder="חפש נושא באתר..." autocomplete="off" />
+    <div class="search-results" id="searchResults">
+    <a href="00-intro.html" data-label="רשת האינטרנט והמבנה השכבתי"><span class="r-num">00</span><span>רשת האינטרנט והמבנה השכבתי</span></a>
+    <a href="01-delays.html" data-label="השהיות ברשת"><span class="r-num">01</span><span>השהיות ברשת</span></a>
+    <a href="02-app-sockets.html" data-label="סוקטים, לקוח-שרת, P2P"><span class="r-num">02</span><span>סוקטים, לקוח-שרת, P2P</span></a>
+    <a href="03-app-http.html" data-label="HTTP — פרוטוקול ה-Web"><span class="r-num">03</span><span>HTTP — פרוטוקול ה-Web</span></a>
+    <a href="04-app-proxy-cache.html" data-label="Proxy, Web Cache, ו-Conditional GET"><span class="r-num">04</span><span>Proxy, Web Cache, ו-Conditional GET</span></a>
+    <a href="05-app-cookies.html" data-label="Cookies — איך HTTP &quot;זוכר&quot; אותך"><span class="r-num">05</span><span>Cookies — איך HTTP &quot;זוכר&quot; אותך</span></a>
+    <a href="06-app-dns.html" data-label="DNS — מערכת שמות הדומיינים"><span class="r-num">06</span><span>DNS — מערכת שמות הדומיינים</span></a>
+    <a href="07-trans-udp.html" data-label="UDP ו-Multiplexing"><span class="r-num">07</span><span>UDP ו-Multiplexing</span></a>
+    <a href="08-trans-rdt.html" data-label="RDT — Reliable Data Transfer"><span class="r-num">08</span><span>RDT — Reliable Data Transfer</span></a>
+    <a href="09-trans-tcp.html" data-label="TCP — מבנה ו-Sequence Numbers"><span class="r-num">09</span><span>TCP — מבנה ו-Sequence Numbers</span></a>
+    <a href="10-trans-flow.html" data-label="בקרת זרימה — Flow Control"><span class="r-num">10</span><span>בקרת זרימה — Flow Control</span></a>
+    <a href="11-trans-handshake.html" data-label="הקמת קשר וסגירתו — 3-Way HandShake"><span class="r-num">11</span><span>הקמת קשר וסגירתו — 3-Way HandShake</span></a>
+    <a href="12-trans-congestion.html" data-label="בקרת גודש — Congestion Control"><span class="r-num">12</span><span>בקרת גודש — Congestion Control</span></a>
+    <a href="13-net-intro.html" data-label="שכבת הרשת ו-IP Datagram"><span class="r-num">13</span><span>שכבת הרשת ו-IP Datagram</span></a>
+    <a href="14-net-fragmentation.html" data-label="פרגמנטציה — חלוקת דאטהגרם"><span class="r-num">14</span><span>פרגמנטציה — חלוקת דאטהגרם</span></a>
+    <a href="15-net-ip-addressing.html" data-label="כתובות IP, Subnets ו-CIDR"><span class="r-num">15</span><span>כתובות IP, Subnets ו-CIDR</span></a>
+    <a href="16-net-dhcp.html" data-label="DHCP — קבלת כתובת IP אוטומטית"><span class="r-num">16</span><span>DHCP — קבלת כתובת IP אוטומטית</span></a>
+    <a href="17-net-nat-ipv6.html" data-label="NAT, IPv6, ו-ICMP"><span class="r-num">17</span><span>NAT, IPv6, ו-ICMP</span></a>
+    <a href="18-net-routing.html" data-label="אלגוריתמי ניתוב — DV ו-LS"><span class="r-num">18</span><span>אלגוריתמי ניתוב — DV ו-LS</span></a>
+    <a href="19-net-ospf-bgp.html" data-label="OSPF, BGP, ו-Autonomous Systems"><span class="r-num">19</span><span>OSPF, BGP, ו-Autonomous Systems</span></a>
+    <a href="20-link-framing.html" data-label="Framing ושירותי שכבת הקישור"><span class="r-num">20</span><span>Framing ושירותי שכבת הקישור</span></a>
+    <a href="21-link-aloha.html" data-label="ALOHA ו-Slotted ALOHA"><span class="r-num">21</span><span>ALOHA ו-Slotted ALOHA</span></a>
+    <a href="22-link-csma.html" data-label="CSMA, CSMA/CD ו-Ethernet"><span class="r-num">22</span><span>CSMA, CSMA/CD ו-Ethernet</span></a>
+    <a href="23-link-mac-arp.html" data-label="MAC ו-ARP"><span class="r-num">23</span><span>MAC ו-ARP</span></a>
+    <a href="24-link-switches.html" data-label="סוויצ׳ים — Layer 2 Switches"><span class="r-num">24</span><span>סוויצ׳ים — Layer 2 Switches</span></a>
+    <a href="25-link-day-in-life.html" data-label="יום בחיי הודעה"><span class="r-num">25</span><span>יום בחיי הודעה</span></a>
+    <a href="26-phys-signals.html" data-label="השכבה הפיזית — אותות וביטים"><span class="r-num">26</span><span>השכבה הפיזית — אותות וביטים</span></a>
+    <a href="27-sec-threats.html" data-label="איומי אבטחה ברשת"><span class="r-num">27</span><span>איומי אבטחה ברשת</span></a>
+    <a href="28-sec-crypto.html" data-label="הצפנה סימטרית מול אסימטרית"><span class="r-num">28</span><span>הצפנה סימטרית מול אסימטרית</span></a>
+    <a href="29-sec-signatures.html" data-label="חתימה דיגיטלית"><span class="r-num">29</span><span>חתימה דיגיטלית</span></a>
+    <a href="30-sec-ssl.html" data-label="SSL ו-TLS"><span class="r-num">30</span><span>SSL ו-TLS</span></a>
+    <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
+    <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
+    <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
+    <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
+    <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
+    <a href="sum-sec.html" data-label="מה היה לנו באבטחה וקריפטוגרפיה"><span class="r-num">•</span><span>מה היה לנו באבטחה וקריפטוגרפיה</span></a>
+    <a href="sum-trans.html" data-label="מה היה לנו בשכבת התעבורה"><span class="r-num">•</span><span>מה היה לנו בשכבת התעבורה</span></a>
+    </div>
+    <div class="search-empty" id="searchEmpty" style="display:none">לא נמצא נושא תואם</div>
+    <div class="search-hint">↑↓ לניווט · Enter לפתיחה · Esc לסגירה</div>
+  </div>
+</div>
 <div class="app">
 
 <aside class="sidebar">
@@ -302,6 +402,7 @@ body.nav-hidden main { padding-top: 68px; }
   <ul class="nav-list">
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" class="active" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
+    <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -331,7 +432,7 @@ body.nav-hidden main { padding-top: 68px; }
     <div class="box-body">
       <p>לא חייבים בינארית מלאה. מזהים באיזה אוקטט "נופל" הגבול, ומחשבים את גודל הקפיצה:</p>
       <ul>
-        <li>‏x בין 25–32 ← האוקטט <strong>הרביעי</strong> מעניין. ‏x בין 17–24 ← <strong>השלישי</strong>. ‏x בין 9–16 ← <strong>השני</strong>.</li>
+        <li>x בין 25–32 ← האוקטט <strong>הרביעי</strong> מעניין. x בין 17–24 ← <strong>השלישי</strong>. x בין 9–16 ← <strong>השני</strong>.</li>
         <li><strong>גודל בלוק</strong> באוקטט המעניין: $2^{\,8-(x \bmod 8)}$. למשל ‎/26: ‏<span class="term">x mod 8 = 2</span> ← בלוק של <span class="term">64</span> ← הרשתות מתחילות ב-<span class="term">0, 64, 128, 192</span>.</li>
         <li>מוצאים לאיזה בלוק הכתובת שייכת: <strong>הכפולה הגדולה ביותר של גודל הבלוק שקטנה או שווה לערך</strong>. זו כתובת הרשת; ה-broadcast הוא תחילת הבלוק הבא פחות 1.</li>
       </ul>
@@ -371,7 +472,7 @@ body.nav-hidden main { padding-top: 68px; }
     <div class="solution">
       <div class="step">
         <div class="step-label">שלב 1 · האוקטט המעניין</div>
-        <p>‏/22: ‏x בין 17–24 ← האוקטט <strong>השלישי</strong>. גודל בלוק: $2^{8-6} = 4$ ← בלוקים ב-<span class="term">0, 4, 8, 12, ...</span></p>
+        <p>‏/22: x בין 17–24 ← האוקטט <strong>השלישי</strong>. גודל בלוק: $2^{8-6} = 4$ ← בלוקים ב-<span class="term">0, 4, 8, 12, ...</span></p>
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · לאיזה בלוק כל כתובת שייכת</div>
@@ -504,7 +605,7 @@ body.nav-hidden main { padding-top: 68px; }
         <li>$d_{prop} = \dfrac{d}{s}$ — הזמן לביט לנסוע לאורך הלינק.</li>
       </ul>
       <p>סה"כ בצומת: $d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}$.</p>
-      <p><strong>Store-and-Forward על N לינקים</strong> (פאקטה אחת, לינקים זהים, בלי proc/queue): $N \cdot \dfrac{L}{R}$ + כל הפרופגיישנים. <strong>‏P פאקטות ברצף:</strong> $(N + P - 1) \cdot \dfrac{L}{R}$.</p>
+      <p><strong>Store-and-Forward על N לינקים</strong> (פאקטה אחת, לינקים זהים, בלי proc/queue): $N \cdot \dfrac{L}{R}$ + כל הפרופגיישנים. <strong>P פאקטות ברצף:</strong> $(N + P - 1) \cdot \dfrac{L}{R}$.</p>
     </div>
   </div>
 
@@ -514,7 +615,7 @@ body.nav-hidden main { padding-top: 68px; }
       <ul>
         <li><strong>Bytes ← bits:</strong> ‏×8. ‏1500 Bytes = ‏12,000 bits. רוב ה-R נתונים ב-bits לשנייה.</li>
         <li><strong>Mbps</strong> = $10^6$ ביטים לשנייה (לא $2^{20}$).</li>
-        <li><strong>‏d מול s:</strong> ‏d = מרחק (km ← להמיר למטרים!), ‏s = מהירות התפשטות (בדרך כלל $2 \cdot 10^8$ או $2.5 \cdot 10^8$ m/s).</li>
+        <li><strong>d מול s:</strong> ‏d = מרחק (km ← להמיר למטרים!), ‏s = מהירות התפשטות (בדרך כלל $2 \cdot 10^8$ או $2.5 \cdot 10^8$ m/s).</li>
         <li>לפעמים נותנים <strong>גורם פרופגיישן הפוך</strong> (למשל µsec/km) — אז פשוט מכפילים במרחק, בלי לחלק.</li>
         <li>‏$d_{trans}$ תלוי באורך הפאקטה אבל <strong>לא במרחק</strong>; ‏$d_{prop}$ תלוי במרחק אבל <strong>לא באורך הפאקטה</strong>.</li>
       </ul>
@@ -560,7 +661,7 @@ body.nav-hidden main { padding-top: 68px; }
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · העיקרון</div>
-        <p>‏Store-and-Forward: כל ראוטר חייב לקבל את <strong>הפאקטה כולה</strong> לפני שהוא משדר הלאה — אז משלמים את ה-$\frac{L}{R}$ מחדש על כל לינק:</p>
+        <p>Store-and-Forward: כל ראוטר חייב לקבל את <strong>הפאקטה כולה</strong> לפני שהוא משדר הלאה — אז משלמים את ה-$\frac{L}{R}$ מחדש על כל לינק:</p>
         $$d = N \cdot \frac{L}{R} = 3 \times 4 = 12 \,\text{ms}$$
       </div>
     </div>
@@ -747,7 +848,7 @@ body.nav-hidden main { padding-top: 68px; }
       </div>
       <div class="step">
         <div class="step-label">הקשר ל-SSL</div>
-        <p>זה בדיוק ה-Handshake של SSL/TLS: ‏Premaster Secret מוצפן עם $PK_{Server}$ מתוך התעודה, שני הצדדים גוזרים ממנו $K_{session}$, וכל תעבורת ה-HTTP מוצפנת סימטרית. <a href="30-sec-ssl.html">פרק 6.4</a> לפירוט.</p>
+        <p>זה בדיוק ה-Handshake של SSL/TLS: Premaster Secret מוצפן עם $PK_{Server}$ מתוך התעודה, שני הצדדים גוזרים ממנו $K_{session}$, וכל תעבורת ה-HTTP מוצפנת סימטרית. <a href="30-sec-ssl.html">פרק 6.4</a> לפירוט.</p>
       </div>
     </div>
   </div>
@@ -820,7 +921,7 @@ body.nav-hidden main { padding-top: 68px; }
       </div>
       <div class="step">
         <div class="step-label">ההסבר</div>
-        <p>ב-Playback טרודי מקליטה הודעת אימות אמיתית ומשדרת אותה שוב. ה-nonce (מספר חד-פעמי) הופך כל התחברות לאתגר טרי: בוב שולח $R$ חדש, אליס מחזירה $Enc(K, R)$ — והקלטה ישנה עונה על $R$ הלא-נכון. ‏DoS/DDoS הן התקפות הצפה — לא קשורות לאימות.</p>
+        <p>ב-Playback טרודי מקליטה הודעת אימות אמיתית ומשדרת אותה שוב. ה-nonce (מספר חד-פעמי) הופך כל התחברות לאתגר טרי: בוב שולח $R$ חדש, אליס מחזירה $Enc(K, R)$ — והקלטה ישנה עונה על $R$ הלא-נכון. DoS/DDoS הן התקפות הצפה — לא קשורות לאימות.</p>
       </div>
     </div>
   </div>
@@ -849,7 +950,7 @@ body.nav-hidden main { padding-top: 68px; }
       </div>
       <div class="step">
         <div class="step-label">למה 2 היא המלכודת</div>
-        <p>גם $e=29$ מקיים את הקונגרואנציה ($29 \equiv 5$), אבל הוא נופל בתנאי הטווח $1 < e < \varphi(n) = 24$. ותשובה 3 היא מלכודת הפוכה: ‏$e$ נכון אבל $n$ הוחלף ב-$\varphi(n)$ — המפתח הציבורי תמיד עם $n$, לא עם $\varphi$.</p>
+        <p>גם $e=29$ מקיים את הקונגרואנציה ($29 \equiv 5$), אבל הוא נופל בתנאי הטווח $1 \lt e \lt \varphi(n) = 24$. ותשובה 3 היא מלכודת הפוכה: ‏$e$ נכון אבל $n$ הוחלף ב-$\varphi(n)$ — המפתח הציבורי תמיד עם $n$, לא עם $\varphi$.</p>
       </div>
     </div>
   </div>
@@ -867,9 +968,9 @@ body.nav-hidden main { padding-top: 68px; }
       <div class="step">
         <div class="step-label">שלב 2 · אות-אות</div>
         <ul>
-          <li><span class="term">HI</span>: ‏H→K, I→L ← ‏<span class="term">KL</span></li>
-          <li><span class="term">HOW</span>: ‏H→K, O→R, W→Z ← ‏<span class="term">KRZ</span></li>
-          <li><span class="term">ARE</span>: ‏A→D, R→U, E→H ← ‏<span class="term">DUH</span></li>
+          <li><span class="term">HI</span>: H→K, I→L ← ‏<span class="term">KL</span></li>
+          <li><span class="term">HOW</span>: H→K, O→R, W→Z ← ‏<span class="term">KRZ</span></li>
+          <li><span class="term">ARE</span>: A→D, R→U, E→H ← ‏<span class="term">DUH</span></li>
           <li><span class="term">YOU</span>: ‏<strong>Y→B (גלגול!)</strong>, O→R, U→X ← ‏<span class="term">BRX</span></li>
         </ul>
         $$\text{KL KRZ DUH BRX}$$
@@ -880,7 +981,7 @@ body.nav-hidden main { padding-top: 68px; }
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">מבחני עבר · תפקיד ה-MAC</span>
-      <p>‏Message Authentication Code (MAC) משמש ל:</p>
+      <p>Message Authentication Code (MAC) משמש ל:</p>
       <ol>
         <li>זיהוי שההודעה לא שונתה בדרך.</li>
         <li>זיהוי מי כתב את ההודעה.</li>
@@ -907,7 +1008,7 @@ body.nav-hidden main { padding-top: 68px; }
       <ul>
         <li><strong>‏/x:</strong> גודל בלוק $= 2^{8-(x \bmod 8)}$ באוקטט המעניין; רשת = תחילת הבלוק; ‏broadcast = סוף הבלוק; ‏hosts $= 2^{32-x}-2$; בניתוב — הפריפיקס הארוך מנצח.</li>
         <li><strong>הצפנה:</strong> סודיות = $PK$ של המקבל; חתימה = $SK$ של השולח (על ה-Hash); נפחים גדולים = מפתח סשן סימטרי; זהות של מפתח ציבורי = תעודה.</li>
-        <li><strong>‏d:</strong> ‏$d_{trans} = L/R$, ‏$d_{prop} = d/s$; ‏Store-and-Forward: ‏$(N+P-1) \cdot L/R$; תור: ‏$La/R$ מעל 1 = אסון. ותמיד — <strong>bytes ×8</strong>.</li>
+        <li><strong>d:</strong> ‏$d_{trans} = L/R$, ‏$d_{prop} = d/s$; ‏Store-and-Forward: ‏$(N+P-1) \cdot L/R$; תור: ‏$La/R$ מעל 1 = אסון. ותמיד — <strong>bytes ×8</strong>.</li>
       </ul>
       <p>עוד על התאוריה: <a href="15-net-ip-addressing.html">כתובות IP</a> ו-<a href="01-delays.html">השהיות ברשת</a>. לתרגול נוסף — <a href="https://eliorch.github.io/comque" target="_blank" rel="noopener"><strong>אתר השאלות</strong></a>.</p>
     </div>
@@ -1161,6 +1262,51 @@ body.nav-hidden main { padding-top: 68px; }
     sync();
   });
   sync();
+})();
+</script>
+
+
+<script>
+/* ===== site search ===== */
+(function(){
+  var fab=document.getElementById('searchFab'),
+      ov=document.getElementById('searchOverlay'),
+      inp=document.getElementById('siteSearch'),
+      res=document.getElementById('searchResults'),
+      empty=document.getElementById('searchEmpty');
+  if(!fab||!ov) return;
+  var links=[].slice.call(res.querySelectorAll('a'));
+  function open(){ ov.classList.add('open'); inp.value=''; filter(); setTimeout(function(){inp.focus();},30); }
+  function close(){ ov.classList.remove('open'); }
+  function filter(){
+    var q=inp.value.trim().toLowerCase(), any=false, first=true;
+    links.forEach(function(a){
+      var hit=a.getAttribute('data-label').toLowerCase().indexOf(q)!==-1;
+      a.style.display=hit?'':'none'; a.classList.remove('sel');
+      if(hit){ any=true; if(first){a.classList.add('sel'); first=false;} }
+    });
+    empty.style.display=any?'none':'block';
+  }
+  function sel(dir){
+    var vis=links.filter(function(a){return a.style.display!=='none';});
+    var i=vis.findIndex(function(a){return a.classList.contains('sel');});
+    if(i>=0) vis[i].classList.remove('sel');
+    var n=(i+dir+vis.length)%vis.length;
+    if(vis[n]){ vis[n].classList.add('sel'); vis[n].scrollIntoView({block:'nearest'}); }
+  }
+  fab.addEventListener('click', open);
+  ov.addEventListener('click', function(e){ if(e.target===ov) close(); });
+  inp&&inp.addEventListener('input', filter);
+  document.addEventListener('keydown', function(e){
+    if(e.key==='/' && !ov.classList.contains('open') &&
+       ['INPUT','TEXTAREA'].indexOf(document.activeElement.tagName)===-1){ e.preventDefault(); open(); }
+    else if(e.key==='Escape'){ close(); }
+    else if(ov.classList.contains('open')){
+      if(e.key==='ArrowDown'){ e.preventDefault(); sel(1); }
+      else if(e.key==='ArrowUp'){ e.preventDefault(); sel(-1); }
+      else if(e.key==='Enter'){ var s=res.querySelector('a.sel'); if(s) location.href=s.href; }
+    }
+  });
 })();
 </script>
 

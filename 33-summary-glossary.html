@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cheat Sheet · מבוא לתקשורת מחשבים</title>
+<title>סיכום כללי · נוסחאות ומילון · מבוא לתקשורת מחשבים</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -231,6 +231,42 @@ main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
   unicode-bidi: plaintext;
 }
 
+  /* summary-glossary page */
+  .gloss-search { width:100%; padding:11px 16px; font-family:var(--sans); font-size:15px;
+    border:1.5px solid var(--indigo-3); border-radius:10px; margin-bottom:16px; }
+  .gloss-search:focus { outline:none; border-color:var(--indigo-7); }
+  .gloss-table td.gt { font-family:var(--mono); font-weight:700; color:#be185d;
+    text-align:center; direction:ltr; unicode-bidi:isolate; }
+  .gloss-table td { text-align:right; vertical-align:top; }
+  .gloss-table { font-size:14.5px; }
+
+  /* layered glossary */
+  .gloss-group { margin: 16px 0; }
+  .gloss-group .box-head { font-size: 15px; }
+  .gloss-table { width:100%; border-collapse:collapse; font-size:14.5px; }
+  .gloss-table td { padding:9px 14px; border-bottom:1px solid var(--rule-soft); vertical-align:top; text-align:right; }
+  .gloss-table tr:last-child td { border-bottom:none; }
+  .gloss-table td.gt { font-family:var(--mono); font-weight:700; color:#be185d; white-space:nowrap; direction:ltr; unicode-bidi:isolate; text-align:right; }
+  .gloss-table tr.d1 { background:rgba(99,102,241,.03); }
+  .gloss-table tr.d2 { background:rgba(99,102,241,.06); }
+  .gloss-table tr.d1 td.gt, .gloss-table tr.d2 td.gt { color:#7c3aed; font-weight:600; }
+  .tree-arw { color:var(--indigo-3); font-weight:700; margin-inline-end:2px; }
+
+  /* OSI stack diagram */
+  .osi-stack { display:flex; flex-direction:column; gap:6px; margin:14px 0; }
+  .osi-row { display:grid; grid-template-columns:64px 1fr auto auto; align-items:center; gap:12px;
+    padding:11px 16px; border-radius:10px; color:#fff; font-size:14px; }
+  .osi-row .osi-n { font-family:var(--mono); font-weight:800; font-size:15px; opacity:.9; }
+  .osi-row .osi-name { font-weight:800; font-size:16px; }
+  .osi-row .osi-ex { font-family:var(--mono); direction:ltr; unicode-bidi:isolate; font-size:12.5px; opacity:.92; }
+  .osi-row .osi-unit { background:rgba(255,255,255,.22); padding:2px 10px; border-radius:99px; font-size:12px; font-weight:600; }
+  .osi-row.l7 { background:linear-gradient(90deg,#1d4ed8,#3b82f6); }
+  .osi-row.l4 { background:linear-gradient(90deg,#b45309,#d97706); }
+  .osi-row.l3 { background:linear-gradient(90deg,#047857,#10b981); }
+  .osi-row.l2 { background:linear-gradient(90deg,#6d28d9,#8b5cf6); }
+  .osi-row.l1 { background:linear-gradient(90deg,#475569,#64748b); }
+  @media (max-width:560px){ .osi-row{grid-template-columns:44px 1fr; } .osi-row .osi-ex,.osi-row .osi-unit{grid-column:2; } }
+
 /* ===== ui-fixes-v5 ===== */
 /* toggle no longer overlaps titles */
 body:not(.nav-hidden) .sidebar .brand { padding-top: 40px; }   /* clear the button when menu open */
@@ -400,400 +436,334 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
   <div class="nav-label">📋 חזרה</div>
   <ul class="nav-list">
-    <li><a href="31-cheatsheet.html" class="active" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
+    <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
-    <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
 </aside>
 
 <main>
-  <span class="page-eyebrow">דף עזר · קומפילציה</span>
-  <h1 class="page-title">Cheat Sheet — נוסחאות וטבלאות</h1>
-  <p class="page-subtitle">דף אחד לסקירה מהירה לפני המבחן.</p>
+  <span class="page-eyebrow">📚 סיכום · חזרה כללית</span>
+  <h1 class="page-title">סיכום כללי · נוסחאות ומילון</h1>
+  <p class="page-subtitle">כל הקורס בעמוד אחד: התמונה השכבתית, כל הנוסחאות המרכזיות, ומילון מונחים אלפביתי לחיפוש מהיר.</p>
 
-  <p class="lead">
-    כל הנוסחאות והטבלאות החיוניות, מסודרות לפי שכבה. <strong>לא תחליף לקריאה</strong> של הפרקים — רק תזכורת מהירה.
-  </p>
-
-  <h2>השהיות (Delays)</h2>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>‎4 סוגי השהיה</div>
-    <div class="box-body">
-      <table>
-        <thead><tr><th>השהיה</th><th>נוסחה</th><th>תלוי ב-</th></tr></thead>
-        <tbody>
-          <tr><td>Processing</td><td>קבועה (μs)</td><td>מהירות הראוטר</td></tr>
-          <tr><td>Queuing</td><td>משתנה</td><td>עומס ברשת</td></tr>
-          <tr><td><strong>Transmission</strong></td><td>L / R</td><td>גודל הודעה, רוחב פס</td></tr>
-          <tr><td><strong>Propagation</strong></td><td>d / v</td><td>אורך הלינק, מהירות אות</td></tr>
-        </tbody>
-      </table>
-      <p><strong>RTT</strong> = ‎Round Trip Time = ‎2 × End-to-End Delay</p>
-    </div>
-  </div>
-
-  <h2>שכבת התעבורה</h2>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>RTT ו-RDT</div>
-    <div class="box-body">
-      <ul>
-        <li><strong>EstimatedRTT:</strong> <span class="term">(1 − α) · EstimatedRTT + α · SampleRTT</span>. טיפוסי: <span class="term">α = 0.125</span></li>
-        <li><strong>DevRTT:</strong> <span class="term">(1 − β) · DevRTT + β · |SampleRTT − EstimatedRTT|</span>. טיפוסי: <span class="term">β = 0.25</span></li>
-        <li><strong>TimeoutInterval:</strong> <span class="term">EstimatedRTT + 4 · DevRTT</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>Sequence/ACK</div>
-    <div class="box-body">
-      <ul>
-        <li>Sequence Number של byte הראשון בסגמנט</li>
-        <li>ACK Number = ‎Seq הצפוי הבא (= Seq של ההודעה שהתקבלה + אורכה)</li>
-      </ul>
-      <p><strong>דוגמה:</strong> <span class="term">Seq=90, אורך=40 → ACK=130</span></p>
-    </div>
-  </div>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>Receive Window</div>
-    <div class="box-body">
-      <p>RcvWindow = ‎RcvBuffer − [(LastByteRcvd − LastByteRead)]</p>
-      <p>השולח מגביל: LastByteSent − LastByteAcked ≤ RcvWindow</p>
-    </div>
-  </div>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>Congestion Control (TCP Reno)</div>
-    <div class="box-body">
-      <ul>
-        <li><strong>Slow Start:</strong> ‎cwnd מתחיל ב-1 MSS. ‎כפול בכל RTT (אקספוננציאלי).</li>
-        <li>מעבר ל-AIMD כש-cwnd מגיע ל-ssthresh.</li>
-        <li><strong>AIMD:</strong> ‎+1 MSS בכל RTT (לינארי).</li>
-        <li><strong>Timeout:</strong> ‎ssthresh = cwnd/2, cwnd = 1, חוזרים ל-slow start.</li>
-        <li><strong>3 Dup ACKs</strong> (Fast Retransmit): ssthresh = cwnd/2, cwnd = ssthresh, ‎AIMD מיד.</li>
-      </ul>
-    </div>
-  </div>
-
-  <h2>שכבת הרשת</h2>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>פרגמנטציה</div>
-    <div class="box-body">
-      <ul>
-        <li>‎נתונים בפרגמנט ≤ MTU − 20 (עבור IP header)</li>
-        <li><strong>נתונים בפרגמנט חייבים להיות כפולה של 8</strong></li>
-        <li>Offset (בכותרת) = ‎(סך נתונים בפרגמנטים קודמים) / 8</li>
-        <li>MF = 1 לכל הפרגמנטים חוץ מהאחרון. MF = 0 לאחרון.</li>
-        <li><strong>כל הפרגמנטים חולקים אותו ID</strong></li>
-      </ul>
-      <p><strong>דוגמה (ID=422, נתונים 3480 בתים, MTU=500):</strong></p>
-      <ul>
-        <li>‎נתונים מקסימליים בפרגמנט: ‎500 − 20 = 480 (כפולה של 8 ✓)</li>
-        <li>‎מספר פרגמנטים: ‎⌈3480 / 480⌉ = 8</li>
-        <li>‎פרגמנטים 1-7: 480 בתים. ‎פרגמנט 8: 120 בתים</li>
-        <li>Offsets: ‎0, 60, 120, ..., 420</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>כתובות IP ו-CIDR</div>
-    <div class="box-body">
-      <ul>
-        <li>IP = 32 ביט = ‎4 שמיניות של 8 ביט (0-255)</li>
-        <li><strong>CIDR:</strong> ‎a.b.c.d / x — ‎x ביטים ל-subnet</li>
-        <li><strong>Subnet Mask:</strong> ‎x אחדים, ‎(32 − x) אפסים</li>
-        <li><strong>Subnet</strong> = ‎IP AND Mask</li>
-        <li>‎כתובות בסאבנט: ‎2^(32 − x) − 2 (פחות subnet ו-broadcast)</li>
-      </ul>
-      <p><strong>טווחים פרטיים:</strong> ‎10.0.0.0/8, ‎172.16.0.0/12, ‎192.168.0.0/16</p>
-    </div>
-  </div>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>פרוטוקולי ניתוב</div>
-    <div class="box-body">
-      <table>
-        <thead><tr><th>פרוטוקול</th><th>סוג</th><th>אלגוריתם</th><th>היכן</th></tr></thead>
-        <tbody>
-          <tr><td>RIP</td><td>Distance Vector</td><td>Bellman-Ford</td><td>Intra-AS (ישן)</td></tr>
-          <tr><td>OSPF</td><td>Link State</td><td>Dijkstra</td><td>Intra-AS (סטנדרט היום)</td></tr>
-          <tr><td>BGP</td><td>Path Vector</td><td>‎מבוסס מדיניות</td><td>Inter-AS (יחיד)</td></tr>
-        </tbody>
-      </table>
-      <ul>
-        <li>RIP: ‎הגדרת אינסוף = <strong>16</strong> (לעצור ספירה לאינסוף)</li>
-        <li>Bellman-Ford: <span class="term">d_X(Y) = min_v {c(X,v) + d_v(Y)}</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <h2>שכבת הקישור</h2>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>נצולת פרוטוקולי MAC</div>
-    <div class="box-body">
-      <table>
-        <thead><tr><th>פרוטוקול</th><th>נצולת מקסימלית</th><th>חלון התנגשות</th></tr></thead>
-        <tbody>
-          <tr><td>ALOHA</td><td>‎1/(2e) ≈ 18%</td><td>2 יחידות זמן</td></tr>
-          <tr><td>Slotted ALOHA</td><td>‎1/e ≈ 37%</td><td>1 יחידת זמן</td></tr>
-          <tr><td>CSMA</td><td>בינוני (תלוי בפרופוגיישן)</td><td>חלון פרופוגיישן</td></tr>
-          <tr><td>CSMA/CD (Ethernet)</td><td><strong><bdi>~95%</bdi></strong></td><td>‎חלון פרופוגיישן (קצר ע"י עצירה)</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>גודל פריים מינימלי ב-CSMA/CD</div>
-    <div class="box-body">
-      <p>תנאי לזיהוי התנגשות:</p>
-      $$d_{trans} \geq 2 \cdot d_{prop}$$
-      $$\frac{L}{R} \geq 2 \cdot d_{prop}$$
-      $$L \geq 2 \cdot R \cdot d_{prop}$$
-      <p><strong>Ethernet סטנדרטי:</strong> 64 בתים = 512 ביטים</p>
-    </div>
-  </div>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>Binary Exponential Backoff</div>
-    <div class="box-body">
-      <p>אחרי n התנגשויות: K ∈ ‎{0, 1, ..., 2ⁿ − 1}</p>
-      <p>זמן המתנה = ‎K × 512 bit times</p>
-      <p>תקרה: n = 10 (K ≤ 1023). ‎אחרי n = 16 — drop frame.</p>
-    </div>
-  </div>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>MAC vs IP</div>
-    <div class="box-body">
-      <table>
-        <thead><tr><th></th><th>MAC</th><th>IP</th></tr></thead>
-        <tbody>
-          <tr><td>שכבה</td><td>2 (קישור)</td><td>3 (רשת)</td></tr>
-          <tr><td>אורך</td><td>‎48 ביט</td><td>‎32 ביט (IPv4)</td></tr>
-          <tr><td>היררכיה</td><td>שטוח</td><td>היררכי (subnets)</td></tr>
-          <tr><td>היקף</td><td>LAN בלבד</td><td>גלובלי</td></tr>
-          <tr><td>השתנות</td><td>קבוע (מוטבע בכרטיס)</td><td>משתנה (DHCP)</td></tr>
-          <tr><td>בכל hop</td><td>מתחלף</td><td>נשאר זהה</td></tr>
-        </tbody>
-      </table>
-      <p>Broadcast MAC: ‎<span class="term">FF:FF:FF:FF:FF:FF</span></p>
-    </div>
-  </div>
-
-  <h2>אבטחה</h2>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>DES vs RSA</div>
-    <div class="box-body">
-      <table>
-        <thead><tr><th></th><th>DES (סימטרי)</th><th>RSA (אסימטרי)</th></tr></thead>
-        <tbody>
-          <tr><td>מפתחות</td><td>אחד משותף</td><td>זוג (PK + SK)</td></tr>
-          <tr><td>מהירות</td><td>מהיר מאוד</td><td>איטי (פי ~1000)</td></tr>
-          <tr><td>אורך מפתח</td><td>‎56 ביט (AES: 128/256)</td><td>‎2048 ביט</td></tr>
-          <tr><td>שימוש מומלץ</td><td>נפחים גדולים</td><td>החלפת מפתח, חתימות</td></tr>
-        </tbody>
-      </table>
-      <p><strong>שילוב:</strong> ‎RSA להחלפת מפתח סשן, ‎AES להצפנת הנתונים בפועל. ‎זה SSL/TLS.</p>
-    </div>
-  </div>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>Brute Force על Monoalphabetic Substitution</div>
-    <div class="box-body">
-      <p>שפה עם n אותיות, k מהן מופיעות בטקסט המוצפן:</p>
-      $$\text{מפתחות אפשריים} = \frac{n!}{(n-k)!}$$
-      <p>בממוצע: ‎חצי מהמפתחות עד שמוצאים.</p>
-      <p><strong>דוגמה (n=16, k=10):</strong> ‎16!/6! ≈ ‎30 מיליארד. ‎ממוצע: ‎15 מיליארד.</p>
-    </div>
-  </div>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>‎חתימה דיגיטלית</div>
-    <div class="box-body">
-      <ul>
-        <li><strong>שולח:</strong> ‎h = Hash(M), ‎s = Enc(SK_שולח, h). ‎שולח (M, s)</li>
-        <li><strong>מקבל:</strong> ‎h' = Hash(M), ‎h = Dec(PK_שולח, s). ‎בדיקה: h == h'?</li>
-      </ul>
-      <p><strong>הצפנה</strong> = ‎Enc(PK_מקבל, M). ‎<strong>חתימה</strong> = ‎Enc(SK_שולח, Hash(M)). ‎הפוך!</p>
-    </div>
-  </div>
-
-  <h2>פרוטוקולים — מי על איזו שכבה</h2>
-
-  <table>
-    <thead><tr><th>שכבה</th><th>פרוטוקולים</th><th>יחידה</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Application</strong></td><td>HTTP, DNS, FTP, SMTP, DHCP</td><td>הודעה</td></tr>
-      <tr><td><strong>SSL/TLS</strong></td><td>(בין App ל-Transport)</td><td>סגמנט מוצפן</td></tr>
-      <tr><td><strong>Transport</strong></td><td>TCP, UDP</td><td>סגמנט / דאטהגרם</td></tr>
-      <tr><td><strong>Network</strong></td><td>IP, ICMP, OSPF, BGP, RIP</td><td>IP Datagram</td></tr>
-      <tr><td><strong>Link</strong></td><td>Ethernet, WiFi, ARP, MAC</td><td>פריים</td></tr>
-      <tr><td><strong>Physical</strong></td><td>‎(אותות חשמליים/אופטיים/רדיו)</td><td>ביטים</td></tr>
-    </tbody>
-  </table>
-
-  <h2>פורטים חשובים</h2>
-
-  <table>
-    <thead><tr><th>פורט</th><th>פרוטוקול</th><th>שימוש</th></tr></thead>
-    <tbody>
-      <tr><td>20, 21</td><td>FTP</td><td>‎העברת קבצים (data/control)</td></tr>
-      <tr><td>22</td><td>SSH</td><td>גישה מאובטחת לשרת</td></tr>
-      <tr><td>25</td><td>SMTP</td><td>שליחת מיילים</td></tr>
-      <tr><td>53</td><td>DNS</td><td>תרגום שמות (Name → IP)</td></tr>
-      <tr><td>67, 68</td><td>DHCP</td><td>קבלת IP (שרת/לקוח)</td></tr>
-      <tr><td>80</td><td>HTTP</td><td>גלישה רגילה</td></tr>
-      <tr><td>110</td><td>POP3</td><td>קריאת מיילים</td></tr>
-      <tr><td>143</td><td>IMAP</td><td>קריאת מיילים</td></tr>
-      <tr><td><strong>443</strong></td><td><strong>HTTPS</strong></td><td><strong>גלישה מאובטחת</strong></td></tr>
-    </tbody>
-  </table>
-
-  <h2>קודי HTTP</h2>
-
-  <table>
-    <thead><tr><th>טווח</th><th>משמעות</th><th>דוגמאות</th></tr></thead>
-    <tbody>
-      <tr><td>1xx</td><td>מידע</td><td>100 Continue</td></tr>
-      <tr><td>2xx</td><td>הצלחה</td><td><strong>200 OK</strong></td></tr>
-      <tr><td>3xx</td><td>הפניה</td><td>301 Moved Permanently, <strong>304 Not Modified</strong></td></tr>
-      <tr><td>4xx</td><td>שגיאת לקוח</td><td><strong>404 Not Found</strong>, 403 Forbidden</td></tr>
-      <tr><td>5xx</td><td>שגיאת שרת</td><td><strong>500 Internal Error</strong>, 503 Unavailable</td></tr>
-    </tbody>
-  </table>
-
-  <h2>ICMP Types</h2>
-
-  <table>
-    <thead><tr><th>Type</th><th>Code</th><th>משמעות</th></tr></thead>
-    <tbody>
-      <tr><td>0</td><td>0</td><td>echo reply</td></tr>
-      <tr><td>3</td><td>0</td><td>dest network unreachable</td></tr>
-      <tr><td>3</td><td>1</td><td>dest host unreachable</td></tr>
-      <tr><td>3</td><td>3</td><td>dest port unreachable</td></tr>
-      <tr><td>3</td><td>4</td><td>fragmentation needed but DF set</td></tr>
-      <tr><td>8</td><td>0</td><td>echo request (ping)</td></tr>
-      <tr><td>11</td><td>0</td><td>TTL expired (traceroute)</td></tr>
-    </tbody>
-  </table>
-
-  <h2>תהליכים מרכזיים</h2>
-
+  <h2>המפה השכבתית — מי אחראי על מה</h2>
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>DNS Resolution</div>
+    <div class="box-head"><span class="icon">🗺️</span>חמש השכבות, מלמעלה למטה</div>
     <div class="box-body">
-      <ol>
-        <li>בודק <strong>cache</strong> מקומי</li>
-        <li>אם אין — שואל <strong>Local DNS Server</strong></li>
-        <li>אם אין — Local שולח ל-<span class="term"><strong>Root</strong> → <strong>TLD</strong> (com, org...) → <strong>Authoritative</strong></span></li>
-        <li>שליחה איטרטיבית או רקורסיבית</li>
-      </ol>
-      <p><strong>Records:</strong> A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), NS (name server)</p>
+
+      <table>
+        <thead><tr><th>שכבה</th><th>יחידה</th><th>אחראית על</th><th>פרוטוקולים מרכזיים</th></tr></thead>
+        <tbody>
+          <tr><td><strong>אפליקציה</strong></td><td>הודעה (Message)</td><td>שירות למשתמש</td><td><bdi dir="ltr">HTTP, DNS, SMTP</bdi></td></tr>
+          <tr><td><strong>תעבורה</strong></td><td>סגמנט (Segment)</td><td>קצה-לקצה, אמינות</td><td><bdi dir="ltr">TCP, UDP</bdi></td></tr>
+          <tr><td><strong>רשת</strong></td><td>דאטהגרם (Datagram)</td><td>ניתוב בין רשתות</td><td><bdi dir="ltr">IP, ICMP, OSPF, BGP</bdi></td></tr>
+          <tr><td><strong>קישור</strong></td><td>פריים (Frame)</td><td>לינק בודד, גישה לערוץ</td><td><bdi dir="ltr">Ethernet, ARP, CSMA/CD</bdi></td></tr>
+          <tr><td><strong>פיזית</strong></td><td>ביט (Bit)</td><td>אותות על התווך</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <p><strong>הכלל לזכור:</strong> כל שכבה מוסיפה כותרת משלה (encapsulation) בירידה, ומסירה אותה בעלייה. כתובת ה-<bdi dir="ltr">MAC</bdi> מתחלפת בכל hop; כתובת ה-<bdi dir="ltr">IP</bdi> נשארת מקצה לקצה.</p>
+    </div>
+  </div>
+
+
+  <h2>כל הנוסחאות במקום אחד</h2>
+  <div class="box formula">
+    <div class="box-head"><span class="icon">⏱️</span>השהיות (Delays)</div>
+    <div class="box-body">
+
+      <ul>
+        <li><strong>טרנסמישן:</strong> $d_{trans} = \dfrac{L}{R}$ (‏L=גודל בביטים, R=קצב).</li>
+        <li><strong>פרופגיישן:</strong> $d_{prop} = \dfrac{d}{s}$ (‏d=מרחק, s=מהירות התפשטות).</li>
+        <li><strong>Store-and-Forward</strong> על N לינקים: $N \cdot \dfrac{L}{R}$. ‏P פאקטות: $(N+P-1)\cdot\dfrac{L}{R}$.</li>
+        <li><strong>אינטנסיביות תור:</strong> $\dfrac{L \cdot a}{R}$ — מעל 1 = התור מתפוצץ.</li>
+        <li><strong>Bandwidth-Delay Product:</strong> $R \cdot d_{prop}$ = כמה ביטים "על הקו" בו-זמנית.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box formula">
+    <div class="box-head"><span class="icon">🌐</span>כתובות IP וסאבנטים</div>
+    <div class="box-body">
+
+      <ul>
+        <li><strong>מספר כתובות בבלוק:</strong> $2^{32-x}$. <strong>מחשבים שמישים:</strong> $2^{32-x}-2$.</li>
+        <li><strong>ביטים למחשבים מדרישה:</strong> ה-$h$ הקטן ש-$2^h-2 \ge$ הדרישה, ואז $x = 32-h$.</li>
+        <li><strong>גודל בלוק:</strong> $2^{h} = 2^{32-x}$ — וכל תת-רשת מתחילה בכפולה שלו.</li>
+        <li><strong>כתובת רשת:</strong> <bdi dir="ltr">IP AND Mask</bdi>. <strong>Broadcast:</strong> תחילת הבלוק הבא פחות 1.</li>
+        <li><strong>ניתוב:</strong> Longest Prefix Match — כשיש כמה התאמות, ה-/x הגדול (הספציפי) מנצח.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box formula">
+    <div class="box-head"><span class="icon">📦</span>פרגמנטציה</div>
+    <div class="box-body">
+
+      <ul>
+        <li><strong>נתונים לפרגמנט:</strong> $\le$ <bdi dir="ltr">MTU − 20</bdi>, חייב כפולה של 8.</li>
+        <li><strong>Offset</strong> $= \dfrac{\text{נתונים שקדמו}}{8}$ (ביחידות של 8 בתים!).</li>
+        <li><strong>מספר פרגמנטים:</strong> $\left\lceil \dfrac{\text{Data}}{\text{MTU}-20} \right\rceil$.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box formula">
+    <div class="box-head"><span class="icon">🔄</span>TCP — אמינות ובקרה</div>
+    <div class="box-body">
+
+      <ul>
+        <li><strong>ACK</strong> $=$ <bdi dir="ltr">Seq + Length</bdi> של מה שהתקבל.</li>
+        <li><strong>Timeout</strong> $=$ EstimatedRTT $+ 4\cdot$DevRTT.</li>
+        <li><strong>EstimatedRTT</strong> $= (1-\alpha)\cdot\text{Est} + \alpha\cdot\text{Sample}$ ‏($\alpha=0.125$).</li>
+        <li><strong>RW</strong> (בקרת זרימה) $=$ <bdi dir="ltr">RcvBuffer − (LastByteRcvd − LastByteRead)</bdi>.</li>
+        <li><strong>Reno:</strong> Timeout → cwnd=1; ‏3 Dup ACK → cwnd חצי (Fast Recovery). ssthresh תמiד = cwnd/2.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box formula">
+    <div class="box-head"><span class="icon">🔗</span>שכבת הקישור</div>
+    <div class="box-body">
+
+      <ul>
+        <li><strong>ניצולת:</strong> ALOHA $\approx 18\%$, Slotted ALOHA $\approx 37\%$.</li>
+        <li><strong>פריים מינימלי (CSMA/CD):</strong> $L \ge 2 \cdot R \cdot d_{prop}$ (ב-Ethernet: 64 בתים).</li>
+        <li><strong>Backoff:</strong> אחרי $n$ התנגשויות בוחרים $K \in \{0,...,2^n-1\}$.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box formula">
+    <div class="box-head"><span class="icon">🔐</span>אבטחה</div>
+    <div class="box-body">
+
+      <ul>
+        <li><strong>הצפנה (סודיות):</strong> <bdi dir="ltr">Enc(PK_מקבל, M)</bdi>.</li>
+        <li><strong>חתימה (אימות):</strong> <bdi dir="ltr">Enc(SK_שולח, Hash(M))</bdi>.</li>
+        <li><strong>RSA keygen:</strong> $n=pq$, ‏$\varphi=(p-1)(q-1)$, ‏$e\cdot d \equiv 1 \pmod{\varphi}$, ‏$1 \lt e \lt \varphi$.</li>
+        <li><strong>Brute force החלפה:</strong> $\dfrac{n!}{(n-k)!}$ מפתחות, בממוצע בודקים חצי.</li>
+        <li><strong>Nonce</strong> מונע Playback; <strong>MAC</strong> = שלמות + אימות (לא סודיות).</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <h2>מילון מונחים — לפי שכבות</h2>
+  <div class="box theory">
+    <div class="box-head"><span class="icon">🔤</span>חיפוש חוצה-שכבות</div>
+    <div class="box-body">
+      <input type="text" id="glossSearch" placeholder="הקלד מונח או מילה מההגדרה..." class="gloss-search" />
+      <p id="glossEmpty" style="display:none;text-align:center;color:var(--ink-mute);padding:10px">לא נמצא מונח תואם.</p>
     </div>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>TCP 3-Way HandShake</div>
+    <div class="box-head"><span class="icon">🏗️</span>המבנה: מה נבנה על מה</div>
     <div class="box-body">
-      <ol>
-        <li>‎<span class="term">Client → Server</span>: SYN (seq=x)</li>
-        <li>‎<span class="term">Server → Client</span>: SYN-ACK (seq=y, ack=x+1)</li>
-        <li>‎<span class="term">Client → Server</span>: ACK (ack=y+1)</li>
-      </ol>
+      <p>המידע יורד מלמעלה למטה: כל שכבה עוטפת את זו שמעליה בכותרת משלה (encapsulation), ובצד המקבל מקלפים בסדר הפוך.</p>
+      <div class="osi-stack">
+        <div class="osi-row l7"><span class="osi-n">7·6·5</span><span class="osi-name">אפליקציה</span><span class="osi-ex">HTTP · DNS · SMTP</span><span class="osi-unit">הודעה</span></div>
+        <div class="osi-row l4"><span class="osi-n">4</span><span class="osi-name">תעבורה</span><span class="osi-ex">TCP · UDP</span><span class="osi-unit">סגמנט</span></div>
+        <div class="osi-row l3"><span class="osi-n">3</span><span class="osi-name">רשת</span><span class="osi-ex">IP · ICMP · OSPF</span><span class="osi-unit">דאטהגרם</span></div>
+        <div class="osi-row l2"><span class="osi-n">2</span><span class="osi-name">קישור</span><span class="osi-ex">Ethernet · ARP</span><span class="osi-unit">פריים</span></div>
+        <div class="osi-row l1"><span class="osi-n">1</span><span class="osi-name">פיזית</span><span class="osi-ex">אותות על התווך</span><span class="osi-unit">ביט</span></div>
+      </div>
+      <p style="font-size:13.5px;color:var(--ink-mute);margin-top:10px">במודל האינטרנט (TCP/IP) שכבות 5–7 של OSI מאוחדות לשכבת "אפליקציה" אחת — לכן בקורס מדברים על 5 שכבות, לא 7.</p>
     </div>
   </div>
 
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>DHCP — DORA</div>
-    <div class="box-body">
-      <ol>
-        <li><strong>D</strong>iscover (broadcast)</li>
-        <li><strong>O</strong>ffer (broadcast)</li>
-        <li><strong>R</strong>equest (broadcast)</li>
-        <li><strong>A</strong>CK (broadcast/unicast)</li>
-      </ol>
-      <p>פורטים: ‎67 (שרת), ‎68 (לקוח)</p>
+  <div class="gloss-group box summary">
+    <div class="box-head"><span class="icon">📖</span>🌐 מודל השכבות (OSI מול TCP/IP)</div>
+    <div class="box-body" style="padding:0">
+      <table class="gloss-table">
+<tbody>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">OSI</bdi></td><td><bdi dir="ltr">Open Systems Interconnection</bdi> — מודל 7 השכבות של ISO.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">ISO</bdi></td><td><bdi dir="ltr">International Organization for Standardization</bdi> — ארגון התקנים הבינלאומי.</td></tr>
+      <tr class="d0"><td class="gt"><bdi>שכבה 7</bdi></td><td>שכבת האפליקציה — הממשק לתוכנה של המשתמש. כאן חיים HTTP, DNS, SMTP. במודל האינטרנט שכבות 5–7 מאוחדות לשכבה אחת.</td></tr>
+      <tr class="d0"><td class="gt"><bdi>שכבה 6</bdi></td><td>שכבת ההצגה — קידוד, דחיסה והצפנה של הנתונים לפורמט שהאפליקציה מבינה. גם היא מקופלת בשכבת האפליקציה במודל האינטרנט.</td></tr>
+      <tr class="d0"><td class="gt"><bdi>שכבה 5</bdi></td><td>שכבת הסשן — ניהול, סנכרון וסגירה של שיחות בין אפליקציות. במודל האינטרנט (TCP/IP) מקופלת בתוך שכבת האפליקציה.</td></tr>
+      <tr class="d0"><td class="gt"><bdi>שכבה 4</bdi></td><td>שכבת התעבורה — תקשורת קצה-לקצה בין תהליכים. אחראית על מולטיפלקסינג (פורטים), ואופציונלית אמינות ובקרת זרימה/גודש. כאן חיים TCP ו-UDP.</td></tr>
+      <tr class="d0"><td class="gt"><bdi>שכבה 3</bdi></td><td>שכבה 3 (הרשת) — IP וניתוב בין רשתות. ראוטר הוא התקן שכבה 3.</td></tr>
+      <tr class="d0"><td class="gt"><bdi>שכבה 2</bdi></td><td>שכבה 2 (הקישור) — פריימים וכתובות MAC. סוויץ׳ הוא התקן שכבה 2: לא מסתכל על IP בכלל.</td></tr>
+      <tr class="d0"><td class="gt"><bdi>שכבה 1</bdi></td><td>השכבה הפיזית — העברת ביטים גולמיים כאותות חשמליים/אופטיים על התווך (כבל, סיב, אוויר). לא מכירה כתובות או פריימים.</td></tr>
+</tbody>
+</table>
     </div>
   </div>
 
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>ARP</div>
-    <div class="box-body">
-      <ol>
-        <li>ARP Query: <strong>broadcast</strong> "מי 10.0.0.5?"</li>
-        <li>ARP Reply: <strong>unicast</strong> "אני! ה-MAC שלי..."</li>
-      </ol>
-      <p>בתוך LAN בלבד.</p>
+  <div class="gloss-group box theory">
+    <div class="box-head"><span class="icon">📖</span>7️⃣ שכבת האפליקציה</div>
+    <div class="box-body" style="padding:0">
+      <table class="gloss-table">
+<tbody>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">HTTP</bdi></td><td><bdi dir="ltr">Hypertext Transfer Protocol</bdi> — פרוטוקול הבקשות/תשובות של ה-web, מעל TCP פורט 80.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">HTTPS</bdi></td><td><bdi dir="ltr">HTTP Secure</bdi> — HTTP מעל SSL/TLS, פורט 443, לתקשורת מוצפנת.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">HTML</bdi></td><td><bdi dir="ltr">Hypertext Markup Language</bdi> — שפת הסימון של דפי web.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">DNS</bdi></td><td><bdi dir="ltr">Domain Name System</bdi> — ממיר שמות דומיין לכתובות IP. היררכי, מעל UDP פורט 53.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">TLD</bdi></td><td><bdi dir="ltr">Top Level Domain</bdi> — הרמה העליונה בהיררכיית DNS‏ (com, org, il).</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">CNAME</bdi></td><td><bdi dir="ltr">Canonical Name</bdi> — רשומת DNS שממפה שם נרדף לשם הקנוני.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">ICANN</bdi></td><td><bdi dir="ltr">Internet Corporation for Assigned Names and Numbers</bdi> — הגוף שמנהל שמות דומיין וכתובות.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">SMTP</bdi></td><td><bdi dir="ltr">Simple Mail Transfer Protocol</bdi> — פרוטוקול שליחת דואר, מעל TCP פורט 25.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">IMAP</bdi></td><td><bdi dir="ltr">Internet Message Access Protocol</bdi> — פרוטוקול גישה לתיבת דואר בשרת.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">FTP</bdi></td><td><bdi dir="ltr">File Transfer Protocol</bdi> — פרוטוקול העברת קבצים עם חיבור בקרה וחיבור נתונים נפרדים.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">URL</bdi></td><td><bdi dir="ltr">Uniform Resource Locator</bdi> — כתובת של משאב ברשת: פרוטוקול, שרת ונתיב.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">P2P</bdi></td><td><bdi dir="ltr">Peer to Peer</bdi> — ארכיטקטורה בלי שרת מרכזי: הקצוות מדברים ישירות זה עם זה.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">API</bdi></td><td><bdi dir="ltr">Application Programming Interface</bdi> — ממשק תכנותי בין רכיבי תוכנה (למשל Socket API).</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">Socket</bdi></td><td>סוקט — נקודת הקצה של תקשורת: הצירוף (IP, פורט). דרכו אפליקציה מדברת עם הרשת.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">Port</bdi></td><td>מספר פורט — מזהה 16-ביט שמפנה סגמנט לתהליך הנכון במחשב. הבסיס למולטיפלקסינג בשכבת התעבורה.</td></tr>
+</tbody>
+</table>
     </div>
   </div>
 
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>SSL Handshake (קצרצר)</div>
-    <div class="box-body">
-      <ol>
-        <li>ClientHello</li>
-        <li>ServerHello + Certificate (PK_Server)</li>
-        <li>Premaster Secret מוצפן עם PK_Server</li>
-        <li>שני הצדדים מחשבים K_session סימטרי</li>
-        <li>Finished מוצפן × 2</li>
-        <li>‎אפליקציה (HTTP) מוצפנת עם K_session</li>
-      </ol>
+  <div class="gloss-group box formula">
+    <div class="box-head"><span class="icon">📖</span>4️⃣ שכבת התעבורה</div>
+    <div class="box-body" style="padding:0">
+      <table class="gloss-table">
+<tbody>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">UDP</bdi></td><td><bdi dir="ltr">User Datagram Protocol</bdi> — פרוטוקול תעבורה ללא חיבור בשכבה 4. מהיר, בלי ערבויות.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">RUDP</bdi></td><td><bdi dir="ltr">Reliable UDP</bdi> — תוספת מנגנוני אמינות (ACK, מספור) מעל UDP באפליקציה.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">TCP</bdi></td><td><bdi dir="ltr">Transmission Control Protocol</bdi> — פרוטוקול תעבורה אמין ומבוסס-חיבור בשכבה 4. מבטיח סדר וללא איבוד.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">SEQ</bdi></td><td><bdi dir="ltr">Sequence Number</bdi> — מספר סידורי של הבית הראשון בסגמנט TCP.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">ACK</bdi></td><td><bdi dir="ltr">Acknowledgment</bdi> — אישור קבלה של סגמנט/פריים.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">ISN</bdi></td><td><bdi dir="ltr">Initial Sequence Number</bdi> — המספר הסידורי ההתחלתי שנבחר אקראית בהקמת קשר.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">SYN</bdi></td><td><bdi dir="ltr">Synchronize</bdi> — דגל TCP לפתיחת חיבור (שלב 1 ו-2 בהקמת קשר).</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">FIN</bdi></td><td><bdi dir="ltr">Finish</bdi> — דגל TCP לסגירה מסודרת של חיבור.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">MSS</bdi></td><td><bdi dir="ltr">Maximum Segment Size</bdi> — גודל מרבי של חלק הנתונים בסגמנט TCP.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">RTT</bdi></td><td><bdi dir="ltr">Round Trip Time</bdi> — הזמן שלוקח לחבילה להגיע ליעד ולחזור עם אישור.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">RDT</bdi></td><td><bdi dir="ltr">Reliable Data Transfer</bdi> — משפחת פרוטוקולים תיאורטיים (rdt1.0–3.0) להעברה אמינה.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">RW</bdi></td><td><bdi dir="ltr">Receive Window</bdi> — חלון הקבלה: כמה מקום פנוי נשאר בבאפר של המקבל (בקרת זרימה).</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">CW</bdi></td><td><bdi dir="ltr">Congestion Window</bdi> — חלון הגודש: כמה בייטים מותר לשלוח בלי אישור, לפי מצב הרשת.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">ssthresh</bdi></td><td><bdi dir="ltr">Slow Start Threshold</bdi> — הסף שמפריד בין Slow Start (גדילה מעריכית) ל-Congestion Avoidance (ליניארית).</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">AIMD</bdi></td><td><bdi dir="ltr">Additive Increase Multiplicative Decrease</bdi> — עלייה ליניארית, ירידה כפולית: העיקרון של בקרת גודש ב-TCP.</td></tr>
+</tbody>
+</table>
     </div>
   </div>
 
-  <h2>חוקים שתמיד עוזרים</h2>
-
-  <div class="keypoint">
-    <ul>
-      <li><strong>חלון התנגשות של ALOHA</strong> = ‎2 יחידות. Slotted ALOHA = ‎1 יחידה</li>
-      <li><strong>אורך פריים מינימלי:</strong> ‎L ≥ 2 × R × d_prop</li>
-      <li><strong>פרגמנט offset:</strong> כפול 8 (כי 13 ביט בלבד)</li>
-      <li><strong>RIP אינסוף</strong> = ‎16 hops</li>
-      <li><strong>MAC משתנה בכל hop, IP לא</strong></li>
-      <li><strong>הצפנה</strong> = PK של מקבל. ‎<strong>חתימה</strong> = SK של שולח</li>
-      <li>‎<strong>תקורה:</strong> ‎TCP header + IP header = ‎40 בתים</li>
-      <li>‎<strong>MSS</strong> טיפוסי = 1460 בתים (1500 MTU − 40 headers)</li>
-    </ul>
-  </div>
-
-  <div class="box summary">
-    <div class="box-head"><span class="icon">📌</span>בהצלחה במבחן!</div>
-    <div class="box-body">
-      <p>טיפים אחרונים:</p>
-      <ul>
-        <li>קרא את השאלה <strong>פעמיים</strong> לפני שאתה עונה</li>
-        <li>חישובי פרגמנטציה: בדוק שכפולה של 8</li>
-        <li>חישובי חלון: שים לב <strong>אם זה byte או כל ההודעה</strong></li>
-        <li>שאלת MAC vs IP — תלוי מה שואלים: <strong>במסלול של פאקטה</strong> ה-MAC מתחלף בכל hop וה-IP נשאר; <strong>כמזהה של מכשיר</strong> זה הפוך — MAC קבוע (צרוב בכרטיס), IP משתנה (DHCP)</li>
-        <li>brute force: ‎ממוצע = ‎חצי מהמפתחות</li>
-        <li>Nonce ← מונע <strong>Playback Attack</strong> (מספר חד-פעמי לכל התחברות)</li>
-        <li>MAC (אבטחה) = ‏Hash(M+s) ← שלמות <strong>וגם</strong> אימות מקור; בלי סודיות ובלי אי-הכחשה</li>
-        <li>RSA keygen: n = p·q, ‏φ = (p−1)(q−1), ‏e·d ≡ 1 (mod φ), ‏1 &lt; e &lt; φ</li>
-        <li>קיסר קלאסי = הזזה של 3, עם גלגול (Y→B)</li>
-        <li>בהצלחה!</li>
-      </ul>
+  <div class="gloss-group box theory">
+    <div class="box-head"><span class="icon">📖</span>3️⃣ שכבת הרשת</div>
+    <div class="box-body" style="padding:0">
+      <table class="gloss-table">
+<tbody>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">IP</bdi></td><td><bdi dir="ltr">Internet Protocol</bdi> — פרוטוקול הרשת בשכבה 3: כתובות וניתוב, ללא אמינות.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">IPv4</bdi></td><td><bdi dir="ltr">Internet Protocol version 4</bdi> — הגרסה הקלאסית, כתובות של 32 ביט.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">IPv6</bdi></td><td><bdi dir="ltr">Internet Protocol version 6</bdi> — הגרסה החדשה, כתובות של 128 ביט.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">CIDR</bdi></td><td><bdi dir="ltr">Classless Inter-Domain Routing</bdi> — רישום כתובת/פריפיקס (למשל ‎/24) במקום מחלקות.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">MTU</bdi></td><td><bdi dir="ltr">Maximum Transmission Unit</bdi> — הגודל המרבי של חבילה בלינק; מעליו נדרשת פרגמנטציה.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">TTL</bdi></td><td><bdi dir="ltr">Time To Live</bdi> — מונה קפיצות בכותרת IP; יורד ב-1 בכל ראוטר, ב-0 החבילה נזרקת.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">ICMP</bdi></td><td><bdi dir="ltr">Internet Control Message Protocol</bdi> — הודעות שגיאה ובקרה בשכבת הרשת (ping, TTL exceeded).</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">NAT</bdi></td><td><bdi dir="ltr">Network Address Translation</bdi> — מיפוי כתובות פרטיות לכתובת ציבורית אחת לפי פורטים.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">DHCP</bdi></td><td><bdi dir="ltr">Dynamic Host Configuration Protocol</bdi> — מקצה כתובות IP אוטומטית (תהליך DORA).</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">DORA</bdi></td><td><bdi dir="ltr">Discover, Offer, Request, ACK</bdi> — ארבעת שלבי הקצאת כתובת ב-DHCP.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">AS</bdi></td><td><bdi dir="ltr">Autonomous System</bdi> — מערכת אוטונומית: אוסף רשתות תחת ניהול אחד (למשל ספקית).</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">DV</bdi></td><td><bdi dir="ltr">Distance Vector</bdi> — גישת ניתוב מבוזרת: כל ראוטר משתף שכנים בטבלת המרחקים שלו.</td></tr>
+      <tr class="d2"><td class="gt" style="padding-inline-start:62px"><span class="tree-arw">↳</span> <bdi dir="ltr">RIP</bdi></td><td><bdi dir="ltr">Routing Information Protocol</bdi> — פרוטוקול ניתוב מבוסס Distance Vector (בלמן-פורד).</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">LS</bdi></td><td><bdi dir="ltr">Link State</bdi> — גישת ניתוב גלובלית: כל ראוטר מכיר את כל הטופולוגיה ומריץ דייקסטרה.</td></tr>
+      <tr class="d2"><td class="gt" style="padding-inline-start:62px"><span class="tree-arw">↳</span> <bdi dir="ltr">OSPF</bdi></td><td><bdi dir="ltr">Open Shortest Path First</bdi> — פרוטוקול ניתוב תוך-AS מבוסס Link State (דייקסטרה).</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">BGP</bdi></td><td><bdi dir="ltr">Border Gateway Protocol</bdi> — פרוטוקול הניתוב בין AS-ים, מבוסס Path Vector ומדיניות.</td></tr>
+</tbody>
+</table>
     </div>
   </div>
 
-  <!-- chapter content ends above this line -->
+  <div class="gloss-group box formula">
+    <div class="box-head"><span class="icon">📖</span>2️⃣ שכבת הקישור</div>
+    <div class="box-body" style="padding:0">
+      <table class="gloss-table">
+<tbody>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">MAC</bdi></td><td><bdi dir="ltr">Media Access Control</bdi> — כתובת חומרה של 48 ביט של כרטיס הרשת; וגם שכבת הגישה לערוץ.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">OUI</bdi></td><td><bdi dir="ltr">Organizationally Unique Identifier</bdi> — שלושת הבייטים הראשונים בכתובת MAC, מזהים את היצרן.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">ARP</bdi></td><td><bdi dir="ltr">Address Resolution Protocol</bdi> — מוצא כתובת MAC עבור כתובת IP ידועה באותה רשת.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">Ethernet</bdi></td><td>טכנולוגיית ה-LAN הקווית הנפוצה: פריימים עם כתובות MAC, ‏CSMA/CD היסטורית.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">CRC</bdi></td><td><bdi dir="ltr">Cyclic Redundancy Check</bdi> — קוד גילוי שגיאות שמחושב לכל פריים בשכבת הקישור.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">CSMA</bdi></td><td><bdi dir="ltr">Carrier Sense Multiple Access</bdi> — פרוטוקול גישה לערוץ: מאזין לפני ששולח.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">CSMA/CD</bdi></td><td><bdi dir="ltr">CSMA with Collision Detection</bdi> — מאזין לפני שידור ומזהה התנגשות תוך כדי (Ethernet קווי).</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">ALOHA</bdi></td><td>פרוטוקול הגישה האקראית הראשון: משדרים בלי להאזין. ניצולת מקס׳ 18% (או 37% ב-Slotted).</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">TDMA</bdi></td><td><bdi dir="ltr">Time Division Multiple Access</bdi> — חלוקת הערוץ לפרוסות זמן קבועות בין המשתמשים.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">FDMA</bdi></td><td><bdi dir="ltr">Frequency Division Multiple Access</bdi> — חלוקת הערוץ לתדרים קבועים בין המשתמשים.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">Hub</bdi></td><td>רכזת — התקן פיזי &quot;טיפש&quot; שמשכפל כל ביט לכל הפורטים. כולם שומעים הכול: תחום התנגשות אחד גדול.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">Switch</bdi></td><td>מתג — התקן שכבה 2 שמעביר פריים רק לפורט הנכון, לפי טבלת MAC שהוא לומד לבד (self-learning).</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">Self-Learning</bdi></td><td>למידה עצמית — הסוויץ׳ ממלא את טבלת ה-MAC לבד, מכתובות המקור של פריימים שעוברים דרכו.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">Flooding</bdi></td><td>הצפה — כשהסוויץ׳ לא מכיר את יעד ה-MAC בטבלה, הוא שולח את הפריים לכל הפורטים חוץ ממקור ההגעה.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">Collision Domains</bdi></td><td>תחום התנגשות — קבוצת התקנים שחולקים ערוץ ויכולים להתנגש זה בזה. Hub = תחום אחד גדול; Switch מפריד תחום נפרד לכל פורט.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">Plug-and-Play</bdi></td><td>חבר-והפעל — עובד מהרגע הראשון בלי שום הגדרה ידנית. סוויץ׳, למשל, לומד את הרשת לבד.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">Store-and-Forward</bdi></td><td>אחסן-והעבר — הראוטר/סוויץ׳ קולט את החבילה במלואה לפני שהוא מתחיל לשדר אותה הלאה.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">LAN</bdi></td><td><bdi dir="ltr">Local Area Network</bdi> — רשת מקומית (בניין/קמפוס), בדרך כלל Ethernet או WiFi.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">Broadcast</bdi></td><td>שידור לכולם — הודעה לכל ההתקנים ברשת (כתובת MAC‏: FF:FF:FF:FF:FF:FF).</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">Unicast</bdi></td><td>שידור ליעד יחיד — התקשורת הרגילה של אחד-אל-אחד.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">Multicast</bdi></td><td>שידור לקבוצה — ההודעה מגיעה רק למי שנרשם לקבוצה מסוימת.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">Anycast</bdi></td><td>שידור לקרוב ביותר — ההודעה מגיעה לאחד (הקרוב) מתוך קבוצת שרתים זהים.</td></tr>
+</tbody>
+</table>
+    </div>
+  </div>
 
+  <div class="gloss-group box theory">
+    <div class="box-head"><span class="icon">📖</span>1️⃣ השכבה הפיזית</div>
+    <div class="box-body" style="padding:0">
+      <table class="gloss-table">
+<tbody>
+      <tr class="d0"><td class="gt"><bdi>שכבה 1</bdi></td><td>השכבה הפיזית — העברת ביטים גולמיים כאותות חשמליים/אופטיים על התווך (כבל, סיב, אוויר). לא מכירה כתובות או פריימים.</td></tr>
+</tbody>
+</table>
+    </div>
+  </div>
+
+  <div class="gloss-group box warn">
+    <div class="box-head"><span class="icon">📖</span>🔐 אבטחה וקריפטוגרפיה</div>
+    <div class="box-body" style="padding:0">
+      <table class="gloss-table">
+<tbody>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">DoS</bdi></td><td><bdi dir="ltr">Denial of Service</bdi> — מתקפה שמציפה שרת בבקשות עד שקורס או לא זמין.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">DDoS</bdi></td><td><bdi dir="ltr">Distributed Denial of Service</bdi> — מתקפת מניעת שירות ממקורות רבים במקביל.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">DES</bdi></td><td><bdi dir="ltr">Data Encryption Standard</bdi> — אלגוריתם הצפנה סימטרי ישן (מפתח 56 ביט, נחשב חלש).</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">3DES</bdi></td><td><bdi dir="ltr">Triple DES</bdi> — הפעלת DES שלוש פעמים ברצף לחיזוק המפתח.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">AES</bdi></td><td><bdi dir="ltr">Advanced Encryption Standard</bdi> — אלגוריתם ההצפנה הסימטרי הסטנדרטי כיום.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">RSA</bdi></td><td><bdi dir="ltr">Rivest–Shamir–Adleman</bdi> — אלגוריתם הצפנה אסימטרי (מפתח ציבורי) מבוסס פירוק לגורמים.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">PK</bdi></td><td><bdi dir="ltr">Public Key</bdi> — המפתח הציבורי: גלוי לכולם, מצפינים איתו הודעות אל הבעלים.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">SK</bdi></td><td><bdi dir="ltr">Secret/Private Key</bdi> — המפתח הפרטי: רק הבעלים מחזיק בו, מפענח וחותם.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">Hash</bdi></td><td>פונקציית גיבוב — ממפה קלט בכל אורך לפלט קצר וקבוע. חד-כיוונית; משמשת בחתימות, ב-MAC וב-DNS.</td></tr>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">SSL</bdi></td><td><bdi dir="ltr">Secure Sockets Layer</bdi> — שכבת הצפנה בין האפליקציה ל-TCP‏; הבסיס של HTTPS.</td></tr>
+      <tr class="d1"><td class="gt" style="padding-inline-start:40px"><span class="tree-arw">↳</span> <bdi dir="ltr">TLS</bdi></td><td><bdi dir="ltr">Transport Layer Security</bdi> — היורש המודרני של SSL; מצפין תעבורה מעל TCP.</td></tr>
+</tbody>
+</table>
+    </div>
+  </div>
+
+  <div class="gloss-group box summary">
+    <div class="box-head"><span class="icon">📖</span>🏢 תשתית וגופים</div>
+    <div class="box-body" style="padding:0">
+      <table class="gloss-table">
+<tbody>
+      <tr class="d0"><td class="gt"><bdi dir="ltr">ISP</bdi></td><td><bdi dir="ltr">Internet Service Provider</bdi> — ספקית שירותי אינטרנט.</td></tr>
+</tbody>
+</table>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var inp=document.getElementById("glossSearch"); if(!inp) return;
+    var rows=[].slice.call(document.querySelectorAll(".gloss-table tr"));
+    var groups=[].slice.call(document.querySelectorAll(".gloss-group"));
+    var empty=document.getElementById("glossEmpty");
+    inp.addEventListener("input", function(){
+      var q=this.value.trim().toLowerCase(); var any=false;
+      rows.forEach(function(r){
+        var hit=r.textContent.toLowerCase().indexOf(q)!==-1;
+        r.style.display=hit?"":"none"; if(hit)any=true;
+      });
+      groups.forEach(function(g){
+        var vis=g.querySelectorAll(".gloss-table tr:not([style*=\"none\"])").length;
+        g.style.display=vis?"":"none";
+      });
+      empty.style.display=any?"none":"block";
+    });
+  })();
+  </script>
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="32-practice-cidr-delays.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">תרגול — IP, השהיות והצפנה</span></a>
-  <a class="next" href="33-summary-glossary.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">סיכום ומילון</span></a>
+  <a class="prev" href="31-cheatsheet.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">דף נוסחאות</span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
 </nav>
-
 </main>
 
 </div>

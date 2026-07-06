@@ -97,6 +97,13 @@
 main { min-width: 0; }
 .box-body { overflow-x: auto; }
 .figure svg { max-width: 100%; height: auto; }
+
+/* ===== bidi-prose-v4 ===== */
+/* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
+   embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
+main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
+  unicode-bidi: plaintext;
+}
 </style>
 </head>
 <body>
@@ -286,13 +293,13 @@ main { min-width: 0; }
   <a href="18-net-routing.html" class="card">
     <div class="card-num">3.6</div>
     <div class="card-title">ניתוב — DV + LS</div>
-    <div class="card-desc">Bellman-Ford vs Dijkstra. ספירה-לאינסוף. ‎RIP=16 ב-DV.</div>
+    <div class="card-desc">Bellman-Ford vs Dijkstra. ספירה-לאינסוף. RIP=16 ב-DV.</div>
     <div class="card-tags"><span class="tag">תאוריה</span><span class="tag exercise">RIP=16</span></div>
   </a>
   <a href="19-net-ospf-bgp.html" class="card">
     <div class="card-num">3.7</div>
     <div class="card-title">OSPF + BGP</div>
-    <div class="card-desc">‎AS-ים והיררכיה. Intra-AS (OSPF). Inter-AS (BGP). שיקולי מדיניות.</div>
+    <div class="card-desc">AS-ים והיררכיה. Intra-AS (OSPF). Inter-AS (BGP). שיקולי מדיניות.</div>
     <div class="card-tags"><span class="tag">תאוריה</span></div>
   </a>
   <a href="sum-net.html" class="card sum-card">
@@ -314,7 +321,7 @@ main { min-width: 0; }
   <a href="20-link-framing.html" class="card">
     <div class="card-num">4.1</div>
     <div class="card-title">Framing ושירותים</div>
-    <div class="card-desc">עטיפת דאטהגרם בפריים. Header+Trailer. ‎7 שירותים. ‎TDMA/FDMA vs Random Access.</div>
+    <div class="card-desc">עטיפת דאטהגרם בפריים. Header+Trailer. ‎7 שירותים. TDMA/FDMA vs Random Access.</div>
     <div class="card-tags"><span class="tag">תאוריה</span></div>
   </a>
   <a href="21-link-aloha.html" class="card">
@@ -326,19 +333,19 @@ main { min-width: 0; }
   <a href="22-link-csma.html" class="card">
     <div class="card-num">4.3</div>
     <div class="card-title">CSMA + Ethernet</div>
-    <div class="card-desc">"תקשיב לפני שתדבר". Persistent/Non. CSMA/CD + JAM. ‎גודל פריים מינימלי. ‎Binary Backoff.</div>
+    <div class="card-desc">"תקשיב לפני שתדבר". Persistent/Non. CSMA/CD + JAM. ‎גודל פריים מינימלי. Binary Backoff.</div>
     <div class="card-tags"><span class="tag">תאוריה</span><span class="tag exercise">CSMA vs ALOHA</span></div>
   </a>
   <a href="23-link-mac-arp.html" class="card">
     <div class="card-num">4.4</div>
     <div class="card-title">MAC + ARP</div>
-    <div class="card-desc">‎48 ביטים פיזיים. ‎OUI + Serial. ARP — מיפוי IP→MAC ב-LAN.</div>
+    <div class="card-desc">‎48 ביטים פיזיים. OUI + Serial. ARP — מיפוי IP→MAC ב-LAN.</div>
     <div class="card-tags"><span class="tag">תאוריה</span><span class="tag exercise">MAC vs IP</span></div>
   </a>
   <a href="24-link-switches.html" class="card">
     <div class="card-num">4.5</div>
     <div class="card-title">סוויצ׳ים</div>
-    <div class="card-desc">‎Self-learning של טבלת MAC. ‎בידוד collision domains. ‎plug-and-play.</div>
+    <div class="card-desc">Self-learning של טבלת MAC. ‎בידוד collision domains. plug-and-play.</div>
     <div class="card-tags"><span class="tag">תאוריה</span><span class="tag exercise">תרגיל</span></div>
   </a>
   <a href="25-link-day-in-life.html" class="card">
@@ -366,7 +373,7 @@ main { min-width: 0; }
   <a href="26-phys-signals.html" class="card">
     <div class="card-num">5.1</div>
     <div class="card-title">אותות וביטים</div>
-    <div class="card-desc">סוגי לינקים — כבל, סיב, אלחוטי, לוויין. ‎NRZ, Manchester. ‎פרמטרים.</div>
+    <div class="card-desc">סוגי לינקים — כבל, סיב, אלחוטי, לוויין. NRZ, Manchester. ‎פרמטרים.</div>
     <div class="card-tags"><span class="tag">תאוריה</span></div>
   </a>
 </div>
@@ -382,25 +389,25 @@ main { min-width: 0; }
   <a href="27-sec-threats.html" class="card">
     <div class="card-num">6.1</div>
     <div class="card-title">איומים</div>
-    <div class="card-desc">Packet Sniffing, IP Spoofing, DoS/DDoS. ‎CIA Triad. ‎מנגנוני הגנה.</div>
+    <div class="card-desc">Packet Sniffing, IP Spoofing, DoS/DDoS. CIA Triad. ‎מנגנוני הגנה.</div>
     <div class="card-tags"><span class="tag">תאוריה</span></div>
   </a>
   <a href="28-sec-crypto.html" class="card">
     <div class="card-num">6.2</div>
     <div class="card-title">סימטרי vs אסימטרי</div>
-    <div class="card-desc">DES vs RSA. ‎צופן קיסר. ‎יצירת מפתחות RSA (φ, e·d≡1). ‎Brute force. ‎שילוב היברידי.</div>
+    <div class="card-desc">DES vs RSA. ‎צופן קיסר. ‎יצירת מפתחות RSA (φ, e·d≡1). Brute force. ‎שילוב היברידי.</div>
     <div class="card-tags"><span class="tag">תאוריה</span><span class="tag exercise">DES vs RSA + 16!/6!</span></div>
   </a>
   <a href="29-sec-signatures.html" class="card">
     <div class="card-num">6.3</div>
     <div class="card-title">חתימה דיגיטלית</div>
-    <div class="card-desc">Hash + מפתח פרטי. ‎MAC. ‎Nonce נגד Playback. ‎ההבדל מהצפנה.</div>
+    <div class="card-desc">Hash + מפתח פרטי. MAC. Nonce נגד Playback. ‎ההבדל מהצפנה.</div>
     <div class="card-tags"><span class="tag">תאוריה</span><span class="tag exercise">אליס/יובב</span></div>
   </a>
   <a href="30-sec-ssl.html" class="card">
     <div class="card-num">6.4</div>
     <div class="card-title">SSL/TLS</div>
-    <div class="card-desc">בין App ל-Transport. ‎Handshake. ‎שילוב אסימטרי+סימטרי. ‎HTTPS.</div>
+    <div class="card-desc">בין App ל-Transport. Handshake. ‎שילוב אסימטרי+סימטרי. HTTPS.</div>
     <div class="card-tags"><span class="tag">תאוריה</span><span class="tag exercise">מה זה SSL</span></div>
   </a>
   <a href="sum-sec.html" class="card sum-card">
@@ -424,6 +431,12 @@ main { min-width: 0; }
     <div class="card-title">תרגול — IP, השהיות והצפנה</div>
     <div class="card-desc">‎21 תרגילים עם פתרון מלא: סאבנטים לפי ‎/x ו-Longest Prefix Match, כל חישובי ה-d כולל Store-and-Forward, והצפנה בסגנון אליס ובוב — מפתחות, חתימות ו-brute force.</div>
     <div class="card-tags"><span class="tag">תרגול</span></div>
+  </a>
+  <a href="33-summary-glossary.html" class="card" style="grid-column:1/-1;background:var(--c-summary-bg);border-color:var(--c-summary-edge);">
+    <div class="card-num">📚</div>
+    <div class="card-title">סיכום כללי · נוסחאות ומילון</div>
+    <div class="card-desc">כל הקורס בעמוד אחד: המפה השכבתית, כל הנוסחאות המרכזיות, ומילון מונחים אלפביתי עם חיפוש.</div>
+    <div class="card-tags"><span class="tag">סיכום</span></div>
   </a>
 </div>
 
