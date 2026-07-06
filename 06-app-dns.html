@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -896,7 +896,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li><strong>Local DNS</strong> מחוץ להיררכיה — פרוקסי לשמות, נקודת פנייה ראשונה</li>
         <li>‎2 סוגי שאילתות: <strong>איטרטיבי</strong> (Local שואל בעצמו את כולם) ו<strong>רקורסיבי</strong> (כל שרת ממשיך לבד)</li>
         <li>איטרטיבי <strong>עדיף</strong> — מקל על Root ו-TLD</li>
-        <li>‎4 סוגי רשומות: <strong>A</strong> (IP), <strong>CNAME</strong> (alias), <strong>NS</strong> (name server), <strong>MX</strong> (mail)</li>
+        <li>‎4 סוגי רשומות: <strong>A</strong> (IP), <strong>CNAME</strong> (alias), <strong>NS</strong> (name server), <strong>MX</strong> <bdi dir="ltr">(mail)</bdi></li>
         <li>Cache עם <strong>TTL</strong> — חוסך זמן ועומס; פוקע לפי TTL</li>
         <li>DNS רץ מעל <strong>UDP</strong> על פורט <span class="term">53</span></li>
         <li>איומים: DDoS, DNS Spoofing. הגנה: סינון, DNSSEC</li>

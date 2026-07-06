@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -655,7 +655,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li>שכבת הקישור מעבירה הודעות <strong>בין שני שכנים פיזיים</strong></li>
         <li>ממומשת ב<strong>כרטיס הרשת (NIC)</strong>, יחד עם השכבה הפיזית</li>
         <li>‎7 שירותים: <strong>Framing, Link Access, אמינות, Flow Control, Error Detection/Correction, HD/FD</strong></li>
-        <li>פריים = <strong>Header + Payload + Trailer</strong> (CRC)</li>
+        <li>פריים = <strong>Header + Payload + Trailer</strong> <bdi dir="ltr">(CRC)</bdi></li>
         <li>‎3 סוגי לינקים: Point-to-Point, Switched, <strong>Broadcast</strong> (נדון בעיקר)</li>
         <li>ב-Broadcast — צריך פרוטוקול גישה למניעת התנגשויות</li>
         <li>‎3 גישות: Channel Partitioning (TDMA, FDMA), Random Access (ALOHA, CSMA), Taking Turns</li>

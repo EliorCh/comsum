@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -590,7 +590,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <ul>
         <li>ALOHA: שולח מתי שרוצה, מזהה התנגשות ע״י האזנה לעצמו</li>
         <li>זיהוי התנגשות במקבל = <strong>CRC לא תואם</strong></li>
-        <li>זיהוי התנגשות בשולח = הוא מאזין לעצמו (Ft, Fr)</li>
+        <li>זיהוי התנגשות בשולח = הוא מאזין לעצמו <bdi dir="ltr">(Ft, Fr)</bdi></li>
         <li>בהתנגשות ← ‎ממתינים <strong>זמן אקראי</strong> ושולחים שוב</li>
         <li>ניצולת ALOHA = <strong>18%</strong> (חלון התנגשות 2 יחידות)</li>
         <li>Slotted ALOHA: מסונכרן, שולחים רק בתחילת חריץ</li>

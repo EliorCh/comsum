@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -509,7 +509,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li><strong>הפריים</strong> נוצר עם:
           <ul>
             <li>MAC src = שלי, MAC dst = של ה-gateway (לא ה-DNS server! אנחנו לא ב-LAN שלו)</li>
-            <li>IP src = שלי (192.168.1.105), IP dst = ‎8.8.8.8 (DNS)</li>
+            <li>IP src = שלי (192.168.1.105), IP dst = ‎8.8.8.8 <bdi dir="ltr">(DNS)</bdi></li>
             <li>UDP src port = אקראי, dst port = 53</li>
           </ul>
         </li>

@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -583,7 +583,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <p>הלקוח שולח עם:</p>
         <ul>
           <li>IP מקור: <span class="term">0.0.0.0</span> (אין לי IP)</li>
-          <li>IP יעד: <span class="term">255.255.255.255</span> (broadcast)</li>
+          <li>IP יעד: <span class="term">255.255.255.255</span> <bdi dir="ltr">(broadcast)</bdi></li>
           <li>פורט יעד: 67 (שרתי DHCP מאזינים שם)</li>
         </ul>
       </div>

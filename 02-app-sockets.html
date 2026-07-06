@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -484,7 +484,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <ul>
         <li><strong>תמיד זמין</strong></li>
         <li><strong>IP קבוע</strong></li>
-        <li>לרוב נמצא במרכזי נתונים גדולים (data centers)</li>
+        <li>לרוב נמצא במרכזי נתונים גדולים <bdi dir="ltr">(data centers)</bdi></li>
       </ul>
       <h4>לקוח</h4>
       <ul>
@@ -534,7 +534,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <h4>Well-Known Ports (מספרים שמורים)</h4>
       <p>‎0 עד ‎1023 שמורים ע״י ארגוני תקינה לפרוטוקולים סטנדרטיים:</p>
       <ul>
-        <li><span class="term">80</span> — HTTP (Web)</li>
+        <li><span class="term">80</span> — HTTP <bdi dir="ltr">(Web)</bdi></li>
         <li><span class="term">443</span> — HTTPS (Web מאובטח)</li>
         <li><span class="term">25</span> — SMTP (שליחת מייל)</li>
         <li><span class="term">53</span> — DNS</li>
@@ -731,7 +731,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <ul>
         <li>אפליקציות רצות במחשבי קצה — לא בנתבים</li>
-        <li>שתי ארכיטקטורות: <strong>Client-Server</strong> (Web, Mail) או <strong>P2P</strong> (BitTorrent)</li>
+        <li>שתי ארכיטקטורות: <strong>Client-Server</strong> (Web, Mail) או <strong>P2P</strong> <bdi dir="ltr">(BitTorrent)</bdi></li>
         <li>תהליך מזוהה ע״י <strong>(IP, Port Number)</strong></li>
         <li>פורטים שמורים (Well-Known): 80 = HTTP, 53 = DNS, 25 = SMTP</li>
         <li>סוקט = ה-API שדרכו אפליקציה מדברת עם הרשת</li>

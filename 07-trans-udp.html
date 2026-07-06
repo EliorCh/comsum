@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -769,7 +769,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li>UDP demux: רק <strong>port יעד</strong> ← כל המקורות לאותו סוקט</li>
         <li>TCP demux: <strong><bdi>4-tuple מלא</bdi></strong> ← סוקט נפרד לכל חיבור</li>
         <li>UDP: מהיר, פשוט, לא אמין. שימושי לסטרימינג, DNS, גיימינג</li>
-        <li>כותרת UDP: <strong><bdi>8 בתים</bdi></strong> (src port, dst port, length, checksum)</li>
+        <li>כותרת <bdi dir="ltr">UDP</bdi>: <strong>8 בתים</strong> <bdi dir="ltr">(src port, dst port, length, checksum)</bdi></li>
         <li><strong>Checksum:</strong> בדיקת שגיאות פשוטה. אם פגום — הסגמנט נזרק</li>
       </ul>
     </div>

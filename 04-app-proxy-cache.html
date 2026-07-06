@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -535,7 +535,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <p>הסיכום למבחן מציין את הנוסחה הבאה (חשובה למבחן!):</p>
       <ul>
         <li><span class="term red">P</span> = Hit Rate (הסתברות שאובייקט בפרוקסי)</li>
-        <li><span class="term red">F</span> = זמן הבאה מהפרוקסי (cache hit)</li>
+        <li><span class="term red">F</span> = זמן הבאה מהפרוקסי <bdi dir="ltr">(cache hit)</bdi></li>
         <li><span class="term red">M</span> = זמן הבאה משרת מרוחק (cache miss, בלי פרוקסי)</li>
       </ul>
       <p>זמן הבאת אובייקט <strong>עם</strong> פרוקסי:</p>

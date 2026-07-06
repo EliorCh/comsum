@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -449,7 +449,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <p>SSL מתאימה ל<strong>תקשורת בין שני צדדים מזוהים, על מידע רגיש, מעל TCP:</strong></p>
         <ul>
           <li><strong>HTTPS</strong> — גלישה באתרים, סיסמאות, מסחר אלקטרוני</li>
-          <li><strong>מיילים</strong> מאובטחים (IMAPS, POPS, SMTPS)</li>
+          <li><strong>מיילים</strong> מאובטחים <bdi dir="ltr">(IMAPS, POPS, SMTPS)</bdi></li>
           <li><strong>FTPS</strong> — העברת קבצים מאובטחת</li>
           <li><strong>VPN</strong> — קישור מרחוק לרשת ארגונית</li>
         </ul>
@@ -486,7 +486,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
           <ul>
             <li>PK של השרת</li>
             <li>שם השרת</li>
-            <li><strong>חתימה דיגיטלית של CA</strong> (Certificate Authority)</li>
+            <li><strong>חתימה דיגיטלית של CA</strong> <bdi dir="ltr">(Certificate Authority)</bdi></li>
           </ul>
           <p>הלקוח מאמת את החתימה לפי רשימת CAs מהימנים שמותקנת בדפדפן.</p>
         </div>

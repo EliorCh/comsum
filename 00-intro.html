@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -653,7 +653,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <p>במבחן ישאלו אותך מה השם של יחידת הנתונים בכל שכבה. שינון:</p>
       <ul>
         <li>אפליקציה: <strong>הודעה (Message)</strong></li>
-        <li>תעבורה: <strong>סגמנט</strong> (TCP) או <strong>דאטהגרם</strong> (UDP)</li>
+        <li>תעבורה: <strong>סגמנט</strong> (TCP) או <strong>דאטהגרם</strong> <bdi dir="ltr">(UDP)</bdi></li>
         <li>רשת: <strong>פאקטה</strong> או <strong>IP דאטהגרם</strong></li>
         <li>לינק: <strong>פריים (Frame)</strong></li>
         <li>פיזית: <strong>ביטים</strong></li>

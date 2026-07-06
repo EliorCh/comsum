@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -621,7 +621,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📐</span>‎חתימה דיגיטלית</div>
     <div class="box-body">
       <ul>
-        <li><strong>שולח:</strong> ‎h = Hash(M), ‎s = Enc(SK_שולח, h). ‎שולח (M, s)</li>
+        <li><strong>שולח:</strong> ‎h = Hash(M), ‎s = Enc(SK_שולח, h). ‎שולח <bdi dir="ltr">(M, s)</bdi></li>
         <li><strong>מקבל:</strong> ‎h' = Hash(M), ‎h = Dec(PK_שולח, s). ‎בדיקה: h == h'?</li>
       </ul>
       <p><strong>הצפנה</strong> = ‎Enc(PK_מקבל, M). ‎<strong>חתימה</strong> = ‎Enc(SK_שולח, Hash(M)). ‎הפוך!</p>
@@ -698,7 +698,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li>אם אין — Local שולח ל-<span class="term"><strong>Root</strong> → <strong>TLD</strong> (com, org...) → <strong>Authoritative</strong></span></li>
         <li>שליחה איטרטיבית או רקורסיבית</li>
       </ol>
-      <p><strong>Records:</strong> A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), NS (name server)</p>
+      <p><strong>Records:</strong> A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), NS <bdi dir="ltr">(name server)</bdi></p>
     </div>
   </div>
 
@@ -717,10 +717,10 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📘</span>DHCP — DORA</div>
     <div class="box-body">
       <ol>
-        <li><strong>D</strong>iscover (broadcast)</li>
-        <li><strong>O</strong>ffer (broadcast)</li>
-        <li><strong>R</strong>equest (broadcast)</li>
-        <li><strong>A</strong>CK (broadcast/unicast)</li>
+        <li><strong>D</strong>iscover <bdi dir="ltr">(broadcast)</bdi></li>
+        <li><strong>O</strong>ffer <bdi dir="ltr">(broadcast)</bdi></li>
+        <li><strong>R</strong>equest <bdi dir="ltr">(broadcast)</bdi></li>
+        <li><strong>A</strong>CK <bdi dir="ltr">(broadcast/unicast)</bdi></li>
       </ol>
       <p>פורטים: ‎67 (שרת), ‎68 (לקוח)</p>
     </div>
@@ -774,7 +774,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li>קרא את השאלה <strong>פעמיים</strong> לפני שאתה עונה</li>
         <li>חישובי פרגמנטציה: בדוק שכפולה של 8</li>
         <li>חישובי חלון: שים לב <strong>אם זה byte או כל ההודעה</strong></li>
-        <li>שאלת MAC vs IP — תלוי מה שואלים: <strong>במסלול של פאקטה</strong> ה-MAC מתחלף בכל hop וה-IP נשאר; <strong>כמזהה של מכשיר</strong> זה הפוך — MAC קבוע (צרוב בכרטיס), IP משתנה (DHCP)</li>
+        <li>שאלת MAC vs IP — תלוי מה שואלים: <strong>במסלול של פאקטה</strong> ה-MAC מתחלף בכל hop וה-IP נשאר; <strong>כמזהה של מכשיר</strong> זה הפוך — MAC קבוע (צרוב בכרטיס), IP משתנה <bdi dir="ltr">(DHCP)</bdi></li>
         <li>brute force: ‎ממוצע = ‎חצי מהמפתחות</li>
         <li>Nonce ← מונע <strong>Playback Attack</strong> (מספר חד-פעמי לכל התחברות)</li>
         <li>MAC (אבטחה) = ‏Hash(M+s) ← שלמות <strong>וגם</strong> אימות מקור; בלי סודיות ובלי אי-הכחשה</li>

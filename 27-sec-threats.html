@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -469,7 +469,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
           <ul>
             <li><strong>Rate limiting</strong></li>
             <li><strong>SYN Cookies</strong></li>
-            <li><strong>CDN</strong> (Cloudflare, Akamai)</li>
+            <li><strong>CDN</strong> <bdi dir="ltr">(Cloudflare, Akamai)</bdi></li>
           </ul>
         </div>
       </div>

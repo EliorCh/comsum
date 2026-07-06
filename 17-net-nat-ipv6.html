@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -696,7 +696,7 @@ DST IP : 192.168.1.5    DST Port: 49234</code></pre>
         <li><strong>IPv6:</strong> 128 ביטים, הדר קבוע 40 בתים, בלי פרגמנטציה ובלי checksum בהדר</li>
         <li>מעבר: <strong>Tunneling</strong> — לעטוף IPv6 בתוך IPv4</li>
         <li><strong>ICMP:</strong> פרוטוקול לדיווחי שגיאה ובקרה. Type+Code לכל סוג הודעה.</li>
-        <li>שימושים מפורסמים: <strong>ping</strong> (Echo Req/Reply) ו-<strong>traceroute</strong> (TTL expired)</li>
+        <li>שימושים מפורסמים: <strong>ping</strong> (Echo Req/Reply) ו-<strong>traceroute</strong> <bdi dir="ltr">(TTL expired)</bdi></li>
       </ul>
     </div>
   </div>

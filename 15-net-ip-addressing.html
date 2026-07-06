@@ -228,7 +228,7 @@ body.nav-hidden main { padding-top: 68px; }
 /* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
    embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
 main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
-  unicode-bidi: plaintext;
+  direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
 /* ===== ui-fixes-v5 ===== */
@@ -607,9 +607,9 @@ AND  : 11001000 00010111 00010000 00000000</code></pre>
       <h4>דוגמה</h4>
       <p>Subnet <span class="term">192.168.1.0/24</span>:</p>
       <ul>
-        <li>‎192.168.1.0 — שמורה (subnet)</li>
+        <li>‎192.168.1.0 — שמורה <bdi dir="ltr">(subnet)</bdi></li>
         <li>‎192.168.1.1 עד ‎192.168.1.254 — זמינות (254 כתובות)</li>
-        <li>‎192.168.1.255 — שמורה (broadcast)</li>
+        <li>‎192.168.1.255 — שמורה <bdi dir="ltr">(broadcast)</bdi></li>
       </ul>
     </div>
   </div>
