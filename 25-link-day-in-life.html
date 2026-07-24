@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -414,7 +418,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <p class="page-subtitle"><span class="term">פתיחת לפטופ → הקלדת URL → הצגת דף</span> — מה קורה בכל השכבות.</p>
 
   <p class="lead">
-    סקירה אינטגרטיבית. פתחת לפטופ, התחברת ל-WiFi, הקלדת <span class="term">www.google.com</span>. <strong><bdi>10+ פרוטוקולים עובדים יחד:</bdi></strong> DHCP → DNS → ARP → 3WHS → HTTP. נראה את כל ההודעות בסדר הנכון.
+    סקירה אינטגרטיבית. פתחת לפטופ, התחברת ל-<bdi dir="ltr">WiFi</bdi>, הקלדת <span class="term">www.google.com</span>. <strong><bdi>10+ פרוטוקולים עובדים יחד:</bdi></strong> <bdi dir="ltr">DHCP</bdi> → <bdi dir="ltr">DNS</bdi> → <bdi dir="ltr">ARP</bdi> → <bdi dir="ltr">3WHS</bdi> → <bdi dir="ltr">HTTP</bdi>. נראה את כל ההודעות בסדר הנכון.
   </p>
 
   <h2>סצנת ההתחלה</h2>
@@ -423,8 +427,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📘</span>המצב</div>
     <div class="box-body">
       <ul>
-        <li>לפטופ חדש מתחבר ל-WiFi בקפה.</li>
-        <li>אין לו IP, לא יודע gateway, לא יודע DNS.</li>
+        <li>לפטופ חדש מתחבר ל-<bdi dir="ltr">WiFi</bdi> בקפה.</li>
+        <li>אין לו <bdi dir="ltr">IP</bdi>, לא יודע <bdi dir="ltr">gateway</bdi>, לא יודע <bdi dir="ltr">DNS</bdi>.</li>
         <li>המטרה: לטעון <span class="term">www.google.com</span>.</li>
       </ul>
     </div>
@@ -437,116 +441,116 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <g font-family="Assistant, sans-serif" font-size="11">
         <!-- Stage 1: DHCP -->
         <rect x="40" y="20" width="640" height="55" rx="6" fill="#f5f3ff" stroke="#6d28d9" stroke-width="2"/>
-        <text x="60" y="45" font-size="13" fill="#6d28d9" font-weight="700">1️⃣ DHCP · קבלת IP</text>
-        <text x="60" y="65" font-size="10" fill="#475569">‎4 הודעות broadcast — מקבל IP, gateway, DNS server, subnet mask</text>
+        <text x="60" y="45" font-size="13" fill="#6d28d9" font-weight="700" direction="rtl">1️⃣ DHCP · קבלת IP</text>
+        <text x="60" y="65" font-size="10" fill="#475569" direction="rtl">‎4 הודעות broadcast — מקבל IP, gateway, DNS server, subnet mask</text>
 
         <!-- Stage 2: ARP for gateway -->
         <rect x="40" y="85" width="640" height="55" rx="6" fill="#fff1f2" stroke="#be123c" stroke-width="2"/>
-        <text x="60" y="110" font-size="13" fill="#be123c" font-weight="700">2️⃣ ARP · קבלת MAC של ה-gateway</text>
-        <text x="60" y="130" font-size="10" fill="#475569">Broadcast: "מי 192.168.1.1?". Unicast מהראוטר: "אני, MAC: XX"</text>
+        <text x="60" y="110" font-size="13" fill="#be123c" font-weight="700" direction="rtl">2️⃣ ARP · קבלת MAC של ה-gateway</text>
+        <text x="60" y="130" font-size="10" fill="#475569" direction="rtl">Broadcast: "מי 192.168.1.1?". Unicast מהראוטר: "אני, MAC: XX"</text>
 
         <!-- Stage 3: DNS -->
         <rect x="40" y="150" width="640" height="55" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
-        <text x="60" y="175" font-size="13" fill="#047857" font-weight="700">3️⃣ DNS · תרגום (www.google.com → IP)</text>
-        <text x="60" y="195" font-size="10" fill="#475569">שאילתה ל-DNS server (UDP פורט 53). חוזרת תשובה — IP של google.com</text>
+        <text x="60" y="175" font-size="13" fill="#047857" font-weight="700" direction="rtl">3️⃣ DNS · תרגום (www.google.com → IP)</text>
+        <text x="60" y="195" font-size="10" fill="#475569" direction="rtl">שאילתה ל-DNS server (UDP פורט 53). חוזרת תשובה — IP של google.com</text>
 
         <!-- Stage 4: ARP for google? -->
         <rect x="40" y="215" width="640" height="55" rx="6" fill="#fff1f2" stroke="#be123c" stroke-width="2"/>
-        <text x="60" y="240" font-size="13" fill="#be123c" font-weight="700">4️⃣ ‎google.com מחוץ ל-LAN — המסלול עובר דרך ה-gateway</text>
-        <text x="60" y="260" font-size="10" fill="#475569">ARP כבר ידוע מ-step 2. Frame עם MAC dst = gateway, IP dst = Google</text>
+        <text x="60" y="240" font-size="13" fill="#be123c" font-weight="700" direction="rtl">4️⃣ ‎google.com מחוץ ל-LAN — המסלול עובר דרך ה-gateway</text>
+        <text x="60" y="260" font-size="10" fill="#475569" direction="rtl">ARP כבר ידוע מ-step 2. Frame עם MAC dst = gateway, IP dst = Google</text>
 
         <!-- Stage 5: TCP 3WHS -->
         <rect x="40" y="280" width="640" height="55" rx="6" fill="#fef9e7" stroke="#b45309" stroke-width="2"/>
-        <text x="60" y="305" font-size="13" fill="#b45309" font-weight="700">5️⃣ TCP 3-Way HandShake עם google</text>
-        <text x="60" y="325" font-size="10" fill="#475569">‎(SYN → SYN-ACK → ACK). ‎הפריים נשלח לראוטר; הראוטר מנתב לאינטרנט</text>
+        <text x="60" y="305" font-size="13" fill="#b45309" font-weight="700" direction="rtl">5️⃣ TCP 3-Way HandShake עם google</text>
+        <text x="60" y="325" font-size="10" fill="#475569" direction="rtl">‎(SYN → SYN-ACK → ACK). ‎הפריים נשלח לראוטר; הראוטר מנתב לאינטרנט</text>
 
         <!-- Stage 6: HTTP -->
         <rect x="40" y="345" width="640" height="30" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
-        <text x="60" y="365" font-size="13" fill="#047857" font-weight="700">6️⃣ HTTP GET · קבלת הדף. הצגה בדפדפן.</text>
+        <text x="60" y="365" font-size="13" fill="#047857" font-weight="700" direction="rtl">6️⃣ HTTP GET · קבלת הדף. הצגה בדפדפן.</text>
       </g>
     </svg>
-    <div class="cap">‎6 שלבים, ‎4 שכבות, ‎10+ הודעות. ראייה מלאה של איך הרשת עובדת.</div>
+    <div class="cap">6 שלבים, 4 שכבות, 10+ הודעות. ראייה מלאה של איך הרשת עובדת.</div>
   </div>
 
-  <h2>שלב 1: DHCP — קבלת IP</h2>
+  <h2>שלב <bdi dir="ltr">1</bdi>: <bdi dir="ltr">DHCP</bdi> — קבלת <bdi dir="ltr">IP</bdi></h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>‎4 הודעות broadcast</div>
+    <div class="box-head"><span class="icon">📘</span>4 הודעות <bdi dir="ltr">broadcast</bdi></div>
     <div class="box-body">
-      <p>הלפטופ עוד לא יודע IP של אף אחד. הוא מתחיל ב-broadcast:</p>
+      <p>הלפטופ עוד לא יודע <bdi dir="ltr">IP</bdi> של אף אחד. הוא מתחיל ב-<bdi dir="ltr">broadcast</bdi>:</p>
       <ol>
-        <li><strong>DHCP Discover</strong> (broadcast): "מי כאן יכול לתת לי IP?". MAC dst = FF:FF:FF:FF:FF:FF.</li>
-        <li><strong>DHCP Offer</strong> (broadcast): שרת ה-DHCP (על הראוטר): "קח את 192.168.1.105, lease 24h".</li>
-        <li><strong>DHCP Request</strong> (broadcast): "אני בוחר את ההצעה הזו".</li>
-        <li><strong>DHCP ACK:</strong> "אישור! גם כאן: gateway = 192.168.1.1, DNS = 8.8.8.8".</li>
+        <li><strong>DHCP Discover</strong> (<bdi dir="ltr">broadcast</bdi>): "מי כאן יכול לתת לי <bdi dir="ltr">IP</bdi>?". <bdi dir="ltr">MAC dst = FF:FF:FF:FF:FF:FF</bdi>.</li>
+        <li><strong>DHCP Offer</strong> (<bdi dir="ltr">broadcast</bdi>): שרת ה-<bdi dir="ltr">DHCP</bdi> (על הראוטר): "קח את <bdi dir="ltr">192.168.1.105, lease 24h</bdi>".</li>
+        <li><strong>DHCP Request</strong> (<bdi dir="ltr">broadcast</bdi>): "אני בוחר את ההצעה הזו".</li>
+        <li><strong>DHCP ACK:</strong> "אישור! גם כאן: <bdi dir="ltr">gateway = 192.168.1.1, DNS = 8.8.8.8</bdi>".</li>
       </ol>
-      <p>אחרי שלב זה — הלפטופ יודע: IP שלי, gateway, DNS.</p>
+      <p>אחרי שלב זה — הלפטופ יודע: <bdi dir="ltr">IP</bdi> שלי, <bdi dir="ltr">gateway, DNS</bdi>.</p>
     </div>
   </div>
 
-  <h2>שלב 2: ARP — מציאת MAC של ה-gateway</h2>
+  <h2>שלב <bdi dir="ltr">2</bdi>: <bdi dir="ltr">ARP</bdi> — מציאת <bdi dir="ltr">MAC</bdi> של ה-<bdi dir="ltr">gateway</bdi></h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>למה ARP?</div>
+    <div class="box-head"><span class="icon">📘</span>למה <bdi dir="ltr">ARP</bdi>?</div>
     <div class="box-body">
-      <p>הלפטופ יודע ‎IP של ה-gateway (192.168.1.1) אבל לא את ה-MAC. בלי MAC — לא ניתן ליצור פריים.</p>
+      <p>הלפטופ יודע <bdi dir="ltr">IP</bdi> של ה-<bdi dir="ltr">gateway</bdi> (192.168.1.1) אבל לא את ה-<bdi dir="ltr">MAC</bdi>. בלי <bdi dir="ltr">MAC</bdi> — לא ניתן ליצור פריים.</p>
       <ol>
-        <li><strong>ARP Query</strong> (broadcast): "מי בעל 192.168.1.1?".</li>
-        <li><strong>ARP Reply</strong> (unicast): הראוטר מחזיר את ה-MAC שלו.</li>
+        <li><strong>ARP Query</strong> (<bdi dir="ltr">broadcast</bdi>): "מי בעל 192.168.1.1?".</li>
+        <li><strong>ARP Reply</strong> (<bdi dir="ltr">unicast</bdi>): הראוטר מחזיר את ה-<bdi dir="ltr">MAC</bdi> שלו.</li>
       </ol>
-      <p>הלפטופ מעדכן ARP Table.</p>
+      <p>הלפטופ מעדכן <bdi dir="ltr">ARP Table</bdi>.</p>
     </div>
   </div>
 
-  <h2>שלב 3: DNS — תרגום שם לכתובת</h2>
+  <h2>שלב <bdi dir="ltr">3</bdi>: <bdi dir="ltr">DNS</bdi> — תרגום שם לכתובת</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>גילוי IP של Google</div>
+    <div class="box-head"><span class="icon">📘</span>גילוי <bdi dir="ltr">IP</bdi> של <bdi dir="ltr">Google</bdi></div>
     <div class="box-body">
-      <p>הלפטופ יודע שצריך לטעון www.google.com — אבל זה שם, לא IP.</p>
+      <p>הלפטופ יודע שצריך לטעון <bdi dir="ltr">www.google.com</bdi> — אבל זה שם, לא <bdi dir="ltr">IP</bdi>.</p>
       <ol>
-        <li>הלפטופ יוצר <strong>DNS Query</strong> (UDP פורט 53): "מה ה-IP של www.google.com?".</li>
+        <li>הלפטופ יוצר <strong>DNS Query</strong> (<bdi dir="ltr">UDP</bdi> פורט 53): "מה ה-<bdi dir="ltr">IP</bdi> של <bdi dir="ltr">www.google.com</bdi>?".</li>
         <li><strong>הפריים</strong> נוצר עם:
           <ul>
-            <li>MAC src = שלי, MAC dst = של ה-gateway (לא ה-DNS server! אנחנו לא ב-LAN שלו)</li>
-            <li>IP src = שלי (192.168.1.105), IP dst = ‎8.8.8.8 <bdi dir="ltr">(DNS)</bdi></li>
-            <li>UDP src port = אקראי, dst port = 53</li>
+            <li><bdi dir="ltr">MAC src</bdi> = שלי, <bdi dir="ltr">MAC dst</bdi> = של ה-<bdi dir="ltr">gateway</bdi> (לא ה-<bdi dir="ltr">DNS server</bdi>! אנחנו לא ב-<bdi dir="ltr">LAN</bdi> שלו)</li>
+            <li><bdi dir="ltr">IP src</bdi> = שלי (192.168.1.105), <bdi dir="ltr">IP dst = 8.8.8.8</bdi> (<bdi dir="ltr">DNS</bdi>)</li>
+            <li><bdi dir="ltr">UDP src port</bdi> = אקראי, <bdi dir="ltr">dst port = 53</bdi></li>
           </ul>
         </li>
-        <li>הפריים מגיע לראוטר. הראוטר מסיר את הפריים, רואה IP dst = 8.8.8.8, ומנתב לאינטרנט.</li>
-        <li><strong>DNS Reply</strong> חוזרת באותו מסלול עם IP של Google (לדוגמה 142.250.190.46).</li>
+        <li>הפריים מגיע לראוטר. הראוטר מסיר את הפריים, רואה <bdi dir="ltr">IP dst = 8.8.8.8</bdi>, ומנתב לאינטרנט.</li>
+        <li><strong>DNS Reply</strong> חוזרת באותו מסלול עם <bdi dir="ltr">IP</bdi> של <bdi dir="ltr">Google</bdi> (לדוגמה 142.250.190.46).</li>
       </ol>
     </div>
   </div>
 
-  <h2>שלב 4: Google מחוץ ל-LAN</h2>
+  <h2>שלב <bdi dir="ltr">4</bdi>: <bdi dir="ltr">Google</bdi> מחוץ ל-<bdi dir="ltr">LAN</bdi></h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>אותו ‎MAC כמו ה-gateway</div>
+    <div class="box-head"><span class="icon">📘</span>אותו <bdi dir="ltr">MAC</bdi> כמו ה-<bdi dir="ltr">gateway</bdi></div>
     <div class="box-body">
-      <p>Google ב-IP אחר לגמרי (142.250.190.46), בטח לא ב-LAN של הלפטופ.</p>
-      <p>פתרון: <strong>שולחים לראוטר עם MAC שלו, אבל IP dst של Google</strong>. הראוטר ינתב.</p>
-      <p>בפועל — אותו ARP כבר נעשה ב-step 2. הלפטופ זוכר את ה-MAC של ה-gateway. לא צריך ARP חדש.</p>
+      <p><bdi dir="ltr">Google</bdi> ב-<bdi dir="ltr">IP</bdi> אחר לגמרי (142.250.190.46), בטח לא ב-<bdi dir="ltr">LAN</bdi> של הלפטופ.</p>
+      <p>פתרון: <strong>שולחים לראוטר עם <bdi dir="ltr">MAC</bdi> שלו, אבל <bdi dir="ltr">IP dst</bdi> של <bdi dir="ltr">Google</bdi></strong>. הראוטר ינתב.</p>
+      <p>בפועל — אותו <bdi dir="ltr">ARP</bdi> כבר נעשה ב-<bdi dir="ltr">step 2</bdi>. הלפטופ זוכר את ה-<bdi dir="ltr">MAC</bdi> של ה-<bdi dir="ltr">gateway</bdi>. לא צריך <bdi dir="ltr">ARP</bdi> חדש.</p>
     </div>
   </div>
 
-  <h2>שלב 5: TCP 3-Way HandShake</h2>
+  <h2>שלב <bdi dir="ltr">5</bdi>: <bdi dir="ltr">TCP 3-Way HandShake</bdi></h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>הקמת קשר עם google</div>
+    <div class="box-head"><span class="icon">📘</span>הקמת קשר עם <bdi dir="ltr">google</bdi></div>
     <div class="box-body">
-      <p>HTTP רץ מעל TCP. צריך לפתוח קשר קודם:</p>
+      <p><bdi dir="ltr">HTTP</bdi> רץ מעל <bdi dir="ltr">TCP</bdi>. צריך לפתוח קשר קודם:</p>
       <ol>
-        <li><strong>SYN:</strong> <span class="term">הלפטופ → Google</span>. SEQ = x, פורט יעד = 443 (HTTPS).</li>
+        <li><strong>SYN:</strong> <span class="term">הלפטופ → Google</span>. <bdi dir="ltr">SEQ = x</bdi>, פורט יעד = 443 (<bdi dir="ltr">HTTPS</bdi>).</li>
         <li><strong>SYN-ACK:</strong> <span class="term">Google → הלפטופ</span>. SEQ = y, ACK = x+1.</li>
         <li><strong>ACK:</strong> <span class="term">הלפטופ → Google</span>. ACK = y+1.</li>
       </ol>
-      <p>הקשר פתוח! ‎3 RTTs מההתחלה (DHCP, DNS, 3WHS) — לפעמים גם יותר אם הראוטרים נמצאים רחוק.</p>
-      <p>אם זה HTTPS — גם <strong>SSL/TLS handshake</strong> נוסף (פרק 6.4).</p>
+      <p>הקשר פתוח! <bdi dir="ltr">3 RTTs</bdi> מההתחלה (<bdi dir="ltr">DHCP, DNS, 3WHS</bdi>) — לפעמים גם יותר אם הראוטרים נמצאים רחוק.</p>
+      <p>אם זה <bdi dir="ltr">HTTPS</bdi> — גם <strong>SSL/TLS handshake</strong> נוסף (פרק 6.4).</p>
     </div>
   </div>
 
-  <h2>שלב 6: HTTP GET</h2>
+  <h2>שלב <bdi dir="ltr">6</bdi>: <bdi dir="ltr">HTTP GET</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>סוף סוף — לבקש את הדף</div>
@@ -556,8 +560,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 Host: www.google.com
 User-Agent: Mozilla/5.0...
 Accept: text/html</code></pre>
-      <p>Google מקבל ומחזיר את הדף ‎HTML. הדפדפן מציג.</p>
-      <p>אם יש תמונות/CSS/JS בדף — בקשות נוספות לאותו שרת או לאחרים.</p>
+      <p><bdi dir="ltr">Google</bdi> מקבל ומחזיר את הדף <bdi dir="ltr">HTML</bdi>. הדפדפן מציג.</p>
+      <p>אם יש תמונות/<bdi dir="ltr">CSS/JS</bdi> בדף — בקשות נוספות לאותו שרת או לאחרים.</p>
     </div>
   </div>
 
@@ -592,34 +596,34 @@ Accept: text/html</code></pre>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · ההבדל בין IP dst ל-MAC dst</span>
-      <p>בשלב 3 (DNS Query), הלפטופ שולח חבילה עם <strong>IP dst = 8.8.8.8</strong> ו-<strong>MAC dst = MAC של הראוטר</strong>. למה לא MAC dst = MAC של 8.8.8.8?</p>
+      <span class="exercise-tag">תרגול · ההבדל בין <bdi dir="ltr">IP dst</bdi> ל-<bdi dir="ltr">MAC dst</bdi></span>
+      <p>בשלב 3 (<bdi dir="ltr">DNS Query</bdi>), הלפטופ שולח חבילה עם <strong>IP dst = 8.8.8.8</strong> ו-<strong><bdi dir="ltr">MAC dst = MAC</bdi> של הראוטר</strong>. למה לא <bdi dir="ltr">MAC dst = MAC</bdi> של 8.8.8.8?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">העיקרון</div>
-        <p><strong>MAC משמש לקפיצה בודדת (hop) בתוך LAN. IP משמש לכל המסלול.</strong></p>
+        <p><strong><bdi dir="ltr">MAC</bdi> משמש לקפיצה בודדת (<bdi dir="ltr">hop</bdi>) בתוך <bdi dir="ltr">LAN. IP</bdi> משמש לכל המסלול.</strong></p>
       </div>
       <div class="step">
-        <div class="step-label">למה לא MAC של 8.8.8.8</div>
+        <div class="step-label">למה לא <bdi dir="ltr">MAC</bdi> של 8.8.8.8</div>
         <ul>
-          <li>‎8.8.8.8 לא ב-LAN של הלפטופ. הוא רחוק, אולי באמריקה.</li>
-          <li>הלפטופ <strong>לא יכול לדבר ישירות עם 8.8.8.8</strong>. הוא יכול רק לדבר עם השכנים הפיזיים שלו ב-LAN.</li>
-          <li>אם הלפטופ ינסה ARP על 8.8.8.8 — לא יקבל תשובה (אף אחד ב-LAN לא בעל ה-IP הזה).</li>
+          <li>8.8.8.8 לא ב-<bdi dir="ltr">LAN</bdi> של הלפטופ. הוא רחוק, אולי באמריקה.</li>
+          <li>הלפטופ <strong>לא יכול לדבר ישירות עם 8.8.8.8</strong>. הוא יכול רק לדבר עם השכנים הפיזיים שלו ב-<bdi dir="ltr">LAN</bdi>.</li>
+          <li>אם הלפטופ ינסה <bdi dir="ltr">ARP</bdi> על 8.8.8.8 — לא יקבל תשובה (אף אחד ב-<bdi dir="ltr">LAN</bdi> לא בעל ה-<bdi dir="ltr">IP</bdi> הזה).</li>
         </ul>
       </div>
       <div class="step">
         <div class="step-label">איך הפריים מגיע ל-8.8.8.8 בכל זאת</div>
-        <p>הפריים מגיע לראוטר (MAC dst = הראוטר). הראוטר:</p>
+        <p>הפריים מגיע לראוטר (<bdi dir="ltr">MAC dst</bdi> = הראוטר). הראוטר:</p>
         <ol>
           <li>מסיר את הפריים.</li>
-          <li>רואה את ה-IP dst = 8.8.8.8 בתוך הדאטהגרם IP.</li>
-          <li>מסתכל בטבלת הניתוב, מוצא ל-איזה next hop להעביר.</li>
-          <li>יוצר <strong>פריים חדש</strong> עם MAC dst של ה-next hop. שולח.</li>
+          <li>רואה את ה-<bdi dir="ltr">IP dst = 8.8.8.8</bdi> בתוך הדאטהגרם <bdi dir="ltr">IP</bdi>.</li>
+          <li>מסתכל בטבלת הניתוב, מוצא ל-איזה <bdi dir="ltr">next hop</bdi> להעביר.</li>
+          <li>יוצר <strong>פריים חדש</strong> עם <bdi dir="ltr">MAC dst</bdi> של ה-<bdi dir="ltr">next hop</bdi>. שולח.</li>
         </ol>
       </div>
-      <div class="final-answer">IP נשמר מקצה לקצה. MAC מתחלף בכל hop. הלפטופ שולח לראוטר (MAC) ← הראוטר ינתב את ה-IP. זה ההבדל המרכזי בין שכבות 2 ו-3.</div>
+      <div class="final-answer"><bdi dir="ltr">IP</bdi> נשמר מקצה לקצה. <bdi dir="ltr">MAC</bdi> מתחלף בכל <bdi dir="ltr">hop</bdi>. הלפטופ שולח לראוטר (<bdi dir="ltr">MAC</bdi>) ← הראוטר ינתב את ה-<bdi dir="ltr">IP</bdi>. זה ההבדל המרכזי בין שכבות 2 ו-3.</div>
     </div>
   </div>
 
@@ -627,14 +631,14 @@ Accept: text/html</code></pre>
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li>טעינת דף = ‎10+ הודעות מ-‎4 שכבות שונות</li>
-        <li><strong>DHCP</strong> ראשון — לקבל IP, gateway, DNS</li>
-        <li><strong>ARP</strong> שני — לקבל MAC של ה-gateway</li>
-        <li><strong>DNS</strong> שלישי — לתרגם שם ל-IP</li>
+        <li>טעינת דף = 10+ הודעות מ-4 שכבות שונות</li>
+        <li><strong>DHCP</strong> ראשון — לקבל <bdi dir="ltr">IP, gateway, DNS</bdi></li>
+        <li><strong>ARP</strong> שני — לקבל <bdi dir="ltr">MAC</bdi> של ה-<bdi dir="ltr">gateway</bdi></li>
+        <li><strong>DNS</strong> שלישי — לתרגם שם ל-<bdi dir="ltr">IP</bdi></li>
         <li><strong>TCP 3WHS</strong> רביעי — לפתוח קשר</li>
         <li><strong>HTTP GET</strong> אחרון — סוף סוף הבקשה</li>
-        <li>IP נשאר זהה מקצה לקצה</li>
-        <li>MAC מתחלף בכל hop</li>
+        <li><bdi dir="ltr">IP</bdi> נשאר זהה מקצה לקצה</li>
+        <li><bdi dir="ltr">MAC</bdi> מתחלף בכל <bdi dir="ltr">hop</bdi></li>
         <li>הראוטר מסיר/יוצר פריים בכל מעבר</li>
       </ul>
     </div>

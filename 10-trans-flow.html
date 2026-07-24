@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,11 +414,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 2.4 · שכבת התעבורה</span>
-  <h1 class="page-title">בקרת זרימה — Flow Control</h1>
-  <p class="page-subtitle">המקבל שולט בשולח. Receive Window, Delayed ACK, ו-Nagle's algorithm.</p>
+  <h1 class="page-title">בקרת זרימה — <bdi dir="ltr">Flow Control</bdi></h1>
+  <p class="page-subtitle">המקבל שולט בשולח. <bdi dir="ltr">Receive Window, Delayed ACK</bdi>, ו-<bdi dir="ltr">Nagle's algorithm</bdi>.</p>
 
   <p class="lead">
-    מה אם השולח מהיר מהמקבל? הבאפר של המקבל יתמלא ויאבדו פאקטות. <strong>בקרת זרימה</strong> = המקבל מודיע לשולח כמה מקום פנוי יש לו ב-Receive Window, והשולח <strong>חייב</strong> להגביל את עצמו לכך. שונה מ<strong>בקרת גודש</strong> שמתייחסת לרשת (פרק 2.6).
+    מה אם השולח מהיר מהמקבל? הבאפר של המקבל יתמלא ויאבדו פאקטות. <strong>בקרת זרימה</strong> = המקבל מודיע לשולח כמה מקום פנוי יש לו ב-<bdi dir="ltr">Receive Window</bdi>, והשולח <strong>חייב</strong> להגביל את עצמו לכך. שונה מ<strong>בקרת גודש</strong> שמתייחסת לרשת (פרק 2.6).
   </p>
 
   <h2>הבעיה</h2>
@@ -446,7 +450,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>השדה בכותרת</div>
     <div class="box-body">
-      <p>בכותרת TCP יש שדה <span class="term">Receive Window (16 ביט)</span>. בכל סגמנט שהמקבל שולח חזרה לשולח, הוא <strong>מצהיר</strong> כמה בתים פנויים יש לו בבאפר.</p>
+      <p>בכותרת <bdi dir="ltr">TCP</bdi> יש שדה <span class="term">Receive Window (16 ביט)</span>. בכל סגמנט שהמקבל שולח חזרה לשולח, הוא <strong>מצהיר</strong> כמה בתים פנויים יש לו בבאפר.</p>
       <p>הכלל המוחלט:</p>
       <div class="box formula">
         <div class="box-head"><span class="icon">📐</span>חוק זהב</div>
@@ -467,16 +471,16 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
         <!-- Already read by app -->
         <rect x="80" y="80" width="120" height="50" fill="#d4d4d4" stroke="#475569" stroke-width="1"/>
-        <text x="140" y="108" text-anchor="middle" font-size="10" fill="#475569">נקרא ע״י App</text>
+        <text x="140" y="108" text-anchor="middle" font-size="10" fill="#475569" direction="rtl">נקרא ע״י App</text>
 
         <!-- Bytes waiting (in buffer) -->
         <rect x="200" y="80" width="180" height="50" fill="#fef9e7" stroke="#475569" stroke-width="1"/>
-        <text x="290" y="108" text-anchor="middle" font-size="10" fill="#b45309">בתור (מחכים לקריאה)</text>
+        <text x="290" y="108" text-anchor="middle" font-size="10" fill="#b45309" direction="rtl">בתור (מחכים לקריאה)</text>
 
         <!-- Free space — Receive Window -->
         <rect x="380" y="80" width="260" height="50" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
-        <text x="510" y="105" text-anchor="middle" font-size="12" fill="#047857" font-weight="700">RW (פנוי)</text>
-        <text x="510" y="120" text-anchor="middle" font-size="10" fill="#047857">← השולח לא יחרוג מכאן</text>
+        <text x="510" y="105" text-anchor="middle" font-size="12" fill="#047857" font-weight="700" direction="rtl">RW (פנוי)</text>
+        <text x="510" y="120" text-anchor="middle" font-size="10" fill="#047857" direction="rtl">← השולח לא יחרוג מכאן</text>
 
         <!-- Labels -->
         <text x="80" y="70" font-size="9" fill="#78716c">LastByteRead</text>
@@ -486,14 +490,14 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
         <!-- Arrows -->
         <text x="510" y="155" text-anchor="middle" font-size="11" fill="#047857" font-weight="700">RW = RcvBuffer − [LastByteRcvd − LastByteRead]</text>
-        <text x="510" y="180" text-anchor="middle" font-size="10" fill="#78716c">המקבל מצרף את RW בכל ACK שהוא שולח</text>
+        <text x="510" y="180" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">המקבל מצרף את RW בכל ACK שהוא שולח</text>
       </g>
     </svg>
-    <div class="cap">הבאפר מחולק לקטעים: נקרא, בתור, פנוי. הקטע הפנוי הוא ה-RW.</div>
+    <div class="cap">הבאפר מחולק לקטעים: נקרא, בתור, פנוי. הקטע הפנוי הוא ה-<bdi dir="ltr">RW</bdi>.</div>
   </div>
 
   <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>חישוב RW</div>
+    <div class="box-head"><span class="icon">📐</span>חישוב <bdi dir="ltr">RW</bdi></div>
     <div class="box-body">
       $$RW = \text{RcvBuffer} - (\text{LastByteRcvd} - \text{LastByteRead})$$
       <p>הסבר: גודל הבאפר הכולל, פחות מה שכבר בו (התקבל אבל לא נקרא).</p>
@@ -505,30 +509,30 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box example">
     <div class="box-head"><span class="icon">💡</span>תרחיש</div>
     <div class="box-body">
-      <p>RW = ‎10,000. מגיע סגמנט לא בסדר (SEQ גדול מהצפוי), בגודל ‎1,000 בתים. <strong>מה ה-RW שנדווח לשולח?</strong></p>
+      <p><bdi dir="ltr">RW = 10,000</bdi>. מגיע סגמנט לא בסדר (<bdi dir="ltr">SEQ</bdi> גדול מהצפוי), בגודל 1,000 בתים. <strong>מה ה-<bdi dir="ltr">RW</bdi> שנדווח לשולח?</strong></p>
       <h4>שתי גישות</h4>
       <ul>
-        <li>‎9,000 (כי הסגמנט תופס 1000)</li>
-        <li>‎10,000 (כי הוא לא נכנס לתור הסדור)</li>
+        <li>9,000 (כי הסגמנט תופס 1000)</li>
+        <li>10,000 (כי הוא לא נכנס לתור הסדור)</li>
       </ul>
       <h4>התשובה הנכונה: 10,000</h4>
-      <p><strong>למה?</strong> סגמנט לא בסדר <strong>לא נספר ב-RW</strong>! המקבל לא יכול להעביר אותו לאפליקציה (אין רצף) ← הוא ממתין בצד עד שיגיע החור. גודל ה-RW נשאר 10,000.</p>
-      <div class="final-answer">סגמנטים לא בסדר <strong>לא מקטינים את RW</strong>. רק סגמנטים שנכנסו לתור הסדור.</div>
+      <p><strong>למה?</strong> סגמנט לא בסדר <strong>לא נספר ב-<bdi dir="ltr">RW</bdi></strong>! המקבל לא יכול להעביר אותו לאפליקציה (אין רצף) ← הוא ממתין בצד עד שיגיע החור. גודל ה-<bdi dir="ltr">RW</bdi> נשאר 10,000.</p>
+      <div class="final-answer">סגמנטים לא בסדר <strong>לא מקטינים את <bdi dir="ltr">RW</bdi></strong>. רק סגמנטים שנכנסו לתור הסדור.</div>
     </div>
   </div>
 
-  <h2>Delayed ACK — חיסכון ב-ACKs</h2>
+  <h2><bdi dir="ltr">Delayed ACK</bdi> — חיסכון ב-<bdi dir="ltr">ACKs</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הרעיון</div>
     <div class="box-body">
-      <p>במקום לשלוח ACK מיד אחרי כל סגמנט — המקבל <strong>מחכה קצת</strong>. אולי האפליקציה תרצה לשלוח דאטה בקרוב (Echo, response) — אז ה-ACK ייצא יחד עם הדאטה (Piggyback).</p>
+      <p>במקום לשלוח <bdi dir="ltr">ACK</bdi> מיד אחרי כל סגמנט — המקבל <strong>מחכה קצת</strong>. אולי האפליקציה תרצה לשלוח דאטה בקרוב (<bdi dir="ltr">Echo, response</bdi>) — אז ה-<bdi dir="ltr">ACK</bdi> ייצא יחד עם הדאטה (<bdi dir="ltr">Piggyback</bdi>).</p>
       <h4>הכללים</h4>
       <ul>
-        <li>מקבל מחכה <strong>עד 200ms</strong> לסגמנט הבא או לדאטה מהאפליקציה.</li>
-        <li>אם בתוך 200ms הגיע סגמנט נוסף בסדר — שולח ACK אחד שמאשר את שניהם.</li>
+        <li>מקבל מחכה <strong>עד <bdi dir="ltr">200ms</bdi></strong> לסגמנט הבא או לדאטה מהאפליקציה.</li>
+        <li>אם בתוך <bdi dir="ltr">200ms</bdi> הגיע סגמנט נוסף בסדר — שולח <bdi dir="ltr">ACK</bdi> אחד שמאשר את שניהם.</li>
         <li>אם הגיע סגמנט לא בסדר — שולח <strong>Duplicate ACK</strong> מיד (לא מחכה).</li>
-        <li>אם פג ה-200ms ולא קרה כלום — שולח ACK בודד.</li>
+        <li>אם פג ה-<bdi dir="ltr">200ms</bdi> ולא קרה כלום — שולח <bdi dir="ltr">ACK</bdi> בודד.</li>
       </ul>
     </div>
   </div>
@@ -538,67 +542,67 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <tr><th>סיטואציה אצל המקבל</th><th>תגובה</th></tr>
     </thead>
     <tbody>
-      <tr><td>הגיע סגמנט בסדר, אין ACK ממתין</td><td>מחכה 200ms (Delayed ACK)</td></tr>
-      <tr><td>הגיע סגמנט בסדר, יש כבר ACK ממתין</td><td>שולח ACK מיד שמאשר את שניהם</td></tr>
-      <tr><td>הגיע סגמנט לא בסדר</td><td>שולח Duplicate ACK מיד</td></tr>
-      <tr><td>חסר בסדר (חור)</td><td>שולח Duplicate ACK</td></tr>
+      <tr><td>הגיע סגמנט בסדר, אין <bdi dir="ltr">ACK</bdi> ממתין</td><td>מחכה <bdi dir="ltr">200ms</bdi> (<bdi dir="ltr">Delayed ACK</bdi>)</td></tr>
+      <tr><td>הגיע סגמנט בסדר, יש כבר <bdi dir="ltr">ACK</bdi> ממתין</td><td>שולח <bdi dir="ltr">ACK</bdi> מיד שמאשר את שניהם</td></tr>
+      <tr><td>הגיע סגמנט לא בסדר</td><td>שולח <bdi dir="ltr">Duplicate ACK</bdi> מיד</td></tr>
+      <tr><td>חסר בסדר (חור)</td><td>שולח <bdi dir="ltr">Duplicate ACK</bdi></td></tr>
     </tbody>
   </table>
 
-  <h2>Nagle's Algorithm — חיסכון בסגמנטים קטנים</h2>
+  <h2><bdi dir="ltr">Nagle's Algorithm</bdi> — חיסכון בסגמנטים קטנים</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הבעיה</div>
     <div class="box-body">
-      <p>אפליקציה ששולחת סגמנטים קטנים (כמו ssh — כל הקלדה הולכת בנפרד). ‎2 בתים נתונים + ‎40 בתים הדרים = 95% תקורה. בזבוז עצום.</p>
+      <p>אפליקציה ששולחת סגמנטים קטנים (כמו <bdi dir="ltr">ssh</bdi> — כל הקלדה הולכת בנפרד). 2 בתים נתונים + 40 בתים הדרים = <bdi dir="ltr">95%</bdi> תקורה. בזבוז עצום.</p>
     </div>
   </div>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>האלגוריתם</div>
     <div class="box-body">
-      <p><strong>לא לשלוח מידע חדש קטן עד שמקבלים ACK על כל מה ששלחת עד עכשיו.</strong></p>
+      <p><strong>לא לשלוח מידע חדש קטן עד שמקבלים <bdi dir="ltr">ACK</bdi> על כל מה ששלחת עד עכשיו.</strong></p>
       <h4>במילים אחרות</h4>
       <ul>
-        <li>אם הרשת <strong>פנויה</strong> — ACK חוזר מהר. אין מה לאגד, הסגמנט הקטן יוצא מיד.</li>
-        <li>אם הרשת <strong>עמוסה</strong> — ACK איטי. השולח אוגר הודעות קטנות עד שמגיע ACK או עד שיש מספיק לסגמנט מלא (MSS).</li>
+        <li>אם הרשת <strong>פנויה</strong> — <bdi dir="ltr">ACK</bdi> חוזר מהר. אין מה לאגד, הסגמנט הקטן יוצא מיד.</li>
+        <li>אם הרשת <strong>עמוסה</strong> — <bdi dir="ltr">ACK</bdi> איטי. השולח אוגר הודעות קטנות עד שמגיע <bdi dir="ltr">ACK</bdi> או עד שיש מספיק לסגמנט מלא (<bdi dir="ltr">MSS</bdi>).</li>
       </ul>
       <p><strong>תוצאה:</strong> סגמנטים קטנים יוצאים רק כשהרשת פנויה. כשעמוסה — מאגדים אותם לסגמנטים גדולים יותר.</p>
     </div>
   </div>
 
   <div class="keypoint">
-    כלל הזהב של Nagle: <strong>שלח סגמנט קטן אם — או שיש ACK לכולם הקודמים, או שצברת מספיק לסגמנט מלא (MSS).</strong>
+    כלל הזהב של <bdi dir="ltr">Nagle</bdi>: <strong>שלח סגמנט קטן אם — או שיש <bdi dir="ltr">ACK</bdi> לכולם הקודמים, או שצברת מספיק לסגמנט מלא (<bdi dir="ltr">MSS</bdi>).</strong>
   </div>
 
   <h2>תרגיל</h2>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · Flow Control vs Congestion Control</span>
+      <span class="exercise-tag">תרגול · <bdi dir="ltr">Flow Control vs Congestion Control</bdi></span>
       <p>הסבר את ההבדל בין <strong>Flow Control</strong> ל-<strong>Congestion Control</strong>. שניהם מאטים את השולח — אז מה ההבדל?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">Flow Control (בקרת זרימה)</div>
+        <div class="step-label"><bdi dir="ltr">Flow Control</bdi> (בקרת זרימה)</div>
         <ul>
           <li><strong>מטרה:</strong> להגן על <strong>המקבל</strong> מההצפה.</li>
-          <li><strong>מי שולט:</strong> המקבל — בעזרת שדה Receive Window.</li>
+          <li><strong>מי שולט:</strong> המקבל — בעזרת שדה <bdi dir="ltr">Receive Window</bdi>.</li>
           <li><strong>מה בוחנים:</strong> כמה מקום פנוי בבאפר של המקבל.</li>
           <li><strong>זה דיאלוג של 2:</strong> שולח ומקבל.</li>
         </ul>
       </div>
       <div class="step">
-        <div class="step-label">Congestion Control (בקרת גודש)</div>
+        <div class="step-label"><bdi dir="ltr">Congestion Control</bdi> (בקרת גודש)</div>
         <ul>
           <li><strong>מטרה:</strong> להגן על <strong>הרשת</strong> מההצפה.</li>
-          <li><strong>מי שולט:</strong> השולח — לפי סימני גודש (אובדן, RTT).</li>
+          <li><strong>מי שולט:</strong> השולח — לפי סימני גודש (אובדן, <bdi dir="ltr">RTT</bdi>).</li>
           <li><strong>מה בוחנים:</strong> מצב הרשת — האם יש תורים, האם פאקטות אובדות.</li>
           <li><strong>זה דיאלוג של רבים:</strong> כל השולחים ברשת.</li>
         </ul>
       </div>
-      <div class="final-answer">Flow = מקבל מאט שולח. Congestion = רשת מאטה שולחים. שניהם פועלים בו-זמנית — השולח מוגבל ב-min(RW, CongestionWindow).</div>
+      <div class="final-answer"><bdi dir="ltr">Flow</bdi> = מקבל מאט שולח. <bdi dir="ltr">Congestion</bdi> = רשת מאטה שולחים. שניהם פועלים בו-זמנית — השולח מוגבל ב-<bdi dir="ltr">min</bdi>(<bdi dir="ltr">RW, CongestionWindow</bdi>).</div>
     </div>
   </div>
 
@@ -607,12 +611,12 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <ul>
         <li><strong>Flow Control</strong> = המקבל שולט בשולח, הגנה על הבאפר</li>
-        <li><strong>RW</strong> = שדה ‎16 ביט בכותרת TCP — כמה מקום פנוי</li>
-        <li>השולח מוגבל: LastByteSent − LastByteAcked ≤ RW</li>
-        <li>סגמנטים לא-בסדר <strong>לא מקטינים</strong> את RW</li>
-        <li><strong>Delayed ACK:</strong> מקבל מחכה 200ms לפני שליחת ACK (אולי יצרף עם דאטה)</li>
-        <li><strong>Nagle:</strong> השולח אוגר סגמנטים קטנים עד שמגיע ACK או צבר MSS</li>
-        <li><strong>הבדל מ-Congestion:</strong> Flow = מקבל. Congestion = רשת.</li>
+        <li><strong>RW</strong> = שדה 16 ביט בכותרת <bdi dir="ltr">TCP</bdi> — כמה מקום פנוי</li>
+        <li>השולח מוגבל: <bdi dir="ltr">LastByteSent</bdi> − <bdi dir="ltr">LastByteAcked</bdi> ≤ <bdi dir="ltr">RW</bdi></li>
+        <li>סגמנטים לא-בסדר <strong>לא מקטינים</strong> את <bdi dir="ltr">RW</bdi></li>
+        <li><strong>Delayed ACK:</strong> מקבל מחכה <bdi dir="ltr">200ms</bdi> לפני שליחת <bdi dir="ltr">ACK</bdi> (אולי יצרף עם דאטה)</li>
+        <li><strong>Nagle:</strong> השולח אוגר סגמנטים קטנים עד שמגיע <bdi dir="ltr">ACK</bdi> או צבר <bdi dir="ltr">MSS</bdi></li>
+        <li><strong>הבדל מ-<bdi dir="ltr">Congestion</bdi>:</strong> <bdi dir="ltr">Flow</bdi> = מקבל. <bdi dir="ltr">Congestion</bdi> = רשת.</li>
       </ul>
     </div>
   </div>
@@ -621,7 +625,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="09-trans-tcp.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">TCP — מבנה</span></a>
+  <a class="prev" href="09-trans-tcp.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name"><bdi dir="ltr">TCP</bdi> — מבנה</span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
   <a class="next" href="11-trans-handshake.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">הקמת וסגירת קשר</span></a>
 </nav>

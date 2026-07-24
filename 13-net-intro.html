@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,8 +414,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 3.1 · שכבת הרשת</span>
-  <h1 class="page-title">שכבת הרשת ו-IP Datagram</h1>
-  <p class="page-subtitle">איך הראוטר מחליט לאן לשלוח — Forwarding, Routing, ומבנה ההדר.</p>
+  <h1 class="page-title">שכבת הרשת ו-<bdi dir="ltr">IP Datagram</bdi></h1>
+  <p class="page-subtitle">איך הראוטר מחליט לאן לשלוח — <bdi dir="ltr">Forwarding, Routing</bdi>, ומבנה ההדר.</p>
 
   <div class="figure">
     <svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="הראוטר וה-IP datagram">
@@ -423,7 +427,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <g font-family="Assistant, sans-serif" font-size="11">
         <!-- Source -->
         <circle cx="60" cy="120" r="22" fill="#fef9e7" stroke="#b45309" stroke-width="2"/>
-        <text x="60" y="124" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700">מקור</text>
+        <text x="60" y="124" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700" direction="rtl">מקור</text>
 
         <!-- 3 routers -->
         <rect x="160" y="100" width="60" height="40" rx="6" fill="#f5f3ff" stroke="#6d28d9" stroke-width="2"/>
@@ -437,7 +441,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
         <!-- Destination -->
         <circle cx="540" cy="120" r="22" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
-        <text x="540" y="124" text-anchor="middle" font-size="10" fill="#047857" font-weight="700">יעד</text>
+        <text x="540" y="124" text-anchor="middle" font-size="10" fill="#047857" font-weight="700" direction="rtl">יעד</text>
 
         <!-- Packet flow -->
         <line x1="82" y1="120" x2="160" y2="120" stroke="#475569" stroke-width="2" marker-end="url(#arrIP)"/>
@@ -450,30 +454,30 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <text x="60" y="183" text-anchor="middle" font-size="9" fill="#78716c">+ Network</text>
 
         <text x="190" y="170" text-anchor="middle" font-size="9" fill="#6d28d9" font-weight="700">Network</text>
-        <text x="190" y="183" text-anchor="middle" font-size="9" fill="#78716c">(רק לבדוק יעד)</text>
+        <text x="190" y="183" text-anchor="middle" font-size="9" fill="#78716c" direction="rtl">(רק לבדוק יעד)</text>
 
         <text x="310" y="170" text-anchor="middle" font-size="9" fill="#6d28d9" font-weight="700">Network</text>
-        <text x="310" y="183" text-anchor="middle" font-size="9" fill="#78716c">(רק לבדוק יעד)</text>
+        <text x="310" y="183" text-anchor="middle" font-size="9" fill="#78716c" direction="rtl">(רק לבדוק יעד)</text>
 
         <text x="430" y="170" text-anchor="middle" font-size="9" fill="#6d28d9" font-weight="700">Network</text>
-        <text x="430" y="183" text-anchor="middle" font-size="9" fill="#78716c">(רק לבדוק יעד)</text>
+        <text x="430" y="183" text-anchor="middle" font-size="9" fill="#78716c" direction="rtl">(רק לבדוק יעד)</text>
 
         <text x="540" y="170" text-anchor="middle" font-size="9" fill="#78716c">App+Transport</text>
         <text x="540" y="183" text-anchor="middle" font-size="9" fill="#78716c">+ Network</text>
 
         <!-- IP Datagram callout -->
         <rect x="190" y="30" width="280" height="40" rx="6" fill="#fff" stroke="#6d28d9" stroke-width="1.5"/>
-        <text x="330" y="50" text-anchor="middle" font-size="11" fill="#6d28d9" font-weight="700">IP Datagram = הסגמנט + IP Header</text>
+        <text x="330" y="50" text-anchor="middle" font-size="11" fill="#6d28d9" font-weight="700" direction="rtl">IP Datagram = הסגמנט + IP Header</text>
         <text x="330" y="64" text-anchor="middle" font-size="10" fill="#78716c">SIP, DIP, TTL, Length, Checksum, ...</text>
 
-        <text x="360" y="220" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700">שכבת הרשת נמצאת בכל ראוטר — אפליקציה/תעבורה רק בקצוות</text>
+        <text x="360" y="220" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700" direction="rtl">שכבת הרשת נמצאת בכל ראוטר — אפליקציה/תעבורה רק בקצוות</text>
       </g>
     </svg>
     <div class="cap">השכבה הרשתית נוכחת בכל ראוטר. השכבות הגבוהות (אפליקציה, תעבורה) רק בקצוות.</div>
   </div>
 
   <p class="lead">
-    שכבת הרשת אורזת סגמנט מהתעבורה בתוך <strong>IP Datagram</strong> ומעבירה אותו ממקור ליעד. כל ראוטר בדרך עושה <strong>Forwarding</strong> — מסתכל בטבלה ושולח לרגל הנכונה. הבסיס לחיפוש: <strong>Longest Prefix Matching</strong> על IP היעד.
+    שכבת הרשת אורזת סגמנט מהתעבורה בתוך <strong>IP Datagram</strong> ומעבירה אותו ממקור ליעד. כל ראוטר בדרך עושה <strong>Forwarding</strong> — מסתכל בטבלה ושולח לרגל הנכונה. הבסיס לחיפוש: <strong>Longest Prefix Matching</strong> על <bdi dir="ltr">IP</bdi> היעד.
   </p>
 
   <h2>תפקיד שכבת הרשת</h2>
@@ -482,9 +486,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📘</span>צד השולח / המקבל / הראוטרים</div>
     <div class="box-body">
       <ul>
-        <li><strong>צד השולח:</strong> לוקח את הסגמנט (מהתעבורה) ועוטף ב-IP Datagram.</li>
-        <li><strong>צד המקבל:</strong> מקבל את ה-Datagram, מסיר את ה-IP header, ומעלה לתעבורה.</li>
-        <li><strong>ראוטרים בדרך:</strong> כל אחד <strong>בודק את ה-IP של היעד</strong> ושולח לרגל הנכונה.</li>
+        <li><strong>צד השולח:</strong> לוקח את הסגמנט (מהתעבורה) ועוטף ב-<bdi dir="ltr">IP Datagram</bdi>.</li>
+        <li><strong>צד המקבל:</strong> מקבל את ה-<bdi dir="ltr">Datagram</bdi>, מסיר את ה-<bdi dir="ltr">IP header</bdi>, ומעלה לתעבורה.</li>
+        <li><strong>ראוטרים בדרך:</strong> כל אחד <strong>בודק את ה-<bdi dir="ltr">IP</bdi> של היעד</strong> ושולח לרגל הנכונה.</li>
       </ul>
       <div class="keypoint">
         תעבורה ואפליקציה נמצאות <strong>רק בקצוות</strong>. שכבת הרשת, לעומת זאת, <strong>נמצאת בכל ראוטר</strong> — בכל קודקוד היא משתתפת בהחלטה.
@@ -492,7 +496,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     </div>
   </div>
 
-  <h2>‎2 פעולות מרכזיות: Forwarding ו-Routing</h2>
+  <h2>2 פעולות מרכזיות: <bdi dir="ltr">Forwarding</bdi> ו-<bdi dir="ltr">Routing</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>חלוקת תפקידים</div>
@@ -500,18 +504,18 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <h4>Forwarding (Data Plane)</h4>
       <ul>
         <li><strong>מה זה:</strong> מזיז פאקטה מרגל הכניסה של הראוטר לרגל היציאה הנכונה.</li>
-        <li><strong>איך:</strong> מסתכל ב-IP יעד, מחפש בטבלה, ושולח.</li>
+        <li><strong>איך:</strong> מסתכל ב-<bdi dir="ltr">IP</bdi> יעד, מחפש בטבלה, ושולח.</li>
         <li><strong>תזמון:</strong> פעולה מיידית — ננו-שניות.</li>
         <li><strong>אנלוגיה:</strong> ביצוע הפנייה בצומת.</li>
       </ul>
       <h4>Routing (Control Plane)</h4>
       <ul>
         <li><strong>מה זה:</strong> קובע את <strong>המסלולים</strong> בין כל זוג ראוטרים. <strong>בונה את הטבלה</strong>.</li>
-        <li><strong>איך:</strong> אלגוריתמי ניתוב (DV, LS, OSPF, BGP — פרק 3.6-3.7).</li>
+        <li><strong>איך:</strong> אלגוריתמי ניתוב (<bdi dir="ltr">DV, LS, OSPF, BGP</bdi> — פרק 3.6-3.7).</li>
         <li><strong>תזמון:</strong> פעולה רקעית מתמשכת. הטבלה מתעדכנת אבל לא לכל פאקטה.</li>
-        <li><strong>אנלוגיה:</strong> תכנון נסיעה מ-A ל-B.</li>
+        <li><strong>אנלוגיה:</strong> תכנון נסיעה מ-<bdi dir="ltr">A</bdi> ל-<bdi dir="ltr">B</bdi>.</li>
       </ul>
-      <p><strong>שילוב שניהם:</strong> Switching. הראוטר מסתכל בטבלה (שנבנתה ע״י Routing) ומעביר (Forwarding).</p>
+      <p><strong>שילוב שניהם:</strong> <bdi dir="ltr">Switching</bdi>. הראוטר מסתכל בטבלה (שנבנתה ע״י <bdi dir="ltr">Routing</bdi>) ומעביר (<bdi dir="ltr">Forwarding</bdi>).</p>
     </div>
   </div>
 
@@ -528,7 +532,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     </tbody>
   </table>
 
-  <h2>מבנה IP Datagram (IPv4)</h2>
+  <h2>מבנה <bdi dir="ltr">IP Datagram</bdi> (<bdi dir="ltr">IPv4</bdi>)</h2>
 
   <div class="figure">
     <svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="מבנה IP datagram">
@@ -574,25 +578,25 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
         <!-- Row 6: Options (variable) -->
         <rect x="80" y="200" width="360" height="30" fill="#fff" stroke="#78716c" stroke-dasharray="3,2"/>
-        <text x="260" y="218" text-anchor="middle" font-size="11" fill="#78716c" font-style="italic">Options (אופציונלי)</text>
+        <text x="260" y="218" text-anchor="middle" font-size="11" fill="#78716c" font-style="italic" direction="rtl">Options (אופציונלי)</text>
 
         <!-- Data -->
         <rect x="80" y="230" width="360" height="50" fill="#fff" stroke="#475569" stroke-dasharray="4,2"/>
         <text x="260" y="259" text-anchor="middle" font-size="11" fill="#475569" font-style="italic">Data (TCP/UDP segment + payload)</text>
 
         <!-- Labels on right -->
-        <text x="450" y="50" font-size="10" fill="#475569">↑ שורה 1</text>
-        <text x="450" y="84" font-size="10" fill="#6d28d9" font-weight="700">↑ פרגמנטציה</text>
-        <text x="450" y="118" font-size="10" fill="#475569">↑ שורה 3</text>
-        <text x="450" y="152" font-size="10" fill="#475569">↑ מי שולח</text>
-        <text x="450" y="186" font-size="10" fill="#475569">↑ לאן הולך</text>
+        <text x="450" y="50" font-size="10" fill="#475569" direction="rtl">↑ שורה 1</text>
+        <text x="450" y="84" font-size="10" fill="#6d28d9" font-weight="700" direction="rtl">↑ פרגמנטציה</text>
+        <text x="450" y="118" font-size="10" fill="#475569" direction="rtl">↑ שורה 3</text>
+        <text x="450" y="152" font-size="10" fill="#475569" direction="rtl">↑ מי שולח</text>
+        <text x="450" y="186" font-size="10" fill="#475569" direction="rtl">↑ לאן הולך</text>
 
         <!-- Bottom -->
-        <text x="260" y="305" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700">כותרת בסיסית: 20 בתים (5 שורות של 4 בתים)</text>
-        <text x="260" y="320" text-anchor="middle" font-size="10" fill="#78716c">השדות החשובים: TTL, Protocol, ID/Flags/Offset (לפרגמנטציה), SIP, DIP</text>
+        <text x="260" y="305" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700" direction="rtl">כותרת בסיסית: 20 בתים (5 שורות של 4 בתים)</text>
+        <text x="260" y="320" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">השדות החשובים: TTL, Protocol, ID/Flags/Offset (לפרגמנטציה), SIP, DIP</text>
       </g>
     </svg>
-    <div class="cap">‎5 שורות חובה בכותרת IP. ה-Identification, Flags ו-Offset הם לפרגמנטציה (פרק 3.2).</div>
+    <div class="cap">5 שורות חובה בכותרת <bdi dir="ltr">IP</bdi>. ה-<bdi dir="ltr">Identification, Flags</bdi> ו-<bdi dir="ltr">Offset</bdi> הם לפרגמנטציה (פרק 3.2).</div>
   </div>
 
   <h2>השדות בכותרת — פירוט</h2>
@@ -601,10 +605,10 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📘</span>שורה 1</div>
     <div class="box-body">
       <ul>
-        <li><strong>Version (4 ביט):</strong> מספר גרסת ה-IP. הנפוץ: <span class="term purple">IPv4 = 4</span>. הגרסה החדשה: IPv6 = 6.</li>
-        <li><strong>Header Length (4 ביט):</strong> מספר השורות (כל שורה ‎4 בתים) בכותרת. מינימום ‎5 (= ‎20 בתים). עם options — עד 15 (60 בתים).</li>
-        <li><strong>Type of Service / ToS (8 ביט):</strong> סוג השירות. בתאוריה לקדם פאקטות דחופות. בפועל — <strong>לא בשימוש</strong> (כל אחד היה אומר שהוא הכי דחוף).</li>
-        <li><strong>Total Length (16 ביט):</strong> אורך כל הדאטהגרם <strong>כולל</strong> הכותרת ובדאטה, בבתים. מקסימום <span class="term">2^16 = 65,535</span> בתים.</li>
+        <li><strong><bdi dir="ltr">Version</bdi> (4 ביט):</strong> מספר גרסת ה-<bdi dir="ltr">IP</bdi>. הנפוץ: <span class="term purple">IPv4 = 4</span>. הגרסה החדשה: <bdi dir="ltr">IPv6 = 6</bdi>.</li>
+        <li><strong><bdi dir="ltr">Header Length</bdi> (4 ביט):</strong> מספר השורות (כל שורה 4 בתים) בכותרת. מינימום 5 (= 20 בתים). עם <bdi dir="ltr">options</bdi> — עד 15 (60 בתים).</li>
+        <li><strong><bdi dir="ltr">Type of Service / ToS</bdi> (8 ביט):</strong> סוג השירות. בתאוריה לקדם פאקטות דחופות. בפועל — <strong>לא בשימוש</strong> (כל אחד היה אומר שהוא הכי דחוף).</li>
+        <li><strong><bdi dir="ltr">Total Length</bdi> (16 ביט):</strong> אורך כל הדאטהגרם <strong>כולל</strong> הכותרת ובדאטה, בבתים. מקסימום <span class="term">2^16 = 65,535</span> בתים.</li>
       </ul>
     </div>
   </div>
@@ -613,9 +617,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📘</span>שורה 2 (פרגמנטציה — פירוט בפרק 3.2)</div>
     <div class="box-body">
       <ul>
-        <li><strong>Identification (16 ביט):</strong> מזהה ייחודי לכל הדאטהגרם. כל הפרגמנטים שלו חולקים את אותו ID.</li>
-        <li><strong>Flags (3 ביט):</strong> DF (Don't Fragment), MF (More Fragments).</li>
-        <li><strong>Fragment Offset (13 ביט):</strong> איפה הפרגמנט הזה ביחס לתחילת הדאטהגרם המקורי.</li>
+        <li><strong><bdi dir="ltr">Identification</bdi> (16 ביט):</strong> מזהה ייחודי לכל הדאטהגרם. כל הפרגמנטים שלו חולקים את אותו <bdi dir="ltr">ID</bdi>.</li>
+        <li><strong><bdi dir="ltr">Flags</bdi> (3 ביט):</strong> DF (Don't Fragment), MF (More Fragments).</li>
+        <li><strong><bdi dir="ltr">Fragment Offset</bdi> (13 ביט):</strong> איפה הפרגמנט הזה ביחס לתחילת הדאטהגרם המקורי.</li>
       </ul>
     </div>
   </div>
@@ -624,9 +628,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📘</span>שורה 3</div>
     <div class="box-body">
       <ul>
-        <li><strong>TTL — Time To Live (8 ביט):</strong> ערך בין 0-255. כל ראוטר <strong>מקטין ב-1</strong>. אם מגיע ל-0 — הדאטהגרם <strong>נזרק</strong>. מטרה: למנוע פאקטות שתקועות בלולאות לנצח.</li>
-        <li><strong>Protocol (8 ביט):</strong> איזה פרוטוקול תעבורה למעלה. <span class="term">TCP = 6</span>, <span class="term">UDP = 17</span>, <span class="term">ICMP = 1</span>. במקבל — מצביע לאיזה module להעלות.</li>
-        <li><strong>Header Checksum (16 ביט):</strong> Checksum על ה-header בלבד (לא הדאטה). <strong>מחושב מחדש בכל ראוטר</strong> כי ה-TTL משתנה.</li>
+        <li><strong><bdi dir="ltr">TTL</bdi> — <bdi dir="ltr">Time To Live</bdi> (8 ביט):</strong> ערך בין 0-255. כל ראוטר <strong>מקטין ב-1</strong>. אם מגיע ל-0 — הדאטהגרם <strong>נזרק</strong>. מטרה: למנוע פאקטות שתקועות בלולאות לנצח.</li>
+        <li><strong><bdi dir="ltr">Protocol</bdi> (8 ביט):</strong> איזה פרוטוקול תעבורה למעלה. <span class="term">TCP = 6</span>, <span class="term">UDP = 17</span>, <span class="term">ICMP = 1</span>. במקבל — מצביע לאיזה <bdi dir="ltr">module</bdi> להעלות.</li>
+        <li><strong><bdi dir="ltr">Header Checksum</bdi> (16 ביט):</strong> <bdi dir="ltr">Checksum</bdi> על ה-<bdi dir="ltr">header</bdi> בלבד (לא הדאטה). <strong>מחושב מחדש בכל ראוטר</strong> כי ה-<bdi dir="ltr">TTL</bdi> משתנה.</li>
       </ul>
     </div>
   </div>
@@ -635,37 +639,37 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📘</span>שורות 4-5 — הכתובות</div>
     <div class="box-body">
       <ul>
-        <li><strong>Source IP (32 ביט):</strong> ‎IP של השולח.</li>
-        <li><strong>Destination IP (32 ביט):</strong> ‎IP של היעד. <strong>זה השדה שהראוטר בודק</strong> כדי להחליט לאן לשלוח.</li>
+        <li><strong><bdi dir="ltr">Source IP</bdi> (32 ביט):</strong> <bdi dir="ltr">IP</bdi> של השולח.</li>
+        <li><strong><bdi dir="ltr">Destination IP</bdi> (32 ביט):</strong> <bdi dir="ltr">IP</bdi> של היעד. <strong>זה השדה שהראוטר בודק</strong> כדי להחליט לאן לשלוח.</li>
       </ul>
     </div>
   </div>
 
-  <h2>טבלת ה-Forwarding</h2>
+  <h2>טבלת ה-<bdi dir="ltr">Forwarding</bdi></h2>
 
   <div class="box warn">
     <div class="box-head"><span class="icon">⚠</span>הבעיה: 4 מיליארד כתובות</div>
     <div class="box-body">
-      <p>IPv4 מאפשר <span class="term">2^32 ≈ 4 מיליארד</span> כתובות. אם נשמור שורה לכל אחת — הטבלה ענקית, החיפוש איטי בטירוף.</p>
-      <p><strong>הפתרון:</strong> לקבץ כתובות לפי <strong>תחילית משותפת</strong>. במקום שורה לכל IP — שורה אחת לכל <em>בלוק</em> של כתובות עם prefix זהה.</p>
+      <p><bdi dir="ltr">IPv4</bdi> מאפשר <span class="term">2^32 ≈ 4 מיליארד</span> כתובות. אם נשמור שורה לכל אחת — הטבלה ענקית, החיפוש איטי בטירוף.</p>
+      <p><strong>הפתרון:</strong> לקבץ כתובות לפי <strong>תחילית משותפת</strong>. במקום שורה לכל <bdi dir="ltr">IP</bdi> — שורה אחת לכל <em>בלוק</em> של כתובות עם <bdi dir="ltr">prefix</bdi> זהה.</p>
     </div>
   </div>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>Longest Prefix Matching (LPM)</div>
     <div class="box-body">
-      <p>הראוטר מחפש בטבלה את <strong>ההתאמה הארוכה ביותר</strong> ל-IP היעד.</p>
+      <p>הראוטר מחפש בטבלה את <strong>ההתאמה הארוכה ביותר</strong> ל-<bdi dir="ltr">IP</bdi> היעד.</p>
       <h4>למה?</h4>
       <p>פעמים יש כתובות שמחולקות בין שני פרוזקטים. דוגמה:</p>
       <ul>
-        <li>‎21 ביטים ראשונים = <span class="term purple">11001000 00010111 00010</span> ← רגל 1 (התאמה כללית).</li>
-        <li>‎24 ביטים ראשונים = <span class="term purple">11001000 00010111 00011000</span> ← רגל 2 (תת-בלוק).</li>
+        <li>21 ביטים ראשונים = <span class="term purple">11001000 00010111 00010</span> ← רגל 1 (התאמה כללית).</li>
+        <li>24 ביטים ראשונים = <span class="term purple">11001000 00010111 00011000</span> ← רגל 2 (תת-בלוק).</li>
       </ul>
       <p>לכתובת <span class="term purple">11001000 00010111 00011000 10101010</span> — שתי שורות מתאימות. הראוטר בוחר את ה<strong>ארוכה יותר</strong> (24 ביטים) ← רגל 2.</p>
     </div>
   </div>
 
-  <h2>מודל השירות — Best Effort</h2>
+  <h2>מודל השירות — <bdi dir="ltr">Best Effort</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>מה הרשת מבטיחה?</div>
@@ -677,29 +681,29 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li>שתגיע בסדר.</li>
         <li>רוחב פס מינימלי.</li>
       </ul>
-      <p>זו הסיבה ש-TCP קיים — הוא בונה אמינות מעל רשת לא אמינה.</p>
+      <p>זו הסיבה ש-<bdi dir="ltr">TCP</bdi> קיים — הוא בונה אמינות מעל רשת לא אמינה.</p>
       <h4>למה אנחנו עדיין עם המודל הזה?</h4>
-      <p><strong>פשטות.</strong> ראוטרים יכולים להיות פשוטים ומהירים. אם המודל היה מבטיח Throughput מינימלי — היה צריך resource reservation בכל ראוטר. כבד מדי.</p>
+      <p><strong>פשטות.</strong> ראוטרים יכולים להיות פשוטים ומהירים. אם המודל היה מבטיח <bdi dir="ltr">Throughput</bdi> מינימלי — היה צריך <bdi dir="ltr">resource reservation</bdi> בכל ראוטר. כבד מדי.</p>
     </div>
   </div>
 
-  <h2>שני מישורים — Data Plane ו-Control Plane</h2>
+  <h2>שני מישורים — <bdi dir="ltr">Data Plane</bdi> ו-<bdi dir="ltr">Control Plane</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>Data Plane</div>
     <div class="box-body">
-      <p>"מה לעשות עם הפאקטה כשהיא הגיעה". זה ה-Forwarding. פעולה לוקאלית, מהירה.</p>
+      <p>"מה לעשות עם הפאקטה כשהיא הגיעה". זה ה-<bdi dir="ltr">Forwarding</bdi>. פעולה לוקאלית, מהירה.</p>
     </div>
   </div>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>Control Plane</div>
     <div class="box-body">
-      <p>"איך הפאקטה תגיע ליעד". זה ה-Routing. מצריך ראיית התמונה הגלובלית — איך כל הרשת בנויה.</p>
+      <p>"איך הפאקטה תגיע ליעד". זה ה-<bdi dir="ltr">Routing</bdi>. מצריך ראיית התמונה הגלובלית — איך כל הרשת בנויה.</p>
       <h4>שתי גישות לעדכון הטבלאות</h4>
       <ol>
-        <li><strong>מסורתי:</strong> כל ראוטר מנהל את הטבלה שלו (DV, LS).</li>
-        <li><strong>SDN — Software Defined Networking:</strong> בקר מרכזי (Remote Controller) בענן רואה את כל הרשת ובונה טבלאות לכולם. כל ראוטר רק <strong>מושך</strong> את הטבלה שלו.</li>
+        <li><strong>מסורתי:</strong> כל ראוטר מנהל את הטבלה שלו (<bdi dir="ltr">DV, LS</bdi>).</li>
+        <li><strong>SDN — Software Defined Networking:</strong> בקר מרכזי (<bdi dir="ltr">Remote Controller</bdi>) בענן רואה את כל הרשת ובונה טבלאות לכולם. כל ראוטר רק <strong>מושך</strong> את הטבלה שלו.</li>
       </ol>
     </div>
   </div>
@@ -709,14 +713,14 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגיל בית 4 · שאלה 3.א</span>
-      <p>נניח שיש <strong>3 ראוטרים</strong> בין מחשבי המקור והיעד. אם מתעלמים מפרגמנטציה — חבילת IP שנשלחת ממקור ליעד תעבור דרך <strong>כמה כרטיסי רשת</strong>? בכמה <strong>forwarding tables</strong> יחפשו?</p>
+      <p>נניח שיש <strong>3 ראוטרים</strong> בין מחשבי המקור והיעד. אם מתעלמים מפרגמנטציה — חבילת <bdi dir="ltr">IP</bdi> שנשלחת ממקור ליעד תעבור דרך <strong>כמה כרטיסי רשת</strong>? בכמה <strong>forwarding tables</strong> יחפשו?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">כרטיסי רשת (Interfaces) במסלול</div>
+        <div class="step-label">כרטיסי רשת (<bdi dir="ltr">Interfaces</bdi>) במסלול</div>
         <p>נצייר את המסלול: <span class="term purple">מקור · R1 · R2 · R3 · יעד</span>.</p>
-        <p>בכל ראוטר ‎2 כרטיסי רשת מעורבים: אחד לקבלת הפאקטה (כניסה), אחד לשליחה (יציאה).</p>
+        <p>בכל ראוטר 2 כרטיסי רשת מעורבים: אחד לקבלת הפאקטה (כניסה), אחד לשליחה (יציאה).</p>
         <ul>
           <li><strong>מקור:</strong> 1 כרטיס יציאה</li>
           <li><strong>R1:</strong> 2 (כניסה + יציאה)</li>
@@ -728,17 +732,17 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </div>
       <div class="step">
         <div class="step-label">Forwarding tables</div>
-        <p>טבלת forwarding נמצאת רק ב<strong>ראוטרים</strong> — לא בקצוות. כל ראוטר ‎1 בודק את הטבלה שלו פעם אחת לפאקטה.</p>
-        <p>סה״כ: <strong>3 חיפושים בטבלאות forwarding</strong>.</p>
+        <p>טבלת <bdi dir="ltr">forwarding</bdi> נמצאת רק ב<strong>ראוטרים</strong> — לא בקצוות. כל ראוטר 1 בודק את הטבלה שלו פעם אחת לפאקטה.</p>
+        <p>סה״כ: <strong>3 חיפושים בטבלאות <bdi dir="ltr">forwarding</bdi></strong>.</p>
       </div>
-      <div class="final-answer"><strong>8 כרטיסי רשת</strong> במסלול, <strong>3 חיפושים בטבלאות forwarding</strong> (אחד בכל ראוטר).</div>
+      <div class="final-answer"><strong>8 כרטיסי רשת</strong> במסלול, <strong>3 חיפושים בטבלאות <bdi dir="ltr">forwarding</bdi></strong> (אחד בכל ראוטר).</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגיל בית 4 · שאלה 3.ב · חישוב תקורה</span>
-      <p>אפליקציה מייצרת מקטעים של <strong>40 בתים</strong> כל 20 ms. כל מקטע נעטף ב-TCP header ואז ב-IP header. <strong>איזה אחוז מהחבילה הוא תקורה</strong>, ואיזה הוא נתונים של האפליקציה?</p>
+      <p>אפליקציה מייצרת מקטעים של <strong>40 בתים</strong> כל <bdi dir="ltr">20 ms</bdi>. כל מקטע נעטף ב-<bdi dir="ltr">TCP header</bdi> ואז ב-<bdi dir="ltr">IP header</bdi>. <strong>איזה אחוז מהחבילה הוא תקורה</strong>, ואיזה הוא נתונים של האפליקציה?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
@@ -746,8 +750,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <div class="step-label">חישוב גדלים</div>
         <ul>
           <li>נתונים של האפליקציה: <strong>40 בתים</strong></li>
-          <li>TCP header (סטנדרטי): <strong>20 בתים</strong></li>
-          <li>IP header (סטנדרטי): <strong>20 בתים</strong></li>
+          <li><bdi dir="ltr">TCP header</bdi> (סטנדרטי): <strong>20 בתים</strong></li>
+          <li><bdi dir="ltr">IP header</bdi> (סטנדרטי): <strong>20 בתים</strong></li>
           <li>סך הכל החבילה: <strong>40 + 20 + 20 = 80 בתים</strong></li>
         </ul>
       </div>
@@ -756,7 +760,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         $$\text{נתונים} = \frac{40}{80} = 50\%$$
         $$\text{תקורה} = \frac{40}{80} = 50\%$$
       </div>
-      <div class="final-answer">‎50% נתונים, ‎50% תקורה. זה אופייני להעברות עם פאקטות קטנות (telnet, ssh, וידאו-קונפרנס). אפליקציות עם פאקטות גדולות (MSS = 1460) — תקורה רק ‎2.7%.</div>
+      <div class="final-answer"><bdi dir="ltr">50%</bdi> נתונים, <bdi dir="ltr">50%</bdi> תקורה. זה אופייני להעברות עם פאקטות קטנות (<bdi dir="ltr">telnet, ssh</bdi>, וידאו-קונפרנס). אפליקציות עם פאקטות גדולות (<bdi dir="ltr">MSS = 1460</bdi>) — תקורה רק <bdi dir="ltr">2.7%</bdi>.</div>
     </div>
   </div>
 
@@ -765,12 +769,12 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <ul>
         <li><strong>שכבת הרשת:</strong> עוטפת סגמנט ב-<strong>IP Datagram</strong> ומעבירה ממקור ליעד</li>
-        <li><strong>Forwarding</strong> (Data Plane): מזיז פאקטה דרך הראוטר — לוקאלי, מהיר</li>
-        <li><strong>Routing</strong> (Control Plane): בונה את טבלת ה-forwarding — גלובלי, רקעי</li>
-        <li>כותרת IP בסיסית: <strong>20 בתים</strong> (5 שורות של 4 בתים)</li>
+        <li><strong>Forwarding</strong> (<bdi dir="ltr">Data Plane</bdi>): מזיז פאקטה דרך הראוטר — לוקאלי, מהיר</li>
+        <li><strong>Routing</strong> (<bdi dir="ltr">Control Plane</bdi>): בונה את טבלת ה-<bdi dir="ltr">forwarding</bdi> — גלובלי, רקעי</li>
+        <li>כותרת <bdi dir="ltr">IP</bdi> בסיסית: <strong>20 בתים</strong> (5 שורות של 4 בתים)</li>
         <li>שדות מפתח: <strong>TTL</strong> (מונע לולאות), <strong>Protocol</strong>, <strong>SIP/DIP</strong></li>
-        <li><strong>LPM</strong> = Longest Prefix Matching — איך טבלת הראוטר עובדת</li>
-        <li>מודל השירות: <strong>Best Effort</strong> (בלי נדר) — TCP בונה אמינות מעליו</li>
+        <li><strong>LPM</strong> = <bdi dir="ltr">Longest Prefix Matching</bdi> — איך טבלת הראוטר עובדת</li>
+        <li>מודל השירות: <strong>Best Effort</strong> (בלי נדר) — <bdi dir="ltr">TCP</bdi> בונה אמינות מעליו</li>
       </ul>
     </div>
   </div>

@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,34 +414,34 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 2.3 · שכבת התעבורה</span>
-  <h1 class="page-title">TCP — מבנה ו-Sequence Numbers</h1>
-  <p class="page-subtitle">הסגמנט, ‎SEQ ו-ACK, וחישוב Timeout דינמי.</p>
+  <h1 class="page-title"><bdi dir="ltr">TCP</bdi> — מבנה ו-<bdi dir="ltr">Sequence Numbers</bdi></h1>
+  <p class="page-subtitle">הסגמנט, <bdi dir="ltr">SEQ</bdi> ו-<bdi dir="ltr">ACK</bdi>, וחישוב <bdi dir="ltr">Timeout</bdi> דינמי.</p>
 
   <p class="lead">
-    TCP הוא <strong>פרוטוקול תעבורה אמין, מבוסס קשר, ועם בקרת זרימה וגודש</strong>. השדות המרכזיים בכותרת: <strong>SEQ</strong> (מספר הבית הראשון בסגמנט) ו-<strong>ACK</strong> (מספר הבית הבא שאני מצפה לקבל). שאלה מבחנית קלאסית: בהינתן SEQ של שני סגמנטים — כמה בתים יש בראשון? מה ה-ACK?
+    <bdi dir="ltr">TCP</bdi> הוא <strong>פרוטוקול תעבורה אמין, מבוסס קשר, ועם בקרת זרימה וגודש</strong>. השדות המרכזיים בכותרת: <strong>SEQ</strong> (מספר הבית הראשון בסגמנט) ו-<strong>ACK</strong> (מספר הבית הבא שאני מצפה לקבל). שאלה מבחנית קלאסית: בהינתן <bdi dir="ltr">SEQ</bdi> של שני סגמנטים — כמה בתים יש בראשון? מה ה-<bdi dir="ltr">ACK</bdi>?
   </p>
 
-  <h2>MTU ו-MSS</h2>
+  <h2><bdi dir="ltr">MTU</bdi> ו-<bdi dir="ltr">MSS</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>שני מושגי גודל</div>
     <div class="box-body">
       <ul>
-        <li><strong>MTU (Maximum Transmission Unit):</strong> גודל הודעה מקסימלי שאפשר להעביר ברשת (בבתים), <strong>כולל</strong> את כל הכותרות (IP + TCP + Data). תכונה של הלינק.</li>
-        <li><strong>MSS (Maximum Segment Size):</strong> כמות הדאטה המקסימלית בסגמנט TCP, <strong>בלי</strong> הכותרות. מה שהאפליקציה יכולה לשלוח בסגמנט אחד.</li>
+        <li><strong>MTU (Maximum Transmission Unit):</strong> גודל הודעה מקסימלי שאפשר להעביר ברשת (בבתים), <strong>כולל</strong> את כל הכותרות (<bdi dir="ltr">IP + TCP + Data</bdi>). תכונה של הלינק.</li>
+        <li><strong>MSS (Maximum Segment Size):</strong> כמות הדאטה המקסימלית בסגמנט <bdi dir="ltr">TCP</bdi>, <strong>בלי</strong> הכותרות. מה שהאפליקציה יכולה לשלוח בסגמנט אחד.</li>
       </ul>
       <div class="box formula">
         <div class="box-head"><span class="icon">📐</span>הקשר</div>
         <div class="box-body">
           $$MSS = MTU - \text{IP header} - \text{TCP header}$$
-          <p>בדרך כלל: MTU = 1500 בתים. IP header = 20 בתים. TCP header = 20 בתים. אז MSS = 1460.</p>
+          <p>בדרך כלל: <bdi dir="ltr">MTU = 1500</bdi> בתים. <bdi dir="ltr">IP header = 20</bdi> בתים. <bdi dir="ltr">TCP header = 20</bdi> בתים. אז <bdi dir="ltr">MSS = 1460</bdi>.</p>
         </div>
       </div>
-      <p><strong>כשיש שני לקוחות עם MTU שונים</strong> — בוחרים את ה<strong>מינימום</strong>.</p>
+      <p><strong>כשיש שני לקוחות עם <bdi dir="ltr">MTU</bdi> שונים</strong> — בוחרים את ה<strong>מינימום</strong>.</p>
     </div>
   </div>
 
-  <h2>מבנה כותרת TCP</h2>
+  <h2>מבנה כותרת <bdi dir="ltr">TCP</bdi></h2>
 
   <div class="figure">
     <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="כותרת TCP">
@@ -479,7 +483,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
         <!-- Row 6: Options (variable) -->
         <rect x="60" y="190" width="360" height="32" fill="#fff" stroke="#78716c" stroke-dasharray="3,2"/>
-        <text x="240" y="210" text-anchor="middle" font-size="10" fill="#78716c" font-style="italic">Options (אופציונלי, אורך משתנה)</text>
+        <text x="240" y="210" text-anchor="middle" font-size="10" fill="#78716c" font-style="italic" direction="rtl">Options (אופציונלי, אורך משתנה)</text>
 
         <!-- Data -->
         <rect x="60" y="222" width="360" height="40" fill="#fff" stroke="#475569" stroke-dasharray="4,2"/>
@@ -487,69 +491,69 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
         <!-- Labels on right -->
         <text x="440" y="50" font-size="10" fill="#475569">‎16-bit ports</text>
-        <text x="440" y="80" font-size="10" fill="#b45309" font-weight="700">←  ‎4 בתים</text>
-        <text x="440" y="112" font-size="10" fill="#b45309" font-weight="700">←  ‎4 בתים</text>
-        <text x="440" y="146" font-size="10" fill="#475569">דגלים + recv win</text>
+        <text x="440" y="80" font-size="10" fill="#b45309" font-weight="700" direction="rtl">←  ‎4 בתים</text>
+        <text x="440" y="112" font-size="10" fill="#b45309" font-weight="700" direction="rtl">←  ‎4 בתים</text>
+        <text x="440" y="146" font-size="10" fill="#475569" direction="rtl">דגלים + recv win</text>
         <text x="440" y="178" font-size="10" fill="#475569">checksum + opts</text>
 
         <!-- Bottom info -->
-        <text x="240" y="276" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700">כותרת בסיסית: 20 בתים (HL=5). עם options: עד 60.</text>
+        <text x="240" y="276" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700" direction="rtl">כותרת בסיסית: 20 בתים (HL=5). עם options: עד 60.</text>
       </g>
     </svg>
-    <div class="cap">כותרת TCP — 20 בתים בסיסיים, עם אפשרות הרחבה. SEQ ו-ACK הם השדות הכי חשובים.</div>
+    <div class="cap">כותרת <bdi dir="ltr">TCP</bdi> — 20 בתים בסיסיים, עם אפשרות הרחבה. <bdi dir="ltr">SEQ</bdi> ו-<bdi dir="ltr">ACK</bdi> הם השדות הכי חשובים.</div>
   </div>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>השדות העיקריים</div>
     <div class="box-body">
       <ul>
-        <li><strong>Source/Dest Port (16 ביט כל אחד):</strong> זיהוי האפליקציה — כמו ב-UDP.</li>
-        <li><strong>Sequence Number (32 ביט):</strong> מספר הבית הראשון בסגמנט הנתונים. <strong>לא מספר הסגמנט עצמו</strong>.</li>
-        <li><strong>ACK Number (32 ביט):</strong> מספר הבית הבא שמצפים לקבל מהשולח.</li>
-        <li><strong>Header Length (4 ביט):</strong> מספר השורות (4 בתים כל אחת) בכותרת. סטנדרט: 5 (= 20 בתים). אם יש options — יותר.</li>
-        <li><strong>Flags (6 ביט):</strong> URG, ACK, PSH, RST, SYN, FIN — דגלים שמשנים את משמעות הסגמנט.</li>
-        <li><strong>Receive Window (16 ביט):</strong> כמה בתים המקבל מוכן לקבל (לבקרת זרימה — פרק 2.4).</li>
+        <li><strong><bdi dir="ltr">Source/Dest Port</bdi> (16 ביט כל אחד):</strong> זיהוי האפליקציה — כמו ב-<bdi dir="ltr">UDP</bdi>.</li>
+        <li><strong><bdi dir="ltr">Sequence Number</bdi> (32 ביט):</strong> מספר הבית הראשון בסגמנט הנתונים. <strong>לא מספר הסגמנט עצמו</strong>.</li>
+        <li><strong><bdi dir="ltr">ACK Number</bdi> (32 ביט):</strong> מספר הבית הבא שמצפים לקבל מהשולח.</li>
+        <li><strong><bdi dir="ltr">Header Length</bdi> (4 ביט):</strong> מספר השורות (4 בתים כל אחת) בכותרת. סטנדרט: 5 (= 20 בתים). אם יש <bdi dir="ltr">options</bdi> — יותר.</li>
+        <li><strong><bdi dir="ltr">Flags</bdi> (6 ביט):</strong> <bdi dir="ltr">URG, ACK, PSH, RST, SYN, FIN</bdi> — דגלים שמשנים את משמעות הסגמנט.</li>
+        <li><strong><bdi dir="ltr">Receive Window</bdi> (16 ביט):</strong> כמה בתים המקבל מוכן לקבל (לבקרת זרימה — פרק 2.4).</li>
         <li><strong>Checksum:</strong> בדיקת שגיאות.</li>
       </ul>
     </div>
   </div>
 
-  <h2>SEQ ו-ACK — איך זה עובד</h2>
+  <h2><bdi dir="ltr">SEQ</bdi> ו-<bdi dir="ltr">ACK</bdi> — איך זה עובד</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הגדרות מדויקות</div>
     <div class="box-body">
       <p><strong>SEQ Number:</strong> מספר הבית <em>הראשון</em> בסגמנט הנתונים.</p>
       <p><strong>ACK Number:</strong> מספר הבית <em>הבא</em> שהמקבל מצפה לקבל (כלומר: עד למספר הזה - 1, כבר התקבל).</p>
-      <p><strong>שים לב:</strong> אלה <strong>מספרים של בתים</strong>, לא של סגמנטים. TCP חושב על הזרם כעל רצף בתים, לא הודעות.</p>
+      <p><strong>שים לב:</strong> אלה <strong>מספרים של בתים</strong>, לא של סגמנטים. <bdi dir="ltr">TCP</bdi> חושב על הזרם כעל רצף בתים, לא הודעות.</p>
     </div>
   </div>
 
   <div class="box example">
     <div class="box-head"><span class="icon">💡</span>דוגמה — קובץ של 500,000 בתים</div>
     <div class="box-body">
-      <p>נשלח קובץ בגודל ‎500K בתים עם MSS = 1000 (כל סגמנט מכיל ‎1000 בתים של נתונים).</p>
+      <p>נשלח קובץ בגודל <bdi dir="ltr">500K</bdi> בתים עם <bdi dir="ltr">MSS = 1000</bdi> (כל סגמנט מכיל 1000 בתים של נתונים).</p>
       <table>
         <thead>
-          <tr><th>סגמנט #</th><th>SEQ</th><th>טווח בתים</th><th>ACK שיחזור</th></tr>
+          <tr><th>סגמנט #</th><th>SEQ</th><th>טווח בתים</th><th><bdi dir="ltr">ACK</bdi> שיחזור</th></tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td>0</td><td>‎0-999</td><td>1000</td></tr>
-          <tr><td>2</td><td>1000</td><td>‎1000-1999</td><td>2000</td></tr>
-          <tr><td>3</td><td>2000</td><td>‎2000-2999</td><td>3000</td></tr>
+          <tr><td>1</td><td>0</td><td>0-999</td><td>1000</td></tr>
+          <tr><td>2</td><td>1000</td><td>1000-1999</td><td>2000</td></tr>
+          <tr><td>3</td><td>2000</td><td>2000-2999</td><td>3000</td></tr>
           <tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-          <tr><td>500</td><td>499000</td><td>‎499000-499999</td><td>500000</td></tr>
+          <tr><td>500</td><td>499000</td><td>499000-499999</td><td>500000</td></tr>
         </tbody>
       </table>
-      <p>הנוסחה: <strong>SEQ הבא = SEQ נוכחי + מספר הבתים בסגמנט הנוכחי</strong>.</p>
+      <p>הנוסחה: <strong><bdi dir="ltr">SEQ</bdi> הבא = <bdi dir="ltr">SEQ</bdi> נוכחי + מספר הבתים בסגמנט הנוכחי</strong>.</p>
     </div>
   </div>
 
   <div class="keypoint">
-    כלל הזהב: <strong>ACK שמקבל השולח = SEQ הבית הראשון של הסגמנט הבא ששולח</strong>. אם קיבלתי ACK=2000, אני יודע שהבתים ‎0-1999 הגיעו, וצריך להתחיל לשלוח מבית ‎2000.
+    כלל הזהב: <strong><bdi dir="ltr">ACK</bdi> שמקבל השולח = <bdi dir="ltr">SEQ</bdi> הבית הראשון של הסגמנט הבא ששולח</strong>. אם קיבלתי <bdi dir="ltr">ACK=2000</bdi>, אני יודע שהבתים 0-1999 הגיעו, וצריך להתחיל לשלוח מבית 2000.
   </div>
 
-  <h2>‎4 תרחישים — איך TCP מתמודד עם תקלות</h2>
+  <h2>4 תרחישים — איך <bdi dir="ltr">TCP</bdi> מתמודד עם תקלות</h2>
 
   <h3>תרחיש 1: תעבורה רגילה</h3>
 
@@ -557,75 +561,75 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📘</span>הכל זורם</div>
     <div class="box-body">
       <ul>
-        <li>A שולח <span class="term">SN=92, size=8 bytes</span>.</li>
-        <li>B יקבל ויחזיר <span class="term">AN=100</span> (כי 92+8=100).</li>
-        <li>בזמן שמחכים ל-ACK — מותר לשלוח עוד.</li>
-        <li>A שולח <span class="term">SN=100, size=20 bytes</span>.</li>
-        <li>כשמגיע ACK להודעה הקודמת (AN=100) — הטיימר הראשון מתאפס. עכשיו יש טיימר חדש על SN=100.</li>
+        <li><bdi dir="ltr">A</bdi> שולח <span class="term">SN=92, size=8 bytes</span>.</li>
+        <li><bdi dir="ltr">B</bdi> יקבל ויחזיר <span class="term">AN=100</span> (כי 92+8=100).</li>
+        <li>בזמן שמחכים ל-<bdi dir="ltr">ACK</bdi> — מותר לשלוח עוד.</li>
+        <li><bdi dir="ltr">A</bdi> שולח <span class="term">SN=100, size=20 bytes</span>.</li>
+        <li>כשמגיע <bdi dir="ltr">ACK</bdi> להודעה הקודמת (<bdi dir="ltr">AN=100</bdi>) — הטיימר הראשון מתאפס. עכשיו יש טיימר חדש על <bdi dir="ltr">SN=100</bdi>.</li>
       </ul>
     </div>
   </div>
 
-  <h3>תרחיש 2: ACK אבד ← Retransmission</h3>
+  <h3>תרחיש <bdi dir="ltr">2</bdi>: <bdi dir="ltr">ACK</bdi> אבד ← <bdi dir="ltr">Retransmission</bdi></h3>
 
   <div class="box warn">
     <div class="box-head"><span class="icon">⚠</span>טיימאאוט</div>
     <div class="box-body">
       <ul>
-        <li>A שולח <span class="term">SN=92</span>, B מקבל ושולח <span class="term">AN=100</span>.</li>
-        <li>אבל ה-ACK אבד בדרך.</li>
-        <li>הטיימר של A הגיע ל-Timeout ← A שולח שוב <span class="term">SN=92</span>.</li>
-        <li>B מזהה כפילות (הוא כבר ב-AN=100, מצפה ל-SN=100) ← שולח שוב <span class="term">AN=100</span>.</li>
+        <li><bdi dir="ltr">A</bdi> שולח <span class="term">SN=92</span>, <bdi dir="ltr">B</bdi> מקבל ושולח <span class="term">AN=100</span>.</li>
+        <li>אבל ה-<bdi dir="ltr">ACK</bdi> אבד בדרך.</li>
+        <li>הטיימר של <bdi dir="ltr">A</bdi> הגיע ל-<bdi dir="ltr">Timeout</bdi> ← <bdi dir="ltr">A</bdi> שולח שוב <span class="term">SN=92</span>.</li>
+        <li><bdi dir="ltr">B</bdi> מזהה כפילות (הוא כבר ב-<bdi dir="ltr">AN=100</bdi>, מצפה ל-<bdi dir="ltr">SN=100</bdi>) ← שולח שוב <span class="term">AN=100</span>.</li>
       </ul>
     </div>
   </div>
 
-  <h3>תרחיש 3: ACK אבד אבל בלי Retransmission!</h3>
+  <h3>תרחיש <bdi dir="ltr">3</bdi>: <bdi dir="ltr">ACK</bdi> אבד אבל בלי <bdi dir="ltr">Retransmission</bdi>!</h3>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>ACK מאוחר מצרפי</div>
+    <div class="box-head"><span class="icon">📘</span><bdi dir="ltr">ACK</bdi> מאוחר מצרפי</div>
     <div class="box-body">
       <ul>
-        <li>A שולח <span class="term">SN=92, size=8</span> ואז מיד <span class="term">SN=100, size=20</span>.</li>
-        <li>ה-ACK עבור SN=92 אבד (<span class="term">AN=100</span> לא הגיע).</li>
-        <li>אבל לפני שהטיימר הגיע ל-Timeout — הגיע <span class="term">AN=120</span> (תגובה ל-SN=100).</li>
-        <li>זה אומר: B קיבל הכל עד בית 120! גם 92-99 הגיעו.</li>
-        <li>אין צורך ב-Retransmission.</li>
+        <li><bdi dir="ltr">A</bdi> שולח <span class="term">SN=92, size=8</span> ואז מיד <span class="term">SN=100, size=20</span>.</li>
+        <li>ה-<bdi dir="ltr">ACK</bdi> עבור <bdi dir="ltr">SN=92</bdi> אבד (<span class="term">AN=100</span> לא הגיע).</li>
+        <li>אבל לפני שהטיימר הגיע ל-<bdi dir="ltr">Timeout</bdi> — הגיע <span class="term">AN=120</span> (תגובה ל-<bdi dir="ltr">SN=100</bdi>).</li>
+        <li>זה אומר: <bdi dir="ltr">B</bdi> קיבל הכל עד בית 120! גם 92-99 הגיעו.</li>
+        <li>אין צורך ב-<bdi dir="ltr">Retransmission</bdi>.</li>
       </ul>
-      <p><strong>זה היופי של Cumulative ACK</strong> — ACK עם מספר גדול יותר "מכסה" את הקודמים.</p>
+      <p><strong>זה היופי של <bdi dir="ltr">Cumulative ACK</bdi></strong> — <bdi dir="ltr">ACK</bdi> עם מספר גדול יותר "מכסה" את הקודמים.</p>
     </div>
   </div>
 
-  <h3>תרחיש 4: Timeout מוקדם (פרמטרים גרועים)</h3>
+  <h3>תרחיש <bdi dir="ltr">4</bdi>: <bdi dir="ltr">Timeout</bdi> מוקדם (פרמטרים גרועים)</h3>
 
   <div class="box warn">
     <div class="box-head"><span class="icon">⚠</span>שולחים פעמיים</div>
     <div class="box-body">
       <ul>
-        <li>A שולח <span class="term">SN=92</span>.</li>
-        <li>Timeout הוא קצר מדי — מסתיים <strong>לפני</strong> שה-ACK הספיק להגיע.</li>
-        <li>A שולח שוב <span class="term">SN=92</span>.</li>
-        <li>B כבר קיבל את 92 בפעם הראשונה ושלח AN=100. עכשיו מקבל שוב — מזהה כפילות, זורק, ושולח שוב AN=100 או AN=120 (אם כבר ראה את SN=100 בינתיים).</li>
+        <li><bdi dir="ltr">A</bdi> שולח <span class="term">SN=92</span>.</li>
+        <li><bdi dir="ltr">Timeout</bdi> הוא קצר מדי — מסתיים <strong>לפני</strong> שה-<bdi dir="ltr">ACK</bdi> הספיק להגיע.</li>
+        <li><bdi dir="ltr">A</bdi> שולח שוב <span class="term">SN=92</span>.</li>
+        <li><bdi dir="ltr">B</bdi> כבר קיבל את 92 בפעם הראשונה ושלח <bdi dir="ltr">AN=100</bdi>. עכשיו מקבל שוב — מזהה כפילות, זורק, ושולח שוב <bdi dir="ltr">AN=100</bdi> או <bdi dir="ltr">AN=120</bdi> (אם כבר ראה את <bdi dir="ltr">SN=100</bdi> בינתיים).</li>
       </ul>
-      <p>בעיה: זה <strong>בזבוז</strong>. הפתרון: <strong>חישוב חכם של Timeout</strong> מבוסס RTT אמיתי (פרק 2.4).</p>
+      <p>בעיה: זה <strong>בזבוז</strong>. הפתרון: <strong>חישוב חכם של <bdi dir="ltr">Timeout</bdi></strong> מבוסס <bdi dir="ltr">RTT</bdi> אמיתי (פרק 2.4).</p>
     </div>
   </div>
 
-  <h2>חישוב Timeout — RTT estimation</h2>
+  <h2>חישוב <bdi dir="ltr">Timeout</bdi> — <bdi dir="ltr">RTT estimation</bdi></h2>
 
   <div class="box formula">
     <div class="box-head"><span class="icon">📐</span>Estimated RTT</div>
     <div class="box-body">
-      <p>RTT משתנה כל הזמן (עומס, מסלולים שונים). TCP מחשב <strong>EstimatedRTT</strong> — ממוצע משוקלל עם דעיכה מעריכית (Exponential Weighted Moving Average):</p>
+      <p><bdi dir="ltr">RTT</bdi> משתנה כל הזמן (עומס, מסלולים שונים). <bdi dir="ltr">TCP</bdi> מחשב <strong>EstimatedRTT</strong> — ממוצע משוקלל עם דעיכה מעריכית (<bdi dir="ltr">Exponential Weighted Moving Average</bdi>):</p>
       $$\text{EstimatedRTT} = (1-\alpha) \cdot \text{EstimatedRTT} + \alpha \cdot \text{SampleRTT}$$
-      <p>בדרך כלל $\alpha = 0.125$ — מתן ‎12.5% משקל למדידה החדשה.</p>
+      <p>בדרך כלל $\alpha = 0.125$ — מתן <bdi dir="ltr">12.5%</bdi> משקל למדידה החדשה.</p>
       <h4>DevRTT</h4>
-      <p>סטיית התקן של RTT:</p>
+      <p>סטיית התקן של <bdi dir="ltr">RTT</bdi>:</p>
       $$\text{DevRTT} = (1-\beta) \cdot \text{DevRTT} + \beta \cdot |\text{SampleRTT} - \text{EstimatedRTT}|$$
       <p>$\beta = 0.25$.</p>
       <h4>Timeout</h4>
       $$\text{TimeoutInterval} = \text{EstimatedRTT} + 4 \cdot \text{DevRTT}$$
-      <p>הוספת ‎4×DevRTT נותנת מרווח ביטחון — לא נסלוט retransmissions מיותרים כשהרשת איטית.</p>
+      <p>הוספת <bdi dir="ltr">4×DevRTT</bdi> נותנת מרווח ביטחון — לא נסלוט <bdi dir="ltr">retransmissions</bdi> מיותרים כשהרשת איטית.</p>
     </div>
   </div>
 
@@ -633,40 +637,40 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגיל בית 4 · שאלה 2 · TCP בתים</span>
-      <p>תהליך A שולח שני סגמנטים עוקבים של TCP לתהליך B. לסגמנט הראשון יש <strong>SEQ = 90</strong>, ולשני <strong>SEQ = 130</strong>.</p>
+      <span class="exercise-tag">תרגיל בית 4 · שאלה <bdi dir="ltr">2 · TCP</bdi> בתים</span>
+      <p>תהליך <bdi dir="ltr">A</bdi> שולח שני סגמנטים עוקבים של <bdi dir="ltr">TCP</bdi> לתהליך <bdi dir="ltr">B</bdi>. לסגמנט הראשון יש <strong>SEQ = 90</strong>, ולשני <strong>SEQ = 130</strong>.</p>
       <ol style="list-style: hebrew;">
         <li>כמה בתים של נתונים יש בסגמנט הראשון?</li>
-        <li>נניח שהסגמנט הראשון אבד אבל השני הגיע ל-B. בהודעת ה-acknowledge ש-B ישלח ל-A, מה יהיה ה-ACK number?</li>
+        <li>נניח שהסגמנט הראשון אבד אבל השני הגיע ל-<bdi dir="ltr">B</bdi>. בהודעת ה-<bdi dir="ltr">acknowledge</bdi> ש-<bdi dir="ltr">B</bdi> ישלח ל-<bdi dir="ltr">A</bdi>, מה יהיה ה-<bdi dir="ltr">ACK number</bdi>?</li>
       </ol>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">סעיף I · מספר הבתים בסגמנט הראשון</div>
-        <p>הסגמנט הראשון מתחיל ב-SEQ=90. הסגמנט השני מתחיל ב-SEQ=130.</p>
-        <p>SEQ הוא <strong>מספר הבית הראשון</strong>. אז:</p>
+        <div class="step-label">סעיף <bdi dir="ltr">I</bdi> · מספר הבתים בסגמנט הראשון</div>
+        <p>הסגמנט הראשון מתחיל ב-<bdi dir="ltr">SEQ=90</bdi>. הסגמנט השני מתחיל ב-<bdi dir="ltr">SEQ=130</bdi>.</p>
+        <p><bdi dir="ltr">SEQ</bdi> הוא <strong>מספר הבית הראשון</strong>. אז:</p>
         <ul>
           <li>סגמנט 1 מכיל בתים: 90, 91, 92, ..., 129</li>
           <li>סגמנט 2 מתחיל ב-130</li>
         </ul>
-        <p>מספר הבתים בסגמנט 1 = ‎130 - 90 = <strong>40 בתים</strong>.</p>
+        <p>מספר הבתים בסגמנט 1 = 130 - 90 = <strong>40 בתים</strong>.</p>
       </div>
       <div class="step">
-        <div class="step-label">סעיף II · ACK מ-B כשהראשון אבד והשני הגיע</div>
-        <p>ACK מוגדר כ-"הבית הבא שאני מצפה לקבל".</p>
-        <p>B קיבל את סגמנט 2 (בתים ‎130 ואילך). אבל הוא <strong>לא קיבל</strong> את סגמנט 1 (בתים ‎90-129).</p>
+        <div class="step-label">סעיף <bdi dir="ltr">II · ACK</bdi> מ-<bdi dir="ltr">B</bdi> כשהראשון אבד והשני הגיע</div>
+        <p><bdi dir="ltr">ACK</bdi> מוגדר כ-"הבית הבא שאני מצפה לקבל".</p>
+        <p><bdi dir="ltr">B</bdi> קיבל את סגמנט 2 (בתים 130 ואילך). אבל הוא <strong>לא קיבל</strong> את סגמנט 1 (בתים 90-129).</p>
         <p>הבית הבא שהוא מצפה לקבל הוא <strong>בית 90</strong> — הראשון של הסגמנט החסר.</p>
-        <p>(הוא לא ישלח ACK=130 או 170, כי TCP משתמש ב-Cumulative ACK — הוא לא יכול לאשר עד ל-170 כל עוד 90-129 חסרים.)</p>
+        <p>(הוא לא ישלח <bdi dir="ltr">ACK=130</bdi> או 170, כי <bdi dir="ltr">TCP</bdi> משתמש ב-<bdi dir="ltr">Cumulative ACK</bdi> — הוא לא יכול לאשר עד ל-170 כל עוד 90-129 חסרים.)</p>
       </div>
-      <div class="final-answer">סעיף I: <strong>40 בתים</strong>. סעיף II: <strong>ACK = 90</strong>. כשמקבל B יקבל ‎3 ACKs כפולים עם ‎90 (Duplicate ACKs) — TCP יזהה את החור ויעשה Fast Retransmit (פרק 2.6).</div>
+      <div class="final-answer">סעיף <bdi dir="ltr">I</bdi>: <strong>40 בתים</strong>. סעיף <bdi dir="ltr">II</bdi>: <strong>ACK = 90</strong>. כשמקבל <bdi dir="ltr">B</bdi> יקבל <bdi dir="ltr">3 ACKs</bdi> כפולים עם 90 (<bdi dir="ltr">Duplicate ACKs</bdi>) — <bdi dir="ltr">TCP</bdi> יזהה את החור ויעשה <bdi dir="ltr">Fast Retransmit</bdi> (פרק 2.6).</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">חישוב MSS</span>
-      <p>בלינק עם MTU = 1500 בתים, מהו MSS אם רץ TCP מעל IP? מה לגבי UDP?</p>
+      <span class="exercise-tag">חישוב <bdi dir="ltr">MSS</bdi></span>
+      <p>בלינק עם <bdi dir="ltr">MTU = 1500</bdi> בתים, מהו <bdi dir="ltr">MSS</bdi> אם רץ <bdi dir="ltr">TCP</bdi> מעל <bdi dir="ltr">IP</bdi>? מה לגבי <bdi dir="ltr">UDP</bdi>?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
@@ -677,10 +681,10 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </div>
       <div class="step">
         <div class="step-label">UDP</div>
-        <p>UDP header הוא 8 בתים בלבד (לא 20):</p>
+        <p><bdi dir="ltr">UDP header</bdi> הוא 8 בתים בלבד (לא 20):</p>
         $$MSS_{UDP} = 1500 - 20 - 8 = 1472 \text{ bytes}$$
       </div>
-      <div class="final-answer">UDP מאפשר ‎12 בתים יותר דאטה לסגמנט — בגלל ה-header הקצר יותר.</div>
+      <div class="final-answer"><bdi dir="ltr">UDP</bdi> מאפשר 12 בתים יותר דאטה לסגמנט — בגלל ה-<bdi dir="ltr">header</bdi> הקצר יותר.</div>
     </div>
   </div>
 
@@ -688,15 +692,15 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li><strong>MTU</strong> = max בתים בלינק (כולל headers). <strong>MSS</strong> = max דאטה בסגמנט (בלי headers)</li>
-        <li>MSS = MTU − IP header (20) − TCP header (20) = בדרך כלל ‎1460</li>
-        <li>כותרת TCP בסיסית: <strong>20 בתים</strong></li>
+        <li><strong>MTU</strong> = <bdi dir="ltr">max</bdi> בתים בלינק (כולל <bdi dir="ltr">headers</bdi>). <strong>MSS</strong> = <bdi dir="ltr">max</bdi> דאטה בסגמנט (בלי <bdi dir="ltr">headers</bdi>)</li>
+        <li><bdi dir="ltr">MSS = MTU</bdi> − <bdi dir="ltr">IP header</bdi> (20) − <bdi dir="ltr">TCP header</bdi> (20) = בדרך כלל 1460</li>
+        <li>כותרת <bdi dir="ltr">TCP</bdi> בסיסית: <strong>20 בתים</strong></li>
         <li><strong>SEQ:</strong> מספר הבית <strong>הראשון</strong> בסגמנט</li>
         <li><strong>ACK:</strong> מספר הבית הבא <strong>שמצפים לקבל</strong></li>
-        <li>SEQ הבא = SEQ נוכחי + גודל סגמנט נוכחי בבתים</li>
-        <li>ACK = SEQ נוכחי + גודל סגמנט נוכחי בבתים</li>
-        <li><strong>Cumulative ACK:</strong> ACK גדול מכסה את כל הקודמים</li>
-        <li><strong>Timeout:</strong> EstimatedRTT + 4·DevRTT (חכם, מתאים את עצמו לרשת)</li>
+        <li><bdi dir="ltr">SEQ</bdi> הבא = <bdi dir="ltr">SEQ</bdi> נוכחי + גודל סגמנט נוכחי בבתים</li>
+        <li><bdi dir="ltr">ACK = SEQ</bdi> נוכחי + גודל סגמנט נוכחי בבתים</li>
+        <li><strong>Cumulative ACK:</strong> <bdi dir="ltr">ACK</bdi> גדול מכסה את כל הקודמים</li>
+        <li><strong>Timeout:</strong> <bdi dir="ltr">EstimatedRTT + 4·DevRTT</bdi> (חכם, מתאים את עצמו לרשת)</li>
       </ul>
     </div>
   </div>
@@ -705,7 +709,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="08-trans-rdt.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">העברה אמינה (RDT)</span></a>
+  <a class="prev" href="08-trans-rdt.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">העברה אמינה (<bdi dir="ltr">RDT</bdi>)</span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
   <a class="next" href="10-trans-flow.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">בקרת זרימה</span></a>
 </nav>

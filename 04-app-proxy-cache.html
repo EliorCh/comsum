@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,7 +414,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 1.3 · שכבת האפליקציה</span>
-  <h1 class="page-title">Proxy, Web Cache, ו-Conditional GET</h1>
+  <h1 class="page-title"><bdi dir="ltr">Proxy, Web Cache</bdi>, ו-<bdi dir="ltr">Conditional GET</bdi></h1>
   <p class="page-subtitle">איך אתרים נטענים מהר יותר — בלי לפנות לשרת המקור בכל פעם.</p>
 
   <div class="figure">
@@ -423,30 +427,30 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <g font-family="Assistant, sans-serif" font-size="12">
         <!-- Clients -->
         <circle cx="60" cy="60" r="22" fill="#fef9e7" stroke="#b45309" stroke-width="2"/>
-        <text x="60" y="64" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700">לקוח</text>
+        <text x="60" y="64" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700" direction="rtl">לקוח</text>
         <circle cx="60" cy="120" r="22" fill="#fef9e7" stroke="#b45309" stroke-width="2"/>
-        <text x="60" y="124" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700">לקוח</text>
+        <text x="60" y="124" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700" direction="rtl">לקוח</text>
         <circle cx="60" cy="180" r="22" fill="#fef9e7" stroke="#b45309" stroke-width="2"/>
-        <text x="60" y="184" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700">לקוח</text>
+        <text x="60" y="184" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700" direction="rtl">לקוח</text>
 
         <!-- Proxy/Cache -->
         <rect x="180" y="80" width="160" height="80" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2.5"/>
         <text x="260" y="108" text-anchor="middle" font-size="13" fill="#4f46e5" font-weight="700">Web Cache</text>
         <text x="260" y="124" text-anchor="middle" font-size="11" fill="#4f46e5">(Proxy)</text>
-        <text x="260" y="142" text-anchor="middle" font-size="10" fill="#78716c">קרוב ללקוחות</text>
+        <text x="260" y="142" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">קרוב ללקוחות</text>
 
         <!-- LAN label -->
         <rect x="20" y="20" width="320" height="200" rx="14" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,4"/>
-        <text x="40" y="40" font-size="11" fill="#64748b" font-weight="700">LAN (רוחב פס פנימי גבוה)</text>
+        <text x="40" y="40" font-size="11" fill="#64748b" font-weight="700" direction="rtl">LAN (רוחב פס פנימי גבוה)</text>
 
         <!-- Access link to internet -->
         <line x1="340" y1="120" x2="430" y2="120" stroke="#be123c" stroke-width="3" marker-end="url(#arrCache)"/>
         <text x="385" y="110" text-anchor="middle" font-size="10" fill="#be123c" font-weight="700">Access Link</text>
-        <text x="385" y="138" text-anchor="middle" font-size="9" fill="#be123c">(צוואר בקבוק יקר)</text>
+        <text x="385" y="138" text-anchor="middle" font-size="9" fill="#be123c" direction="rtl">(צוואר בקבוק יקר)</text>
 
         <!-- Internet servers -->
         <rect x="450" y="50" width="220" height="140" rx="14" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
-        <text x="560" y="76" text-anchor="middle" font-size="13" fill="#047857" font-weight="700">שרתי מקור (Origin)</text>
+        <text x="560" y="76" text-anchor="middle" font-size="13" fill="#047857" font-weight="700" direction="rtl">שרתי מקור (Origin)</text>
 
         <circle cx="510" cy="115" r="14" fill="#fff" stroke="#047857"/>
         <text x="510" y="119" text-anchor="middle" font-size="9" fill="#047857">A</text>
@@ -454,7 +458,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <text x="560" y="119" text-anchor="middle" font-size="9" fill="#047857">B</text>
         <circle cx="610" cy="115" r="14" fill="#fff" stroke="#047857"/>
         <text x="610" y="119" text-anchor="middle" font-size="9" fill="#047857">C</text>
-        <text x="560" y="160" text-anchor="middle" font-size="10" fill="#78716c">איטיים, רחוקים</text>
+        <text x="560" y="160" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">איטיים, רחוקים</text>
 
         <!-- Connection lines from clients to cache -->
         <line x1="82" y1="60" x2="180" y2="100" stroke="#475569" stroke-width="1.5"/>
@@ -462,11 +466,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="82" y1="180" x2="180" y2="140" stroke="#475569" stroke-width="1.5"/>
       </g>
     </svg>
-    <div class="cap">Web Cache (פרוקסי) יושב בקצה ה-LAN. כל הלקוחות במשרד עוברים דרכו — חוסכים את ה-Access Link.</div>
+    <div class="cap"><bdi dir="ltr">Web Cache</bdi> (פרוקסי) יושב בקצה ה-<bdi dir="ltr">LAN</bdi>. כל הלקוחות במשרד עוברים דרכו — חוסכים את ה-<bdi dir="ltr">Access Link</bdi>.</div>
   </div>
 
   <p class="lead">
-    <strong>Web Cache (שרת פרוקסי)</strong> הוא מחשב שיושב בין הלקוחות לשרתי המקור ו<strong>שומר עותקים</strong> של אובייקטים נפוצים. בקשה ל-Cache מהירה בהרבה משליחה לשרת. במבחן — דרוש לחשב <strong>זמן הבאה ממוצע</strong> בהינתן Hit Rate.
+    <strong><bdi dir="ltr">Web Cache</bdi> (שרת פרוקסי)</strong> הוא מחשב שיושב בין הלקוחות לשרתי המקור ו<strong>שומר עותקים</strong> של אובייקטים נפוצים. בקשה ל-<bdi dir="ltr">Cache</bdi> מהירה בהרבה משליחה לשרת. במבחן — דרוש לחשב <strong>זמן הבאה ממוצע</strong> בהינתן <bdi dir="ltr">Hit Rate</bdi>.
   </p>
 
   <h2>הגדרות יסוד</h2>
@@ -476,56 +480,56 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <ul>
         <li><strong>Cache:</strong> טכניקה לטעינת נתונים מהירה — מחזיק בזיכרון את הדברים הנפוצים.</li>
-        <li><strong>Web Cache:</strong> מאחסן עותקים של קובצי Web שעוברים דרכו.</li>
+        <li><strong>Web Cache:</strong> מאחסן עותקים של קובצי <bdi dir="ltr">Web</bdi> שעוברים דרכו.</li>
         <li><strong>שרת פרוקסי:</strong> מערכת שמתנהגת כמתווך בין בקשות לקוח לבין שרתים אחרים.</li>
-        <li><strong>Hit:</strong> האובייקט שביקשנו <em>נמצא</em> ב-Cache.</li>
-        <li><strong>Miss:</strong> האובייקט <em>לא</em> ב-Cache ← ה-Cache פונה לשרת המקור.</li>
-        <li><strong>Hit Rate:</strong> אחוז ה-hits מסך הבקשות.</li>
+        <li><strong>Hit:</strong> האובייקט שביקשנו <em>נמצא</em> ב-<bdi dir="ltr">Cache</bdi>.</li>
+        <li><strong>Miss:</strong> האובייקט <em>לא</em> ב-<bdi dir="ltr">Cache</bdi> ← ה-<bdi dir="ltr">Cache</bdi> פונה לשרת המקור.</li>
+        <li><strong>Hit Rate:</strong> אחוז ה-<bdi dir="ltr">hits</bdi> מסך הבקשות.</li>
       </ul>
     </div>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>איך Cache עובד</div>
+    <div class="box-head"><span class="icon">📘</span>איך <bdi dir="ltr">Cache</bdi> עובד</div>
     <div class="box-body">
       <ol>
-        <li>הלקוח שולח בקשה ל-Cache (במקום לשרת ישירות).</li>
-        <li>אם האובייקט ב-Cache (<strong>Hit</strong>): נחזיר ללקוח מיד.</li>
-        <li>אם לא (<strong>Miss</strong>): ה-Cache פונה לשרת המקור, מקבל את האובייקט, <strong>שומר אצלו</strong>, ומעביר ללקוח.</li>
+        <li>הלקוח שולח בקשה ל-<bdi dir="ltr">Cache</bdi> (במקום לשרת ישירות).</li>
+        <li>אם האובייקט ב-<bdi dir="ltr">Cache</bdi> (<strong>Hit</strong>): נחזיר ללקוח מיד.</li>
+        <li>אם לא (<strong>Miss</strong>): ה-<bdi dir="ltr">Cache</bdi> פונה לשרת המקור, מקבל את האובייקט, <strong>שומר אצלו</strong>, ומעביר ללקוח.</li>
       </ol>
-      <p>פעמים הבאות שהאובייקט יבוקש — Hit.</p>
+      <p>פעמים הבאות שהאובייקט יבוקש — <bdi dir="ltr">Hit</bdi>.</p>
     </div>
   </div>
 
   <h2>למה זה עוזר? — חישוב מהרצאה</h2>
 
   <div class="box example">
-    <div class="box-head"><span class="icon">💡</span>בעיה ללא Cache</div>
+    <div class="box-head"><span class="icon">💡</span>בעיה ללא <bdi dir="ltr">Cache</bdi></div>
     <div class="box-body">
       <p><strong>נתון:</strong></p>
       <ul>
-        <li>רוחב פס Access Link: <span class="term">1.54 Mbps</span></li>
-        <li>RTT מהלקוח לשרת (סביב 2 שניות)</li>
-        <li>גודל אובייקט Web ממוצע: <span class="term">100K bits</span></li>
+        <li>רוחב פס <bdi dir="ltr">Access Link</bdi>: <span class="term">1.54 Mbps</span></li>
+        <li><bdi dir="ltr">RTT</bdi> מהלקוח לשרת (סביב 2 שניות)</li>
+        <li>גודל אובייקט <bdi dir="ltr">Web</bdi> ממוצע: <span class="term">100K bits</span></li>
         <li>קצב הבקשות: <span class="term">15 obj/sec</span></li>
         <li>קצב נתונים ממוצע לדפדפן: <span class="term">1.5 Mbps</span></li>
-        <li>LAN פנימי: <span class="term">1 Gbps</span> (מהיר מאוד)</li>
+        <li><bdi dir="ltr">LAN</bdi> פנימי: <span class="term">1 Gbps</span> (מהיר מאוד)</li>
       </ul>
-      <h4>ניצול ה-Access Link</h4>
+      <h4>ניצול ה-<bdi dir="ltr">Access Link</bdi></h4>
       $$\rho = \frac{1.5}{1.54} \approx 0.974 = 97.4\%$$
-      <p>מעל 80% ← תורים ארוכים מאוד ← המתנה של דקות לפעמים. <strong>הרשת מאוד איטית.</strong></p>
-      <p><strong>פתרון נאיבי:</strong> להגדיל את ה-Access Link. עולה הרבה כסף!</p>
+      <p>מעל <bdi dir="ltr">80%</bdi> ← תורים ארוכים מאוד ← המתנה של דקות לפעמים. <strong>הרשת מאוד איטית.</strong></p>
+      <p><strong>פתרון נאיבי:</strong> להגדיל את ה-<bdi dir="ltr">Access Link</bdi>. עולה הרבה כסף!</p>
     </div>
   </div>
 
   <div class="box example">
-    <div class="box-head"><span class="icon">💡</span>הוספת Cache עם Hit Rate = 40%</div>
+    <div class="box-head"><span class="icon">💡</span>הוספת <bdi dir="ltr">Cache</bdi> עם <bdi dir="ltr">Hit Rate = 40%</bdi></div>
     <div class="box-body">
-      <p>אם ‎40% מהבקשות נמצאות ב-Cache — רק ‎60% יוצאות החוצה ל-Access Link.</p>
+      <p>אם <bdi dir="ltr">40%</bdi> מהבקשות נמצאות ב-<bdi dir="ltr">Cache</bdi> — רק <bdi dir="ltr">60%</bdi> יוצאות החוצה ל-<bdi dir="ltr">Access Link</bdi>.</p>
       $$1.5 \cdot 0.6 = 0.9 \, \text{Mbps}$$
       $$\rho_{new} = \frac{0.9}{1.54} \approx 0.584 = 58.4\%$$
-      <p>‎58% ניצול ‎— הרבה מתחת ל-80%, אז <strong>אין תורים</strong> משמעותיים על ה-Access Link.</p>
-      <div class="final-answer">‎40% Hit Rate הוריד את הניצול מ-‎97% ל-‎58% — שינוי דרמטי בביצועים. כל מי שיש לו הרבה משתמשים ← כדאי להתקין פרוקסי.</div>
+      <p><bdi dir="ltr">58%</bdi> ניצול — הרבה מתחת ל-<bdi dir="ltr">80%</bdi>, אז <strong>אין תורים</strong> משמעותיים על ה-<bdi dir="ltr">Access Link</bdi>.</p>
+      <div class="final-answer"><bdi dir="ltr">40% Hit Rate</bdi> הוריד את הניצול מ-<bdi dir="ltr">97%</bdi> ל-<bdi dir="ltr">58%</bdi> — שינוי דרמטי בביצועים. כל מי שיש לו הרבה משתמשים ← כדאי להתקין פרוקסי.</div>
     </div>
   </div>
 
@@ -534,9 +538,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <p>הסיכום למבחן מציין את הנוסחה הבאה (חשובה למבחן!):</p>
       <ul>
-        <li><span class="term red">P</span> = Hit Rate (הסתברות שאובייקט בפרוקסי)</li>
-        <li><span class="term red">F</span> = זמן הבאה מהפרוקסי <bdi dir="ltr">(cache hit)</bdi></li>
-        <li><span class="term red">M</span> = זמן הבאה משרת מרוחק (cache miss, בלי פרוקסי)</li>
+        <li><span class="term red">P</span> = <bdi dir="ltr">Hit Rate</bdi> (הסתברות שאובייקט בפרוקסי)</li>
+        <li><span class="term red">F</span> = זמן הבאה מהפרוקסי (<bdi dir="ltr">cache hit</bdi>)</li>
+        <li><span class="term red">M</span> = זמן הבאה משרת מרוחק (<bdi dir="ltr">cache miss</bdi>, בלי פרוקסי)</li>
       </ul>
       <p>זמן הבאת אובייקט <strong>עם</strong> פרוקסי:</p>
       $$T_{\text{with proxy}} = F \cdot P + M \cdot (1 - P)$$
@@ -544,20 +548,20 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       $$F \cdot P + M \cdot (1 - P) < M$$
       <p>כלומר זמן הבאה ממוצע עם פרוקסי קטן מזמן הבאה ללא פרוקסי.</p>
       <div class="keypoint">
-        <strong>חשוב למבחן:</strong> ‎נוסחה זו מופיעה במפורש בסיכום למבחן. ‎סביר שיהיו תרגילים שדורשים מציאת ‎P שמקיים את התנאי.
+        <strong>חשוב למבחן:</strong> נוסחה זו מופיעה במפורש בסיכום למבחן. סביר שיהיו תרגילים שדורשים מציאת <bdi dir="ltr">P</bdi> שמקיים את התנאי.
       </div>
     </div>
   </div>
 
-  <h2>יתרונות של Web Cache</h2>
+  <h2>יתרונות של <bdi dir="ltr">Web Cache</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>3 יתרונות מרכזיים</div>
     <div class="box-body">
       <ol>
-        <li><strong>מקטין זמן תגובה</strong> — מזרז גלישה. במקום לעבור את ה-Access Link וכל המסלול לשרת המקור, יש Hit מהיר ב-LAN.</li>
-        <li><strong>מקטין תעבורה על Access Link</strong> — חוסך רוחב פס יקר.</li>
-        <li><strong>פיזור עומס באינטרנט</strong> — אם יש הרבה Cache-ים, ספקי תוכן יכולים לשרת מיליארדי משתמשים בלי שרתים ענקיים מרכזיים.</li>
+        <li><strong>מקטין זמן תגובה</strong> — מזרז גלישה. במקום לעבור את ה-<bdi dir="ltr">Access Link</bdi> וכל המסלול לשרת המקור, יש <bdi dir="ltr">Hit</bdi> מהיר ב-<bdi dir="ltr">LAN</bdi>.</li>
+        <li><strong>מקטין תעבורה על <bdi dir="ltr">Access Link</bdi></strong> — חוסך רוחב פס יקר.</li>
+        <li><strong>פיזור עומס באינטרנט</strong> — אם יש הרבה <bdi dir="ltr">Cache</bdi>-ים, ספקי תוכן יכולים לשרת מיליארדי משתמשים בלי שרתים ענקיים מרכזיים.</li>
       </ol>
     </div>
   </div>
@@ -567,8 +571,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box warn">
     <div class="box-head"><span class="icon">⚠</span>סוגיית עדכניות</div>
     <div class="box-body">
-      <p>ה-Cache מחזיק עותק. ה-Server המקורי עודכן (תמונה הוחלפה, טקסט שונה). איך ה-Cache ידע שהעותק שלו לא עדכני?</p>
-      <p><strong>פתרון: Conditional GET</strong>.</p>
+      <p>ה-<bdi dir="ltr">Cache</bdi> מחזיק עותק. ה-<bdi dir="ltr">Server</bdi> המקורי עודכן (תמונה הוחלפה, טקסט שונה). איך ה-<bdi dir="ltr">Cache</bdi> ידע שהעותק שלו לא עדכני?</p>
+      <p><strong>פתרון: <bdi dir="ltr">Conditional GET</bdi></strong>.</p>
     </div>
   </div>
 
@@ -590,19 +594,19 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <!-- Response: not modified -->
         <line x1="620" y1="115" x2="100" y2="130" stroke="#047857" stroke-width="2"/>
         <text x="360" y="110" text-anchor="middle" font-size="10" fill="#047857" font-weight="700">HTTP/1.1 304 Not Modified</text>
-        <text x="360" y="143" text-anchor="middle" font-size="10" fill="#047857">(אין body — חוסך רוחב פס!)</text>
+        <text x="360" y="143" text-anchor="middle" font-size="10" fill="#047857" direction="rtl">(אין body — חוסך רוחב פס!)</text>
 
-        <text x="100" y="170" text-anchor="middle" font-size="10" fill="#475569">✓ אפשר להשתמש בעותק</text>
-        <text x="100" y="185" text-anchor="middle" font-size="10" fill="#475569">השמור ב-Cache</text>
+        <text x="100" y="170" text-anchor="middle" font-size="10" fill="#475569" direction="rtl">✓ אפשר להשתמש בעותק</text>
+        <text x="100" y="185" text-anchor="middle" font-size="10" fill="#475569" direction="rtl">השמור ב-Cache</text>
       </g>
     </svg>
-    <div class="cap">Cache שולח GET עם If-Modified-Since. השרת מחזיר רק "‎304" אם לא השתנה — מהיר.</div>
+    <div class="cap"><bdi dir="ltr">Cache</bdi> שולח <bdi dir="ltr">GET</bdi> עם <bdi dir="ltr">If-Modified-Since</bdi>. השרת מחזיר רק "304" אם לא השתנה — מהיר.</div>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>איך עובד Conditional GET</div>
+    <div class="box-head"><span class="icon">📘</span>איך עובד <bdi dir="ltr">Conditional GET</bdi></div>
     <div class="box-body">
-      <p>הלקוח (או ה-Cache) שולח <strong>GET רגיל עם header נוסף:</strong></p>
+      <p>הלקוח (או ה-<bdi dir="ltr">Cache</bdi>) שולח <strong><bdi dir="ltr">GET</bdi> רגיל עם <bdi dir="ltr">header</bdi> נוסף:</strong></p>
       <pre><code>GET /image.jpg HTTP/1.1
 Host: www.example.com
 If-Modified-Since: Sun, 10 Jun 2026 14:00:00 GMT
@@ -610,18 +614,18 @@ If-Modified-Since: Sun, 10 Jun 2026 14:00:00 GMT
       <p>השרת בודק:</p>
       <ul>
         <li>אם האובייקט <strong>השתנה</strong> אחרי התאריך הנתון: מחזיר <span class="term">200 OK</span> עם האובייקט המעודכן.</li>
-        <li>אם <strong>לא השתנה:</strong> מחזיר <span class="term">304 Not Modified</span> — בלי body.</li>
+        <li>אם <strong>לא השתנה:</strong> מחזיר <span class="term">304 Not Modified</span> — בלי <bdi dir="ltr">body</bdi>.</li>
       </ul>
     </div>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>מה Conditional GET חוסך?</div>
+    <div class="box-head"><span class="icon">📘</span>מה <bdi dir="ltr">Conditional GET</bdi> חוסך?</div>
     <div class="box-body">
       <ul>
         <li><strong>זמן</strong> — אין צורך להעביר את האובייקט שוב אם לא השתנה.</li>
-        <li><strong>רוחב פס</strong> — תגובת ‎304 קצרה מאוד (רק header).</li>
-        <li><strong>טעינה מהירה</strong> — דברים לא משתנים בכל ביקור, אז ‎ in most cases יוצא ‎304.</li>
+        <li><strong>רוחב פס</strong> — תגובת 304 קצרה מאוד (רק <bdi dir="ltr">header</bdi>).</li>
+        <li><strong>טעינה מהירה</strong> — דברים לא משתנים בכל ביקור, אז  <bdi dir="ltr">in most cases</bdi> יוצא 304.</li>
         <li><strong>מקטין זמן טרנסמישן</strong> דרסטית.</li>
       </ul>
     </div>
@@ -631,12 +635,12 @@ If-Modified-Since: Sun, 10 Jun 2026 14:00:00 GMT
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · חישוב ניצול עם Cache</span>
-      <p>ארגון משתמש ב-Access Link של ‎10 Mbps. תעבורה ממוצעת היא ‎8 Mbps. עכשיו מתקינים פרוקסי עם Hit Rate של ‎50%.</p>
+      <span class="exercise-tag">תרגול · חישוב ניצול עם <bdi dir="ltr">Cache</bdi></span>
+      <p>ארגון משתמש ב-<bdi dir="ltr">Access Link</bdi> של <bdi dir="ltr">10 Mbps</bdi>. תעבורה ממוצעת היא <bdi dir="ltr">8 Mbps</bdi>. עכשיו מתקינים פרוקסי עם <bdi dir="ltr">Hit Rate</bdi> של <bdi dir="ltr">50%</bdi>.</p>
       <ol style="list-style: hebrew;">
         <li>מה הניצול לפני התקנת הפרוקסי?</li>
         <li>מה הניצול אחרי?</li>
-        <li>האם זה מספיק (פחות מ-80%)?</li>
+        <li>האם זה מספיק (פחות מ-<bdi dir="ltr">80%</bdi>)?</li>
       </ol>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
@@ -647,23 +651,23 @@ If-Modified-Since: Sun, 10 Jun 2026 14:00:00 GMT
         <p>גבולי — בדיוק על הסף. כל קפיצה קטנה תיצור עומסים.</p>
       </div>
       <div class="step">
-        <div class="step-label">אחרי (Hit Rate = 50%)</div>
-        <p>רק ‎50% מהבקשות יוצאות החוצה. התעבורה היוצאת:</p>
+        <div class="step-label">אחרי (<bdi dir="ltr">Hit Rate = 50%</bdi>)</div>
+        <p>רק <bdi dir="ltr">50%</bdi> מהבקשות יוצאות החוצה. התעבורה היוצאת:</p>
         $$8 \cdot 0.5 = 4 \, \text{Mbps}$$
         $$\rho_{after} = \frac{4}{10} = 0.40 = 40\%$$
       </div>
       <div class="step">
         <div class="step-label">האם מספיק?</div>
-        <p>‎40% הוא מתחת ל-‎80%. אין תורים משמעותיים.</p>
+        <p><bdi dir="ltr">40%</bdi> הוא מתחת ל-<bdi dir="ltr">80%</bdi>. אין תורים משמעותיים.</p>
       </div>
-      <div class="final-answer">הפרוקסי הוריד את הניצול מ-‎80% ל-‎40% — שיפור דרמטי, ועלות פרוקסי < עלות הרחבת לינק.</div>
+      <div class="final-answer">הפרוקסי הוריד את הניצול מ-<bdi dir="ltr">80%</bdi> ל-<bdi dir="ltr">40%</bdi> — שיפור דרמטי, ועלות פרוקסי < עלות הרחבת לינק.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגיל בית 1 · שאלה 1.2 · Proxy</span>
-      <p>מהו שרת Proxy: למה הוא משמש והיכן הוא ממוקם (ברשת שבין השרת והלקוח)? האם שמו מדויק? כלומר, האם הוא רק שרת?</p>
+      <span class="exercise-tag">תרגיל בית 1 · שאלה <bdi dir="ltr">1.2 · Proxy</bdi></span>
+      <p>מהו שרת <bdi dir="ltr">Proxy</bdi>: למה הוא משמש והיכן הוא ממוקם (ברשת שבין השרת והלקוח)? האם שמו מדויק? כלומר, האם הוא רק שרת?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
@@ -672,50 +676,50 @@ If-Modified-Since: Sun, 10 Jun 2026 14:00:00 GMT
         <p>שרת פרוקסי הוא <strong>מתווך</strong> בין לקוח לבין שרתי המקור. הוא:</p>
         <ul>
           <li>מקבל בקשות מלקוחות.</li>
-          <li>מחזיק <strong>עותקים</strong> של תכנים נפוצים (Web Cache).</li>
-          <li>אם הבקשה ב-Cache ← עונה ישירות (Hit).</li>
-          <li>אם לא ← פונה לשרת המקור, מביא את האובייקט, מאחסן ומעביר ללקוח (Miss).</li>
+          <li>מחזיק <strong>עותקים</strong> של תכנים נפוצים (<bdi dir="ltr">Web Cache</bdi>).</li>
+          <li>אם הבקשה ב-<bdi dir="ltr">Cache</bdi> ← עונה ישירות (<bdi dir="ltr">Hit</bdi>).</li>
+          <li>אם לא ← פונה לשרת המקור, מביא את האובייקט, מאחסן ומעביר ללקוח (<bdi dir="ltr">Miss</bdi>).</li>
         </ul>
       </div>
       <div class="step">
         <div class="step-label">מיקום ברשת</div>
-        <p>בדרך כלל ב<strong>קצה ה-LAN</strong> של הארגון — בין הלקוחות הפנימיים לבין ה-Access Link החיצוני. כל הלקוחות מוגדרים להשתמש בו.</p>
+        <p>בדרך כלל ב<strong>קצה ה-<bdi dir="ltr">LAN</bdi></strong> של הארגון — בין הלקוחות הפנימיים לבין ה-<bdi dir="ltr">Access Link</bdi> החיצוני. כל הלקוחות מוגדרים להשתמש בו.</p>
       </div>
       <div class="step">
         <div class="step-label">האם השם מדויק?</div>
         <p><strong>לא לגמרי.</strong> השם "שרת פרוקסי" מטעה — הוא <strong>גם לקוח וגם שרת</strong> בו-זמנית:</p>
         <ul>
           <li>מול הלקוחות הפנימיים — הוא <strong>שרת</strong> (מקבל מהם בקשות).</li>
-          <li>מול שרתי המקור (כש-Cache miss) — הוא <strong>לקוח</strong> (שולח בקשות חיצוניות).</li>
+          <li>מול שרתי המקור (כש-<bdi dir="ltr">Cache miss</bdi>) — הוא <strong>לקוח</strong> (שולח בקשות חיצוניות).</li>
         </ul>
       </div>
-      <div class="final-answer">פרוקסי = מתווך, גם לקוח וגם שרת. מקטין עומס על Access Link וזמני תגובה.</div>
+      <div class="final-answer">פרוקסי = מתווך, גם לקוח וגם שרת. מקטין עומס על <bdi dir="ltr">Access Link</bdi> וזמני תגובה.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">סיכום · Conditional GET</span>
-      <p>למה שרת המקור יעדיף לקבל בקשת <strong>Conditional GET</strong> במקום ‎GET רגיל?</p>
+      <span class="exercise-tag">סיכום · <bdi dir="ltr">Conditional GET</bdi></span>
+      <p>למה שרת המקור יעדיף לקבל בקשת <strong>Conditional GET</strong> במקום <bdi dir="ltr">GET</bdi> רגיל?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">למה השרת מרוויח</div>
         <ul>
-          <li><strong>פחות עומס</strong> — אם האובייקט לא השתנה, השרת לא צריך לשלוף אותו ולשלוח. רק לבדוק תאריך ולהחזיר ‎304.</li>
-          <li><strong>פחות רוחב פס יוצא</strong> — תגובת ‎304 קטנה.</li>
+          <li><strong>פחות עומס</strong> — אם האובייקט לא השתנה, השרת לא צריך לשלוף אותו ולשלוח. רק לבדוק תאריך ולהחזיר 304.</li>
+          <li><strong>פחות רוחב פס יוצא</strong> — תגובת 304 קטנה.</li>
           <li><strong>פחות זמן עיבוד</strong> — בדיקת תאריך מהירה משליחת קובץ.</li>
         </ul>
       </div>
       <div class="step">
         <div class="step-label">למה הלקוח מרוויח</div>
         <ul>
-          <li><strong>תגובה מהירה</strong> — ‎304 קטנה ומגיעה במהירות.</li>
-          <li><strong>שימוש בעותק המקומי</strong> — הקובץ כבר בדפדפן/Cache.</li>
+          <li><strong>תגובה מהירה</strong> — 304 קטנה ומגיעה במהירות.</li>
+          <li><strong>שימוש בעותק המקומי</strong> — הקובץ כבר בדפדפן/<bdi dir="ltr">Cache</bdi>.</li>
         </ul>
       </div>
-      <div class="final-answer">Conditional GET = win-win. השרת חוסך עבודה, הלקוח חוסך זמן ורוחב פס. כל הצדדים מרוויחים — לכן הפרוטוקול מאפשר את זה בכוונה.</div>
+      <div class="final-answer"><bdi dir="ltr">Conditional GET = win-win</bdi>. השרת חוסך עבודה, הלקוח חוסך זמן ורוחב פס. כל הצדדים מרוויחים — לכן הפרוטוקול מאפשר את זה בכוונה.</div>
     </div>
   </div>
 
@@ -723,12 +727,12 @@ If-Modified-Since: Sun, 10 Jun 2026 14:00:00 GMT
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li><strong>Web Cache (פרוקסי)</strong> = מתווך עם זיכרון בין לקוחות לשרתי מקור</li>
-        <li>בקשה ל-Cache: <strong>Hit</strong> (נמצא) או <strong>Miss</strong> (לא נמצא)</li>
-        <li>זמן ממוצע: $T_{avg} \approx (1-p) \cdot T_{miss}$ כאשר $p$ הוא Hit Rate</li>
-        <li>‎3 יתרונות: זמן תגובה, חיסכון ב-Access Link, פיזור עומס</li>
-        <li><strong>Conditional GET:</strong> שולחים GET עם <span class="term">If-Modified-Since</span></li>
-        <li>אם לא השתנה: <span class="term">304 Not Modified</span> (בלי body — חוסך הרבה)</li>
+        <li><strong><bdi dir="ltr">Web Cache</bdi> (פרוקסי)</strong> = מתווך עם זיכרון בין לקוחות לשרתי מקור</li>
+        <li>בקשה ל-<bdi dir="ltr">Cache</bdi>: <strong>Hit</strong> (נמצא) או <strong>Miss</strong> (לא נמצא)</li>
+        <li>זמן ממוצע: $T_{avg} \approx (1-p) \cdot T_{miss}$ כאשר $p$ הוא <bdi dir="ltr">Hit Rate</bdi></li>
+        <li>3 יתרונות: זמן תגובה, חיסכון ב-<bdi dir="ltr">Access Link</bdi>, פיזור עומס</li>
+        <li><strong>Conditional GET:</strong> שולחים <bdi dir="ltr">GET</bdi> עם <span class="term">If-Modified-Since</span></li>
+        <li>אם לא השתנה: <span class="term">304 Not Modified</span> (בלי <bdi dir="ltr">body</bdi> — חוסך הרבה)</li>
         <li>אם השתנה: <span class="term">200 OK</span> + האובייקט החדש</li>
         <li>פרוקסי הוא גם שרת (מול לקוחות) וגם לקוח (מול שרתי מקור)</li>
       </ul>

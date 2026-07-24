@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,11 +414,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 4.2 · שכבת הקישור</span>
-  <h1 class="page-title">ALOHA ו-Slotted ALOHA</h1>
-  <p class="page-subtitle">פרוטוקולים פשוטים עם נצולת ‎18%/‎37% — לא יעיל, אבל מבוזר ופשוט.</p>
+  <h1 class="page-title"><bdi dir="ltr">ALOHA</bdi> ו-<bdi dir="ltr">Slotted ALOHA</bdi></h1>
+  <p class="page-subtitle">פרוטוקולים פשוטים עם נצולת <bdi dir="ltr">18%</bdi>/<bdi dir="ltr">37%</bdi> — לא יעיל, אבל מבוזר ופשוט.</p>
 
   <p class="lead">
-    הסיפור: בהוואי לא הייתה תקשורת רדיו בין האיים. אז המציאו פרוטוקול פשוט — <strong>שולחים מתי שרוצים, ואם יש התנגשות, ממתינים זמן אקראי ומנסים שוב</strong>. הניצולת: רק <strong>18%</strong>. Slotted ALOHA, הגרסה המשופרת עם חריצי זמן מסונכרנים, מגיע ל-<strong>37%</strong>.
+    הסיפור: בהוואי לא הייתה תקשורת רדיו בין האיים. אז המציאו פרוטוקול פשוט — <strong>שולחים מתי שרוצים, ואם יש התנגשות, ממתינים זמן אקראי ומנסים שוב</strong>. הניצולת: רק <strong><bdi dir="ltr">18%</bdi></strong>. <bdi dir="ltr">Slotted ALOHA</bdi>, הגרסה המשופרת עם חריצי זמן מסונכרנים, מגיע ל-<strong><bdi dir="ltr">37%</bdi></strong>.
   </p>
 
   <h2>זיהוי התנגשות</h2>
@@ -426,14 +430,14 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <p>בודק את שדה ה-<strong>CRC</strong> בטריילר. אם השגיאה גדולה — הייתה התנגשות.</p>
       <h4>מצד השולח (מורכב יותר)</h4>
       <p>השולח צריך <strong>להאזין לעצמו</strong>. אם מה שהוא משדר שונה ממה שהוא שומע — התנגשות.</p>
-      <p><strong>אבל איך משדרים ומאזינים בו-זמנית?</strong> פתרון: שני תדרים — Ft (טרנזמיט) ו-Fr (receive). "קופסה קטנה" משכפלת את האות מ-Ft ל-Fr.</p>
+      <p><strong>אבל איך משדרים ומאזינים בו-זמנית?</strong> פתרון: שני תדרים — <bdi dir="ltr">Ft</bdi> (טרנזמיט) ו-<bdi dir="ltr">Fr</bdi> (<bdi dir="ltr">receive</bdi>). "קופסה קטנה" משכפלת את האות מ-<bdi dir="ltr">Ft</bdi> ל-<bdi dir="ltr">Fr</bdi>.</p>
     </div>
   </div>
 
-  <h2>אלגוריתם ALOHA הבסיסי</h2>
+  <h2>אלגוריתם <bdi dir="ltr">ALOHA</bdi> הבסיסי</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>‎4 צעדים</div>
+    <div class="box-head"><span class="icon">📘</span>4 צעדים</div>
     <div class="box-body">
       <ol>
         <li>כרטיס הרשת מקבל הודעה לשליחה.</li>
@@ -445,37 +449,37 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     </div>
   </div>
 
-  <h2>ניצולת ALOHA — 18%</h2>
+  <h2>ניצולת <bdi dir="ltr">ALOHA</bdi> — <bdi dir="ltr">18%</bdi></h2>
 
   <div class="figure">
     <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ALOHA collision window">
       <g font-family="Assistant, sans-serif" font-size="11">
         <!-- Timeline -->
         <line x1="60" y1="120" x2="660" y2="120" stroke="#475569" stroke-width="1"/>
-        <text x="680" y="124" font-size="10" fill="#475569">זמן</text>
+        <text x="680" y="124" font-size="10" fill="#475569" direction="rtl">זמן</text>
 
         <!-- My transmission -->
         <rect x="280" y="100" width="120" height="40" fill="#fff1f2" stroke="#be123c" stroke-width="2"/>
-        <text x="340" y="125" text-anchor="middle" font-size="11" fill="#be123c" font-weight="700">השליחה שלי</text>
+        <text x="340" y="125" text-anchor="middle" font-size="11" fill="#be123c" font-weight="700" direction="rtl">השליחה שלי</text>
 
         <!-- t-1 unit window (left) -->
         <rect x="160" y="100" width="120" height="40" fill="#fef9e7" stroke="#b45309" stroke-width="1" stroke-dasharray="4,2"/>
-        <text x="220" y="125" text-anchor="middle" font-size="10" fill="#b45309">אם מישהו התחיל כאן</text>
+        <text x="220" y="125" text-anchor="middle" font-size="10" fill="#b45309" direction="rtl">אם מישהו התחיל כאן</text>
 
         <!-- t+1 unit window (right) -->
         <rect x="400" y="100" width="120" height="40" fill="#fef9e7" stroke="#b45309" stroke-width="1" stroke-dasharray="4,2"/>
-        <text x="460" y="125" text-anchor="middle" font-size="10" fill="#b45309">או כאן</text>
+        <text x="460" y="125" text-anchor="middle" font-size="10" fill="#b45309" direction="rtl">או כאן</text>
 
         <!-- Labels -->
         <text x="340" y="85" text-anchor="middle" font-size="11" fill="#be123c" font-weight="700">t = 0</text>
         <text x="160" y="85" text-anchor="middle" font-size="10" fill="#b45309">t = -1</text>
         <text x="520" y="85" text-anchor="middle" font-size="10" fill="#b45309">t = +1</text>
 
-        <text x="360" y="170" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700">חלון התנגשות = 2 יחידות זמן</text>
-        <text x="360" y="190" text-anchor="middle" font-size="10" fill="#78716c">אסור שאף אחד ישדר ביחידה לפני וביחידת השליחה — אחרת overlap</text>
+        <text x="360" y="170" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700" direction="rtl">חלון התנגשות = 2 יחידות זמן</text>
+        <text x="360" y="190" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">אסור שאף אחד ישדר ביחידה לפני וביחידת השליחה — אחרת overlap</text>
       </g>
     </svg>
-    <div class="cap">חלון הפגיעות של ALOHA — 2 יחידות זמן. אם מישהו התחיל לשדר ביחידה קודמת — עדיין פגיעה אחרי שאני התחלתי.</div>
+    <div class="cap">חלון הפגיעות של <bdi dir="ltr">ALOHA</bdi> — 2 יחידות זמן. אם מישהו התחיל לשדר ביחידה קודמת — עדיין פגיעה אחרי שאני התחלתי.</div>
   </div>
 
   <div class="box formula">
@@ -483,25 +487,25 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <p>הנחות מפשטות:</p>
       <ul>
-        <li>N תחנות, כל אחת תרצה לשדר באקראי.</li>
+        <li><bdi dir="ltr">N</bdi> תחנות, כל אחת תרצה לשדר באקראי.</li>
         <li>יחידת זמן = זמן שליחת הודעה אחת.</li>
-        <li>הסתברות שתחנה תתחיל לשדר ביחידת זמן = ‎p.</li>
+        <li>הסתברות שתחנה תתחיל לשדר ביחידת זמן = <bdi dir="ltr">p</bdi>.</li>
       </ul>
       <p>שידור של תחנה מסוימת יצליח אם:</p>
       <ol>
-        <li>היא משדרת (הסתברות p).</li>
-        <li>אף אחת מ-‎(N-1) האחרות לא משדרת ביחידה הקודמת (הסתברות ‎(1-p)^(N-1)).</li>
-        <li>אף אחת מ-‎(N-1) האחרות לא משדרת ביחידה הזו (הסתברות ‎(1-p)^(N-1)).</li>
+        <li>היא משדרת (הסתברות <bdi dir="ltr">p</bdi>).</li>
+        <li>אף אחת מ-(<bdi dir="ltr">N-1</bdi>) האחרות לא משדרת ביחידה הקודמת (הסתברות (<bdi dir="ltr">1-p</bdi>)^(<bdi dir="ltr">N-1</bdi>)).</li>
+        <li>אף אחת מ-(<bdi dir="ltr">N-1</bdi>) האחרות לא משדרת ביחידה הזו (הסתברות (<bdi dir="ltr">1-p</bdi>)^(<bdi dir="ltr">N-1</bdi>)).</li>
       </ol>
       <p>הסתברות שידור מוצלח של תחנה כלשהי:</p>
       $$P_{\text{success}} = N \cdot p \cdot (1-p)^{2(N-1)}$$
-      <p>מקסמים על p, ולוקחים גבול <span class="term">N → ∞</span>. מקבלים:</p>
+      <p>מקסמים על <bdi dir="ltr">p</bdi>, ולוקחים גבול <span class="term">N → ∞</span>. מקבלים:</p>
       $$\text{Max efficiency} = \frac{1}{2e} \approx 0.18 = 18\%$$
-      <div class="final-answer">ALOHA מספק רק <strong>18%</strong> ניצולת בעומס מקסימלי. 82% מהזמן הולך לאיבוד בהתנגשויות וזמן מת.</div>
+      <div class="final-answer"><bdi dir="ltr">ALOHA</bdi> מספק רק <strong><bdi dir="ltr">18%</bdi></strong> ניצולת בעומס מקסימלי. <bdi dir="ltr">82%</bdi> מהזמן הולך לאיבוד בהתנגשויות וזמן מת.</div>
     </div>
   </div>
 
-  <h2>Slotted ALOHA — שיפור פשוט</h2>
+  <h2><bdi dir="ltr">Slotted ALOHA</bdi> — שיפור פשוט</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הרעיון: סנכרון</div>
@@ -520,13 +524,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box formula">
     <div class="box-head"><span class="icon">📐</span>למה הניצולת עולה?</div>
     <div class="box-body">
-      <p>בלי slots: חלון התנגשות = 2 יחידות.</p>
-      <p>עם slots: חלון התנגשות = 1 יחידה בלבד! כי אם מישהו התחיל בחריץ הקודם, הוא <strong>בודאות</strong> סיים לפני שאני התחלתי. אין overlap מהעבר.</p>
+      <p>בלי <bdi dir="ltr">slots</bdi>: חלון התנגשות = 2 יחידות.</p>
+      <p>עם <bdi dir="ltr">slots</bdi>: חלון התנגשות = 1 יחידה בלבד! כי אם מישהו התחיל בחריץ הקודם, הוא <strong>בודאות</strong> סיים לפני שאני התחלתי. אין <bdi dir="ltr">overlap</bdi> מהעבר.</p>
       <p>נוסחה דומה אבל ללא חזקת 2:</p>
       $$P_{\text{success}} = N \cdot p \cdot (1-p)^{N-1}$$
       <p>מקסמים, ולוקחים גבול. מקבלים:</p>
       $$\text{Max efficiency} = \frac{1}{e} \approx 0.37 = 37\%$$
-      <div class="final-answer"><strong>Slotted ALOHA = 37%</strong> — בדיוק כפול מ-ALOHA רגיל.</div>
+      <div class="final-answer"><strong>Slotted ALOHA = <bdi dir="ltr">37%</bdi></strong> — בדיוק כפול מ-<bdi dir="ltr">ALOHA</bdi> רגיל.</div>
     </div>
   </div>
 
@@ -534,19 +538,19 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
   <table>
     <thead>
-      <tr><th>תכונה</th><th>ALOHA רגיל</th><th>Slotted ALOHA</th></tr>
+      <tr><th>תכונה</th><th><bdi dir="ltr">ALOHA</bdi> רגיל</th><th>Slotted ALOHA</th></tr>
     </thead>
     <tbody>
       <tr><td>מתי לשלוח</td><td>בכל זמן</td><td>רק בתחילת חריץ</td></tr>
       <tr><td>סנכרון</td><td>לא דרוש</td><td>דרוש בין כל הצדדים</td></tr>
       <tr><td>חלון התנגשות</td><td>2 יחידות זמן</td><td>1 יחידת זמן</td></tr>
-      <tr><td>ניצולת מקסימלית</td><td>‎18%</td><td>‎37%</td></tr>
+      <tr><td>ניצולת מקסימלית</td><td><bdi dir="ltr">18%</bdi></td><td><bdi dir="ltr">37%</bdi></td></tr>
       <tr><td>פשטות</td><td>הכי פשוט</td><td>פשוט (אם יש שעון משותף)</td></tr>
     </tbody>
   </table>
 
   <div class="keypoint">
-    <strong>למה הניצולת עדיין כל כך נמוכה?</strong> כי השולח לא מקשיב לפני שמתחיל לשדר. הוא <strong>פולש</strong> לשדרים אחרים. הפתרון: CSMA (פרק הבא).
+    <strong>למה הניצולת עדיין כל כך נמוכה?</strong> כי השולח לא מקשיב לפני שמתחיל לשדר. הוא <strong>פולש</strong> לשדרים אחרים. הפתרון: <bdi dir="ltr">CSMA</bdi> (פרק הבא).
   </div>
 
   <h2>תרגיל</h2>
@@ -560,27 +564,27 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="solution">
       <div class="step">
         <div class="step-label">ההבדל המרכזי</div>
-        <p>ב-<strong>ALOHA רגיל:</strong> כל תחנה יכולה להתחיל לשדר <strong>בכל רגע</strong>.</p>
+        <p>ב-<strong><bdi dir="ltr">ALOHA</bdi> רגיל:</strong> כל תחנה יכולה להתחיל לשדר <strong>בכל רגע</strong>.</p>
         <p>ב-<strong>Slotted ALOHA:</strong> יש <strong>שעון מסונכרן</strong> בין כל התחנות. הזמן מחולק לחריצים בגודל יחידת שליחה. <strong>שליחה אפשרית רק בתחילת חריץ</strong>.</p>
       </div>
       <div class="step">
-        <div class="step-label">למה Slotted ALOHA יוצר פחות התנגשויות</div>
-        <p>ב-ALOHA רגיל, התנגשות יכולה לקרות כשתחנה אחרת התחילה לשדר:</p>
+        <div class="step-label">למה <bdi dir="ltr">Slotted ALOHA</bdi> יוצר פחות התנגשויות</div>
+        <p>ב-<bdi dir="ltr">ALOHA</bdi> רגיל, התנגשות יכולה לקרות כשתחנה אחרת התחילה לשדר:</p>
         <ul>
-          <li>במהלך השידור שלי (overlap משמאל)</li>
-          <li>או יחידה קודמת לפני שלי (overlap מימין — כי השליחה שלה עוד בערוץ)</li>
+          <li>במהלך השידור שלי (<bdi dir="ltr">overlap</bdi> משמאל)</li>
+          <li>או יחידה קודמת לפני שלי (<bdi dir="ltr">overlap</bdi> מימין — כי השליחה שלה עוד בערוץ)</li>
         </ul>
         <p>חלון התנגשות = <strong>2 יחידות זמן</strong>.</p>
-        <p>ב-Slotted ALOHA: כל ההתחלות מסונכרנות. אם תחנה התחילה ביחידה הקודמת — היא בודאות סיימה לפני שלי. <strong>חלון התנגשות = 1 יחידת זמן בלבד</strong> (רק "חצי" של המקרים).</p>
+        <p>ב-<bdi dir="ltr">Slotted ALOHA</bdi>: כל ההתחלות מסונכרנות. אם תחנה התחילה ביחידה הקודמת — היא בודאות סיימה לפני שלי. <strong>חלון התנגשות = 1 יחידת זמן בלבד</strong> (רק "חצי" של המקרים).</p>
       </div>
       <div class="step">
         <div class="step-label">השוואה כמותית</div>
         <ul>
-          <li>ALOHA: ניצולת מקסימלית = ‎1/(2e) ≈ <strong>18%</strong></li>
-          <li>Slotted ALOHA: ניצולת מקסימלית = ‎1/e ≈ <strong>37%</strong></li>
+          <li><bdi dir="ltr">ALOHA</bdi>: ניצולת מקסימלית = 1/(<bdi dir="ltr">2e</bdi>) ≈ <strong><bdi dir="ltr">18%</bdi></strong></li>
+          <li><bdi dir="ltr">Slotted ALOHA</bdi>: ניצולת מקסימלית = <bdi dir="ltr">1/e</bdi> ≈ <strong><bdi dir="ltr">37%</bdi></strong></li>
         </ul>
       </div>
-      <div class="final-answer"><strong>Slotted ALOHA</strong> יוצר פחות התנגשויות כי הוא <strong>מבטל את חצי חלון ההתנגשות</strong> (את החצי של "יחידה לפני"). ניצולת כפולה — מ-18% ל-37%.</div>
+      <div class="final-answer"><strong>Slotted ALOHA</strong> יוצר פחות התנגשויות כי הוא <strong>מבטל את חצי חלון ההתנגשות</strong> (את החצי של "יחידה לפני"). ניצולת כפולה — מ-<bdi dir="ltr">18%</bdi> ל-<bdi dir="ltr">37%</bdi>.</div>
     </div>
   </div>
 
@@ -588,14 +592,14 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li>ALOHA: שולח מתי שרוצה, מזהה התנגשות ע״י האזנה לעצמו</li>
-        <li>זיהוי התנגשות במקבל = <strong>CRC לא תואם</strong></li>
-        <li>זיהוי התנגשות בשולח = הוא מאזין לעצמו <bdi dir="ltr">(Ft, Fr)</bdi></li>
-        <li>בהתנגשות ← ‎ממתינים <strong>זמן אקראי</strong> ושולחים שוב</li>
-        <li>ניצולת ALOHA = <strong>18%</strong> (חלון התנגשות 2 יחידות)</li>
-        <li>Slotted ALOHA: מסונכרן, שולחים רק בתחילת חריץ</li>
-        <li>ניצולת Slotted ALOHA = <strong>37%</strong> (חלון התנגשות 1 יחידה)</li>
-        <li>עדיין נמוך — כי <strong>אין האזנה</strong> לפני שמתחילים לשדר. הפתרון: CSMA</li>
+        <li><bdi dir="ltr">ALOHA</bdi>: שולח מתי שרוצה, מזהה התנגשות ע״י האזנה לעצמו</li>
+        <li>זיהוי התנגשות במקבל = <strong><bdi dir="ltr">CRC</bdi> לא תואם</strong></li>
+        <li>זיהוי התנגשות בשולח = הוא מאזין לעצמו (<bdi dir="ltr">Ft, Fr</bdi>)</li>
+        <li>בהתנגשות ← ממתינים <strong>זמן אקראי</strong> ושולחים שוב</li>
+        <li>ניצולת <bdi dir="ltr">ALOHA</bdi> = <strong><bdi dir="ltr">18%</bdi></strong> (חלון התנגשות 2 יחידות)</li>
+        <li><bdi dir="ltr">Slotted ALOHA</bdi>: מסונכרן, שולחים רק בתחילת חריץ</li>
+        <li>ניצולת <bdi dir="ltr">Slotted ALOHA</bdi> = <strong><bdi dir="ltr">37%</bdi></strong> (חלון התנגשות 1 יחידה)</li>
+        <li>עדיין נמוך — כי <strong>אין האזנה</strong> לפני שמתחילים לשדר. הפתרון: <bdi dir="ltr">CSMA</bdi></li>
       </ul>
     </div>
   </div>
@@ -604,7 +608,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="20-link-framing.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">Framing ושירותים</span></a>
+  <a class="prev" href="20-link-framing.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name"><bdi dir="ltr">Framing</bdi> ושירותים</span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
   <a class="next" href="22-link-csma.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">CSMA, Ethernet</span></a>
 </nav>

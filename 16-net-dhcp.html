@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,27 +414,27 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 3.4 · שכבת הרשת</span>
-  <h1 class="page-title">DHCP — קבלת כתובת IP אוטומטית</h1>
-  <p class="page-subtitle">איך הלפטופ שלך מקבל IP בקפה? פרוטוקול ‎DORA — 4 הודעות ברודקאסט.</p>
+  <h1 class="page-title"><bdi dir="ltr">DHCP</bdi> — קבלת כתובת <bdi dir="ltr">IP</bdi> אוטומטית</h1>
+  <p class="page-subtitle">איך הלפטופ שלך מקבל <bdi dir="ltr">IP</bdi> בקפה? פרוטוקול <bdi dir="ltr">DORA</bdi> — 4 הודעות ברודקאסט.</p>
 
   <p class="lead">
-    כשאתה מתחבר לרשת חדשה, אתה לא יודע IP, לא יודע מי הראוטר, ולא יודע איזה DNS להשתמש. <strong>DHCP</strong> נותן לך הכל ב-‎4 הודעות: <strong><span class="term purple">Discover → Offer → Request → ACK</span></strong>. רץ מעל UDP על פורט <span class="term purple">67</span> (שרת) ו-<span class="term purple">68</span> (לקוח).
+    כשאתה מתחבר לרשת חדשה, אתה לא יודע <bdi dir="ltr">IP</bdi>, לא יודע מי הראוטר, ולא יודע איזה <bdi dir="ltr">DNS</bdi> להשתמש. <strong>DHCP</strong> נותן לך הכל ב-4 הודעות: <strong><span class="term purple">Discover → Offer → Request → ACK</span></strong>. רץ מעל <bdi dir="ltr">UDP</bdi> על פורט <span class="term purple">67</span> (שרת) ו-<span class="term purple">68</span> (לקוח).
   </p>
 
-  <h2>הבעיה: מי נותן IP?</h2>
+  <h2>הבעיה: מי נותן <bdi dir="ltr">IP</bdi>?</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>‎2 אפשרויות</div>
+    <div class="box-head"><span class="icon">📘</span>2 אפשרויות</div>
     <div class="box-body">
       <ol>
-        <li><strong>ידני (סטטי):</strong> מנהל הרשת מגדיר לכל מחשב IP בנפרד. עובד לשרתים, לא לרשתות עם לקוחות שמשתנים.</li>
-        <li><strong>אוטומטי (DHCP):</strong> שרת מרכזי מנהל "מחסן" של כתובות פנויות. כל מחשב חדש מבקש ומקבל אחת.</li>
+        <li><strong>ידני (סטטי):</strong> מנהל הרשת מגדיר לכל מחשב <bdi dir="ltr">IP</bdi> בנפרד. עובד לשרתים, לא לרשתות עם לקוחות שמשתנים.</li>
+        <li><strong>אוטומטי (<bdi dir="ltr">DHCP</bdi>):</strong> שרת מרכזי מנהל "מחסן" של כתובות פנויות. כל מחשב חדש מבקש ומקבל אחת.</li>
       </ol>
-      <p>למחשבים ניידים — DHCP חיוני. כל פעם שמתחברים ל-WiFi חדש, נקבל IP אחר.</p>
+      <p>למחשבים ניידים — <bdi dir="ltr">DHCP</bdi> חיוני. כל פעם שמתחברים ל-<bdi dir="ltr">WiFi</bdi> חדש, נקבל <bdi dir="ltr">IP</bdi> אחר.</p>
     </div>
   </div>
 
-  <h2>‎4 הודעות DHCP — DORA</h2>
+  <h2>4 הודעות <bdi dir="ltr">DHCP</bdi> — <bdi dir="ltr">DORA</bdi></h2>
 
   <div class="figure">
     <svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DHCP DORA flow">
@@ -440,40 +444,40 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="600" y1="50" x2="600" y2="340" stroke="#475569" stroke-width="1"/>
 
         <rect x="60" y="25" width="120" height="25" rx="4" fill="#fef9e7" stroke="#b45309"/>
-        <text x="120" y="42" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700">לקוח (host)</text>
+        <text x="120" y="42" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700" direction="rtl">לקוח (host)</text>
 
         <rect x="540" y="25" width="120" height="25" rx="4" fill="#f5f3ff" stroke="#6d28d9"/>
-        <text x="600" y="42" text-anchor="middle" font-size="11" fill="#6d28d9" font-weight="700">שרת DHCP</text>
+        <text x="600" y="42" text-anchor="middle" font-size="11" fill="#6d28d9" font-weight="700" direction="rtl">שרת DHCP</text>
 
         <!-- 1. DISCOVER -->
         <line x1="120" y1="75" x2="600" y2="100" stroke="#b45309" stroke-width="2"/>
         <text x="360" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">1. DISCOVER</text>
-        <text x="360" y="87" text-anchor="middle" font-size="9" fill="#b45309">"מי כאן יכול לתת לי IP?" · Broadcast (255.255.255.255)</text>
+        <text x="360" y="87" text-anchor="middle" font-size="9" fill="#b45309" direction="rtl">"מי כאן יכול לתת לי IP?" · Broadcast (255.255.255.255)</text>
 
         <!-- 2. OFFER -->
         <line x1="600" y1="120" x2="120" y2="145" stroke="#6d28d9" stroke-width="2"/>
         <text x="360" y="117" text-anchor="middle" font-size="12" font-weight="700" fill="#6d28d9">2. OFFER</text>
-        <text x="360" y="132" text-anchor="middle" font-size="9" fill="#6d28d9">"קח את 10.0.0.5, lease 1 hour" · Broadcast</text>
+        <text x="360" y="132" text-anchor="middle" font-size="9" fill="#6d28d9" direction="rtl">"קח את 10.0.0.5, lease 1 hour" · Broadcast</text>
 
-        <text x="360" y="170" text-anchor="middle" font-size="10" fill="#78716c" font-style="italic">(אולי כמה שרתים יענו · הלקוח בוחר אחד)</text>
+        <text x="360" y="170" text-anchor="middle" font-size="10" fill="#78716c" font-style="italic" direction="rtl">(אולי כמה שרתים יענו · הלקוח בוחר אחד)</text>
 
         <!-- 3. REQUEST -->
         <line x1="120" y1="190" x2="600" y2="215" stroke="#b45309" stroke-width="2"/>
         <text x="360" y="187" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">3. REQUEST</text>
-        <text x="360" y="202" text-anchor="middle" font-size="9" fill="#b45309">"בחרתי שרת X עם IP 10.0.0.5" · Broadcast (כדי לעדכן כולם)</text>
+        <text x="360" y="202" text-anchor="middle" font-size="9" fill="#b45309" direction="rtl">"בחרתי שרת X עם IP 10.0.0.5" · Broadcast (כדי לעדכן כולם)</text>
 
         <!-- 4. ACK -->
         <line x1="600" y1="235" x2="120" y2="260" stroke="#6d28d9" stroke-width="2"/>
         <text x="360" y="232" text-anchor="middle" font-size="12" font-weight="700" fill="#6d28d9">4. ACK</text>
-        <text x="360" y="247" text-anchor="middle" font-size="9" fill="#6d28d9">"אישור! ה-IP שלך · גם DNS, gateway, mask"</text>
+        <text x="360" y="247" text-anchor="middle" font-size="9" fill="#6d28d9" direction="rtl">"אישור! ה-IP שלך · גם DNS, gateway, mask"</text>
 
         <!-- Established -->
         <rect x="100" y="280" width="520" height="40" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
-        <text x="360" y="298" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">הלקוח רשום ויש לו IP · יכול להתחיל לתקשר</text>
-        <text x="360" y="313" text-anchor="middle" font-size="10" fill="#047857">מקבל גם: gateway, subnet mask, ‎DNS server</text>
+        <text x="360" y="298" text-anchor="middle" font-size="12" font-weight="700" fill="#047857" direction="rtl">הלקוח רשום ויש לו IP · יכול להתחיל לתקשר</text>
+        <text x="360" y="313" text-anchor="middle" font-size="10" fill="#047857" direction="rtl">מקבל גם: gateway, subnet mask, ‎DNS server</text>
       </g>
     </svg>
-    <div class="cap">תהליך DHCP מלא: 4 הודעות, ‎3 מהן broadcast. נקרא DORA — Discover, Offer, Request, ACK.</div>
+    <div class="cap">תהליך <bdi dir="ltr">DHCP</bdi> מלא: 4 הודעות, 3 מהן <bdi dir="ltr">broadcast</bdi>. נקרא <bdi dir="ltr">DORA</bdi> — <bdi dir="ltr">Discover, Offer, Request, ACK</bdi>.</div>
   </div>
 
   <div class="box theory">
@@ -481,23 +485,23 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <h4>1. DHCP Discover <span class="term">(לקוח → broadcast)</span></h4>
       <ul>
-        <li>הלקוח מחפש שרתי DHCP ברשת.</li>
-        <li><strong>Broadcast</strong> ל-<span class="term">255.255.255.255</span> — כי הוא עדיין לא יודע מיהו שרת ה-DHCP.</li>
-        <li>שולח עם IP מקור = <span class="term">0.0.0.0</span> (אין לו IP עדיין).</li>
+        <li>הלקוח מחפש שרתי <bdi dir="ltr">DHCP</bdi> ברשת.</li>
+        <li><strong>Broadcast</strong> ל-<span class="term">255.255.255.255</span> — כי הוא עדיין לא יודע מיהו שרת ה-<bdi dir="ltr">DHCP</bdi>.</li>
+        <li>שולח עם <bdi dir="ltr">IP</bdi> מקור = <span class="term">0.0.0.0</span> (אין לו <bdi dir="ltr">IP</bdi> עדיין).</li>
       </ul>
 
       <h4>2. DHCP Offer <span class="term">(שרת → broadcast)</span></h4>
       <ul>
-        <li>השרתים שקיבלו את ה-Discover שולחים הצעות.</li>
-        <li>כל הצעה: IP פנוי + lease time (כמה זמן ה-IP בתוקף).</li>
-        <li><strong>Broadcast</strong> — כי ללקוח עדיין אין IP, ולא ניתן לפנות אליו ב-unicast.</li>
+        <li>השרתים שקיבלו את ה-<bdi dir="ltr">Discover</bdi> שולחים הצעות.</li>
+        <li>כל הצעה: <bdi dir="ltr">IP</bdi> פנוי + <bdi dir="ltr">lease time</bdi> (כמה זמן ה-<bdi dir="ltr">IP</bdi> בתוקף).</li>
+        <li><strong>Broadcast</strong> — כי ללקוח עדיין אין <bdi dir="ltr">IP</bdi>, ולא ניתן לפנות אליו ב-<bdi dir="ltr">unicast</bdi>.</li>
         <li>יכולים להגיע <strong>כמה הצעות</strong> מ-כמה שרתים.</li>
       </ul>
 
       <h4>3. DHCP Request <span class="term">(לקוח → broadcast)</span></h4>
       <ul>
         <li>הלקוח בוחר את אחת ההצעות.</li>
-        <li><strong>Broadcast</strong> שוב — לעדכן את <em>כל</em> השרתים שאחרים לא נבחרו (שיחזירו את ה-IP שלהם למחסן).</li>
+        <li><strong>Broadcast</strong> שוב — לעדכן את <em>כל</em> השרתים שאחרים לא נבחרו (שיחזירו את ה-<bdi dir="ltr">IP</bdi> שלהם למחסן).</li>
         <li>בתוך ההודעה — מזהה השרת שנבחר.</li>
       </ul>
 
@@ -505,47 +509,47 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <ul>
         <li>השרת הנבחר מאשר ושולח את הקונפיגורציה המלאה.</li>
         <li>כולל: <strong>IP</strong>, <strong>Subnet Mask</strong>, <strong>Default Gateway</strong> (הראוטר), <strong>DNS server</strong>.</li>
-        <li>אפשר broadcast או unicast (אם הלקוח כבר יכול לקלוט unicast).</li>
+        <li>אפשר <bdi dir="ltr">broadcast</bdi> או <bdi dir="ltr">unicast</bdi> (אם הלקוח כבר יכול לקלוט <bdi dir="ltr">unicast</bdi>).</li>
       </ul>
     </div>
   </div>
 
   <div class="keypoint">
-    <strong>זכור:</strong> ‎<span class="term">DORA</span> = Discover, Offer, Request, ACK. הודעות 1, 2, 3 הן broadcast. הודעה 4 אפשרית unicast.
+    <strong>זכור:</strong> <span class="term">DORA</span> = <bdi dir="ltr">Discover, Offer, Request, ACK</bdi>. הודעות 1, 2, 3 הן <bdi dir="ltr">broadcast</bdi>. הודעה 4 אפשרית <bdi dir="ltr">unicast</bdi>.
   </div>
 
   <h2>נקודות חשובות</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>איפה שרת ה-DHCP?</div>
+    <div class="box-head"><span class="icon">📘</span>איפה שרת ה-<bdi dir="ltr">DHCP</bdi>?</div>
     <div class="box-body">
-      <p>ברשת ביתית או משרדית קטנה — שרת ה-DHCP <strong>נמצא על הראוטר עצמו</strong>. הוא משרת את כל הסאבנטים שמחוברים אליו.</p>
-      <p>בארגונים גדולים — שרת DHCP נפרד מטפל בכמה סאבנטים, עם <strong>DHCP Relay</strong> בכל סאבנט.</p>
+      <p>ברשת ביתית או משרדית קטנה — שרת ה-<bdi dir="ltr">DHCP</bdi> <strong>נמצא על הראוטר עצמו</strong>. הוא משרת את כל הסאבנטים שמחוברים אליו.</p>
+      <p>בארגונים גדולים — שרת <bdi dir="ltr">DHCP</bdi> נפרד מטפל בכמה סאבנטים, עם <strong>DHCP Relay</strong> בכל סאבנט.</p>
     </div>
   </div>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>Lease Time</div>
     <div class="box-body">
-      <p>השרת לא נותן IP לנצח — הוא נותן ל-<strong>lease time</strong> (זמן השכרה). אופייני: שעה עד 24 שעות.</p>
-      <p>אחרי שפג ה-lease, הלקוח חייב לחדש (Renewal):</p>
+      <p>השרת לא נותן <bdi dir="ltr">IP</bdi> לנצח — הוא נותן ל-<strong>lease time</strong> (זמן השכרה). אופייני: שעה עד 24 שעות.</p>
+      <p>אחרי שפג ה-<bdi dir="ltr">lease</bdi>, הלקוח חייב לחדש (<bdi dir="ltr">Renewal</bdi>):</p>
       <ul>
-        <li>אחרי <strong>50% מה-lease</strong> — הלקוח מנסה לחדש עם אותו שרת.</li>
-        <li>אם לא הגיב — אחרי 87.5% מהזמן — מנסה לכל שרתי DHCP (broadcast).</li>
+        <li>אחרי <strong><bdi dir="ltr">50%</bdi> מה-<bdi dir="ltr">lease</bdi></strong> — הלקוח מנסה לחדש עם אותו שרת.</li>
+        <li>אם לא הגיב — אחרי <bdi dir="ltr">87.5%</bdi> מהזמן — מנסה לכל שרתי <bdi dir="ltr">DHCP</bdi> (<bdi dir="ltr">broadcast</bdi>).</li>
       </ul>
-      <p>למה lease? <strong>כי מחשבים מתחברים ומתנתקים</strong>. שרת ה-DHCP לא יכול לדעת אם הסתלקת לתמיד או יצאת לחמש דקות.</p>
+      <p>למה <bdi dir="ltr">lease</bdi>? <strong>כי מחשבים מתחברים ומתנתקים</strong>. שרת ה-<bdi dir="ltr">DHCP</bdi> לא יכול לדעת אם הסתלקת לתמיד או יצאת לחמש דקות.</p>
     </div>
   </div>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>פורטים</div>
     <div class="box-body">
-      <p>DHCP רץ מעל <strong>UDP:</strong></p>
+      <p><bdi dir="ltr">DHCP</bdi> רץ מעל <strong>UDP:</strong></p>
       <ul>
         <li>שרת: פורט <span class="term">67</span></li>
         <li>לקוח: פורט <span class="term">68</span></li>
       </ul>
-      <p>פורטים קבועים — כי הלקוח עוד לא יודע איזה IP הוא יקבל, אבל הוא יודע את הפורט הסטנדרטי.</p>
+      <p>פורטים קבועים — כי הלקוח עוד לא יודע איזה <bdi dir="ltr">IP</bdi> הוא יקבל, אבל הוא יודע את הפורט הסטנדרטי.</p>
     </div>
   </div>
 
@@ -555,12 +559,12 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📘</span>היררכיה של ספקיות</div>
     <div class="box-body">
       <ul>
-        <li>הצרכן (אתה) מקבל IP מ-<strong>הראוטר הביתי</strong>.</li>
-        <li>הראוטר הביתי מקבל IP מ-<strong>ספקית האינטרנט (ISP)</strong>.</li>
-        <li>ה-ISP מקבל בלוק כתובות מ-<strong>ICANN</strong> (ארגון האינטרנט העולמי).</li>
-        <li>ICANN מחלק את הכתובות <strong>גיאוגרפית</strong> — מאזורים שונים בעולם.</li>
+        <li>הצרכן (אתה) מקבל <bdi dir="ltr">IP</bdi> מ-<strong>הראוטר הביתי</strong>.</li>
+        <li>הראוטר הביתי מקבל <bdi dir="ltr">IP</bdi> מ-<strong>ספקית האינטרנט (<bdi dir="ltr">ISP</bdi>)</strong>.</li>
+        <li>ה-<bdi dir="ltr">ISP</bdi> מקבל בלוק כתובות מ-<strong>ICANN</strong> (ארגון האינטרנט העולמי).</li>
+        <li><bdi dir="ltr">ICANN</bdi> מחלק את הכתובות <strong>גיאוגרפית</strong> — מאזורים שונים בעולם.</li>
       </ul>
-      <p>זה למה אפשר לדעת בערך מ-IP <strong>מאיזה יבשת, מדינה, ועיר</strong> מישהו גולש.</p>
+      <p>זה למה אפשר לדעת בערך מ-<bdi dir="ltr">IP</bdi> <strong>מאיזה יבשת, מדינה, ועיר</strong> מישהו גולש.</p>
     </div>
   </div>
 
@@ -568,46 +572,46 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · למה Discover חייב להיות broadcast?</span>
-      <p>מדוע ההודעה הראשונה (DHCP Discover) חייבת להישלח כ-broadcast ולא unicast?</p>
+      <span class="exercise-tag">תרגול · למה <bdi dir="ltr">Discover</bdi> חייב להיות <bdi dir="ltr">broadcast</bdi>?</span>
+      <p>מדוע ההודעה הראשונה (<bdi dir="ltr">DHCP Discover</bdi>) חייבת להישלח כ-<bdi dir="ltr">broadcast</bdi> ולא <bdi dir="ltr">unicast</bdi>?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">המגבלה של הלקוח</div>
-        <p>בשלב הזה, ללקוח <strong>אין IP</strong>. אין לו gateway. אין לו DNS. <strong>הוא לא יודע איפה הראוטר ולא יודע IP של שרת DHCP</strong>.</p>
+        <p>בשלב הזה, ללקוח <strong>אין <bdi dir="ltr">IP</bdi></strong>. אין לו <bdi dir="ltr">gateway</bdi>. אין לו <bdi dir="ltr">DNS</bdi>. <strong>הוא לא יודע איפה הראוטר ולא יודע <bdi dir="ltr">IP</bdi> של שרת <bdi dir="ltr">DHCP</bdi></strong>.</p>
       </div>
       <div class="step">
         <div class="step-label">מה אפשר לעשות?</div>
-        <p>היחיד מה שאפשר לשלוח — broadcast. <span class="term">255.255.255.255</span> אומר "לכולם בסאבנט הזה".</p>
+        <p>היחיד מה שאפשר לשלוח — <bdi dir="ltr">broadcast</bdi>. <span class="term">255.255.255.255</span> אומר "לכולם בסאבנט הזה".</p>
         <p>הלקוח שולח עם:</p>
         <ul>
-          <li>IP מקור: <span class="term">0.0.0.0</span> (אין לי IP)</li>
-          <li>IP יעד: <span class="term">255.255.255.255</span> <bdi dir="ltr">(broadcast)</bdi></li>
-          <li>פורט יעד: 67 (שרתי DHCP מאזינים שם)</li>
+          <li><bdi dir="ltr">IP</bdi> מקור: <span class="term">0.0.0.0</span> (אין לי <bdi dir="ltr">IP</bdi>)</li>
+          <li><bdi dir="ltr">IP</bdi> יעד: <span class="term">255.255.255.255</span> (broadcast)</li>
+          <li>פורט יעד: 67 (שרתי <bdi dir="ltr">DHCP</bdi> מאזינים שם)</li>
         </ul>
       </div>
-      <div class="final-answer">בלי IP ובלי לדעת את ה-IP של השרת — האפשרות היחידה היא broadcast. זה גם המקור לאיחוד של מספר שרתי DHCP — כי <strong>כולם</strong> יקבלו את הבקשה.</div>
+      <div class="final-answer">בלי <bdi dir="ltr">IP</bdi> ובלי לדעת את ה-<bdi dir="ltr">IP</bdi> של השרת — האפשרות היחידה היא <bdi dir="ltr">broadcast</bdi>. זה גם המקור לאיחוד של מספר שרתי <bdi dir="ltr">DHCP</bdi> — כי <strong>כולם</strong> יקבלו את הבקשה.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · למה Offer ל-broadcast?</span>
-      <p>הלקוח שלח את ה-Discover. השרת יודע למי לענות. למה הוא שולח את ה-Offer ב-broadcast ולא unicast?</p>
+      <span class="exercise-tag">תרגול · למה <bdi dir="ltr">Offer</bdi> ל-<bdi dir="ltr">broadcast</bdi>?</span>
+      <p>הלקוח שלח את ה-<bdi dir="ltr">Discover</bdi>. השרת יודע למי לענות. למה הוא שולח את ה-<bdi dir="ltr">Offer</bdi> ב-<bdi dir="ltr">broadcast</bdi> ולא <bdi dir="ltr">unicast</bdi>?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">הלקוח עדיין בלי IP</div>
-        <p>השרת אומנם רואה את כתובת ה-MAC של הלקוח, אבל unicast ב-IP צריך IP יעד. ללקוח <strong>אין IP עדיין</strong> — ההצעה היא בעצם ההצעה ל-IP.</p>
-        <p>אם השרת יישלח unicast עם IP יעד שהוא מציע — הלקוח לא ידע שזה אליו (הוא עדיין לא הסכים ל-IP הזה).</p>
+        <div class="step-label">הלקוח עדיין בלי <bdi dir="ltr">IP</bdi></div>
+        <p>השרת אומנם רואה את כתובת ה-<bdi dir="ltr">MAC</bdi> של הלקוח, אבל <bdi dir="ltr">unicast</bdi> ב-<bdi dir="ltr">IP</bdi> צריך <bdi dir="ltr">IP</bdi> יעד. ללקוח <strong>אין <bdi dir="ltr">IP</bdi> עדיין</strong> — ההצעה היא בעצם ההצעה ל-<bdi dir="ltr">IP</bdi>.</p>
+        <p>אם השרת יישלח <bdi dir="ltr">unicast</bdi> עם <bdi dir="ltr">IP</bdi> יעד שהוא מציע — הלקוח לא ידע שזה אליו (הוא עדיין לא הסכים ל-<bdi dir="ltr">IP</bdi> הזה).</p>
       </div>
       <div class="step">
         <div class="step-label">הפתרון</div>
-        <p>שולחים broadcast. הלקוח מזהה לפי <strong>Transaction ID</strong> בכותרת DHCP — מזהה ייחודי שהלקוח שלח ב-Discover והשרת מחזיר ב-Offer.</p>
+        <p>שולחים <bdi dir="ltr">broadcast</bdi>. הלקוח מזהה לפי <strong>Transaction ID</strong> בכותרת <bdi dir="ltr">DHCP</bdi> — מזהה ייחודי שהלקוח שלח ב-<bdi dir="ltr">Discover</bdi> והשרת מחזיר ב-<bdi dir="ltr">Offer</bdi>.</p>
       </div>
-      <div class="final-answer">Broadcast כי אין IP לכוון אליו. Transaction ID משמש לזיהוי איזה Offer שייך לאיזה לקוח.</div>
+      <div class="final-answer"><bdi dir="ltr">Broadcast</bdi> כי אין <bdi dir="ltr">IP</bdi> לכוון אליו. <bdi dir="ltr">Transaction ID</bdi> משמש לזיהוי איזה <bdi dir="ltr">Offer</bdi> שייך לאיזה לקוח.</div>
     </div>
   </div>
 
@@ -615,12 +619,12 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li><strong>DHCP</strong> = פרוטוקול אוטומטי לקבלת ‎IP, mask, gateway, DNS</li>
-        <li>‎4 הודעות: <strong>D</strong>iscover <strong>O</strong>ffer <strong>R</strong>equest <strong>A</strong>CK = <strong>DORA</strong></li>
-        <li>הודעות 1, 2, 3 — <strong>broadcast</strong>; הודעה 4 — broadcast או unicast</li>
-        <li>רץ מעל UDP על פורטים <strong>67 (שרת) ו-68 (לקוח)</strong></li>
-        <li><strong>Lease time</strong> — IP זמני, חידוש אחרי 50% או 87.5%</li>
-        <li>שרת ה-DHCP בדרך כלל על הראוטר עצמו</li>
+        <li><strong>DHCP</strong> = פרוטוקול אוטומטי לקבלת <bdi dir="ltr">IP, mask, gateway, DNS</bdi></li>
+        <li>4 הודעות: <strong>D</strong>iscover <strong>O</strong>ffer <strong>R</strong>equest <strong>A</strong>CK = <strong>DORA</strong></li>
+        <li>הודעות 1, 2, 3 — <strong>broadcast</strong>; הודעה 4 — <bdi dir="ltr">broadcast</bdi> או <bdi dir="ltr">unicast</bdi></li>
+        <li>רץ מעל <bdi dir="ltr">UDP</bdi> על פורטים <strong>67 (שרת) ו-68 (לקוח)</strong></li>
+        <li><strong>Lease time</strong> — <bdi dir="ltr">IP</bdi> זמני, חידוש אחרי <bdi dir="ltr">50%</bdi> או <bdi dir="ltr">87.5%</bdi></li>
+        <li>שרת ה-<bdi dir="ltr">DHCP</bdi> בדרך כלל על הראוטר עצמו</li>
         <li>היררכיה גלובלית: <strong><span class="term">ICANN → ISPs → ארגונים → משתמשים</span></strong></li>
       </ul>
     </div>
@@ -630,7 +634,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="15-net-ip-addressing.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">כתובות IP</span></a>
+  <a class="prev" href="15-net-ip-addressing.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">כתובות <bdi dir="ltr">IP</bdi></span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
   <a class="next" href="17-net-nat-ipv6.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">NAT, IPv6, ICMP</span></a>
 </nav>

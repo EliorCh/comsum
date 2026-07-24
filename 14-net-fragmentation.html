@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -411,18 +415,18 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 <main>
   <span class="page-eyebrow">פרק 3.2 · שכבת הרשת</span>
   <h1 class="page-title">פרגמנטציה — חלוקת דאטהגרם</h1>
-  <p class="page-subtitle">איך IP מתמודד עם לינקים בגדלי MTU שונים — Identification, Flags, ו-Offset.</p>
+  <p class="page-subtitle">איך <bdi dir="ltr">IP</bdi> מתמודד עם לינקים בגדלי <bdi dir="ltr">MTU</bdi> שונים — <bdi dir="ltr">Identification, Flags</bdi>, ו-<bdi dir="ltr">Offset</bdi>.</p>
 
   <p class="lead">
-    כל לינק ברשת יכול להיות עם <strong>MTU שונה</strong>. אם דאטהגרם גדול מה-MTU של הלינק הבא — חייבים <strong>לפצל אותו לפרגמנטים</strong>. כל פרגמנט מקבל IP header משלו. <strong>ההרכבה נעשית רק ביעד הסופי</strong>, לפי שדות ID, MF, ו-Offset.
+    כל לינק ברשת יכול להיות עם <strong><bdi dir="ltr">MTU</bdi> שונה</strong>. אם דאטהגרם גדול מה-<bdi dir="ltr">MTU</bdi> של הלינק הבא — חייבים <strong>לפצל אותו לפרגמנטים</strong>. כל פרגמנט מקבל <bdi dir="ltr">IP header</bdi> משלו. <strong>ההרכבה נעשית רק ביעד הסופי</strong>, לפי שדות <bdi dir="ltr">ID, MF</bdi>, ו-<bdi dir="ltr">Offset</bdi>.
   </p>
 
   <h2>הבעיה</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>MTU משתנה בין לינקים</div>
+    <div class="box-head"><span class="icon">📘</span><bdi dir="ltr">MTU</bdi> משתנה בין לינקים</div>
     <div class="box-body">
-      <p>אני שולח דאטהגרם של 4000 בתים. הוא נכנס לרשת מקומית עם MTU=1500. אבל בדרך הוא צריך לעבור לינק לוויני עם MTU=500. <strong>אי אפשר להעביר 1500 בתים בלינק של 500.</strong></p>
+      <p>אני שולח דאטהגרם של 4000 בתים. הוא נכנס לרשת מקומית עם <bdi dir="ltr">MTU=1500</bdi>. אבל בדרך הוא צריך לעבור לינק לוויני עם <bdi dir="ltr">MTU=500</bdi>. <strong>אי אפשר להעביר 1500 בתים בלינק של 500.</strong></p>
       <p><strong>הפתרון:</strong> פרגמנטציה — לחלק את הדאטהגרם לחתיכות קטנות יותר.</p>
     </div>
   </div>
@@ -441,7 +445,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     </div>
   </div>
 
-  <h2>שדות בכותרת ה-IP לפרגמנטציה</h2>
+  <h2>שדות בכותרת ה-<bdi dir="ltr">IP</bdi> לפרגמנטציה</h2>
 
   <div class="figure">
     <svg viewBox="0 0 720 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="שדות פרגמנטציה">
@@ -454,7 +458,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <!-- Identification -->
         <rect x="80" y="30" width="240" height="50" fill="#ddd6fe" stroke="#6d28d9" stroke-width="2"/>
         <text x="200" y="50" text-anchor="middle" font-size="13" fill="#6d28d9" font-weight="700">Identification</text>
-        <text x="200" y="68" text-anchor="middle" font-size="10" fill="#6d28d9">16 bit — ID של ההודעה</text>
+        <text x="200" y="68" text-anchor="middle" font-size="10" fill="#6d28d9" direction="rtl">16 bit — ID של ההודעה</text>
 
         <!-- Flags -->
         <rect x="320" y="30" width="60" height="50" fill="#fff1f2" stroke="#be123c" stroke-width="2"/>
@@ -464,34 +468,34 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <!-- Fragment Offset -->
         <rect x="380" y="30" width="220" height="50" fill="#fef9e7" stroke="#b45309" stroke-width="2"/>
         <text x="490" y="50" text-anchor="middle" font-size="13" fill="#b45309" font-weight="700">Fragment Offset</text>
-        <text x="490" y="68" text-anchor="middle" font-size="10" fill="#b45309">13 bit — מיקום ביחס לראשון</text>
+        <text x="490" y="68" text-anchor="middle" font-size="10" fill="#b45309" direction="rtl">13 bit — מיקום ביחס לראשון</text>
 
         <!-- Flags detail -->
-        <text x="350" y="105" text-anchor="middle" font-size="10" fill="#be123c" font-weight="700">דגלי Flags:</text>
-        <text x="350" y="120" text-anchor="middle" font-size="9" fill="#be123c">bit 0: לא בשימוש</text>
+        <text x="350" y="105" text-anchor="middle" font-size="10" fill="#be123c" font-weight="700" direction="rtl">דגלי Flags:</text>
+        <text x="350" y="120" text-anchor="middle" font-size="9" fill="#be123c" direction="rtl">bit 0: לא בשימוש</text>
         <text x="350" y="132" text-anchor="middle" font-size="9" fill="#be123c">bit 1: DF (Don't Fragment)</text>
         <text x="350" y="144" text-anchor="middle" font-size="9" fill="#be123c">bit 2: MF (More Fragments)</text>
       </g>
     </svg>
-    <div class="cap">שורה 2 בכותרת IP — 3 שדות שמאפשרים פרגמנטציה והרכבה מחדש.</div>
+    <div class="cap">שורה 2 בכותרת <bdi dir="ltr">IP</bdi> — 3 שדות שמאפשרים פרגמנטציה והרכבה מחדש.</div>
   </div>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>ה-3 שדות</div>
     <div class="box-body">
-      <h4>1. Identification (16 ביט)</h4>
-      <p>מזהה ייחודי של הדאטהגרם המקורי. <strong>כל הפרגמנטים שלו חולקים את אותו ID</strong>. ככה המקבל יודע איזה פרגמנטים שייכים יחד.</p>
+      <h4><bdi dir="ltr">1. Identification</bdi> (16 ביט)</h4>
+      <p>מזהה ייחודי של הדאטהגרם המקורי. <strong>כל הפרגמנטים שלו חולקים את אותו <bdi dir="ltr">ID</bdi></strong>. ככה המקבל יודע איזה פרגמנטים שייכים יחד.</p>
 
-      <h4>2. Flags (3 ביט)</h4>
+      <h4><bdi dir="ltr">2. Flags</bdi> (3 ביט)</h4>
       <ul>
         <li><strong>ביט 0:</strong> לא בשימוש (שמור).</li>
-        <li><strong>ביט 1 — DF (Don't Fragment):</strong>
+        <li><strong>ביט 1 — <bdi dir="ltr">DF</bdi> (<bdi dir="ltr">Don't Fragment</bdi>):</strong>
           <ul>
-            <li><span class="term">1</span> = אל תפצל. אם MTU קטן מדי — זרוק.</li>
+            <li><span class="term">1</span> = אל תפצל. אם <bdi dir="ltr">MTU</bdi> קטן מדי — זרוק.</li>
             <li><span class="term">0</span> = מותר לפצל.</li>
           </ul>
         </li>
-        <li><strong>ביט 2 — MF (More Fragments):</strong>
+        <li><strong>ביט 2 — <bdi dir="ltr">MF</bdi> (<bdi dir="ltr">More Fragments</bdi>):</strong>
           <ul>
             <li><span class="term">1</span> = יש עוד פרגמנטים אחריי.</li>
             <li><span class="term">0</span> = אני <strong>הפרגמנט האחרון</strong>.</li>
@@ -499,18 +503,18 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         </li>
       </ul>
 
-      <h4>3. Fragment Offset (13 ביט)</h4>
+      <h4><bdi dir="ltr">3. Fragment Offset</bdi> (13 ביט)</h4>
       <p>איפה הפרגמנט הזה ביחס להתחלה של הדאטהגרם המקורי — <strong>ביחידות של 8 בתים</strong>.</p>
-      <p>הראשון: offset = 0. השני: offset = (size_1) / 8. וכו'.</p>
+      <p>הראשון: <bdi dir="ltr">offset = 0</bdi>. השני: <bdi dir="ltr">offset</bdi> = (<bdi dir="ltr">size_1</bdi>) / 8. וכו'.</p>
     </div>
   </div>
 
   <div class="box warn">
-    <div class="box-head"><span class="icon">⚠</span>למה Offset חלקי 8?</div>
+    <div class="box-head"><span class="icon">⚠</span>למה <bdi dir="ltr">Offset</bdi> חלקי 8?</div>
     <div class="box-body">
-      <p>שדה ה-Length (שורה 1) הוא 16 ביט — מאפשר עד 65,535. אבל שדה ה-Offset הוא רק 13 ביט — עד 8,191.</p>
-      <p>אם נשמור את ה-offset בבתים — לא נוכל לכסות דאטהגרמים מעל 8KB!</p>
-      <p><strong>הפתרון:</strong> שמירת ה-offset ביחידות של ‎8 בתים. בקריאה — להכפיל ב-8. עכשיו 13 ביט מכסים ‎65,535 בתים.</p>
+      <p>שדה ה-<bdi dir="ltr">Length</bdi> (שורה 1) הוא 16 ביט — מאפשר עד 65,535. אבל שדה ה-<bdi dir="ltr">Offset</bdi> הוא רק 13 ביט — עד 8,191.</p>
+      <p>אם נשמור את ה-<bdi dir="ltr">offset</bdi> בבתים — לא נוכל לכסות דאטהגרמים מעל <bdi dir="ltr">8KB</bdi>!</p>
+      <p><strong>הפתרון:</strong> שמירת ה-<bdi dir="ltr">offset</bdi> ביחידות של 8 בתים. בקריאה — להכפיל ב-8. עכשיו 13 ביט מכסים 65,535 בתים.</p>
       <p><strong>תוצאה חשובה:</strong> גודל כל פרגמנט (חוץ מהאחרון) חייב להיות <strong>כפולה של 8</strong>.</p>
     </div>
   </div>
@@ -518,13 +522,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <h2>תהליך הפיצול — דוגמה</h2>
 
   <div class="box example">
-    <div class="box-head"><span class="icon">💡</span>דוגמה: דאטהגרם 4000 בתים, MTU 1500</div>
+    <div class="box-head"><span class="icon">💡</span>דוגמה: דאטהגרם 4000 בתים, <bdi dir="ltr">MTU 1500</bdi></div>
     <div class="box-body">
       <p><strong>נתון:</strong></p>
       <ul>
-        <li>גודל דאטהגרם מקורי: <span class="term">4000 בתים</span> (כולל header)</li>
+        <li>גודל דאטהגרם מקורי: <span class="term">4000 בתים</span> (כולל <bdi dir="ltr">header</bdi>)</li>
         <li>נתונים בלבד: <span class="term">4000 − 20 = 3980 בתים</span></li>
-        <li>MTU של הלינק: <span class="term">1500 בתים</span></li>
+        <li><bdi dir="ltr">MTU</bdi> של הלינק: <span class="term">1500 בתים</span></li>
         <li>נתונים מקסימליים בפרגמנט: <span class="term">1500 − 20 = 1480 בתים</span></li>
       </ul>
       <h4>חישוב מספר הפרגמנטים</h4>
@@ -541,9 +545,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <p>חישוב פרגמנט 3:</p>
       <ul>
         <li>נתונים שנותרו: 3980 − 1480 − 1480 = 1020</li>
-        <li>גודל כולל: 1020 + 20 (header) = 1040</li>
-        <li>Offset: סך הנתונים הקודמים = 2960 → 2960/8 = 370</li>
-        <li>MF = 0 (האחרון)</li>
+        <li>גודל כולל: 1020 + 20 (<bdi dir="ltr">header</bdi>) = 1040</li>
+        <li><bdi dir="ltr">Offset</bdi>: סך הנתונים הקודמים = 2960 → 2960/8 = 370</li>
+        <li><bdi dir="ltr">MF = 0</bdi> (האחרון)</li>
       </ul>
       <p><strong>סך הכל: 3980 + 60 (3 כותרות × 20) = 4040 בתים שעוברים בלינק — לעומת 4000 שנשלחו במקור.</strong></p>
     </div>
@@ -555,7 +559,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📘</span>איך המקבל מרכיב</div>
     <div class="box-body">
       <ol>
-        <li>מגיע פרגמנט. המקבל בודק ID — האם זה חלק מדאטהגרם שהוא כבר התחיל להרכיב?</li>
+        <li>מגיע פרגמנט. המקבל בודק <bdi dir="ltr">ID</bdi> — האם זה חלק מדאטהגרם שהוא כבר התחיל להרכיב?</li>
         <li>אם לא — <strong>מקצה באפר</strong> חדש.</li>
         <li>מציב את הפרגמנט בבאפר במיקום <span class="term">Offset × 8</span>.</li>
         <li>אם <strong>MF = 0</strong> — זה הפרגמנט האחרון. עכשיו הוא יודע את הגודל הסופי = <span class="term">Offset × 8 + גודל הפרגמנט</span>.</li>
@@ -568,7 +572,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">⚠</span>הפרגמנטים יכולים להגיע לא בסדר</div>
     <div class="box-body">
       <p>בגלל הניתוב — פרגמנטים שונים יכולים לעבור מסלולים שונים. סדר ההגעה לא מובטח.</p>
-      <p><strong>זה בסדר!</strong> ה-Offset אומר למקבל איפה כל פרגמנט שייך. הבאפר נבנה לפי המיקומים, לא לפי סדר ההגעה.</p>
+      <p><strong>זה בסדר!</strong> ה-<bdi dir="ltr">Offset</bdi> אומר למקבל איפה כל פרגמנט שייך. הבאפר נבנה לפי המיקומים, לא לפי סדר ההגעה.</p>
     </div>
   </div>
 
@@ -576,16 +580,16 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגיל בית 4 · שאלה 3.ג · ID = 422</span>
-      <p>חבילת IP בגודל <strong>3500 בתים</strong> נשלחת על לינק עם MTU של <strong>500 בתים</strong>, וה-ID שלה הוא <strong>422</strong>. <strong>כמה פרגמנטים</strong> ייווצרו, ומה יהיה בשדות הפרגמנטציה (ID, MF, Offset) בכל אחד?</p>
+      <span class="exercise-tag">תרגיל בית 4 · שאלה 3.ג · <bdi dir="ltr">ID = 422</bdi></span>
+      <p>חבילת <bdi dir="ltr">IP</bdi> בגודל <strong>3500 בתים</strong> נשלחת על לינק עם <bdi dir="ltr">MTU</bdi> של <strong>500 בתים</strong>, וה-<bdi dir="ltr">ID</bdi> שלה הוא <strong>422</strong>. <strong>כמה פרגמנטים</strong> ייווצרו, ומה יהיה בשדות הפרגמנטציה (<bdi dir="ltr">ID, MF, Offset</bdi>) בכל אחד?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">חישוב גדלי הנתונים</div>
-        <p>הדאטהגרם המקורי: 3500 בתים. ‎20 בתים header, אז <strong>3480 בתים נתונים</strong>.</p>
-        <p>MTU = 500. בלי header זה <strong>500 − 20 = 480 בתים נתונים מקסימום לפרגמנט</strong>.</p>
-        <p>אבל ה-offset הוא חלקי 8, אז גודל הפרגמנט חייב להיות כפולה של 8. 480 הוא כפולה של 8 ✓.</p>
+        <p>הדאטהגרם המקורי: 3500 בתים. 20 בתים <bdi dir="ltr">header</bdi>, אז <strong>3480 בתים נתונים</strong>.</p>
+        <p><bdi dir="ltr">MTU = 500</bdi>. בלי <bdi dir="ltr">header</bdi> זה <strong>500 − 20 = 480 בתים נתונים מקסימום לפרגמנט</strong>.</p>
+        <p>אבל ה-<bdi dir="ltr">offset</bdi> הוא חלקי 8, אז גודל הפרגמנט חייב להיות כפולה של 8. 480 הוא כפולה של 8 ✓.</p>
       </div>
       <div class="step">
         <div class="step-label">מספר הפרגמנטים</div>
@@ -610,7 +614,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
             <tr><td>8</td><td>422</td><td><strong>0</strong></td><td>420</td><td>120</td><td>140</td></tr>
           </tbody>
         </table>
-        <p>הסבר ה-offset:</p>
+        <p>הסבר ה-<bdi dir="ltr">offset</bdi>:</p>
         <ul>
           <li>פרגמנט 1: 0/8 = 0</li>
           <li>פרגמנט 2: 480/8 = 60</li>
@@ -618,30 +622,30 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
           <li>פרגמנט 8: 3360/8 = 420</li>
         </ul>
       </div>
-      <div class="final-answer"><strong>8 פרגמנטים</strong>. כולם עם ID=422. 7 הראשונים עם MF=1, האחרון עם MF=0. Offset עולה בקפיצות של 60 (= 480/8).</div>
+      <div class="final-answer"><strong>8 פרגמנטים</strong>. כולם עם <bdi dir="ltr">ID=422. 7</bdi> הראשונים עם <bdi dir="ltr">MF=1</bdi>, האחרון עם <bdi dir="ltr">MF=0. Offset</bdi> עולה בקפיצות של 60 (= 480/8).</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · MTU שלא מתחלק ב-8</span>
-      <p>מה קורה אם ה-MTU הוא 1000 בתים (כך שאחרי header מסיר 20 → 980 בתי נתונים)? איך נחלק דאטהגרם של 3000 בתי נתונים?</p>
+      <span class="exercise-tag">תרגול · <bdi dir="ltr">MTU</bdi> שלא מתחלק ב-8</span>
+      <p>מה קורה אם ה-<bdi dir="ltr">MTU</bdi> הוא 1000 בתים (כך שאחרי <bdi dir="ltr">header</bdi> מסיר 20 → 980 בתי נתונים)? איך נחלק דאטהגרם של 3000 בתי נתונים?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">הבעיה</div>
-        <p>‎980 לא כפולה של 8 (980/8 = 122.5). לא יכול לשמש כגודל פרגמנט.</p>
+        <p>980 לא כפולה של 8 (980/8 = 122.5). לא יכול לשמש כגודל פרגמנט.</p>
       </div>
       <div class="step">
         <div class="step-label">הפתרון: לעגל למטה לכפולה של 8</div>
         <p>נשתמש ב<strong>976 בתי נתונים</strong> לפרגמנט (= 122 × 8).</p>
         <p>חישוב פרגמנטים:</p>
         <ul>
-          <li>פרגמנט 1: 976 בתים, Offset 0</li>
-          <li>פרגמנט 2: 976 בתים, Offset 122</li>
-          <li>פרגמנט 3: 976 בתים, Offset 244</li>
-          <li>פרגמנט 4: 72 בתים (= 3000 − 2928), Offset 366</li>
+          <li>פרגמנט 1: 976 בתים, <bdi dir="ltr">Offset 0</bdi></li>
+          <li>פרגמנט 2: 976 בתים, <bdi dir="ltr">Offset 122</bdi></li>
+          <li>פרגמנט 3: 976 בתים, <bdi dir="ltr">Offset 244</bdi></li>
+          <li>פרגמנט 4: 72 בתים (= 3000 − 2928), <bdi dir="ltr">Offset 366</bdi></li>
         </ul>
       </div>
       <div class="final-answer">תמיד מעגלים את גודל הפרגמנט (חוץ מהאחרון) למטה לכפולה הקרובה של 8. עלות נוספת: עוד פרגמנט אחד או שניים.</div>
@@ -652,14 +656,14 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li>פרגמנטציה = פיצול דאטהגרם גדול כשהלינק לא יכול להעביר אותו (MTU קטן)</li>
+        <li>פרגמנטציה = פיצול דאטהגרם גדול כשהלינק לא יכול להעביר אותו (<bdi dir="ltr">MTU</bdi> קטן)</li>
         <li>הרכבה <strong>רק ביעד הסופי</strong>, לא בכל ראוטר</li>
-        <li>‎3 שדות בשורה 2: <strong>Identification, Flags, Fragment Offset</strong></li>
+        <li>3 שדות בשורה 2: <strong>Identification, Flags, Fragment Offset</strong></li>
         <li><strong>ID:</strong> אותו ערך בכל הפרגמנטים של אותו דאטהגרם</li>
         <li><strong>MF:</strong> 1 = עוד פרגמנטים, 0 = אחרון</li>
         <li><strong>Offset:</strong> ב<strong>יחידות של 8 בתים</strong> (13 ביט × 8 = 65,535)</li>
         <li>גודל פרגמנט חייב להיות <strong>כפולה של 8</strong> (חוץ מהאחרון)</li>
-        <li>כל פרגמנט מקבל IP header משלו — תקורה נוספת</li>
+        <li>כל פרגמנט מקבל <bdi dir="ltr">IP header</bdi> משלו — תקורה נוספת</li>
       </ul>
     </div>
   </div>
@@ -668,9 +672,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="13-net-intro.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">IP דאטהגרם</span></a>
+  <a class="prev" href="13-net-intro.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name"><bdi dir="ltr">IP</bdi> דאטהגרם</span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
-  <a class="next" href="15-net-ip-addressing.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">כתובות IP</span></a>
+  <a class="next" href="15-net-ip-addressing.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">כתובות <bdi dir="ltr">IP</bdi></span></a>
 </nav>
 
 </main>

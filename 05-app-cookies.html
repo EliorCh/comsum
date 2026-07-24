@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,17 +414,17 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 1.4 · שכבת האפליקציה</span>
-  <h1 class="page-title">Cookies — איך HTTP "זוכר" אותך</h1>
+  <h1 class="page-title"><bdi dir="ltr">Cookies</bdi> — איך <bdi dir="ltr">HTTP</bdi> "זוכר" אותך</h1>
   <p class="page-subtitle">פרוטוקול חסר מצב + מנגנון פשוט לזהות משתמשים בין בקשות.</p>
 
   <p class="lead">
-    HTTP הוא <strong>stateless</strong> — אחרי שהבקשה מסתיימת, השרת שוכח הכל. אבל אתרים <em>חייבים</em> לזכור: התחברת? מה בעגלת הקניות? מה ההעדפות? הפתרון: <strong>Cookies</strong> — מספר זיהוי קצר ששולחים בכל בקשה.
+    <bdi dir="ltr">HTTP</bdi> הוא <strong>stateless</strong> — אחרי שהבקשה מסתיימת, השרת שוכח הכל. אבל אתרים <em>חייבים</em> לזכור: התחברת? מה בעגלת הקניות? מה ההעדפות? הפתרון: <strong>Cookies</strong> — מספר זיהוי קצר ששולחים בכל בקשה.
   </p>
 
-  <h2>הבעיה: HTTP בלי זיכרון</h2>
+  <h2>הבעיה: <bdi dir="ltr">HTTP</bdi> בלי זיכרון</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>למה Stateless זה בעיה?</div>
+    <div class="box-head"><span class="icon">📘</span>למה <bdi dir="ltr">Stateless</bdi> זה בעיה?</div>
     <div class="box-body">
       <p>כשהדפדפן שולח שתי בקשות לאותו שרת:</p>
       <pre><code>GET /home HTTP/1.1
@@ -433,13 +437,13 @@ GET /cart HTTP/1.1
     </div>
   </div>
 
-  <h2>הרעיון של Cookies</h2>
+  <h2>הרעיון של <bdi dir="ltr">Cookies</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>זיכרון מדומה</div>
     <div class="box-body">
       <p>הקוקיז <strong>מדמים זיכרון</strong>. הם מאפשרים לשרת לזכור אותך לפי בקשות קודמות, בלי לשנות את הפרוטוקול עצמו.</p>
-      <p>הקונספט: <strong>השרת נותן לך מספר זיהוי</strong> בפעם הראשונה שאתה מבקר. אתה שולח אותו חזרה בכל בקשה. השרת מקשר את המספר הזה לרשומה אצלו ב-DB.</p>
+      <p>הקונספט: <strong>השרת נותן לך מספר זיהוי</strong> בפעם הראשונה שאתה מבקר. אתה שולח אותו חזרה בכל בקשה. השרת מקשר את המספר הזה לרשומה אצלו ב-<bdi dir="ltr">DB</bdi>.</p>
     </div>
   </div>
 
@@ -450,44 +454,44 @@ GET /cart HTTP/1.1
         <line x1="600" y1="40" x2="600" y2="340" stroke="#475569" stroke-width="1"/>
 
         <rect x="60" y="20" width="120" height="22" rx="4" fill="#fef9e7" stroke="#b45309"/>
-        <text x="120" y="35" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700">דפדפן (לקוח)</text>
+        <text x="120" y="35" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700" direction="rtl">דפדפן (לקוח)</text>
 
         <rect x="540" y="20" width="120" height="22" rx="4" fill="#ecfdf5" stroke="#047857"/>
-        <text x="600" y="35" text-anchor="middle" font-size="11" fill="#047857" font-weight="700">שרת amazon</text>
+        <text x="600" y="35" text-anchor="middle" font-size="11" fill="#047857" font-weight="700" direction="rtl">שרת amazon</text>
 
         <!-- Step 1: First request -->
         <line x1="120" y1="65" x2="600" y2="80" stroke="#4f46e5" stroke-width="1.5"/>
-        <text x="360" y="60" text-anchor="middle" font-size="10" fill="#4f46e5" font-weight="700">בקשה ראשונה (אין קוקי)</text>
+        <text x="360" y="60" text-anchor="middle" font-size="10" fill="#4f46e5" font-weight="700" direction="rtl">בקשה ראשונה (אין קוקי)</text>
         <text x="360" y="75" text-anchor="middle" font-size="9" fill="#4f46e5">GET /index.html</text>
 
         <!-- Step 2: Server creates cookie & returns -->
         <line x1="600" y1="100" x2="120" y2="115" stroke="#047857" stroke-width="2"/>
-        <text x="360" y="95" text-anchor="middle" font-size="10" fill="#047857" font-weight="700">תגובה + Set-Cookie: ID=1678</text>
-        <text x="360" y="110" text-anchor="middle" font-size="9" fill="#047857">השרת יוצר את הקוקי 1678</text>
+        <text x="360" y="95" text-anchor="middle" font-size="10" fill="#047857" font-weight="700" direction="rtl">תגובה + Set-Cookie: ID=1678</text>
+        <text x="360" y="110" text-anchor="middle" font-size="9" fill="#047857" direction="rtl">השרת יוצר את הקוקי 1678</text>
 
         <!-- Cookie storage in browser -->
         <rect x="30" y="135" width="180" height="40" rx="6" fill="#f5f3ff" stroke="#6d28d9"/>
-        <text x="120" y="151" text-anchor="middle" font-size="10" fill="#6d28d9" font-weight="700">הדפדפן שומר בקובץ:</text>
+        <text x="120" y="151" text-anchor="middle" font-size="10" fill="#6d28d9" font-weight="700" direction="rtl">הדפדפן שומר בקובץ:</text>
         <text x="120" y="167" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#6d28d9">amazon.com → ID=1678</text>
 
         <!-- DB lookup at server -->
         <rect x="510" y="135" width="180" height="40" rx="6" fill="#fef9e7" stroke="#b45309"/>
-        <text x="600" y="151" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700">השרת ב-DB:</text>
+        <text x="600" y="151" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700" direction="rtl">השרת ב-DB:</text>
         <text x="600" y="167" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="#b45309">1678 → Elior, cart={book}</text>
 
         <!-- Step 3: future request -->
-        <text x="360" y="195" text-anchor="middle" font-size="11" fill="#78716c">— שבוע אח״כ —</text>
+        <text x="360" y="195" text-anchor="middle" font-size="11" fill="#78716c" direction="rtl">— שבוע אח״כ —</text>
         <line x1="120" y1="220" x2="600" y2="235" stroke="#4f46e5" stroke-width="1.5"/>
         <text x="360" y="215" text-anchor="middle" font-size="10" fill="#4f46e5" font-weight="700">GET /products</text>
         <text x="360" y="230" text-anchor="middle" font-size="9" fill="#4f46e5">Cookie: ID=1678</text>
 
         <!-- Step 4: personalized response -->
         <line x1="600" y1="255" x2="120" y2="270" stroke="#047857" stroke-width="2"/>
-        <text x="360" y="250" text-anchor="middle" font-size="10" fill="#047857" font-weight="700">תגובה מותאמת אישית</text>
-        <text x="360" y="265" text-anchor="middle" font-size="9" fill="#047857">"שלום Elior — המלצות לפי הספרים שאהבת"</text>
+        <text x="360" y="250" text-anchor="middle" font-size="10" fill="#047857" font-weight="700" direction="rtl">תגובה מותאמת אישית</text>
+        <text x="360" y="265" text-anchor="middle" font-size="9" fill="#047857" direction="rtl">"שלום Elior — המלצות לפי הספרים שאהבת"</text>
 
-        <text x="360" y="310" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700">השרת מזהה אותך לפי הקוקי</text>
-        <text x="360" y="325" text-anchor="middle" font-size="10" fill="#78716c">— בלי שתצטרך להתחבר מחדש —</text>
+        <text x="360" y="310" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700" direction="rtl">השרת מזהה אותך לפי הקוקי</text>
+        <text x="360" y="325" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">— בלי שתצטרך להתחבר מחדש —</text>
       </g>
     </svg>
     <div class="cap">4 שלבים: השרת יוצר קוקי, הדפדפן שומר, מחזיר בכל בקשה, השרת מזהה.</div>
@@ -499,15 +503,15 @@ GET /cart HTTP/1.1
     <div class="box-head"><span class="icon">📘</span>איך זה עובד בפועל</div>
     <div class="box-body">
       <ol>
-        <li><strong>השרת שולח קוקי</strong> בתגובת ה-HTTP — בכותרת <span class="term">Set-Cookie</span>.</li>
+        <li><strong>השרת שולח קוקי</strong> בתגובת ה-<bdi dir="ltr">HTTP</bdi> — בכותרת <span class="term">Set-Cookie</span>.</li>
         <li><strong>הדפדפן מאחסן</strong> את הקוקי <strong>כקובץ במחשב</strong> — בקובץ מסודר לפי דומיין.</li>
         <li><strong>בבקשה הבאה לאותו דומיין</strong>, הדפדפן שולח את הקוקי אוטומטית — בכותרת <span class="term">Cookie</span>.</li>
-        <li><strong>השרת מקשר</strong> את הקוקי לרשומה ב-DB ומחזיר תוכן מותאם.</li>
+        <li><strong>השרת מקשר</strong> את הקוקי לרשומה ב-<bdi dir="ltr">DB</bdi> ומחזיר תוכן מותאם.</li>
       </ol>
     </div>
   </div>
 
-  <h2>מבנה הקוקי בהודעות HTTP</h2>
+  <h2>מבנה הקוקי בהודעות <bdi dir="ltr">HTTP</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>השרת שולח (תגובה)</div>
@@ -543,10 +547,10 @@ Accept: text/html
       <tr><th>שימוש</th><th>איך זה עובד</th></tr>
     </thead>
     <tbody>
-      <tr><td><strong>זיהוי משתמש</strong></td><td>בכניסה ראשונה — Cookie ייחודי. ID שמקושר ל-DB.</td></tr>
-      <tr><td><strong>עגלת קניות</strong></td><td>אחרי שמוסיפים מוצר — נשמר ב-DB מאחורי ה-cookie. בכל בקשה — השרת יודע מה בעגלה.</td></tr>
-      <tr><td><strong>המלצות מותאמות</strong></td><td>מעקב אחרי מה שהמשתמש קונה ולוחץ. ב-DB מוצג היסטוריית גלישה.</td></tr>
-      <tr><td><strong>התחברות אוטומטית</strong></td><td>אחרי login — קוקי "מאומת". הפעם הבאה — לא צריך להזין שם משתמש וסיסמה.</td></tr>
+      <tr><td><strong>זיהוי משתמש</strong></td><td>בכניסה ראשונה — <bdi dir="ltr">Cookie</bdi> ייחודי. <bdi dir="ltr">ID</bdi> שמקושר ל-<bdi dir="ltr">DB</bdi>.</td></tr>
+      <tr><td><strong>עגלת קניות</strong></td><td>אחרי שמוסיפים מוצר — נשמר ב-<bdi dir="ltr">DB</bdi> מאחורי ה-<bdi dir="ltr">cookie</bdi>. בכל בקשה — השרת יודע מה בעגלה.</td></tr>
+      <tr><td><strong>המלצות מותאמות</strong></td><td>מעקב אחרי מה שהמשתמש קונה ולוחץ. ב-<bdi dir="ltr">DB</bdi> מוצג היסטוריית גלישה.</td></tr>
+      <tr><td><strong>התחברות אוטומטית</strong></td><td>אחרי <bdi dir="ltr">login</bdi> — קוקי "מאומת". הפעם הבאה — לא צריך להזין שם משתמש וסיסמה.</td></tr>
       <tr><td><strong>שמירת העדפות</strong></td><td>שפה, צבעים, גודל גופן — בקוקיז.</td></tr>
     </tbody>
   </table>
@@ -563,10 +567,10 @@ Accept: text/html
         <li>מה קנית, מה לא קנית.</li>
         <li>כמה זמן ביקרת כל פעם.</li>
       </ul>
-      <h4>קוקיז של צד שלישי (Third-Party)</h4>
-      <p>גרוע יותר: כשאתר A מטעין סקריפט מאתר B (פרסומת, אנליטיקס), אתר B מקבל גישה גם הוא — והוא רואה אותך בכל אתר שמשתמש בסקריפט שלו. ככה Facebook יודע אילו אתרים ביקרת.</p>
+      <h4>קוקיז של צד שלישי (<bdi dir="ltr">Third-Party</bdi>)</h4>
+      <p>גרוע יותר: כשאתר <bdi dir="ltr">A</bdi> מטעין סקריפט מאתר <bdi dir="ltr">B</bdi> (פרסומת, אנליטיקס), אתר <bdi dir="ltr">B</bdi> מקבל גישה גם הוא — והוא רואה אותך בכל אתר שמשתמש בסקריפט שלו. ככה <bdi dir="ltr">Facebook</bdi> יודע אילו אתרים ביקרת.</p>
       <h4>למה יש דיסקליימרים?</h4>
-      <p>חוק GDPR וחוקים אחרים מחייבים אתרים להודיע ולקבל הסכמה מהמשתמש לפני שימוש בקוקיז. לכן כל אתר היום מציג חלון הסכמה.</p>
+      <p>חוק <bdi dir="ltr">GDPR</bdi> וחוקים אחרים מחייבים אתרים להודיע ולקבל הסכמה מהמשתמש לפני שימוש בקוקיז. לכן כל אתר היום מציג חלון הסכמה.</p>
     </div>
   </div>
 
@@ -575,33 +579,33 @@ Accept: text/html
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגול · הבנת התהליך</span>
-      <p>נכנסת לאתר חדשות בפעם הראשונה. הזנת את שמך והעדפת קטגוריות חדשות. שבוע אח״כ נכנסת שוב — האתר מציג לך מבזקים בקטגוריות שבחרת. הסבר את התהליך עם 4 שלבי Cookies.</p>
+      <p>נכנסת לאתר חדשות בפעם הראשונה. הזנת את שמך והעדפת קטגוריות חדשות. שבוע אח״כ נכנסת שוב — האתר מציג לך מבזקים בקטגוריות שבחרת. הסבר את התהליך עם 4 שלבי <bdi dir="ltr">Cookies</bdi>.</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">שלב ‎1 · הביקור הראשון</div>
-        <p>שלחת GET לאתר ללא קוקי (אין אחד עדיין). השרת:</p>
+        <div class="step-label">שלב 1 · הביקור הראשון</div>
+        <p>שלחת <bdi dir="ltr">GET</bdi> לאתר ללא קוקי (אין אחד עדיין). השרת:</p>
         <ul>
           <li>קלט אותך כמשתמש חדש.</li>
-          <li>יצר ‎ID ייחודי, נניח <span class="term">USR-9482</span>.</li>
+          <li>יצר <bdi dir="ltr">ID</bdi> ייחודי, נניח <span class="term">USR-9482</span>.</li>
           <li>החזיר תגובה עם <span class="term">Set-Cookie: USR=9482</span>.</li>
         </ul>
       </div>
       <div class="step">
-        <div class="step-label">שלב ‎2 · הדפדפן שומר</div>
-        <p>הדפדפן שמר קובץ קטן: "כשפונים ל-news.com, שלח Cookie: USR=9482".</p>
+        <div class="step-label">שלב 2 · הדפדפן שומר</div>
+        <p>הדפדפן שמר קובץ קטן: "כשפונים ל-<bdi dir="ltr">news.com</bdi>, שלח <bdi dir="ltr">Cookie</bdi>: <bdi dir="ltr">USR=9482</bdi>".</p>
       </div>
       <div class="step">
-        <div class="step-label">שלב ‎3 · בחרת קטגוריות</div>
-        <p>סימנת "ספורט", "טכנולוגיה". האתר שלח את הבחירה בבקשת POST. אצל השרת ב-DB:</p>
+        <div class="step-label">שלב 3 · בחרת קטגוריות</div>
+        <p>סימנת "ספורט", "טכנולוגיה". האתר שלח את הבחירה בבקשת <bdi dir="ltr">POST</bdi>. אצל השרת ב-<bdi dir="ltr">DB</bdi>:</p>
         <pre><code>USR-9482: { name: "Elior", categories: [Sport, Tech] }</code></pre>
       </div>
       <div class="step">
-        <div class="step-label">שלב ‎4 · ביקור שני (שבוע אח״כ)</div>
-        <p>פתחת את news.com. הדפדפן שלח אוטומטית <span class="term">Cookie: USR=9482</span>. השרת חיפש ב-DB, מצא את ההעדפות, וטען לך עמוד עם מבזקי ספורט וטכנולוגיה.</p>
+        <div class="step-label">שלב 4 · ביקור שני (שבוע אח״כ)</div>
+        <p>פתחת את <bdi dir="ltr">news.com</bdi>. הדפדפן שלח אוטומטית <span class="term">Cookie: USR=9482</span>. השרת חיפש ב-<bdi dir="ltr">DB</bdi>, מצא את ההעדפות, וטען לך עמוד עם מבזקי ספורט וטכנולוגיה.</p>
       </div>
-      <div class="final-answer">המפתח: <strong>המידע (העדפות, שם) נשמר אצל השרת ב-DB, לא בקוקי</strong>. הקוקי הוא רק <strong>מזהה</strong> שמקשר אותך לרשומה.</div>
+      <div class="final-answer">המפתח: <strong>המידע (העדפות, שם) נשמר אצל השרת ב-<bdi dir="ltr">DB</bdi>, לא בקוקי</strong>. הקוקי הוא רק <strong>מזהה</strong> שמקשר אותך לרשומה.</div>
     </div>
   </div>
 
@@ -609,10 +613,10 @@ Accept: text/html
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li>HTTP הוא <strong>stateless</strong> — לא זוכר כלום בין בקשות</li>
+        <li><bdi dir="ltr">HTTP</bdi> הוא <strong>stateless</strong> — לא זוכר כלום בין בקשות</li>
         <li>Cookies <strong>מדמים זיכרון</strong> — מספר זיהוי שנשלח בכל בקשה</li>
-        <li>‎4 שלבים: שרת שולח ב-<span class="term">Set-Cookie</span> · דפדפן שומר · דפדפן שולח ב-<span class="term">Cookie</span> · שרת מזהה</li>
-        <li>הקוקי = <strong>רק מזהה</strong>. המידע האמיתי ב-DB של השרת</li>
+        <li>4 שלבים: שרת שולח ב-<span class="term">Set-Cookie</span> · דפדפן שומר · דפדפן שולח ב-<span class="term">Cookie</span> · שרת מזהה</li>
+        <li>הקוקי = <strong>רק מזהה</strong>. המידע האמיתי ב-<bdi dir="ltr">DB</bdi> של השרת</li>
         <li>שימושים: זיהוי, עגלת קניות, התחברות, המלצות, העדפות</li>
         <li>בעיה: <strong>פרטיות</strong> — אתרים עוקבים. במיוחד צד שלישי (פרסום, אנליטיקס)</li>
       </ul>

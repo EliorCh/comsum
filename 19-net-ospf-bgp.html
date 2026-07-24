@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,17 +414,17 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 3.7 · שכבת הרשת</span>
-  <h1 class="page-title">OSPF, BGP, ו-Autonomous Systems</h1>
+  <h1 class="page-title"><bdi dir="ltr">OSPF, BGP</bdi>, ו-<bdi dir="ltr">Autonomous Systems</bdi></h1>
   <p class="page-subtitle">איך מנתבים באינטרנט אמיתי בגודל מיליארדי קודקודים — היררכיה של רשתות.</p>
 
   <p class="lead">
-    באינטרנט יש מיליארדי כתובות. Distance Vector ו-Link State לא יכולים לטפל בזה. הפתרון: <strong>היררכיה</strong>. מחלקים את הרשת ל-<strong>Autonomous Systems (AS)</strong> — כל אחד עם הניתוב הפנימי שלו. בין AS-ים יש פרוטוקול נפרד שמתחשב במדיניות, לא רק במרחק.
+    באינטרנט יש מיליארדי כתובות. <bdi dir="ltr">Distance Vector</bdi> ו-<bdi dir="ltr">Link State</bdi> לא יכולים לטפל בזה. הפתרון: <strong>היררכיה</strong>. מחלקים את הרשת ל-<strong>Autonomous Systems (AS)</strong> — כל אחד עם הניתוב הפנימי שלו. בין <bdi dir="ltr">AS</bdi>-ים יש פרוטוקול נפרד שמתחשב במדיניות, לא רק במרחק.
   </p>
 
   <h2>הבעיה: סקייל</h2>
 
   <div class="box warn">
-    <div class="box-head"><span class="icon">⚠</span>למה DV ו-LS לא מספיקים</div>
+    <div class="box-head"><span class="icon">⚠</span>למה <bdi dir="ltr">DV</bdi> ו-<bdi dir="ltr">LS</bdi> לא מספיקים</div>
     <div class="box-body">
       <ul>
         <li><strong>DV:</strong> אם הוקטור צריך להחזיק מרחק לכל יעד בעולם — הוא ענק. אי אפשר לשלוח כזה לשכנים.</li>
@@ -434,14 +438,14 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <h2>Autonomous System (AS)</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>מה זה AS</div>
+    <div class="box-head"><span class="icon">📘</span>מה זה <bdi dir="ltr">AS</bdi></div>
     <div class="box-body">
       <p><strong>Autonomous System</strong> = אוסף ראוטרים שמנוהלים ע״י <strong>גורם אחד</strong> (ארגון, ספקית אינטרנט, אוניברסיטה).</p>
-      <p>בתוך AS — כולם "מדברים אותה שפה". אותו פרוטוקול ניתוב. אותו ניהול.</p>
+      <p>בתוך <bdi dir="ltr">AS</bdi> — כולם "מדברים אותה שפה". אותו פרוטוקול ניתוב. אותו ניהול.</p>
       <h4>שני סוגי ניתוב</h4>
       <ul>
-        <li><strong>Intra-AS (בתוך AS):</strong> פרוטוקולים כמו OSPF.</li>
-        <li><strong>Inter-AS (בין AS-ים):</strong> פרוטוקול אחד — BGP.</li>
+        <li><strong><bdi dir="ltr">Intra-AS</bdi> (בתוך <bdi dir="ltr">AS</bdi>):</strong> פרוטוקולים כמו <bdi dir="ltr">OSPF</bdi>.</li>
+        <li><strong><bdi dir="ltr">Inter-AS</bdi> (בין <bdi dir="ltr">AS</bdi>-ים):</strong> פרוטוקול אחד — <bdi dir="ltr">BGP</bdi>.</li>
       </ul>
     </div>
   </div>
@@ -460,7 +464,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <circle cx="220" cy="150" r="14" fill="#fff" stroke="#6d28d9"/>
         <text x="220" y="154" text-anchor="middle" font-size="9" fill="#6d28d9">R3</text>
 
-        <text x="160" y="200" text-anchor="middle" font-size="10" fill="#6d28d9" font-style="italic">בפנים: OSPF</text>
+        <text x="160" y="200" text-anchor="middle" font-size="10" fill="#6d28d9" font-style="italic" direction="rtl">בפנים: OSPF</text>
 
         <!-- AS 2 -->
         <ellipse cx="540" cy="120" rx="100" ry="70" fill="#ecfdf5" stroke="#047857" stroke-width="2" stroke-dasharray="6,4"/>
@@ -473,7 +477,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <circle cx="600" cy="150" r="14" fill="#fff" stroke="#047857"/>
         <text x="600" y="154" text-anchor="middle" font-size="9" fill="#047857">R6</text>
 
-        <text x="540" y="200" text-anchor="middle" font-size="10" fill="#047857" font-style="italic">בפנים: OSPF</text>
+        <text x="540" y="200" text-anchor="middle" font-size="10" fill="#047857" font-style="italic" direction="rtl">בפנים: OSPF</text>
 
         <!-- Border routers and BGP -->
         <circle cx="260" cy="140" r="16" fill="#fef9e7" stroke="#b45309" stroke-width="2"/>
@@ -484,58 +488,58 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
         <line x1="276" y1="140" x2="424" y2="140" stroke="#b45309" stroke-width="3"/>
         <text x="350" y="130" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700">BGP</text>
-        <text x="350" y="160" text-anchor="middle" font-size="9" fill="#b45309">(בין AS-ים)</text>
+        <text x="350" y="160" text-anchor="middle" font-size="9" fill="#b45309" direction="rtl">(בין AS-ים)</text>
 
-        <text x="360" y="245" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700">Border Routers מחברים בין AS-ים</text>
-        <text x="360" y="265" text-anchor="middle" font-size="10" fill="#78716c">בתוך AS — Intra-AS routing (OSPF) · בין AS-ים — Inter-AS routing (BGP)</text>
+        <text x="360" y="245" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700" direction="rtl">Border Routers מחברים בין AS-ים</text>
+        <text x="360" y="265" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">בתוך AS — Intra-AS routing (OSPF) · בין AS-ים — Inter-AS routing (BGP)</text>
       </g>
     </svg>
-    <div class="cap">‎2 AS-ים מחוברים ע״י Border Routers. בפנים — OSPF. בין AS-ים — BGP.</div>
+    <div class="cap"><bdi dir="ltr">2 AS</bdi>-ים מחוברים ע״י <bdi dir="ltr">Border Routers</bdi>. בפנים — <bdi dir="ltr">OSPF</bdi>. בין <bdi dir="ltr">AS</bdi>-ים — <bdi dir="ltr">BGP</bdi>.</div>
   </div>
 
   <h2>OSPF — Open Shortest Path First</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>‎פרוטוקול Intra-AS הסטנדרטי</div>
+    <div class="box-head"><span class="icon">📘</span>פרוטוקול <bdi dir="ltr">Intra-AS</bdi> הסטנדרטי</div>
     <div class="box-body">
-      <p>OSPF הוא היורש של RIP. הוא <strong>Link State:</strong></p>
+      <p><bdi dir="ltr">OSPF</bdi> הוא היורש של <bdi dir="ltr">RIP</bdi>. הוא <strong>Link State:</strong></p>
       <ol>
-        <li>כל ראוטר ב-AS שולח <strong>flood</strong> של "מי השכנים שלי" לכל ה-AS.</li>
-        <li>כל ראוטר בונה גרף שלם של ה-AS.</li>
+        <li>כל ראוטר ב-<bdi dir="ltr">AS</bdi> שולח <strong>flood</strong> של "מי השכנים שלי" לכל ה-<bdi dir="ltr">AS</bdi>.</li>
+        <li>כל ראוטר בונה גרף שלם של ה-<bdi dir="ltr">AS</bdi>.</li>
         <li>כל ראוטר מריץ <strong>Dijkstra</strong> מעצמו ובונה את טבלת הניתוב.</li>
       </ol>
-      <h4>יתרונות על RIP</h4>
+      <h4>יתרונות על <bdi dir="ltr">RIP</bdi></h4>
       <ul>
         <li>אין ספירה-לאינסוף.</li>
         <li><strong>אבטחה</strong> — הודעות חתומות.</li>
-        <li>תומך ב<strong>היררכיה</strong> בתוך AS (אזורים).</li>
+        <li>תומך ב<strong>היררכיה</strong> בתוך <bdi dir="ltr">AS</bdi> (אזורים).</li>
       </ul>
     </div>
   </div>
 
-  <h2>היררכיה בתוך OSPF — Areas</h2>
+  <h2>היררכיה בתוך <bdi dir="ltr">OSPF</bdi> — <bdi dir="ltr">Areas</bdi></h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>כשגם AS גדול מדי</div>
+    <div class="box-head"><span class="icon">📘</span>כשגם <bdi dir="ltr">AS</bdi> גדול מדי</div>
     <div class="box-body">
-      <p>‎ספקית גדולה (Verizon, AT&T) יכולה להיות עם עשרות אלפי ראוטרים ב-AS אחד. גם זה יותר מדי לטופולוגיה אחת.</p>
-      <p>הפתרון: לחלק את ה-AS ל-<strong>Areas (אזורים)</strong>. בתוך Area — Link State. בין Areas — דרך <strong>Backbone</strong>.</p>
+      <p>ספקית גדולה (<bdi dir="ltr">Verizon, AT&T</bdi>) יכולה להיות עם עשרות אלפי ראוטרים ב-<bdi dir="ltr">AS</bdi> אחד. גם זה יותר מדי לטופולוגיה אחת.</p>
+      <p>הפתרון: לחלק את ה-<bdi dir="ltr">AS</bdi> ל-<strong><bdi dir="ltr">Areas</bdi> (אזורים)</strong>. בתוך <bdi dir="ltr">Area</bdi> — <bdi dir="ltr">Link State</bdi>. בין <bdi dir="ltr">Areas</bdi> — דרך <strong>Backbone</strong>.</p>
     </div>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>Backbone ו-Boundary Routers</div>
+    <div class="box-head"><span class="icon">📘</span><bdi dir="ltr">Backbone</bdi> ו-<bdi dir="ltr">Boundary Routers</bdi></div>
     <div class="box-body">
       <ul>
-        <li><strong>Backbone</strong> = Area מיוחד שמחבר את כל ה-Areas. כל Area "רגיל" מחובר אליו דרך נציג.</li>
-        <li><strong>Boundary Router (BR)</strong> = הראוטר הנציג, שייך גם ל-Area שלו וגם ל-Backbone.</li>
+        <li><strong>Backbone</strong> = <bdi dir="ltr">Area</bdi> מיוחד שמחבר את כל ה-<bdi dir="ltr">Areas</bdi>. כל <bdi dir="ltr">Area</bdi> "רגיל" מחובר אליו דרך נציג.</li>
+        <li><strong>Boundary Router (BR)</strong> = הראוטר הנציג, שייך גם ל-<bdi dir="ltr">Area</bdi> שלו וגם ל-<bdi dir="ltr">Backbone</bdi>.</li>
       </ul>
       <h4>איך זה עובד</h4>
-      <p>ראוטר ב-Area A רוצה לשלוח ל-Area B:</p>
+      <p>ראוטר ב-<bdi dir="ltr">Area A</bdi> רוצה לשלוח ל-<bdi dir="ltr">Area B</bdi>:</p>
       <ol>
-        <li>שולח ל-BR של Area A.</li>
-        <li>BR של A שולח דרך Backbone ל-BR של B.</li>
-        <li>BR של B שולח לראוטר היעד ב-Area B.</li>
+        <li>שולח ל-<bdi dir="ltr">BR</bdi> של <bdi dir="ltr">Area A</bdi>.</li>
+        <li><bdi dir="ltr">BR</bdi> של <bdi dir="ltr">A</bdi> שולח דרך <bdi dir="ltr">Backbone</bdi> ל-<bdi dir="ltr">BR</bdi> של <bdi dir="ltr">B</bdi>.</li>
+        <li><bdi dir="ltr">BR</bdi> של <bdi dir="ltr">B</bdi> שולח לראוטר היעד ב-<bdi dir="ltr">Area B</bdi>.</li>
       </ol>
     </div>
   </div>
@@ -545,11 +549,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הרעיון</div>
     <div class="box-body">
-      <p>BGP הוא <strong>הפרוטוקול לניתוב בין AS-ים</strong>. במצגות הקורס הוא הוצג כ-<strong>"מסלול קצר ביותר, תחת אילוצים"</strong>.</p>
+      <p><bdi dir="ltr">BGP</bdi> הוא <strong>הפרוטוקול לניתוב בין <bdi dir="ltr">AS</bdi>-ים</strong>. במצגות הקורס הוא הוצג כ-<strong>"מסלול קצר ביותר, תחת אילוצים"</strong>.</p>
       <h4>למה צריך פרוטוקול נפרד</h4>
       <ul>
         <li><strong>פוליטיקה > עלות:</strong> ספקיות לפעמים <strong>לא רוצות</strong> שתעבורה תעבור דרכן בגלל עלויות, מדיניות.</li>
-        <li><strong>סקייל:</strong> אי אפשר להריץ Dijkstra על כל האינטרנט.</li>
+        <li><strong>סקייל:</strong> אי אפשר להריץ <bdi dir="ltr">Dijkstra</bdi> על כל האינטרנט.</li>
       </ul>
     </div>
   </div>
@@ -557,7 +561,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box example">
     <div class="box-head"><span class="icon">💡</span>דוגמה מהמצגת — שיקול מדיניות</div>
     <div class="box-body">
-      <p>נניח שיש ‎3 ספקיות: <strong>בזק</strong>, <strong>סלקום</strong>, ו-<strong>פרטנר</strong>.</p>
+      <p>נניח שיש 3 ספקיות: <strong>בזק</strong>, <strong>סלקום</strong>, ו-<strong>פרטנר</strong>.</p>
       <p>כל ההודעות מבזק לפרטנר עוברות דרך סלקום — זה המסלול הקצר ביותר.</p>
       <p>אבל פתאום סלקום מבקשת המון כסף על העברה.</p>
       <p>השיקול של "מסלול קצר ביותר" לא מספיק לבדו — נוסף שיקול של <strong>עלויות</strong>.</p>
@@ -568,28 +572,28 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   </div>
 
   <details class="enrichment">
-    <summary>פירוט טכני של BGP — Path Vector ומסרים (העשרה)</summary>
+    <summary>פירוט טכני של <bdi dir="ltr">BGP</bdi> — <bdi dir="ltr">Path Vector</bdi> ומסרים (העשרה)</summary>
     <div class="enrichment-body">
-      <p class="enrichment-note">המצגת הציגה רק את הקונספט הכללי של BGP. ‎הפרטים הטכניים למטה הם רקע נוסף.</p>
+      <p class="enrichment-note">המצגת הציגה רק את הקונספט הכללי של <bdi dir="ltr">BGP</bdi>. הפרטים הטכניים למטה הם רקע נוסף.</p>
 
-      <h3>איך BGP עובד</h3>
+      <h3>איך <bdi dir="ltr">BGP</bdi> עובד</h3>
       <div class="box theory">
         <div class="box-body">
-          <p>BGP הוא מבוסס <strong>Path Vector</strong> — לא רק וקטור עלות, אלא <strong>רצף ה-AS-ים</strong> שצריך לעבור.</p>
-          <p>AS שולח ל-AS-ים שכנים <strong>"אני יכול להגיע ל-X דרך ‎AS-PATH = [me, AS5, AS7]"</strong>.</p>
+          <p><bdi dir="ltr">BGP</bdi> הוא מבוסס <strong>Path Vector</strong> — לא רק וקטור עלות, אלא <strong>רצף ה-<bdi dir="ltr">AS</bdi>-ים</strong> שצריך לעבור.</p>
+          <p><bdi dir="ltr">AS</bdi> שולח ל-<bdi dir="ltr">AS</bdi>-ים שכנים <strong>"אני יכול להגיע ל-<bdi dir="ltr">X</bdi> דרך <bdi dir="ltr">AS-PATH</bdi> = [<bdi dir="ltr">me, AS5, AS7</bdi>]"</strong>.</p>
           <p>השכן מקבל ויש לו אפשרות:</p>
           <ol>
-            <li><strong>לקבל את המסלול</strong> ולפרסם הלאה (עם עצמו ב-PATH).</li>
+            <li><strong>לקבל את המסלול</strong> ולפרסם הלאה (עם עצמו ב-<bdi dir="ltr">PATH</bdi>).</li>
             <li><strong>לדחות</strong> את המסלול (מסיבות מדיניות).</li>
             <li><strong>להחליף</strong> במסלול חליפי.</li>
           </ol>
-          <p>תהליך זה לא רץ אוטומטית — מנהלי הרשתות מגדירים <strong>פוליסות (policies)</strong>.</p>
+          <p>תהליך זה לא רץ אוטומטית — מנהלי הרשתות מגדירים <strong>פוליסות (<bdi dir="ltr">policies</bdi>)</strong>.</p>
         </div>
       </div>
     </div>
   </details>
 
-  <h2>השוואה בין Intra-AS ו-Inter-AS</h2>
+  <h2>השוואה בין <bdi dir="ltr">Intra-AS</bdi> ו-<bdi dir="ltr">Inter-AS</bdi></h2>
 
   <table>
     <thead>
@@ -600,7 +604,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <tr><td>מטרה עיקרית</td><td>מסלול קצר ביותר (ביצועים)</td><td>מדיניות, עלויות, אבטחה</td></tr>
       <tr><td>שיתוף מידע</td><td>פתוח — כולם רואים את הכל</td><td>מוגבל — מסתירים מה שצריך</td></tr>
       <tr><td>אלגוריתם</td><td>Dijkstra (LS)</td><td>Path Vector</td></tr>
-      <tr><td>גודל</td><td>אלפים עד עשרות אלפי ראוטרים</td><td>~75,000 AS-ים בעולם</td></tr>
+      <tr><td>גודל</td><td>אלפים עד עשרות אלפי ראוטרים</td><td>~<bdi dir="ltr">75,000 AS</bdi>-ים בעולם</td></tr>
     </tbody>
   </table>
 
@@ -609,43 +613,43 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגול · הבנת ההיררכיה</span>
-      <p>מחשב באוניברסיטת תל אביב שולח הודעה למחשב באוניברסיטת ‎Stanford. תאר את <strong>3 שלבי הניתוב</strong> שההודעה תעבור.</p>
+      <p>מחשב באוניברסיטת תל אביב שולח הודעה למחשב באוניברסיטת <bdi dir="ltr">Stanford</bdi>. תאר את <strong>3 שלבי הניתוב</strong> שההודעה תעבור.</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">שלב 1 · Intra-AS ב-TAU</div>
-        <p>ההודעה מגיעה לראוטר ב-TAU. הראוטר יודע ש-Stanford לא ברשת המקומית. <strong>OSPF</strong> ינתב אותו ל-<strong>Boundary Router</strong> של ה-AS של TAU.</p>
+        <div class="step-label">שלב <bdi dir="ltr">1 · Intra-AS</bdi> ב-<bdi dir="ltr">TAU</bdi></div>
+        <p>ההודעה מגיעה לראוטר ב-<bdi dir="ltr">TAU</bdi>. הראוטר יודע ש-<bdi dir="ltr">Stanford</bdi> לא ברשת המקומית. <strong>OSPF</strong> ינתב אותו ל-<strong>Boundary Router</strong> של ה-<bdi dir="ltr">AS</bdi> של <bdi dir="ltr">TAU</bdi>.</p>
       </div>
       <div class="step">
-        <div class="step-label">שלב 2 · Inter-AS</div>
-        <p>ה-BR של TAU שולח דרך ‎<strong>BGP</strong>. ההודעה תעבור דרך כמה AS-ים <span class="term">(Bezeq → ספקית בינלאומית → ספקית בארה״ב → Stanford ISP)</span> על פי PATH שנקבע בבירור הפוליסות.</p>
+        <div class="step-label">שלב <bdi dir="ltr">2 · Inter-AS</bdi></div>
+        <p>ה-<bdi dir="ltr">BR</bdi> של <bdi dir="ltr">TAU</bdi> שולח דרך <strong>BGP</strong>. ההודעה תעבור דרך כמה <bdi dir="ltr">AS</bdi>-ים <span class="term">(Bezeq → ספקית בינלאומית → ספקית בארה״ב → Stanford ISP)</span> על פי <bdi dir="ltr">PATH</bdi> שנקבע בבירור הפוליסות.</p>
       </div>
       <div class="step">
-        <div class="step-label">שלב 3 · Intra-AS ב-Stanford</div>
-        <p>ההודעה מגיעה ל-BR של ה-AS של Stanford. אצלם — <strong>OSPF</strong> שלהם ינתב למחשב הספציפי בקמפוס.</p>
+        <div class="step-label">שלב <bdi dir="ltr">3 · Intra-AS</bdi> ב-<bdi dir="ltr">Stanford</bdi></div>
+        <p>ההודעה מגיעה ל-<bdi dir="ltr">BR</bdi> של ה-<bdi dir="ltr">AS</bdi> של <bdi dir="ltr">Stanford</bdi>. אצלם — <strong>OSPF</strong> שלהם ינתב למחשב הספציפי בקמפוס.</p>
       </div>
-      <div class="final-answer">‎3 שלבים: <strong><span class="term">OSPF (TAU) → BGP → OSPF (Stanford)</span></strong>. ההודעה עוברת בערך מ-‎10 ל-‎20 AS-ים בדרך.</div>
+      <div class="final-answer">3 שלבים: <strong><span class="term">OSPF (TAU) → BGP → OSPF (Stanford)</span></strong>. ההודעה עוברת בערך מ-10 ל-<bdi dir="ltr">20 AS</bdi>-ים בדרך.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · OSPF vs RIP</span>
-      <p>מנו ‎3 יתרונות של OSPF על RIP.</p>
+      <span class="exercise-tag">תרגול · <bdi dir="ltr">OSPF vs RIP</bdi></span>
+      <p>מנו 3 יתרונות של <bdi dir="ltr">OSPF</bdi> על <bdi dir="ltr">RIP</bdi>.</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">3 יתרונות עיקריים</div>
         <ol>
-          <li><strong>אין ספירה-לאינסוף:</strong> OSPF מבוסס Link State + Dijkstra. אין לולאת מידע. שינויים מתפשטים מהר.</li>
-          <li><strong>אבטחה:</strong> הודעות OSPF חתומות. ב-RIP אין הגנה מפני ספופינג.</li>
-          <li><strong>היררכיה:</strong> OSPF תומך ב-Areas, מאפשר רשתות גדולות. ב-RIP — מקסימום ‎15 hops, לא מתאים לרשתות גדולות.</li>
+          <li><strong>אין ספירה-לאינסוף:</strong> <bdi dir="ltr">OSPF</bdi> מבוסס <bdi dir="ltr">Link State + Dijkstra</bdi>. אין לולאת מידע. שינויים מתפשטים מהר.</li>
+          <li><strong>אבטחה:</strong> הודעות <bdi dir="ltr">OSPF</bdi> חתומות. ב-<bdi dir="ltr">RIP</bdi> אין הגנה מפני ספופינג.</li>
+          <li><strong>היררכיה:</strong> <bdi dir="ltr">OSPF</bdi> תומך ב-<bdi dir="ltr">Areas</bdi>, מאפשר רשתות גדולות. ב-<bdi dir="ltr">RIP</bdi> — מקסימום <bdi dir="ltr">15 hops</bdi>, לא מתאים לרשתות גדולות.</li>
         </ol>
-        <p>יתרונות נוספים: תמיכה ב-IPv6, ‎load balancing על מסלולים מקבילים, התקנה בארגונים מקצועיים.</p>
+        <p>יתרונות נוספים: תמיכה ב-<bdi dir="ltr">IPv6, load balancing</bdi> על מסלולים מקבילים, התקנה בארגונים מקצועיים.</p>
       </div>
-      <div class="final-answer">‎3 יתרונות עיקריים: <strong>אין ספירה-לאינסוף, אבטחה, היררכיה</strong>.</div>
+      <div class="final-answer">3 יתרונות עיקריים: <strong>אין ספירה-לאינסוף, אבטחה, היררכיה</strong>.</div>
     </div>
   </div>
 
@@ -654,12 +658,12 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <ul>
         <li><strong>Autonomous System (AS)</strong> = רשת בניהול גורם אחד</li>
-        <li>‎2 רמות ניתוב: <strong>Intra-AS</strong> (בתוך AS) ו-<strong>Inter-AS</strong> (בין AS-ים)</li>
-        <li><strong>OSPF:</strong> ‎Intra-AS standard. Link State + Dijkstra. ‎תומך ב-Areas</li>
-        <li><strong>Backbone:</strong> ‎Area מיוחד שמחבר את כל ה-Areas האחרים</li>
-        <li><strong>Boundary Routers:</strong> ‎ראוטרים שמחברים בין AS-ים או בין Areas</li>
-        <li><strong>BGP:</strong> ‎Inter-AS exclusive. Path Vector. ‎מותאם למדיניות, לא רק מרחק</li>
-        <li>BGP מתחשב ב<strong>פוליטיקה, עלויות, אבטחה</strong> — לא רק קצרות</li>
+        <li>2 רמות ניתוב: <strong>Intra-AS</strong> (בתוך <bdi dir="ltr">AS</bdi>) ו-<strong>Inter-AS</strong> (בין <bdi dir="ltr">AS</bdi>-ים)</li>
+        <li><strong>OSPF:</strong> <bdi dir="ltr">Intra-AS standard. Link State + Dijkstra</bdi>. תומך ב-<bdi dir="ltr">Areas</bdi></li>
+        <li><strong>Backbone:</strong> <bdi dir="ltr">Area</bdi> מיוחד שמחבר את כל ה-<bdi dir="ltr">Areas</bdi> האחרים</li>
+        <li><strong>Boundary Routers:</strong> ראוטרים שמחברים בין <bdi dir="ltr">AS</bdi>-ים או בין <bdi dir="ltr">Areas</bdi></li>
+        <li><strong>BGP:</strong> <bdi dir="ltr">Inter-AS exclusive. Path Vector</bdi>. מותאם למדיניות, לא רק מרחק</li>
+        <li><bdi dir="ltr">BGP</bdi> מתחשב ב<strong>פוליטיקה, עלויות, אבטחה</strong> — לא רק קצרות</li>
       </ul>
     </div>
   </div>
@@ -668,7 +672,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="18-net-routing.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">ראוטינג — DV, LS</span></a>
+  <a class="prev" href="18-net-routing.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">ראוטינג — <bdi dir="ltr">DV, LS</bdi></span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
   <a class="next" href="sum-net.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">סיכום — שכבת הרשת</span></a>
 </nav>

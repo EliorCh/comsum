@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,38 +414,38 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 3.3 · שכבת הרשת</span>
-  <h1 class="page-title">כתובות IP, Subnets ו-CIDR</h1>
-  <p class="page-subtitle">‎32 ביטים בארבע מנות. איך מקבצים אותן לרשתות יעילות.</p>
+  <h1 class="page-title">כתובות <bdi dir="ltr">IP, Subnets</bdi> ו-<bdi dir="ltr">CIDR</bdi></h1>
+  <p class="page-subtitle">32 ביטים בארבע מנות. איך מקבצים אותן לרשתות יעילות.</p>
 
   <p class="lead">
-    כתובת IP היא <strong>32 ביטים</strong> שמשויכים לכרטיס רשת — לא למחשב. כדי שטבלאות הניתוב לא יהיו ענקיות, מקבצים כתובות ב<strong>סאבנט</strong> — בלוק כתובות עם prefix משותף. <strong>CIDR</strong> מאפשר גמישות בגודל הסאבנט.
+    כתובת <bdi dir="ltr">IP</bdi> היא <strong>32 ביטים</strong> שמשויכים לכרטיס רשת — לא למחשב. כדי שטבלאות הניתוב לא יהיו ענקיות, מקבצים כתובות ב<strong>סאבנט</strong> — בלוק כתובות עם <bdi dir="ltr">prefix</bdi> משותף. <strong>CIDR</strong> מאפשר גמישות בגודל הסאבנט.
   </p>
 
-  <h2>מהי כתובת IP?</h2>
+  <h2>מהי כתובת <bdi dir="ltr">IP</bdi>?</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הגדרה בסיסית</div>
     <div class="box-body">
       <ul>
-        <li><strong>32 ביטים</strong> (ב-IPv4), מחולקים ל-4 שמיניות.</li>
+        <li><strong>32 ביטים</strong> (ב-<bdi dir="ltr">IPv4</bdi>), מחולקים ל-4 שמיניות.</li>
         <li>נכתב בכתיב דצימלי: <span class="term purple">200.23.17.181</span> — כל מספר בין 0-255.</li>
-        <li>כל <strong>כרטיס רשת (interface)</strong> מקבל IP. לא מחשב!</li>
-        <li>למחשב רגיל יש בדרך כלל כרטיס רשת אחד ← IP אחד.</li>
-        <li><strong>לראוטר יש כמה כרטיסי רשת</strong>, ולכן כמה כתובות IP — אחת לכל "רגל".</li>
+        <li>כל <strong>כרטיס רשת (<bdi dir="ltr">interface</bdi>)</strong> מקבל <bdi dir="ltr">IP</bdi>. לא מחשב!</li>
+        <li>למחשב רגיל יש בדרך כלל כרטיס רשת אחד ← <bdi dir="ltr">IP</bdi> אחד.</li>
+        <li><strong>לראוטר יש כמה כרטיסי רשת</strong>, ולכן כמה כתובות <bdi dir="ltr">IP</bdi> — אחת לכל "רגל".</li>
       </ul>
     </div>
   </div>
 
-  <h2>Subnet — אוסף כתובות שיכולות לתקשר בלי ראוטר</h2>
+  <h2><bdi dir="ltr">Subnet</bdi> — אוסף כתובות שיכולות לתקשר בלי ראוטר</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הגדרה</div>
     <div class="box-body">
       <p><strong>Subnet:</strong> אוסף כל המחשבים שיכולים <strong>לשלוח הודעה אחד לשני בלי לעבור בראוטר</strong>. גם נקרא <span class="term purple">LAN</span>.</p>
       <h4>מאפיין מרכזי</h4>
-      <p>כל הכתובות באותו subnet שותפות ב<strong>prefix</strong> — תחילית משותפת של ביטים. ההבדל ביניהן רק ב-suffix.</p>
+      <p>כל הכתובות באותו <bdi dir="ltr">subnet</bdi> שותפות ב<strong>prefix</strong> — תחילית משותפת של ביטים. ההבדל ביניהן רק ב-<bdi dir="ltr">suffix</bdi>.</p>
       <h4>למה זה חשוב?</h4>
-      <p>לראוטר, <strong>כל הכתובות באותו subnet מתנהגות אותו דבר</strong> — כולן יוצאות מאותה רגל. אז אפשר לקבץ אותן בשורה אחת בטבלה.</p>
+      <p>לראוטר, <strong>כל הכתובות באותו <bdi dir="ltr">subnet</bdi> מתנהגות אותו דבר</strong> — כולן יוצאות מאותה רגל. אז אפשר לקבץ אותן בשורה אחת בטבלה.</p>
     </div>
   </div>
 
@@ -484,25 +488,25 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="400" y1="120" x2="440" y2="120" stroke="#475569" stroke-width="2"/>
       </g>
     </svg>
-    <div class="cap">‎2 subnets, כל אחד עם prefix משלו. הראוטר מחבר ביניהם — בלעדיו, רק תקשורת בתוך subnet.</div>
+    <div class="cap"><bdi dir="ltr">2 subnets</bdi>, כל אחד עם <bdi dir="ltr">prefix</bdi> משלו. הראוטר מחבר ביניהם — בלעדיו, רק תקשורת בתוך <bdi dir="ltr">subnet</bdi>.</div>
   </div>
 
-  <h2>חלוקה לפי Classes (היסטורי)</h2>
+  <h2>חלוקה לפי <bdi dir="ltr">Classes</bdi> (היסטורי)</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>הקלאסים A, B, C</div>
+    <div class="box-head"><span class="icon">📘</span>הקלאסים <bdi dir="ltr">A, B, C</bdi></div>
     <div class="box-body">
       <p>בעבר חילקו את 32 הביטים בצורות קבועות:</p>
       <table>
-        <thead><tr><th>קלאס</th><th>ביטים ל-Subnet</th><th>ביטים ל-Host</th><th>מספר Subnets</th><th>Hosts בכל Subnet</th></tr></thead>
+        <thead><tr><th>קלאס</th><th>ביטים ל-<bdi dir="ltr">Subnet</bdi></th><th>ביטים ל-<bdi dir="ltr">Host</bdi></th><th>מספר <bdi dir="ltr">Subnets</bdi></th><th><bdi dir="ltr">Hosts</bdi> בכל <bdi dir="ltr">Subnet</bdi></th></tr></thead>
         <tbody>
-          <tr><td><strong>A</strong></td><td>8</td><td>24</td><td>~128</td><td>‎2²⁴ ≈ 16M</td></tr>
-          <tr><td><strong>B</strong></td><td>16</td><td>16</td><td>‎~64K</td><td>‎2¹⁶ ≈ 65,536</td></tr>
+          <tr><td><strong>A</strong></td><td>8</td><td>24</td><td>~128</td><td>2²⁴ ≈ 16M</td></tr>
+          <tr><td><strong>B</strong></td><td>16</td><td>16</td><td>~64K</td><td>2¹⁶ ≈ 65,536</td></tr>
           <tr><td><strong>C</strong></td><td>24</td><td>8</td><td>~2M</td><td>254</td></tr>
         </tbody>
       </table>
       <h4>הבעיה</h4>
-      <p>חברה עם 200 עובדים — קלאס C קטן מדי (רק 254 כתובות), קלאס B גדול בהרבה מדי (65K). יקנו B ← ‎65,000 כתובות בזבוז.</p>
+      <p>חברה עם 200 עובדים — קלאס <bdi dir="ltr">C</bdi> קטן מדי (רק 254 כתובות), קלאס <bdi dir="ltr">B</bdi> גדול בהרבה מדי (<bdi dir="ltr">65K</bdi>). יקנו <bdi dir="ltr">B</bdi> ← 65,000 כתובות בזבוז.</p>
       <p><strong>הפתרון:</strong> CIDR.</p>
     </div>
   </div>
@@ -514,34 +518,34 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <p>במקום שגודל הסאבנט יהיה רק 8, 16, או 24 ביטים — <strong>אפשר כל אורך</strong>.</p>
       <h4>צורת כתיבה</h4>
-      <p><span class="term purple">a.b.c.d / x</span> — כאשר <span class="term purple">x</span> הוא מספר הביטים שמוקדשים ל-Subnet (גם נקרא <strong>Subnet Mask</strong>).</p>
-      <p>דוגמה: <span class="term purple">200.23.16.0 / 23</span> — 23 ביטים ל-Subnet, 9 ביטים ל-Host ← <span class="term">2⁹ = 512</span> כתובות בסאבנט.</p>
+      <p><span class="term purple">a.b.c.d / x</span> — כאשר <span class="term purple">x</span> הוא מספר הביטים שמוקדשים ל-<bdi dir="ltr">Subnet</bdi> (גם נקרא <strong>Subnet Mask</strong>).</p>
+      <p>דוגמה: <span class="term purple">200.23.16.0 / 23</span> — 23 ביטים ל-<bdi dir="ltr">Subnet, 9</bdi> ביטים ל-<bdi dir="ltr">Host</bdi> ← <span class="term">2⁹ = 512</span> כתובות בסאבנט.</p>
     </div>
   </div>
 
   <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>חישוב Subnet Mask</div>
+    <div class="box-head"><span class="icon">📐</span>חישוב <bdi dir="ltr">Subnet Mask</bdi></div>
     <div class="box-body">
-      <p>Subnet mask הוא רצף של ‎x ביטים של 1, ואחר כך אפסים. דוגמה ל-x=24:</p>
+      <p><bdi dir="ltr">Subnet mask</bdi> הוא רצף של <bdi dir="ltr">x</bdi> ביטים של 1, ואחר כך אפסים. דוגמה ל-<bdi dir="ltr">x=24</bdi>:</p>
       <p><span class="term">11111111 . 11111111 . 11111111 . 00000000</span></p>
       <p>= <span class="term">255.255.255.0</span> בעשרוני.</p>
-      <h4>למה זה נקרא "Mask"?</h4>
-      <p>הראוטר עושה <strong>AND לוגי</strong> בין ה-IP לבין ה-Mask כדי לחלץ את חלק ה-Subnet:</p>
+      <h4>למה זה נקרא "<bdi dir="ltr">Mask</bdi>"?</h4>
+      <p>הראוטר עושה <strong><bdi dir="ltr">AND</bdi> לוגי</strong> בין ה-<bdi dir="ltr">IP</bdi> לבין ה-<bdi dir="ltr">Mask</bdi> כדי לחלץ את חלק ה-<bdi dir="ltr">Subnet</bdi>:</p>
       $$\text{Subnet} = \text{IP} \text{ AND } \text{Mask}$$
-      <p>הביטים שבמקום שב-Mask יש 1 — נשמרים. הביטים שבמקום שב-Mask יש 0 — מתאפסים.</p>
+      <p>הביטים שבמקום שב-<bdi dir="ltr">Mask</bdi> יש 1 — נשמרים. הביטים שבמקום שב-<bdi dir="ltr">Mask</bdi> יש 0 — מתאפסים.</p>
     </div>
   </div>
 
   <div class="box example">
-    <div class="box-head"><span class="icon">💡</span>דוגמה — חילוץ Subnet</div>
+    <div class="box-head"><span class="icon">💡</span>דוגמה — חילוץ <bdi dir="ltr">Subnet</bdi></div>
     <div class="box-body">
-      <p>נתון: IP = <span class="term">200.23.17.181</span>, Mask = <span class="term">/23</span> (= <span class="term">255.255.254.0</span>).</p>
+      <p>נתון: <bdi dir="ltr">IP</bdi> = <span class="term">200.23.17.181</span>, Mask = <span class="term">/23</span> (= <span class="term">255.255.254.0</span>).</p>
       <h4>בבינארי</h4>
       <pre><code>IP   : 11001000 00010111 00010001 10110101
 Mask : 11111111 11111111 11111110 00000000
 AND  : 11001000 00010111 00010000 00000000
        = 200.23.16.0</code></pre>
-      <p>אז ה-IP <span class="term">200.23.17.181</span> שייך ל-subnet <span class="term">200.23.16.0/23</span>.</p>
+      <p>אז ה-<bdi dir="ltr">IP</bdi> <span class="term">200.23.17.181</span> שייך ל-<bdi dir="ltr">subnet</bdi> <span class="term">200.23.16.0/23</span>.</p>
     </div>
   </div>
 
@@ -552,15 +556,15 @@ AND  : 11001000 00010111 00010000 00000000
       <span class="exercise-tag">תרגול · המרה בין בינארי לדצימלי</span>
       <p>נתונה הכתובת הבאה בבינארי: <span class="term">11001000 00010111 00010001 10110101 / 23</span></p>
       <ol style="list-style: hebrew;">
-        <li>כתבו את ה-IP בכתיב דצימלי עם נקודות.</li>
-        <li>כתבו את ה-Subnet Mask בכתיב דצימלי.</li>
-        <li>מה ה-Subnet שלה?</li>
+        <li>כתבו את ה-<bdi dir="ltr">IP</bdi> בכתיב דצימלי עם נקודות.</li>
+        <li>כתבו את ה-<bdi dir="ltr">Subnet Mask</bdi> בכתיב דצימלי.</li>
+        <li>מה ה-<bdi dir="ltr">Subnet</bdi> שלה?</li>
       </ol>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">סעיף 1 · IP בדצימלי</div>
+        <div class="step-label">סעיף <bdi dir="ltr">1 · IP</bdi> בדצימלי</div>
         <p>נמיר כל קבוצת 8 ביטים:</p>
         <ul>
           <li>11001000 = 128+64+8 = <strong>200</strong></li>
@@ -571,7 +575,7 @@ AND  : 11001000 00010111 00010000 00000000
         <p>IP = <strong>200.23.17.181</strong></p>
       </div>
       <div class="step">
-        <div class="step-label">סעיף 2 · Subnet Mask</div>
+        <div class="step-label">סעיף <bdi dir="ltr">2 · Subnet Mask</bdi></div>
         <p>/23 = 23 אחדים ו-9 אפסים:</p>
         <pre><code>11111111 11111111 11111110 00000000</code></pre>
         <ul>
@@ -583,8 +587,8 @@ AND  : 11001000 00010111 00010000 00000000
         <p>Mask = <strong>255.255.254.0</strong></p>
       </div>
       <div class="step">
-        <div class="step-label">סעיף 3 · Subnet</div>
-        <p>נעשה AND:</p>
+        <div class="step-label">סעיף <bdi dir="ltr">3 · Subnet</bdi></div>
+        <p>נעשה <bdi dir="ltr">AND</bdi>:</p>
         <pre><code>IP   : 11001000 00010111 00010001 10110101
 Mask : 11111111 11111111 11111110 00000000
 AND  : 11001000 00010111 00010000 00000000</code></pre>
@@ -594,38 +598,38 @@ AND  : 11001000 00010111 00010000 00000000</code></pre>
     </div>
   </div>
 
-  <h2>כתובות מיוחדות בתוך subnet</h2>
+  <h2>כתובות מיוחדות בתוך <bdi dir="ltr">subnet</bdi></h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>‎2 כתובות שמורות בכל subnet</div>
+    <div class="box-head"><span class="icon">📘</span>2 כתובות שמורות בכל <bdi dir="ltr">subnet</bdi></div>
     <div class="box-body">
       <ul>
-        <li><strong>כתובת ה-Subnet עצמו</strong> (כל הביטים של Host = 0): מזהה את ה-subnet, לא משויכת למחשב.</li>
-        <li><strong>כתובת ה-Broadcast</strong> (כל הביטים של Host = 1): שליחה לכל המחשבים בסאבנט.</li>
+        <li><strong>כתובת ה-<bdi dir="ltr">Subnet</bdi> עצמו</strong> (כל הביטים של <bdi dir="ltr">Host = 0</bdi>): מזהה את ה-<bdi dir="ltr">subnet</bdi>, לא משויכת למחשב.</li>
+        <li><strong>כתובת ה-<bdi dir="ltr">Broadcast</bdi></strong> (כל הביטים של <bdi dir="ltr">Host = 1</bdi>): שליחה לכל המחשבים בסאבנט.</li>
       </ul>
-      <p>אז ב-subnet עם <span class="term">n</span> ביטים ל-Host, יש <span class="term">2ⁿ - 2</span> כתובות זמינות למחשבים.</p>
+      <p>אז ב-<bdi dir="ltr">subnet</bdi> עם <span class="term">n</span> ביטים ל-<bdi dir="ltr">Host</bdi>, יש <span class="term">2ⁿ - 2</span> כתובות זמינות למחשבים.</p>
       <h4>דוגמה</h4>
       <p>Subnet <span class="term">192.168.1.0/24</span>:</p>
       <ul>
-        <li>‎192.168.1.0 — שמורה <bdi dir="ltr">(subnet)</bdi></li>
-        <li>‎192.168.1.1 עד ‎192.168.1.254 — זמינות (254 כתובות)</li>
-        <li>‎192.168.1.255 — שמורה <bdi dir="ltr">(broadcast)</bdi></li>
+        <li>192.168.1.0 — שמורה (<bdi dir="ltr">subnet</bdi>)</li>
+        <li>192.168.1.1 עד 192.168.1.254 — זמינות (254 כתובות)</li>
+        <li>192.168.1.255 — שמורה (<bdi dir="ltr">broadcast</bdi>)</li>
       </ul>
     </div>
   </div>
 
-  <h2>כתובות פרטיות (Private)</h2>
+  <h2>כתובות פרטיות (<bdi dir="ltr">Private</bdi>)</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>טווחים שלא ייוצאים מהארגון</div>
     <div class="box-body">
-      <p>RFC 1918 הגדיר 3 טווחים של כתובות לשימוש <strong>פנימי</strong> — לא לניתוב באינטרנט.</p>
+      <p><bdi dir="ltr">RFC 1918</bdi> הגדיר 3 טווחים של כתובות לשימוש <strong>פנימי</strong> — לא לניתוב באינטרנט.</p>
       <table>
         <thead><tr><th>טווח</th><th>מספר כתובות</th><th>שימוש טיפוסי</th></tr></thead>
         <tbody>
-          <tr><td><span class="term">10.0.0.0/8</span></td><td>‎~16M</td><td>חברות גדולות</td></tr>
-          <tr><td><span class="term">172.16.0.0/12</span></td><td>‎~1M</td><td>ארגונים בינוניים</td></tr>
-          <tr><td><span class="term">192.168.0.0/16</span></td><td>‎~65K</td><td>רשתות ביתיות / קטנות</td></tr>
+          <tr><td><span class="term">10.0.0.0/8</span></td><td>~16M</td><td>חברות גדולות</td></tr>
+          <tr><td><span class="term">172.16.0.0/12</span></td><td>~1M</td><td>ארגונים בינוניים</td></tr>
+          <tr><td><span class="term">192.168.0.0/16</span></td><td>~65K</td><td>רשתות ביתיות / קטנות</td></tr>
         </tbody>
       </table>
       <p>בכדי שכתובת פרטית תוכל לצאת לאינטרנט — צריך <strong>NAT</strong> (פרק 3.5).</p>
@@ -634,19 +638,19 @@ AND  : 11001000 00010111 00010000 00000000</code></pre>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · גודל subnet</span>
+      <span class="exercise-tag">תרגול · גודל <bdi dir="ltr">subnet</bdi></span>
       <p>חברה מקבלת בלוק <span class="term">10.50.0.0/20</span>. כמה כתובות זמינות למחשבים בסאבנט הזה?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">חישוב מספר הביטים ל-Host</div>
-        <p>‎/20 = 20 ביטים ל-Subnet, אז <strong>32 − 20 = 12 ביטים ל-Host</strong>.</p>
+        <div class="step-label">חישוב מספר הביטים ל-<bdi dir="ltr">Host</bdi></div>
+        <p>/20 = 20 ביטים ל-<bdi dir="ltr">Subnet</bdi>, אז <strong>32 − 20 = 12 ביטים ל-<bdi dir="ltr">Host</bdi></strong>.</p>
       </div>
       <div class="step">
         <div class="step-label">חישוב מספר כתובות</div>
         $$2^{12} - 2 = 4096 - 2 = 4094 \text{ כתובות}$$
-        <p>(נחסירות הכתובת של ה-subnet והכתובת של ה-broadcast.)</p>
+        <p>(נחסירות הכתובת של ה-<bdi dir="ltr">subnet</bdi> והכתובת של ה-<bdi dir="ltr">broadcast</bdi>.)</p>
       </div>
       <div class="final-answer"><strong>4,094 כתובות זמינות</strong> למחשבים. מתאים לארגון בינוני.</div>
     </div>
@@ -656,13 +660,13 @@ AND  : 11001000 00010111 00010000 00000000</code></pre>
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li>IP = 32 ביטים. נכתב בארבע מנות של ‎8 ביטים (0-255), מופרדות בנקודות</li>
-        <li>IP משויך ל<strong>כרטיס רשת</strong>, לא למחשב</li>
+        <li><bdi dir="ltr">IP = 32</bdi> ביטים. נכתב בארבע מנות של 8 ביטים (0-255), מופרדות בנקודות</li>
+        <li><bdi dir="ltr">IP</bdi> משויך ל<strong>כרטיס רשת</strong>, לא למחשב</li>
         <li><strong>Subnet</strong> = כל המחשבים שיכולים לתקשר בלי לעבור בראוטר</li>
-        <li><strong>Classes</strong> (A/B/C) — היסטורי, גרם לבזבוז</li>
-        <li><strong>CIDR</strong> ‎(a.b.c.d/x) — גמיש, כל אורך prefix</li>
-        <li><strong>Subnet Mask:</strong> ‎x אחדים ואז אפסים. AND עם IP נותן את ה-subnet</li>
-        <li>‎2 כתובות שמורות בכל subnet: <strong>subnet</strong> (כל-0) ו-<strong>broadcast</strong> (כל-1)</li>
+        <li><strong>Classes</strong> (<bdi dir="ltr">A/B/C</bdi>) — היסטורי, גרם לבזבוז</li>
+        <li><strong>CIDR</strong> (<bdi dir="ltr">a.b.c.d/x</bdi>) — גמיש, כל אורך <bdi dir="ltr">prefix</bdi></li>
+        <li><strong>Subnet Mask:</strong> <bdi dir="ltr">x</bdi> אחדים ואז אפסים. <bdi dir="ltr">AND</bdi> עם <bdi dir="ltr">IP</bdi> נותן את ה-<bdi dir="ltr">subnet</bdi></li>
+        <li>2 כתובות שמורות בכל <bdi dir="ltr">subnet</bdi>: <strong>subnet</strong> (כל-0) ו-<strong>broadcast</strong> (כל-1)</li>
         <li>טווחים פרטיים: <span class="term">10.0.0.0/8</span>, <span class="term">172.16.0.0/12</span>, <span class="term">192.168.0.0/16</span></li>
       </ul>
     </div>

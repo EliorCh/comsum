@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -423,46 +427,46 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <!-- The router box -->
       <g font-family="Assistant, sans-serif" font-size="13">
         <rect x="200" y="60" width="320" height="100" rx="12" fill="#fbf9f3" stroke="#475569" stroke-width="1.5"/>
-        <text x="360" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">ראוטר</text>
+        <text x="360" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#475569" direction="rtl">ראוטר</text>
 
         <!-- Stage 1: processing -->
         <rect x="218" y="92" width="60" height="50" rx="6" fill="#eef2ff" stroke="#4f46e5"/>
-        <text x="248" y="115" text-anchor="middle" font-size="11" fill="#4f46e5" font-weight="700">עיבוד</text>
+        <text x="248" y="115" text-anchor="middle" font-size="11" fill="#4f46e5" font-weight="700" direction="rtl">עיבוד</text>
         <text x="248" y="130" text-anchor="middle" font-size="10" fill="#4f46e5">d_proc</text>
 
         <!-- Stage 2: queue -->
         <rect x="287" y="92" width="60" height="50" rx="6" fill="#fef9e7" stroke="#b45309"/>
-        <text x="317" y="115" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700">תור</text>
+        <text x="317" y="115" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700" direction="rtl">תור</text>
         <text x="317" y="130" text-anchor="middle" font-size="10" fill="#b45309">d_queue</text>
 
         <!-- Stage 3: transmission -->
         <rect x="356" y="92" width="80" height="50" rx="6" fill="#ecfdf5" stroke="#047857"/>
-        <text x="396" y="115" text-anchor="middle" font-size="11" fill="#047857" font-weight="700">טרנסמישן</text>
+        <text x="396" y="115" text-anchor="middle" font-size="11" fill="#047857" font-weight="700" direction="rtl">טרנסמישן</text>
         <text x="396" y="130" text-anchor="middle" font-size="10" fill="#047857">d_trans</text>
 
         <!-- Stage 4: propagation -->
         <rect x="445" y="92" width="65" height="50" rx="6" fill="#fff1f2" stroke="#be123c"/>
-        <text x="478" y="115" text-anchor="middle" font-size="11" fill="#be123c" font-weight="700">פרופגיישן</text>
+        <text x="478" y="115" text-anchor="middle" font-size="11" fill="#be123c" font-weight="700" direction="rtl">פרופגיישן</text>
         <text x="478" y="130" text-anchor="middle" font-size="10" fill="#be123c">d_prop</text>
 
         <!-- Packet incoming -->
         <line x1="100" y1="110" x2="200" y2="110" stroke="#475569" stroke-width="2" marker-end="url(#arrPckt)"/>
         <rect x="120" y="102" width="20" height="16" rx="2" fill="#fbbf24"/>
-        <text x="150" y="98" font-size="10" fill="#78716c">פאקטה</text>
+        <text x="150" y="98" font-size="10" fill="#78716c" direction="rtl">פאקטה</text>
 
         <!-- Packet outgoing -->
         <line x1="520" y1="110" x2="640" y2="110" stroke="#475569" stroke-width="2" marker-end="url(#arrPckt)"/>
         <rect x="580" y="102" width="20" height="16" rx="2" fill="#fbbf24"/>
 
         <!-- Labels -->
-        <text x="100" y="40" text-anchor="middle" font-size="12" fill="#1c1917" font-weight="700">A (שולח)</text>
-        <text x="620" y="40" text-anchor="middle" font-size="12" fill="#1c1917" font-weight="700">הראוטר הבא / B</text>
+        <text x="100" y="40" text-anchor="middle" font-size="12" fill="#1c1917" font-weight="700" direction="rtl">A (שולח)</text>
+        <text x="620" y="40" text-anchor="middle" font-size="12" fill="#1c1917" font-weight="700" direction="rtl">הראוטר הבא / B</text>
 
         <text x="360" y="190" text-anchor="middle" font-size="13" fill="#475569"><tspan font-family="JetBrains Mono, monospace">d_nodal = d_proc + d_queue + d_trans + d_prop</tspan></text>
-        <text x="360" y="207" text-anchor="middle" font-size="11" fill="#78716c">סך כל ההשהיה בקודקוד אחד = Nodal Delay</text>
+        <text x="360" y="207" text-anchor="middle" font-size="11" fill="#78716c" direction="rtl">סך כל ההשהיה בקודקוד אחד = Nodal Delay</text>
       </g>
     </svg>
-    <div class="cap">4 סוגי דיליי שקורים בכל ראוטר. בלינק ארוך, ה-Propagation דומיננטי. בלינק קצר ועמוס — התור.</div>
+    <div class="cap">4 סוגי דיליי שקורים בכל ראוטר. בלינק ארוך, ה-<bdi dir="ltr">Propagation</bdi> דומיננטי. בלינק קצר ועמוס — התור.</div>
   </div>
 
   <p class="lead">
@@ -472,11 +476,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <h2>4 סוגי דיליי</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>1. השהיית עיבוד · Processing Delay</div>
+    <div class="box-head"><span class="icon">📘</span>1. השהיית עיבוד · <bdi dir="ltr">Processing Delay</bdi></div>
     <div class="box-body">
       <p>הזמן שלוקח לראוטר <strong>לבדוק שגיאות ולהחליט באיזו רגל יוצאים</strong>.</p>
       <ol>
-        <li>בדיקת checksum על הביטים שהגיעו.</li>
+        <li>בדיקת <bdi dir="ltr">checksum</bdi> על הביטים שהגיעו.</li>
         <li>חיפוש כתובת היעד בטבלת הפורוורדינג.</li>
         <li>החלטה על רגל היציאה.</li>
       </ol>
@@ -486,7 +490,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>2. השהיית תור · Queueing Delay</div>
+    <div class="box-head"><span class="icon">📘</span>2. השהיית תור · <bdi dir="ltr">Queueing Delay</bdi></div>
     <div class="box-body">
       <p>כשהפאקטה מסיימת עיבוד, היא <strong>מחכה ברגל היציאה</strong> עד שיגיע תורה לצאת. אם הרשת עמוסה, היא תחכה הרבה. אם פנויה, בכלל לא.</p>
       <p><strong>תלוי בעומס</strong>, ולכן <strong>משתנה בזמן ובלתי צפוי</strong>. בתרגיל פשוט בדרך כלל יניחו שהוא זניח.</p>
@@ -496,21 +500,21 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   </div>
 
   <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>3. השהיית טרנסמישן · Transmission Delay</div>
+    <div class="box-head"><span class="icon">📐</span>3. השהיית טרנסמישן · <bdi dir="ltr">Transmission Delay</bdi></div>
     <div class="box-body">
       <p>הזמן שלוקח <strong>להוציא את כל הביטים של הפאקטה</strong> לכבל. תלוי בגודל הפאקטה וברוחב הפס.</p>
       $$d_{trans} = \frac{L}{R}$$
       <p>כאשר:</p>
       <ul>
         <li><strong>L</strong> — אורך הפאקטה ב<strong>ביטים</strong> (אם נתון בבתים — להכפיל ב-8)</li>
-        <li><strong>R</strong> — רוחב הפס של הלינק ב<strong>ביטים לשנייה (bps)</strong></li>
+        <li><strong>R</strong> — רוחב הפס של הלינק ב<strong>ביטים לשנייה (<bdi dir="ltr">bps</bdi>)</strong></li>
       </ul>
       <p><strong>זכור:</strong> טרנסמישן הוא הזמן <em>"להיפטר"</em> מהפאקטה — לא הזמן שלוקח לה <em>"להגיע"</em>. אלה שני דברים שונים לחלוטין!</p>
     </div>
   </div>
 
   <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>4. השהיית פרופגיישן · Propagation Delay</div>
+    <div class="box-head"><span class="icon">📐</span>4. השהיית פרופגיישן · <bdi dir="ltr">Propagation Delay</bdi></div>
     <div class="box-body">
       <p>הזמן שלוקח <strong>לביט בודד לעבור פיזית בכבל</strong> מקצה לקצה. תלוי במרחק ובמהירות ההפצה.</p>
       $$d_{prop} = \frac{d}{s}$$
@@ -524,7 +528,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   </div>
 
   <div class="box warn">
-    <div class="box-head"><span class="icon">⚠</span>ההבדל הקריטי: טרנסמישן vs פרופגיישן</div>
+    <div class="box-head"><span class="icon">⚠</span>ההבדל הקריטי: טרנסמישן <bdi dir="ltr">vs</bdi> פרופגיישן</div>
     <div class="box-body">
       <p>זה הפח הכי שכיח. שניהם נמדדים בשניות, ושניהם נראים כאילו מתארים "כמה זמן ההודעה זזה". אבל:</p>
       <table>
@@ -543,13 +547,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     </div>
   </div>
 
-  <h2>סך כל ההשהיה — Nodal Delay</h2>
+  <h2>סך כל ההשהיה — <bdi dir="ltr">Nodal Delay</bdi></h2>
 
   <div class="box formula">
     <div class="box-head"><span class="icon">📐</span>השהיה בקודקוד אחד</div>
     <div class="box-body">
       $$d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}$$
-      <p>זה כל מה שקורה בראוטר אחד. למעבר דרך ‎N ראוטרים — סוכמים את ה-nodal delay של כל אחד.</p>
+      <p>זה כל מה שקורה בראוטר אחד. למעבר דרך <bdi dir="ltr">N</bdi> ראוטרים — סוכמים את ה-<bdi dir="ltr">nodal delay</bdi> של כל אחד.</p>
     </div>
   </div>
 
@@ -560,25 +564,25 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <p><strong>כל קודקוד שמשדר את הפאקטה לכבל = +1 טרנסמישן.</strong></p>
       <p>אם המסלול הוא <span class="term">S → R1 → R2 → R3 → T</span>, אז:</p>
       <ul>
-        <li>S משדר ← <span class="term">+1</span></li>
-        <li>R1 משדר ← <span class="term">+1</span></li>
-        <li>R2 משדר ← <span class="term">+1</span></li>
-        <li>R3 משדר ← <span class="term">+1</span></li>
+        <li><bdi dir="ltr">S</bdi> משדר ← <span class="term">+1</span></li>
+        <li><bdi dir="ltr">R1</bdi> משדר ← <span class="term">+1</span></li>
+        <li><bdi dir="ltr">R2</bdi> משדר ← <span class="term">+1</span></li>
+        <li><bdi dir="ltr">R3</bdi> משדר ← <span class="term">+1</span></li>
         <li>T <strong>רק מקבל</strong>, לא משדר ← <span class="term">+0</span></li>
       </ul>
       <p>סה״כ <strong>4 טרנסמישנים</strong> (לא 5!). אותו עיקרון לפרופגיישן — בודדים את הקטעים בין הצמתים.</p>
     </div>
   </div>
 
-  <h2>חישובי Throughput</h2>
+  <h2>חישובי <bdi dir="ltr">Throughput</bdi></h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>Throughput — קצב שליחת ביטים בפועל</div>
+    <div class="box-head"><span class="icon">📘</span><bdi dir="ltr">Throughput</bdi> — קצב שליחת ביטים בפועל</div>
     <div class="box-body">
-      <p><strong>Throughput</strong> — הקצב שבו ביטים מגיעים מהשולח למקבל בפועל. נמדד ב-bps.</p>
-      <p><strong>כלל הזהב:</strong> ה-Throughput של ערוץ שלם נקבע על-ידי <strong>הלינק הצר ביותר</strong> (Bottleneck).</p>
+      <p><strong>Throughput</strong> — הקצב שבו ביטים מגיעים מהשולח למקבל בפועל. נמדד ב-<bdi dir="ltr">bps</bdi>.</p>
+      <p><strong>כלל הזהב:</strong> ה-<bdi dir="ltr">Throughput</bdi> של ערוץ שלם נקבע על-ידי <strong>הלינק הצר ביותר</strong> (Bottleneck).</p>
       $$\text{Throughput} = \min(R_1, R_2, ..., R_n)$$
-      <p>גם אם יש לי לפטופ עם 1 Gbps Wi-Fi, אם ה-DSL של הספק רק 50 Mbps — אני אקבל 50.</p>
+      <p>גם אם יש לי לפטופ עם <bdi dir="ltr">1 Gbps Wi-Fi</bdi>, אם ה-<bdi dir="ltr">DSL</bdi> של הספק רק <bdi dir="ltr">50 Mbps</bdi> — אני אקבל 50.</p>
     </div>
   </div>
 
@@ -586,20 +590,20 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגיל בית 1 · שאלה 3 · Link Delays</span>
+      <span class="exercise-tag">תרגיל בית 1 · שאלה <bdi dir="ltr">3 · Link Delays</bdi></span>
       <p>חבילה עוברת בין שני מחשבים המחוברים בלינק ישיר עם הנתונים:</p>
       <ul>
         <li>זמן עיבוד פרוטוקול = <span class="term">120 µsec</span></li>
         <li>אורך פאקטה = <span class="term">1500 Bytes</span></li>
-        <li>רוחב פס (Channel Capacity) = <span class="term">120 Mbps</span></li>
+        <li>רוחב פס (<bdi dir="ltr">Channel Capacity</bdi>) = <span class="term">120 Mbps</span></li>
         <li>גורם פרופגיישן = <span class="term">17 µsec/km</span></li>
         <li>אורך הלינק = <span class="term">5000 km</span></li>
       </ul>
       <p>הזניחו עיכובי תור.</p>
       <ol>
         <li>כמה זמן לוקח לפרמט (לעבד) את הדאטה?</li>
-        <li>כמה זמן לוקח לביט בודד לעבור מ-A ל-B?</li>
-        <li>כמה זמן לוקח ל-A להעביר את כל הפאקטה ללינק?</li>
+        <li>כמה זמן לוקח לביט בודד לעבור מ-<bdi dir="ltr">A</bdi> ל-<bdi dir="ltr">B</bdi>?</li>
+        <li>כמה זמן לוקח ל-<bdi dir="ltr">A</bdi> להעביר את כל הפאקטה ללינק?</li>
         <li>מה סך כל ההשהיה?</li>
       </ol>
     </div>
@@ -611,8 +615,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <p>$$d_{proc} = 120 \, \mu\text{sec}$$</p>
       </div>
       <div class="step">
-        <div class="step-label">סעיף 2 · זמן ביט בודד מ-A ל-B (פרופגיישן)</div>
-        <p>זה פרופגיישן בלבד. נתון הגורם: 17 µsec לקילומטר. אורך הלינק: 5000 km.</p>
+        <div class="step-label">סעיף 2 · זמן ביט בודד מ-<bdi dir="ltr">A</bdi> ל-<bdi dir="ltr">B</bdi> (פרופגיישן)</div>
+        <p>זה פרופגיישן בלבד. נתון הגורם: 17 µ<bdi dir="ltr">sec</bdi> לקילומטר. אורך הלינק: <bdi dir="ltr">5000 km</bdi>.</p>
         $$d_{prop} = 5000 \, \text{km} \times 17 \, \frac{\mu\text{sec}}{\text{km}} = 85{,}000 \, \mu\text{sec} = 85 \, \text{ms}$$
         <p>זה זמן מאוד ארוך — בגלל הלינק הענק (5000 ק״מ).</p>
       </div>
@@ -631,17 +635,17 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         $$d_{total} = d_{proc} + d_{trans} + d_{prop}$$
         $$d_{total} = 120 + 100 + 85{,}000 = 85{,}220 \, \mu\text{sec}$$
       </div>
-      <div class="final-answer">סה״כ: <strong>85,220 µsec ≈ 85.22 ms</strong>. אפשר לראות שהפרופגיישן (5000 ק״מ!) הוא הגורם הדומיננטי — הוא מהווה ‎99.7% מההשהיה.</div>
+      <div class="final-answer">סה״כ: <strong>85,220 µsec ≈ 85.22 ms</strong>. אפשר לראות שהפרופגיישן (5000 ק״מ!) הוא הגורם הדומיננטי — הוא מהווה <bdi dir="ltr">99.7%</bdi> מההשהיה.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">דוגמה מהרצאה · 4 פאקטות עם 2 ראוטרים</span>
-      <p>נשלחת חבילת מידע של <span class="term">L = 80,000</span> ביטים מ-S ל-T דרך שני ראוטרים R1 ו-R2. החבילה מחולקת ל-4 פאקטות באורך <span class="term">20,000</span> ביטים כל אחת.</p>
+      <p>נשלחת חבילת מידע של <span class="term">L = 80,000</span> ביטים מ-<bdi dir="ltr">S</bdi> ל-<bdi dir="ltr">T</bdi> דרך שני ראוטרים <bdi dir="ltr">R1</bdi> ו-<bdi dir="ltr">R2</bdi>. החבילה מחולקת ל-4 פאקטות באורך <span class="term">20,000</span> ביטים כל אחת.</p>
       <ul>
-        <li>המרחק בין S↔R1 ובין R2↔T זניח</li>
-        <li>המרחק R1↔R2: <span class="term">d = 400 km = 400,000 m</span></li>
+        <li>המרחק בין <bdi dir="ltr">S</bdi>↔<bdi dir="ltr">R1</bdi> ובין <bdi dir="ltr">R2</bdi>↔<bdi dir="ltr">T</bdi> זניח</li>
+        <li>המרחק <bdi dir="ltr">R1</bdi>↔<bdi dir="ltr">R2</bdi>: <span class="term">d = 400 km = 400,000 m</span></li>
         <li>מהירות פרופגיישן: <span class="term">s = 2 × 10⁸ m/s</span></li>
         <li>רוחב פס: <span class="term">R = 10 Mbps = 10⁷ bps</span></li>
         <li>זמני עיבוד וזמני המתנה זניחים</li>
@@ -657,12 +661,12 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </div>
       <div class="step">
         <div class="step-label">ספירת טרנסמישנים</div>
-        <p>הפאקטות יוצאות מ-<span class="term">S → R1 → R2 → T</span>. T רק מקבל. אז כל פאקטה עוברת 3 טרנסמישנים: ב-S, ב-R1, וב-R2.</p>
-        <p>אבל — אנחנו לא סוכמים פאקטה-פאקטה! יש <strong>צנרת (pipelining)</strong> — בזמן ש-R1 משדר פאקטה 1, S כבר שולח את פאקטה 2 ל-R1.</p>
+        <p>הפאקטות יוצאות מ-<span class="term">S → R1 → R2 → T</span>. <bdi dir="ltr">T</bdi> רק מקבל. אז כל פאקטה עוברת 3 טרנסמישנים: ב-<bdi dir="ltr">S</bdi>, ב-<bdi dir="ltr">R1</bdi>, וב-<bdi dir="ltr">R2</bdi>.</p>
+        <p>אבל — אנחנו לא סוכמים פאקטה-פאקטה! יש <strong>צנרת (<bdi dir="ltr">pipelining</bdi>)</strong> — בזמן ש-<bdi dir="ltr">R1</bdi> משדר פאקטה <bdi dir="ltr">1, S</bdi> כבר שולח את פאקטה 2 ל-<bdi dir="ltr">R1</bdi>.</p>
         <p>הספירה הנכונה היא:</p>
         <ul>
-          <li><strong><span class="term">S → R1</span>: 4 טרנסמישנים</strong> (אחד אחר השני, כל אחד 2 ms)</li>
-          <li><strong><span class="term">R1 → R2</span>: 1 טרנסמישן</strong> נספר! (פאקטות 2,3,4 משדרות במקביל לקבלת הפאקטות הבאות ב-R1)</li>
+          <li><strong><span class="term">S → R1</span>: 4 טרנסמישנים</strong> (אחד אחר השני, כל אחד <bdi dir="ltr">2 ms</bdi>)</li>
+          <li><strong><span class="term">R1 → R2</span>: 1 טרנסמישן</strong> נספר! (פאקטות 2,3,4 משדרות במקביל לקבלת הפאקטות הבאות ב-<bdi dir="ltr">R1</bdi>)</li>
           <li><strong><span class="term">R2 → T</span>: 1 טרנסמישן</strong> (אותו עיקרון)</li>
         </ul>
         <p>סה״כ <strong>6 טרנסמישנים</strong> לסכימה.</p>
@@ -670,22 +674,22 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </div>
       <div class="step">
         <div class="step-label">חישוב פרופגיישן</div>
-        <p>קורה רק בקטע R1 ↔ R2.</p>
+        <p>קורה רק בקטע <bdi dir="ltr">R1</bdi> ↔ <bdi dir="ltr">R2</bdi>.</p>
         $$d_{prop} = \frac{400{,}000}{2 \times 10^8} = 0.002 \, \text{sec} = 2 \, \text{ms}$$
       </div>
       <div class="step">
         <div class="step-label">סיכום</div>
         $$d_{total} = d_{trans}^{total} + d_{prop} = 12 + 2 = 14 \, \text{ms}$$
       </div>
-      <div class="final-answer">סה״כ: <strong>14 ms</strong>. שים לב — פיצול ל-4 פאקטות חוסך זמן לעומת שליחה של פאקטה אחת ענקית! (במקרה הזה: ‎14 ms vs ‎26 ms עבור פאקטה יחידה).</div>
+      <div class="final-answer">סה״כ: <strong>14 ms</strong>. שים לב — פיצול ל-4 פאקטות חוסך זמן לעומת שליחה של פאקטה אחת ענקית! (במקרה הזה: <bdi dir="ltr">14 ms vs 26 ms</bdi> עבור פאקטה יחידה).</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגול עצמי · השוואה מהירה</span>
-      <p>בלינק עם פרופגיישן 50 ms ורוחב פס 1 Gbps, ביט בודד עובר ב-50 ms. אם פאקטה היא 8000 ביטים, כמה זמן לוקח לטרנסמט אותה?</p>
-      <p>ומה גדול יותר — d_trans או d_prop?</p>
+      <p>בלינק עם פרופגיישן <bdi dir="ltr">50 ms</bdi> ורוחב פס <bdi dir="ltr">1 Gbps</bdi>, ביט בודד עובר ב-<bdi dir="ltr">50 ms</bdi>. אם פאקטה היא 8000 ביטים, כמה זמן לוקח לטרנסמט אותה?</p>
+      <p>ומה גדול יותר — <bdi dir="ltr">d_trans</bdi> או <bdi dir="ltr">d_prop</bdi>?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
@@ -696,7 +700,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <div class="step">
         <div class="step-label">השוואה</div>
         <p>d_trans = 8 µs · d_prop = 50,000 µs = 50 ms</p>
-        <p>d_prop גדול פי <strong>6,250</strong> מ-d_trans!</p>
+        <p><bdi dir="ltr">d_prop</bdi> גדול פי <strong>6,250</strong> מ-<bdi dir="ltr">d_trans</bdi>!</p>
       </div>
       <div class="final-answer">בלינקים ארוכים (סיב אופטי טרנס-אטלנטי, לוויין) — הפרופגיישן הוא הגורם השולט. בלינקים מקומיים — הטרנסמישן והתור משחקים תפקיד גדול יותר.</div>
     </div>
@@ -708,8 +712,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📘</span>מתי פאקטה אובדת</div>
     <div class="box-body">
       <p>לכל באפר (תור) בראוטר יש <strong>גודל סופי</strong>. כשהקצב הנכנס גבוה מהקצב היוצא לאורך זמן, התור מתמלא. <strong>פאקטה שמגיעה לתור מלא — נאבדת.</strong></p>
-      <p>מי אחראי לטפל בזה? לא הראוטר. השכבות העליונות (בעיקר TCP) יבחינו שההודעה לא הגיעה ויעשו <strong>retransmission</strong>.</p>
-      <p>נושא זה יורחב בפרק 2.3 (TCP) ו-2.6 (בקרת גודש).</p>
+      <p>מי אחראי לטפל בזה? לא הראוטר. השכבות העליונות (בעיקר <bdi dir="ltr">TCP</bdi>) יבחינו שההודעה לא הגיעה ויעשו <strong>retransmission</strong>.</p>
+      <p>נושא זה יורחב בפרק 2.3 (<bdi dir="ltr">TCP</bdi>) ו-2.6 (בקרת גודש).</p>
     </div>
   </div>
 
@@ -720,8 +724,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li>4 סוגי דיליי: <strong>עיבוד, תור, טרנסמישן, פרופגיישן</strong></li>
         <li>טרנסמישן = <span class="term">L/R</span> (זמן <em>להוציא</em> ביטים — תלוי בגודל פאקטה ורוחב פס)</li>
         <li>פרופגיישן = <span class="term">d/s</span> (זמן <em>לעבור</em> פיזית — תלוי במרחק ומהירות אור)</li>
-        <li>Nodal Delay = סכום של ה-4 (לקודקוד אחד)</li>
-        <li>במסלול עם N קודקודים — סוכמים את ה-nodal של כל אחד</li>
+        <li><bdi dir="ltr">Nodal Delay</bdi> = סכום של ה-4 (לקודקוד אחד)</li>
+        <li>במסלול עם <bdi dir="ltr">N</bdi> קודקודים — סוכמים את ה-<bdi dir="ltr">nodal</bdi> של כל אחד</li>
         <li>Throughput = <span class="term">min(R₁, ..., Rₙ)</span> — צוואר הבקבוק</li>
         <li>פאקטה אובדת כשהבאפר מלא</li>
       </ul>
@@ -734,7 +738,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 <nav class="pager" aria-label="ניווט בין נושאים">
   <a class="prev" href="00-intro.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">רשת האינטרנט והשכבות</span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
-  <a class="next" href="02-app-sockets.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">סוקטים, לקוח-שרת, P2P</span></a>
+  <a class="next" href="02-app-sockets.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">סוקטים, לקוח-שרת, <bdi dir="ltr">P2P</bdi></span></a>
 </nav>
 
 </main>

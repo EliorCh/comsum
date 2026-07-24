@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,11 +414,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 2.6 · שכבת התעבורה</span>
-  <h1 class="page-title">בקרת גודש — Congestion Control</h1>
-  <p class="page-subtitle">איך TCP לא שורף את הרשת — Slow Start, AIMD, Tahoe vs Reno, ו-Fast Retransmit.</p>
+  <h1 class="page-title">בקרת גודש — <bdi dir="ltr">Congestion Control</bdi></h1>
+  <p class="page-subtitle">איך <bdi dir="ltr">TCP</bdi> לא שורף את הרשת — <bdi dir="ltr">Slow Start, AIMD, Tahoe vs Reno</bdi>, ו-<bdi dir="ltr">Fast Retransmit</bdi>.</p>
 
   <p class="lead">
-    כל TCP בעולם רץ באותו אינטרנט. אם כולם שולחים מקסימום — קריסה. <strong>בקרת גודש</strong> = השולח <strong>מנחש</strong> כמה הרשת יכולה לקבל לפי סימני אובדן, וגדל/יורד בהתאם. שאלת מבחן קלאסית: congestion window step-by-step כשפאקטה ספציפית אובדת.
+    כל <bdi dir="ltr">TCP</bdi> בעולם רץ באותו אינטרנט. אם כולם שולחים מקסימום — קריסה. <strong>בקרת גודש</strong> = השולח <strong>מנחש</strong> כמה הרשת יכולה לקבל לפי סימני אובדן, וגדל/יורד בהתאם. שאלת מבחן קלאסית: <bdi dir="ltr">congestion window step-by-step</bdi> כשפאקטה ספציפית אובדת.
   </p>
 
   <h2>הבעיה: גודש ברשת</h2>
@@ -426,7 +430,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <thead><tr><th>תכונה</th><th>בקרת זרימה</th><th>בקרת גודש</th></tr></thead>
         <tbody>
           <tr><td>מי עמוס?</td><td>המקבל (הבאפר שלו)</td><td>הרשת (תורים בראוטרים)</td></tr>
-          <tr><td>איך יודעים?</td><td>שדה RW בכותרת</td><td>אובדן פאקטות / RTT עולה</td></tr>
+          <tr><td>איך יודעים?</td><td>שדה <bdi dir="ltr">RW</bdi> בכותרת</td><td>אובדן פאקטות / <bdi dir="ltr">RTT</bdi> עולה</td></tr>
           <tr><td>חלון מגביל</td><td>RW</td><td>CW (Congestion Window)</td></tr>
         </tbody>
       </table>
@@ -442,7 +446,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <p>אין פידבק מהרשת. השולח מסיק בעצמו — אם פאקטה אבדה, הרשת כנראה עמוסה.</p>
       <h4>שני סוגי סימני גודש</h4>
       <ol>
-        <li><strong>Timeout:</strong> אף ACK לא חזר — סימן ל<strong>עומס חמור</strong>. אולי הראוטר זרק הכל.</li>
+        <li><strong>Timeout:</strong> אף <bdi dir="ltr">ACK</bdi> לא חזר — סימן ל<strong>עומס חמור</strong>. אולי הראוטר זרק הכל.</li>
         <li><strong>3 Duplicate ACKs:</strong> סגמנט אחד אבד אבל אחרים הגיעו — סימן ל<strong>עומס קל</strong>.</li>
       </ol>
       <p>בשני המקרים — צריך להאט. אבל לא באותו אופן.</p>
@@ -454,33 +458,33 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box formula">
     <div class="box-head"><span class="icon">📐</span>הגדרות</div>
     <div class="box-body">
-      <p><strong>CW</strong> = מספר הבתים שמותר לשלוח בו-זמנית (לא-מאושרים). מתחיל מ-1 MSS.</p>
+      <p><strong>CW</strong> = מספר הבתים שמותר לשלוח בו-זמנית (לא-מאושרים). מתחיל מ-<bdi dir="ltr">1 MSS</bdi>.</p>
       $$\text{TCP Rate} = \frac{CW}{RTT}$$
-      <p>השולח מגביל את עצמו ב-<strong>min(RW, CW)</strong>. מהיום מניחים RW לא מגביל — CW הוא הגורם השולט.</p>
+      <p>השולח מגביל את עצמו ב-<strong>min(RW, CW)</strong>. מהיום מניחים <bdi dir="ltr">RW</bdi> לא מגביל — <bdi dir="ltr">CW</bdi> הוא הגורם השולט.</p>
     </div>
   </div>
 
-  <h2>Slow Start — התחלה אקספוננציאלית</h2>
+  <h2><bdi dir="ltr">Slow Start</bdi> — התחלה אקספוננציאלית</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הרעיון</div>
     <div class="box-body">
       <p>בהתחלה, השולח לא יודע אם הרשת פנויה או עמוסה. אסטרטגיה <strong>בטוחה:</strong> להתחיל קטן ולגדול מהר.</p>
-      <h4>כללי Slow Start</h4>
+      <h4>כללי <bdi dir="ltr">Slow Start</bdi></h4>
       <ul>
-        <li>CW מתחיל ב-<strong>1 MSS</strong>.</li>
-        <li>על כל ACK — מוסיפים <strong><bdi>1 MSS ל-CW</bdi></strong>.</li>
-        <li>בכל סיבוב (RTT) — ה-CW <strong>מוכפל ב-2</strong> (אקספוננציאלי!).</li>
+        <li><bdi dir="ltr">CW</bdi> מתחיל ב-<strong>1 MSS</strong>.</li>
+        <li>על כל <bdi dir="ltr">ACK</bdi> — מוסיפים <strong><bdi>1 MSS ל-CW</bdi></strong>.</li>
+        <li>בכל סיבוב (<bdi dir="ltr">RTT</bdi>) — ה-<bdi dir="ltr">CW</bdi> <strong>מוכפל ב-2</strong> (אקספוננציאלי!).</li>
       </ul>
       <p>שם השלב מטעה — זה לא איטי. זה פשוט מתחיל מערך נמוך.</p>
     </div>
   </div>
 
   <div class="box example">
-    <div class="box-head"><span class="icon">💡</span>דוגמה — Slow Start בפעולה</div>
+    <div class="box-head"><span class="icon">💡</span>דוגמה — <bdi dir="ltr">Slow Start</bdi> בפעולה</div>
     <div class="box-body">
       <table>
-        <thead><tr><th>RTT</th><th>CW (לפני)</th><th>בתים שיישלחו</th><th>ACKs שיתקבלו</th><th>CW (אחרי)</th></tr></thead>
+        <thead><tr><th>RTT</th><th><bdi dir="ltr">CW</bdi> (לפני)</th><th>בתים שיישלחו</th><th><bdi dir="ltr">ACKs</bdi> שיתקבלו</th><th><bdi dir="ltr">CW</bdi> (אחרי)</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>1</td><td>1·MSS</td><td>1</td><td>2</td></tr>
           <tr><td>2</td><td>2</td><td>2·MSS</td><td>2</td><td>4</td></tr>
@@ -488,21 +492,21 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
           <tr><td>4</td><td>8</td><td>8·MSS</td><td>8</td><td>16</td></tr>
         </tbody>
       </table>
-      <p>‎4 סיבובים ← CW עף מ-1 ל-16. צמיחה מהירה!</p>
+      <p>4 סיבובים ← <bdi dir="ltr">CW</bdi> עף מ-1 ל-16. צמיחה מהירה!</p>
     </div>
   </div>
 
-  <h2>ssthresh — סף לעבור ל-Congestion Avoidance</h2>
+  <h2><bdi dir="ltr">ssthresh</bdi> — סף לעבור ל-<bdi dir="ltr">Congestion Avoidance</bdi></h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>מתי עוצרים את ה-Slow Start?</div>
+    <div class="box-head"><span class="icon">📘</span>מתי עוצרים את ה-<bdi dir="ltr">Slow Start</bdi>?</div>
     <div class="box-body">
-      <p><strong>ssthresh (Slow Start Threshold)</strong> — סף שמסמן מתי לעבור ממצב Slow Start (אקספוננציאלי) למצב <strong>Congestion Avoidance (לינארי)</strong>.</p>
+      <p><strong>ssthresh (Slow Start Threshold)</strong> — סף שמסמן מתי לעבור ממצב <bdi dir="ltr">Slow Start</bdi> (אקספוננציאלי) למצב <strong><bdi dir="ltr">Congestion Avoidance</bdi> (לינארי)</strong>.</p>
       <ul>
-        <li>כל עוד CW < ssthresh: <strong>Slow Start</strong> (כפול 2 כל RTT).</li>
-        <li>כש-CW ≥ ssthresh: <strong>Congestion Avoidance</strong> (CW += 1 כל RTT).</li>
+        <li>כל עוד <bdi dir="ltr">CW</bdi> < ssthresh: <strong>Slow Start</strong> (כפול 2 כל <bdi dir="ltr">RTT</bdi>).</li>
+        <li>כש-<bdi dir="ltr">CW</bdi> ≥ <bdi dir="ltr">ssthresh</bdi>: <strong>Congestion Avoidance</strong> (<bdi dir="ltr">CW += 1</bdi> כל <bdi dir="ltr">RTT</bdi>).</li>
       </ul>
-      <p>ssthresh מתחיל בערך גבוה. הוא <strong>יורד</strong> כשמתגלה גודש.</p>
+      <p><bdi dir="ltr">ssthresh</bdi> מתחיל בערך גבוה. הוא <strong>יורד</strong> כשמתגלה גודש.</p>
     </div>
   </div>
 
@@ -512,8 +516,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📘</span>הפילוסופיה</div>
     <div class="box-body">
       <ul>
-        <li><strong>גדילה איטית (Additive):</strong> כל RTT — מוסיפים 1 ל-CW. בודקים את גבולות הרשת.</li>
-        <li><strong>ירידה מהירה (Multiplicative):</strong> ברגע שיש סימן גודש — חולקים את CW ב-2 (או יותר). פתרון מהיר.</li>
+        <li><strong>גדילה איטית (<bdi dir="ltr">Additive</bdi>):</strong> כל <bdi dir="ltr">RTT</bdi> — מוסיפים 1 ל-<bdi dir="ltr">CW</bdi>. בודקים את גבולות הרשת.</li>
+        <li><strong>ירידה מהירה (<bdi dir="ltr">Multiplicative</bdi>):</strong> ברגע שיש סימן גודש — חולקים את <bdi dir="ltr">CW</bdi> ב-2 (או יותר). פתרון מהיר.</li>
       </ul>
       <p><strong>למה?</strong> אם הרשת עמוסה — חשוב לפנות מקום מהר. אם פנויה — אין סיבה למהר, נסכן את כולם.</p>
     </div>
@@ -556,7 +560,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <!-- Tahoe (red): back to 1, exponential to ssthresh=8, then linear -->
         <line x1="260" y1="80" x2="260" y2="220" stroke="#475569" stroke-width="1" stroke-dasharray="3,3"/>
         <polyline points="260,220 300,200 340,170 380,130 420,120 460,110 500,100 540,90 580,80" fill="none" stroke="#be123c" stroke-width="2" stroke-dasharray="6,2"/>
-        <text x="380" y="240" fill="#be123c" font-size="10" font-weight="700">TCP Tahoe (חזרה ל-1)</text>
+        <text x="380" y="240" fill="#be123c" font-size="10" font-weight="700" direction="rtl">TCP Tahoe (חזרה ל-1)</text>
 
         <!-- ssthresh line -->
         <line x1="60" y1="130" x2="660" y2="130" stroke="#0891b2" stroke-width="1" stroke-dasharray="4,2"/>
@@ -566,51 +570,51 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <polyline points="260,80 260,130 300,125 340,120 380,115 420,110 460,105 500,100 540,95 580,90 620,85" fill="none" stroke="#6d28d9" stroke-width="2"/>
         <text x="450" y="160" fill="#6d28d9" font-size="10" font-weight="700">TCP Reno (Fast Recovery)</text>
 
-        <text x="380" y="285" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700">Tahoe: חזרה ל-1, Slow Start, ואז ליניארי · Reno: ישר ליניארי מ-ssthresh</text>
+        <text x="380" y="285" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700" direction="rtl">Tahoe: חזרה ל-1, Slow Start, ואז ליניארי · Reno: ישר ליניארי מ-ssthresh</text>
       </g>
     </svg>
-    <div class="cap">שני סגנונות התאוששות. Tahoe (אדום מקווקו) — חוזר ל-1 ובונה הכל מחדש. Reno (סגול) — חצי, ואז ליניארי.</div>
+    <div class="cap">שני סגנונות התאוששות. <bdi dir="ltr">Tahoe</bdi> (אדום מקווקו) — חוזר ל-1 ובונה הכל מחדש. <bdi dir="ltr">Reno</bdi> (סגול) — חצי, ואז ליניארי.</div>
   </div>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הכללים — שלוש פעולות אפשריות</div>
     <div class="box-body">
-      <h4>1. Timeout — בשני הפרוטוקולים</h4>
+      <h4><bdi dir="ltr">1. Timeout</bdi> — בשני הפרוטוקולים</h4>
       <ul>
-        <li>ssthresh = CW / 2 (חצי מהערך הנוכחי)</li>
+        <li><bdi dir="ltr">ssthresh = CW / 2</bdi> (חצי מהערך הנוכחי)</li>
         <li><strong>CW = 1 MSS</strong></li>
-        <li>חוזרים ל-Slow Start (אקספוננציאלי) עד ssthresh, ואז לינארי.</li>
+        <li>חוזרים ל-<bdi dir="ltr">Slow Start</bdi> (אקספוננציאלי) עד <bdi dir="ltr">ssthresh</bdi>, ואז לינארי.</li>
       </ul>
 
-      <h4>‎2. 3 Duplicate ACKs ב-TCP Tahoe</h4>
+      <h4><bdi dir="ltr">2. 3 Duplicate ACKs</bdi> ב-<bdi dir="ltr">TCP Tahoe</bdi></h4>
       <ul>
         <li>ssthresh = CW / 2</li>
-        <li><strong>CW = 1 MSS</strong> — חוזר ל-Slow Start (כמו Timeout).</li>
+        <li><strong>CW = 1 MSS</strong> — חוזר ל-<bdi dir="ltr">Slow Start</bdi> (כמו <bdi dir="ltr">Timeout</bdi>).</li>
       </ul>
 
-      <h4>‎3. 3 Duplicate ACKs ב-TCP Reno · Fast Recovery</h4>
+      <h4><bdi dir="ltr">3. 3 Duplicate ACKs</bdi> ב-<bdi dir="ltr">TCP Reno · Fast Recovery</bdi></h4>
       <ul>
         <li>ssthresh = CW / 2</li>
         <li><strong>CW = ssthresh</strong> (חצי מהקודם, לא 1).</li>
-        <li>ממשיכים ישר בלינארי (Congestion Avoidance) — לא Slow Start.</li>
+        <li>ממשיכים ישר בלינארי (<bdi dir="ltr">Congestion Avoidance</bdi>) — לא <bdi dir="ltr">Slow Start</bdi>.</li>
       </ul>
     </div>
   </div>
 
   <div class="keypoint">
-    <strong>למה Reno עדיף?</strong> 3 Duplicate ACKs = רק פאקטה אחת אבדה, אחרות הגיעו. הרשת לא קרסה — חבל לחזור ל-1. Reno חוסך זמן בגדילה מחדש. ב-Timeout, אין שום סימן חיים מהרשת — שמרני יותר.
+    <strong>למה <bdi dir="ltr">Reno</bdi> עדיף?</strong> <bdi dir="ltr">3 Duplicate ACKs</bdi> = רק פאקטה אחת אבדה, אחרות הגיעו. הרשת לא קרסה — חבל לחזור ל-<bdi dir="ltr">1. Reno</bdi> חוסך זמן בגדילה מחדש. ב-<bdi dir="ltr">Timeout</bdi>, אין שום סימן חיים מהרשת — שמרני יותר.
   </div>
 
   <h2>Fast Retransmit</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>למה לחכות ל-Timeout?</div>
+    <div class="box-head"><span class="icon">📘</span>למה לחכות ל-<bdi dir="ltr">Timeout</bdi>?</div>
     <div class="box-body">
-      <p>Timeout יכול להיות ארוך. אם בינתיים מקבלים <strong>3 Duplicate ACKs</strong> — זה סימן מובהק שפאקטה ספציפית אבדה.</p>
+      <p><bdi dir="ltr">Timeout</bdi> יכול להיות ארוך. אם בינתיים מקבלים <strong>3 Duplicate ACKs</strong> — זה סימן מובהק שפאקטה ספציפית אבדה.</p>
       <h4>המנגנון</h4>
       <ul>
-        <li>אם השולח מקבל <strong>3 ACKs כפולים</strong> עם אותו מספר ack — מסיק שהפאקטה הבאה אבדה.</li>
-        <li><strong>שולח אותה שוב מיד</strong> — לא ממתין ל-Timeout.</li>
+        <li>אם השולח מקבל <strong><bdi dir="ltr">3 ACKs</bdi> כפולים</strong> עם אותו מספר <bdi dir="ltr">ack</bdi> — מסיק שהפאקטה הבאה אבדה.</li>
+        <li><strong>שולח אותה שוב מיד</strong> — לא ממתין ל-<bdi dir="ltr">Timeout</bdi>.</li>
       </ul>
     </div>
   </div>
@@ -619,20 +623,20 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגיל בית 4 · שאלה 2.ג · טבלת Congestion</span>
-      <p>קשר TCP עם הפרמטרים הבאים:</p>
+      <span class="exercise-tag">תרגיל בית 4 · שאלה 2.ג · טבלת <bdi dir="ltr">Congestion</bdi></span>
+      <p>קשר <bdi dir="ltr">TCP</bdi> עם הפרמטרים הבאים:</p>
       <ul>
         <li>גודל קובץ: <span class="term">56 KB</span></li>
-        <li>חלון מקבל (RW): <span class="term">8 KB</span> (קבוע)</li>
-        <li>CW התחלתי: <span class="term">1 KB</span></li>
-        <li>ssthresh התחלתי: <span class="term">12 KB</span></li>
+        <li>חלון מקבל (<bdi dir="ltr">RW</bdi>): <span class="term">8 KB</span> (קבוע)</li>
+        <li><bdi dir="ltr">CW</bdi> התחלתי: <span class="term">1 KB</span></li>
+        <li><bdi dir="ltr">ssthresh</bdi> התחלתי: <span class="term">12 KB</span></li>
         <li>MSS: <span class="term">1 KB</span></li>
         <li>Timeout: <span class="term">50 ms</span></li>
         <li>RTT: <span class="term">30 ms</span></li>
         <li>Fast Retransmit <strong>לא פעיל</strong></li>
       </ul>
       <p>בכל סיבוב נשלח חלון שלם. <strong>פאקטה מספר 13 הולכת לאיבוד</strong>.</p>
-      <p>מלאו את הטבלה לכל 13 סיבובים: מספר סיבוב, CW, מספר הבתים שנשלחו בסיבוב, ssthresh.</p>
+      <p>מלאו את הטבלה לכל 13 סיבובים: מספר סיבוב, <bdi dir="ltr">CW</bdi>, מספר הבתים שנשלחו בסיבוב, <bdi dir="ltr">ssthresh</bdi>.</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
@@ -642,8 +646,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <p>אז <strong>פאקטה 13 נשלחת בסיבוב 4</strong>.</p>
       </div>
       <div class="step">
-        <div class="step-label">סיבובים 1-4 · Slow Start</div>
-        <p>CW מוכפל ב-2 כל סיבוב, אבל מוגבל ב-RW = 8.</p>
+        <div class="step-label">סיבובים <bdi dir="ltr">1-4 · Slow Start</bdi></div>
+        <p><bdi dir="ltr">CW</bdi> מוכפל ב-2 כל סיבוב, אבל מוגבל ב-<bdi dir="ltr">RW = 8</bdi>.</p>
         <table>
           <thead><tr><th>סיבוב</th><th>CW</th><th>בתים שנשלחו</th><th>ssthresh</th></tr></thead>
           <tbody>
@@ -656,14 +660,14 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </div>
       <div class="step">
         <div class="step-label">מה קורה אחרי סיבוב 4?</div>
-        <p>פאקטה 13 אבדה. אין Fast Retransmit. אז נחכה ל-<strong>Timeout</strong>.</p>
-        <p>הסיבוב הבא, סיבוב 5, יחל אחרי Timeout (50ms במקום RTT=30ms). בסיבוב הזה:</p>
+        <p>פאקטה 13 אבדה. אין <bdi dir="ltr">Fast Retransmit</bdi>. אז נחכה ל-<strong>Timeout</strong>.</p>
+        <p>הסיבוב הבא, סיבוב 5, יחל אחרי <bdi dir="ltr">Timeout</bdi> (<bdi dir="ltr">50ms</bdi> במקום <bdi dir="ltr">RTT=30ms</bdi>). בסיבוב הזה:</p>
         <ul>
           <li>ssthresh = CW / 2 = 8 / 2 = <strong>4</strong></li>
-          <li>CW = 1 (חזרה לאחור)</li>
+          <li><bdi dir="ltr">CW = 1</bdi> (חזרה לאחור)</li>
         </ul>
         <p>בסיבוב 5 — שולחים שוב את פאקטה 13 בלבד (אנחנו בעצם מהתחלת ההעברה — צריך לאשר את 8-12 מחדש? במציאות זה תלוי במנגנון, אבל לפי ההצגה בכיתה: שולחים את 13 שוב).</p>
-        <p>בפועל בתרגיל זה — נמשיך לעקוב אחרי CW לפי הכללים.</p>
+        <p>בפועל בתרגיל זה — נמשיך לעקוב אחרי <bdi dir="ltr">CW</bdi> לפי הכללים.</p>
       </div>
       <div class="step">
         <div class="step-label">סיבובים 5-13 · התאוששות</div>
@@ -672,11 +676,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
           <tbody>
             <tr><td>5</td><td>1</td><td>1 (פאקטה 13 שוב)</td><td>4</td></tr>
             <tr><td>6</td><td>2</td><td>2 (פאקטות 14-15)</td><td>4</td></tr>
-            <tr><td>7</td><td>4</td><td>4 (פאקטות 16-19) <strong>← הגענו ל-ssthresh!</strong></td><td>4</td></tr>
+            <tr><td>7</td><td>4</td><td>4 (פאקטות 16-19) <strong>← הגענו ל-<bdi dir="ltr">ssthresh</bdi>!</strong></td><td>4</td></tr>
             <tr><td>8</td><td>5</td><td>5 (פאקטות 20-24) <strong>← לינארי</strong></td><td>4</td></tr>
             <tr><td>9</td><td>6</td><td>6 (פאקטות 25-30)</td><td>4</td></tr>
             <tr><td>10</td><td>7</td><td>7 (פאקטות 31-37)</td><td>4</td></tr>
-            <tr><td>11</td><td>8</td><td>8 (פאקטות 38-45) <strong>← הגענו ל-RW</strong></td><td>4</td></tr>
+            <tr><td>11</td><td>8</td><td>8 (פאקטות 38-45) <strong>← הגענו ל-<bdi dir="ltr">RW</bdi></strong></td><td>4</td></tr>
             <tr><td>12</td><td>8</td><td>8 (פאקטות 46-53)</td><td>4</td></tr>
             <tr><td>13</td><td>8</td><td>3 (פאקטות 54-56, סוף הקובץ!)</td><td>4</td></tr>
           </tbody>
@@ -685,56 +689,56 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <div class="step">
         <div class="step-label">הסבר השלבים</div>
         <ul>
-          <li><strong>סיבובים 5-7:</strong> Slow Start אחרי Timeout. CW מוכפל עד שמגיע ל-ssthresh = 4.</li>
-          <li><strong>סיבובים 8-10:</strong> Congestion Avoidance. CW += 1 כל סיבוב.</li>
-          <li><strong>סיבובים 11-13:</strong> CW מגיע ל-8 = RW, נשאר שם.</li>
+          <li><strong>סיבובים 5-7:</strong> <bdi dir="ltr">Slow Start</bdi> אחרי <bdi dir="ltr">Timeout. CW</bdi> מוכפל עד שמגיע ל-<bdi dir="ltr">ssthresh = 4</bdi>.</li>
+          <li><strong>סיבובים 8-10:</strong> <bdi dir="ltr">Congestion Avoidance. CW += 1</bdi> כל סיבוב.</li>
+          <li><strong>סיבובים 11-13:</strong> <bdi dir="ltr">CW</bdi> מגיע ל-<bdi dir="ltr">8 = RW</bdi>, נשאר שם.</li>
           <li><strong>סיבוב 13:</strong> רק 3 פאקטות נשלחות כי הקובץ הסתיים (סך הכל 56 פאקטות).</li>
         </ul>
       </div>
-      <div class="final-answer">הקובץ הועבר ב-<strong>13 סיבובים</strong>. בלי האובדן זה היה לוקח 7-8 סיבובים. כלומר האובדן הוסיף כ-5 RTT-ים נוספים.</div>
+      <div class="final-answer">הקובץ הועבר ב-<strong>13 סיבובים</strong>. בלי האובדן זה היה לוקח 7-8 סיבובים. כלומר האובדן הוסיף כ-<bdi dir="ltr">5 RTT</bdi>-ים נוספים.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגיל בית 4 · שאלה 2.ד · Fast Retransmit</span>
+      <span class="exercise-tag">תרגיל בית 4 · שאלה 2.ד · <bdi dir="ltr">Fast Retransmit</bdi></span>
       <p>הסבר מהו <strong>Fast Retransmit</strong>. האם הוא מקצר את זמן ההעברה במקרה הקודם (פאקטה 13 שאבדה)?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">מהו Fast Retransmit</div>
-        <p>במקום לחכות ל-Timeout (50ms), השולח מסיק מ-<strong>3 Duplicate ACKs</strong> שפאקטה אבדה ושולח אותה מיד — תוך RTT אחד בערך.</p>
-        <p><strong>איך נוצרים 3 Dup ACKs?</strong> בסיבוב 4 שלחנו פאקטות 8-15. פאקטה 13 אבדה. המקבל קיבל 14, 15 — שלח Duplicate ACK עם ack=13 שלוש פעמים (אחת לכל פאקטה לא-בסדר).</p>
+        <div class="step-label">מהו <bdi dir="ltr">Fast Retransmit</bdi></div>
+        <p>במקום לחכות ל-<bdi dir="ltr">Timeout</bdi> (<bdi dir="ltr">50ms</bdi>), השולח מסיק מ-<strong>3 Duplicate ACKs</strong> שפאקטה אבדה ושולח אותה מיד — תוך <bdi dir="ltr">RTT</bdi> אחד בערך.</p>
+        <p><strong>איך נוצרים <bdi dir="ltr">3 Dup ACKs</bdi>?</strong> בסיבוב 4 שלחנו פאקטות 8-15. פאקטה 13 אבדה. המקבל קיבל 14, 15 — שלח <bdi dir="ltr">Duplicate ACK</bdi> עם <bdi dir="ltr">ack=13</bdi> שלוש פעמים (אחת לכל פאקטה לא-בסדר).</p>
       </div>
       <div class="step">
         <div class="step-label">האם זה היה מקצר?</div>
-        <p><strong>כן!</strong> במקום לחכות 50ms ל-Timeout, השולח היה שולח את פאקטה 13 שוב מיד אחרי שקיבל 3 dup ACKs.</p>
-        <p>ב-Reno: היה גם נמנע מ-Slow Start. ssthresh = 4, ו-CW = ssthresh = 4. ההעברה הייתה ממשיכה מ-4 ולמעלה לינארית — חיסכון של עוד כמה סיבובים.</p>
+        <p><strong>כן!</strong> במקום לחכות <bdi dir="ltr">50ms</bdi> ל-<bdi dir="ltr">Timeout</bdi>, השולח היה שולח את פאקטה 13 שוב מיד אחרי שקיבל <bdi dir="ltr">3 dup ACKs</bdi>.</p>
+        <p>ב-<bdi dir="ltr">Reno</bdi>: היה גם נמנע מ-<bdi dir="ltr">Slow Start. ssthresh = 4</bdi>, ו-<bdi dir="ltr">CW = ssthresh = 4</bdi>. ההעברה הייתה ממשיכה מ-4 ולמעלה לינארית — חיסכון של עוד כמה סיבובים.</p>
       </div>
-      <div class="final-answer">Fast Retransmit מקצר את הזמן הכולל ב-2 דרכים: (1) מזהה את האובדן מהר יותר. (2) עם Reno — לא חוזרים ל-1 אלא ל-ssthresh.</div>
+      <div class="final-answer"><bdi dir="ltr">Fast Retransmit</bdi> מקצר את הזמן הכולל ב-2 דרכים: (1) מזהה את האובדן מהר יותר. (2) עם <bdi dir="ltr">Reno</bdi> — לא חוזרים ל-1 אלא ל-<bdi dir="ltr">ssthresh</bdi>.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגיל בית 4 · שאלה 2.ב · Persist Timer</span>
+      <span class="exercise-tag">תרגיל בית 4 · שאלה 2.ב · <bdi dir="ltr">Persist Timer</bdi></span>
       <p>מהו <strong>Persist Timer</strong>? על איזה מנגנון הוא משפיע וכיצד?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">הבעיה שה-Persist Timer פותר</div>
+        <div class="step-label">הבעיה שה-<bdi dir="ltr">Persist Timer</bdi> פותר</div>
         <p>זה נושא של <strong>בקרת זרימה</strong>, לא גודש. אבל קשור.</p>
-        <p>תרחיש: המקבל מודיע <strong>RW = 0</strong> (הבאפר מלא). השולח חייב להפסיק לשלוח. כשהאפליקציה תקרא — המקבל ישלח ACK חדש עם RW > 0.</p>
-        <p><strong>מה אם ה-ACK הזה אבד?</strong> השולח לא יודע שיש מקום, ימשיך להיות שקט. <strong>תקיעת קשר (Deadlock).</strong></p>
+        <p>תרחיש: המקבל מודיע <strong>RW = 0</strong> (הבאפר מלא). השולח חייב להפסיק לשלוח. כשהאפליקציה תקרא — המקבל ישלח <bdi dir="ltr">ACK</bdi> חדש עם <bdi dir="ltr">RW</bdi> > 0.</p>
+        <p><strong>מה אם ה-<bdi dir="ltr">ACK</bdi> הזה אבד?</strong> השולח לא יודע שיש מקום, ימשיך להיות שקט. <strong>תקיעת קשר (<bdi dir="ltr">Deadlock</bdi>).</strong></p>
       </div>
       <div class="step">
-        <div class="step-label">הפתרון: Persist Timer</div>
-        <p>כשהשולח מקבל RW=0, הוא <strong>מפעיל Persist Timer</strong>. כל פרק זמן (פעם בכמה שניות), הוא שולח <strong>Window Probe</strong> — סגמנט קטן עם בית אחד.</p>
-        <p>המקבל יחזיר ACK עם ה-RW הנוכחי שלו. אם עכשיו יש מקום — השולח ימשיך.</p>
+        <div class="step-label">הפתרון: <bdi dir="ltr">Persist Timer</bdi></div>
+        <p>כשהשולח מקבל <bdi dir="ltr">RW=0</bdi>, הוא <strong>מפעיל <bdi dir="ltr">Persist Timer</bdi></strong>. כל פרק זמן (פעם בכמה שניות), הוא שולח <strong>Window Probe</strong> — סגמנט קטן עם בית אחד.</p>
+        <p>המקבל יחזיר <bdi dir="ltr">ACK</bdi> עם ה-<bdi dir="ltr">RW</bdi> הנוכחי שלו. אם עכשיו יש מקום — השולח ימשיך.</p>
       </div>
-      <div class="final-answer">Persist Timer מונע Deadlock בבקרת זרימה. השולח שולח Window Probe אחרי שקיבל RW=0, ובכל פרק זמן — בודק אם נפתח מקום.</div>
+      <div class="final-answer"><bdi dir="ltr">Persist Timer</bdi> מונע <bdi dir="ltr">Deadlock</bdi> בבקרת זרימה. השולח שולח <bdi dir="ltr">Window Probe</bdi> אחרי שקיבל <bdi dir="ltr">RW=0</bdi>, ובכל פרק זמן — בודק אם נפתח מקום.</div>
     </div>
   </div>
 
@@ -742,16 +746,16 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li><strong>גודש (Congestion)</strong> = הרשת עמוסה. בקרה ע״י השולח עם CW.</li>
+        <li><strong>גודש (<bdi dir="ltr">Congestion</bdi>)</strong> = הרשת עמוסה. בקרה ע״י השולח עם <bdi dir="ltr">CW</bdi>.</li>
         <li><strong>AIMD:</strong> גדילה איטית, ירידה מהירה.</li>
-        <li><strong>Slow Start:</strong> CW מתחיל ב-1, מוכפל כל RTT. נמשך עד CW = ssthresh.</li>
-        <li><strong>Congestion Avoidance:</strong> CW += 1 כל RTT (לינארי).</li>
-        <li><strong><bdi>ssthresh:</bdi></strong> סף — מתחת אקספוננציאלי, מעל לינארי. ssthresh ↓ כשיש גודש.</li>
-        <li><strong>Timeout:</strong> CW=1, ssthresh=CW/2, חוזרים ל-Slow Start (שניהם)</li>
-        <li><strong><bdi>3 Dup ACKs ב-Tahoe:</bdi></strong> כמו Timeout (CW=1)</li>
-        <li><strong><bdi>3 Dup ACKs ב-Reno (Fast Recovery):</bdi></strong> CW=ssthresh, ממשיך לינארי</li>
-        <li><strong>Fast Retransmit:</strong> 3 Dup ACKs ← שלח שוב מיד (לא ממתינים ל-Timeout)</li>
-        <li>קצב TCP: <span class="term">CW/RTT</span></li>
+        <li><strong>Slow Start:</strong> <bdi dir="ltr">CW</bdi> מתחיל ב-1, מוכפל כל <bdi dir="ltr">RTT</bdi>. נמשך עד <bdi dir="ltr">CW = ssthresh</bdi>.</li>
+        <li><strong>Congestion Avoidance:</strong> <bdi dir="ltr">CW += 1</bdi> כל <bdi dir="ltr">RTT</bdi> (לינארי).</li>
+        <li><strong><bdi>ssthresh:</bdi></strong> סף — מתחת אקספוננציאלי, מעל לינארי. <bdi dir="ltr">ssthresh</bdi> ↓ כשיש גודש.</li>
+        <li><strong>Timeout:</strong> <bdi dir="ltr">CW=1, ssthresh=CW/2</bdi>, חוזרים ל-<bdi dir="ltr">Slow Start</bdi> (שניהם)</li>
+        <li><strong><bdi>3 Dup ACKs ב-Tahoe:</bdi></strong> כמו <bdi dir="ltr">Timeout</bdi> (<bdi dir="ltr">CW=1</bdi>)</li>
+        <li><strong><bdi>3 Dup ACKs ב-Reno (Fast Recovery):</bdi></strong> <bdi dir="ltr">CW=ssthresh</bdi>, ממשיך לינארי</li>
+        <li><strong>Fast Retransmit:</strong> <bdi dir="ltr">3 Dup ACKs</bdi> ← שלח שוב מיד (לא ממתינים ל-<bdi dir="ltr">Timeout</bdi>)</li>
+        <li>קצב <bdi dir="ltr">TCP</bdi>: <span class="term">CW/RTT</span></li>
       </ul>
     </div>
   </div>

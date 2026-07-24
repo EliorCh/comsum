@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שאלות ממבחן מועד א' · מבוא לתקשורת מחשבים</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/atom-one-dark.min.css">
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
+
+<script>
+  window.addEventListener('load', () => {
+    if (window.renderMathInElement) {
+      try { renderMathInElement(document.body, { delimiters: [{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}], throwOnError: false, strict: false }); } catch(e){}
+    }
+    if (window.hljs) { try { document.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el)); } catch(e){} }
+    document.body.classList.add('ready');
+    // Exercise reveal
+    document.querySelectorAll('.reveal-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.exercise-card').classList.toggle('open');
+        btn.textContent = btn.closest('.exercise-card').classList.contains('open') ? 'הסתר פתרון' : 'הראה פתרון';
+      });
+    });
+  });
+</script>
+
+<style>
+  :root {
+    --bg: #fbf9f3; --bg-paper: #fffefa; --ink: #1c1917; --ink-soft: #44403c; --ink-mute: #78716c;
+    --rule: #e7e5e0; --rule-soft: #f1efe9;
+    --indigo-9: #312e81; --indigo-7: #4f46e5; --indigo-3: #c7d2fe; --indigo-1: #eef2ff;
+    --c-theory-h: #1d4ed8; --c-theory-bg: #eff6ff; --c-theory-edge: #bfdbfe;
+    --c-formula-h: #b45309; --c-formula-bg: #fef9e7; --c-formula-edge: #fcd34d;
+    --c-example-h: #047857; --c-example-bg: #ecfdf5; --c-example-edge: #a7f3d0;
+    --c-warn-h: #be123c; --c-warn-bg: #fff1f2; --c-warn-edge: #fecdd3;
+    --c-exercise-h: #6d28d9; --c-exercise-bg: #f5f3ff; --c-exercise-edge: #ddd6fe;
+    --c-summary-h: #334155; --c-summary-bg: #f1f5f9; --c-summary-edge: #cbd5e1;
+    --code-bg: #0f172a; --code-bg-2: #1e293b; --code-ink: #e2e8f0;
+    --shadow-sm: 0 1px 2px rgba(28,25,23,.04), 0 1px 3px rgba(28,25,23,.06);
+    --shadow: 0 4px 12px rgba(28,25,23,.05), 0 1px 3px rgba(28,25,23,.04);
+    --serif: 'Frank Ruhl Libre', Georgia, serif;
+    --sans: 'Assistant', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+  body { font-family: var(--sans); color: var(--ink); background: var(--bg); line-height: 1.75; font-size: 17px; -webkit-font-smoothing: antialiased;
+    background-image: radial-gradient(circle at 20% 0%, rgba(99,102,241,.035), transparent 40%), radial-gradient(circle at 80% 100%, rgba(245,158,11,.035), transparent 40%);
+    background-attachment: fixed; opacity: 0; transition: opacity .2s ease; }
+  body.ready { opacity: 1; }
+  .app { display: grid; grid-template-columns: 320px 1fr; min-height: 100vh; max-width: 1480px; margin: 0 auto; }
+  .sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; background: linear-gradient(180deg, #1e1b4b 0%, #312e81 100%); color: #e0e7ff; padding: 28px 22px; border-left: 1px solid rgba(255,255,255,.06); }
+  .sidebar::-webkit-scrollbar { width: 6px; } .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 3px; }
+  .brand { font-family: var(--serif); font-size: 19px; font-weight: 700; color: #fff; margin-bottom: 6px; letter-spacing: -.01em; line-height: 1.25; }
+  .brand a { color: #fff; text-decoration: none; } .brand a:hover { color: #fbbf24; }
+  .brand-sub { font-size: 12.5px; color: #c7d2fe; margin-bottom: 22px; font-weight: 500; }
+  .brand-meta { font-size: 10.5px; color: #a5b4fc; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .nav-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: .12em; color: #818cf8; font-weight: 700; margin: 18px 0 8px; padding-right: 8px; }
+  .nav-label.first { margin-top: 0; }
+  .nav-list { list-style: none; } .nav-list li { margin-bottom: 1px; }
+  .nav-list a { display: flex; align-items: center; gap: 9px; padding: 7px 10px; color: #c7d2fe; text-decoration: none; border-radius: 7px; font-size: 13.5px; font-weight: 500; transition: all .15s ease; line-height: 1.3; }
+  .nav-list a:hover { background: rgba(255,255,255,.06); color: #fff; }
+  .nav-list a.active { background: rgba(255,255,255,.12); color: #fff; box-shadow: inset 3px 0 0 #fbbf24; }
+  .nav-list a.pending { opacity: .4; cursor: not-allowed; }
+  .nav-list a.pending:hover { background: transparent; color: #c7d2fe; }
+  .nav-num { display: inline-flex; align-items: center; justify-content: center; min-width: 30px; height: 20px; background: rgba(255,255,255,.08); border-radius: 5px; font-size: 10.5px; font-weight: 700; font-family: var(--mono); padding: 0 4px; }
+  .nav-list a.active .nav-num { background: #fbbf24; color: #1e1b4b; }
+  main { padding: 56px 64px 120px; max-width: 980px; }
+  .page-eyebrow { display: inline-block; font-size: 12px; font-weight: 700; color: var(--indigo-7); letter-spacing: .15em; text-transform: uppercase; background: var(--indigo-1); padding: 6px 12px; border-radius: 99px; margin-bottom: 16px; }
+  h1.page-title { font-family: var(--serif); font-size: 46px; font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--ink); margin-bottom: 14px; }
+  .page-subtitle { font-size: 19px; color: var(--ink-soft); margin-bottom: 36px; font-weight: 400; line-height: 1.55; }
+  h2 { font-family: var(--serif); font-size: 30px; font-weight: 700; letter-spacing: -.015em; margin: 48px 0 18px; color: var(--ink); position: relative; padding-right: 20px; }
+  h2::before { content: ''; position: absolute; right: 0; top: 12px; bottom: 12px; width: 4px; background: var(--indigo-7); border-radius: 2px; }
+  h3 { font-family: var(--sans); font-size: 21px; font-weight: 700; margin: 30px 0 12px; color: var(--ink); letter-spacing: -.005em; }
+  h4 { font-size: 17px; font-weight: 700; margin: 18px 0 8px; color: var(--ink-soft); }
+  p { margin-bottom: 14px; color: var(--ink-soft); } p strong { color: var(--ink); font-weight: 700; }
+  ul, ol { margin: 12px 24px 18px; color: var(--ink-soft); } li { margin-bottom: 6px; }
+  .term { font-family: var(--mono); direction: ltr; display: inline-block; font-size: .88em; background: #f5f5f4; padding: 1px 8px; border-radius: 5px; color: #be185d; border: 1px solid #e7e5e4; vertical-align: baseline; unicode-bidi: isolate; }
+  .term.blue { color: var(--c-theory-h); background: var(--c-theory-bg); border-color: var(--c-theory-edge); }
+  .term.green { color: var(--c-example-h); background: var(--c-example-bg); border-color: var(--c-example-edge); }
+  .term.amber { color: var(--c-formula-h); background: var(--c-formula-bg); border-color: var(--c-formula-edge); }
+  .term.purple { color: var(--c-exercise-h); background: var(--c-exercise-bg); border-color: var(--c-exercise-edge); }
+  .term.red { color: var(--c-warn-h); background: var(--c-warn-bg); border-color: var(--c-warn-edge); }
+  .term.cyan { color: #0891b2; background: #ecfeff; border-color: #a5f3fc; }
+  .katex-display { margin: 18px 0 !important; direction: ltr !important; text-align: center !important; unicode-bidi: isolate; } .katex { direction: ltr !important; unicode-bidi: isolate; }
+  .box { border-radius: 14px; margin: 22px 0; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--rule); background: var(--bg-paper); }
+  .box-head { display: flex; align-items: center; gap: 12px; padding: 13px 22px; font-weight: 700; font-size: 15px; border-bottom: 1px solid var(--rule-soft); }
+  .box-head .icon { width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; flex-shrink: 0; font-size: 16px; }
+  .box-body { padding: 20px 26px; } .box-body > *:last-child { margin-bottom: 0; }
+  .box.theory { border-color: var(--c-theory-edge); } .box.theory .box-head { background: var(--c-theory-bg); color: var(--c-theory-h); } .box.theory .box-head .icon { background: var(--c-theory-h); color: #fff; }
+  .box.formula { border-color: var(--c-formula-edge); background: var(--c-formula-bg); } .box.formula .box-head { background: transparent; color: var(--c-formula-h); border-bottom-color: rgba(180,83,9,.18); } .box.formula .box-head .icon { background: var(--c-formula-h); color: #fff; } .box.formula .box-body { background: var(--c-formula-bg); } .box.formula p { color: #78350f; }
+  .box.example { border-color: var(--c-example-edge); } .box.example .box-head { background: var(--c-example-bg); color: var(--c-example-h); } .box.example .box-head .icon { background: var(--c-example-h); color: #fff; }
+  .box.warn { border-color: var(--c-warn-edge); } .box.warn .box-head { background: var(--c-warn-bg); color: var(--c-warn-h); } .box.warn .box-head .icon { background: var(--c-warn-h); color: #fff; }
+  .box.exercise { border-color: var(--c-exercise-edge); } .box.exercise .box-head { background: var(--c-exercise-bg); color: var(--c-exercise-h); } .box.exercise .box-head .icon { background: var(--c-exercise-h); color: #fff; }
+  .box.summary { border-color: var(--c-summary-edge); } .box.summary .box-head { background: var(--c-summary-bg); color: var(--c-summary-h); } .box.summary .box-head .icon { background: var(--c-summary-h); color: #fff; }
+  pre { background: var(--code-bg) !important; border-radius: 0 0 12px 12px; padding: 18px 22px !important; margin: 0 0 16px 0; overflow-x: auto; direction: ltr; font-size: 14px; line-height: 1.7; box-shadow: var(--shadow); border: 1px solid var(--code-bg-2); border-top: none; }
+  pre code { font-family: var(--mono) !important; background: transparent !important; padding: 0 !important; border: none !important; color: var(--code-ink) !important; }
+  .code-label { display: flex; align-items: center; gap: 8px; background: var(--code-bg-2); color: #94a3b8; font-family: var(--mono); font-size: 12px; padding: 10px 16px; border-radius: 12px 12px 0 0; direction: ltr; border: 1px solid var(--code-bg-2); border-bottom: 1px solid #334155; margin-top: 18px; }
+  .code-label .dot { width: 8px; height: 8px; border-radius: 50%; background: #475569; }
+  .code-label .name { margin-right: auto; opacity: .9; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); font-size: 15px; }
+  th, td { padding: 11px 14px; text-align: right; border-bottom: 1px solid var(--rule-soft); border-left: 1px solid var(--rule-soft); }
+  th { background: var(--c-summary-bg); font-weight: 700; color: var(--c-summary-h); }
+  tr:last-child td { border-bottom: none; }
+  td.num, th.num { font-family: var(--mono); direction: ltr; text-align: center; font-size: 14px; }
+  td.highlight { background: var(--c-formula-bg); font-weight: 700; color: var(--c-formula-h); }
+  .exercise-card { background: #fff; border-radius: 10px; margin: 14px 0; border: 1px solid var(--c-exercise-edge); overflow: hidden; }
+  .exercise-tag { display: inline-block; font-size: 11px; font-weight: 700; background: var(--c-exercise-h); color: #fff; padding: 3px 10px; border-radius: 99px; margin-bottom: 10px; font-family: var(--mono); letter-spacing: .05em; unicode-bidi: plaintext; }
+  .exercise-q { padding: 20px 24px; background: #fafaf9; border-bottom: 1px solid var(--rule-soft); }
+  .exercise-q p:last-child { margin-bottom: 0; }
+  .reveal-btn { display: block; width: 100%; background: var(--c-exercise-bg); border: none; border-top: 1px solid var(--c-exercise-edge); padding: 13px; font-family: var(--sans); font-size: 14px; font-weight: 700; color: var(--c-exercise-h); cursor: pointer; transition: background .15s ease; }
+  .reveal-btn:hover { background: #ede9fe; }
+  .solution { padding: 22px 26px; background: var(--c-example-bg); border-top: 1px solid var(--c-example-edge); display: none; }
+  .exercise-card.open .solution { display: block; }
+  .solution .step { background: #fff; border-radius: 8px; padding: 14px 18px; margin: 12px 0; border-right: 3px solid var(--c-example-h); }
+  .solution .step-label { font-size: 11px; font-weight: 700; color: var(--c-example-h); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; font-family: var(--mono); }
+  .solution .final-answer { background: #fff; border: 2px solid var(--c-example-h); border-radius: 10px; padding: 14px 20px; margin-top: 16px; font-weight: 600; }
+  .solution .final-answer::before { content: '✓ '; color: var(--c-example-h); font-weight: 900; }
+  .lead { font-size: 19px; color: var(--ink-soft); border-right: 3px solid var(--indigo-7); padding-right: 20px; margin: 24px 0 32px; font-weight: 400; line-height: 1.6; }
+  .keypoint { background: linear-gradient(90deg, var(--c-formula-bg) 0%, transparent 100%); padding: 14px 18px; border-radius: 8px; margin: 16px 0; border-right: 3px solid var(--c-formula-h); }
+  .keypoint::before { content: '💡 '; font-size: 18px; margin-left: 4px; }
+  .mc-list { list-style: none; margin: 12px 0; padding: 0; }
+  .mc-list li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: #fff; border: 1px solid var(--rule); border-radius: 8px; margin-bottom: 8px; transition: all .15s ease; }
+  .mc-list li .mc-marker { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--rule); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--ink-mute); background: #fff; }
+  .mc-list li.correct { background: var(--c-example-bg); border-color: var(--c-example-edge); }
+  .mc-list li.correct .mc-marker { background: var(--c-example-h); color: #fff; border-color: var(--c-example-h); }
+  .mc-list li.correct .mc-marker::after { content: '✓'; }
+  .mc-list li.wrong { background: var(--c-warn-bg); border-color: var(--c-warn-edge); }
+  .mc-list li.wrong .mc-marker { background: var(--c-warn-h); color: #fff; border-color: var(--c-warn-h); }
+  .mc-list li.wrong .mc-marker::after { content: '✗'; }
+  .mc-list li .mc-text { flex: 1; line-height: 1.55; color: var(--ink-soft); }
+  .mc-list li .mc-text .why { display: block; margin-top: 6px; font-size: 13.5px; color: var(--ink-mute); font-style: italic; }
+  .figure { background: #fff; border: 1px solid var(--rule); border-radius: 12px; padding: 18px; margin: 18px 0; text-align: center; box-shadow: var(--shadow-sm); }
+  .figure svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+  .figure .cap { font-size: 13px; color: var(--ink-mute); margin-top: 12px; font-style: italic; }
+
+  /* Enrichment (העשרה) - content not in lectures, collapsible */
+  details.enrichment { background: #faf8f3; border: 1px dashed #c7c2b5; border-radius: 10px; margin: 18px 0; padding: 0; overflow: hidden; }
+  details.enrichment > summary { cursor: pointer; padding: 12px 18px; background: linear-gradient(90deg, #f5f2ea 0%, #faf8f3 100%); font-family: var(--sans); font-size: 14px; font-weight: 700; color: #6b6354; user-select: none; list-style: none; display: flex; align-items: center; gap: 10px; }
+  details.enrichment > summary::-webkit-details-marker { display: none; }
+  details.enrichment > summary::before { content: '📚'; font-size: 16px; }
+  details.enrichment > summary::after { content: 'לחץ להרחבה ▾'; margin-right: auto; font-size: 11px; font-weight: 500; color: #9a9080; letter-spacing: .04em; }
+  details.enrichment[open] > summary::after { content: 'הסתר ▴'; }
+  details.enrichment > summary:hover { background: #f0ece2; }
+  details.enrichment .enrichment-body { padding: 14px 22px 18px; border-top: 1px dashed #d8d3c2; }
+  details.enrichment .enrichment-body > *:first-child { margin-top: 0; }
+  details.enrichment .enrichment-note { font-size: 12px; color: #9a9080; font-style: italic; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px dotted #d8d3c2; }
+  @media (max-width: 900px) { .app { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } main { padding: 32px 24px 80px; } h1.page-title { font-size: 34px; } h2 { font-size: 25px; } }
+
+/* ===== pager-v1 ===== */
+.pager { display:flex; justify-content:space-between; gap:12px; margin-top:40px; padding-top:22px; border-top:1px solid var(--rule, #e7e5e0); }
+.pager a { display:flex; flex-direction:column; gap:3px; text-decoration:none; padding:12px 16px; border:1px solid var(--rule, #e7e5e0); border-radius:10px; background:var(--bg-paper, #fffefa); max-width:48%; transition:border-color .15s, box-shadow .15s; }
+.pager a:hover { border-color: var(--indigo-3, #c7d2fe); box-shadow:0 2px 10px rgba(60,55,50,.08); }
+.pager a.next { margin-inline-start:auto; text-align:left; }
+.pager .dir { font-size:12px; color:var(--ink-mute, #78716c); font-weight:600; }
+.pager .name { font-size:14.5px; color:var(--indigo-7, #4f46e5); font-weight:700; }
+
+/* ===== glossary-tooltips-v2 ===== */
+.gloss { border-bottom: 1px dashed var(--indigo-3, #c7d2fe); cursor: help; }
+#gloss-tip {
+  position: fixed; z-index: 9999; max-width: 320px;
+  background: var(--ink, #1c1917); color: var(--bg, #fbf9f3);
+  padding: 10px 14px; border-radius: 8px;
+  font-size: 12.5px; font-weight: 400; line-height: 1.55;
+  direction: rtl; text-align: right; font-family: 'Assistant', sans-serif;
+  box-shadow: 0 4px 16px rgba(60,55,50,.22);
+  opacity: 0; pointer-events: none; transition: opacity .12s;
+}
+#gloss-tip.show { opacity: 1; }
+#gloss-tip .arrow {
+  position: absolute; width: 0; height: 0;
+  border: 6px solid transparent;
+}
+#gloss-tip.above .arrow { top: 100%; border-top-color: var(--ink, #1c1917); }
+#gloss-tip.below .arrow { bottom: 100%; border-bottom-color: var(--ink, #1c1917); }
+#gloss-tip bdi { unicode-bidi: isolate; }
+/* ===== layout-guards-v2: keep wide content from blowing the grid column ===== */
+main { min-width: 0; }
+.box-body { overflow-x: auto; }
+.figure svg { max-width: 100%; height: auto; }
+
+/* ===== ui-fixes-v3 ===== */
+/* (1) sidebar collapse */
+.menu-toggle {
+  position: fixed; top: 14px; inset-inline-start: 14px; z-index: 60;
+  width: 42px; height: 42px; border: none; border-radius: 10px;
+  background: #312e81; color: #e0e7ff; font-size: 20px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(30,27,75,.28); display: none;
+  align-items: center; justify-content: center; line-height: 1;
+}
+.menu-toggle:hover { background: #3730a3; }
+body.nav-hidden .app { grid-template-columns: 1fr; }
+body.nav-hidden .sidebar { display: none; }
+body.nav-hidden .menu-toggle { display: flex; }
+.menu-toggle.always { display: flex; }
+/* keep the toggle from covering the H1 when the menu is hidden */
+body.nav-hidden main { padding-top: 68px; }
+
+/* (3) pager arrows follow logical order in RTL */
+.pager .dir .arw { font-style: normal; }
+
+/* (4) breathing room after inline bold labels (colons pulled inside) */
+.box-body strong, main p strong, main li strong { margin-inline-end: .2em; }
+
+/* ===== pager-home-v3 ===== */
+.pager { align-items: stretch; }
+.pager a.home { text-align: center; align-items: center; max-width: 30%; background: var(--indigo-1, #eef2ff); }
+.pager a.home .name { font-weight: 600; font-size: 13px; color: var(--ink-mute, #78716c); }
+.pager a.prev { text-align: right; }
+.pager a.next { text-align: left; }
+.pager a.next .arw, .pager a.prev .arw { font-weight: 700; }
+@media (max-width: 600px) {
+  .pager { flex-wrap: wrap; }
+  .pager a { max-width: 100%; flex: 1 1 100%; }
+  .pager a.home { order: 3; }
+}
+
+/* ===== bidi-prose-v4 ===== */
+/* Per-paragraph auto direction + isolation of neutral runs, so English acronyms
+   embedded in Hebrew (MAC, ARP, IP...) stop flipping at sentence/clause edges. */
+main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
+  direction: rtl; unicode-bidi: isolate; text-align: right;
+}
+
+  /* summary-glossary page */
+  .gloss-search { width:100%; padding:11px 16px; font-family:var(--sans); font-size:15px;
+    border:1.5px solid var(--indigo-3); border-radius:10px; margin-bottom:16px; }
+  .gloss-search:focus { outline:none; border-color:var(--indigo-7); }
+  .gloss-table td.gt { font-family:var(--mono); font-weight:700; color:#be185d;
+    text-align:center; direction:ltr; unicode-bidi:isolate; }
+  .gloss-table td { text-align:right; vertical-align:top; }
+  .gloss-table { font-size:14.5px; }
+
+  /* ===== ui-fixes-v5 ===== */
+/* toggle no longer overlaps titles */
+body:not(.nav-hidden) .sidebar .brand { padding-top: 40px; }   /* clear the button when menu open */
+.menu-toggle { top: 12px; inset-inline-start: 12px; }
+body:not(.nav-hidden) .menu-toggle {                            /* when menu open, sit over dark sidebar */
+  background: rgba(255,255,255,.14); box-shadow: none;
+}
+body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
+
+/* ===== site search ===== */
+.search-fab {
+  position: fixed; bottom: 22px; inset-inline-start: 22px; z-index: 70;
+  width: 50px; height: 50px; border: none; border-radius: 50%;
+  background: #4f46e5; color: #fff; font-size: 21px; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(79,70,229,.4); display: flex;
+  align-items: center; justify-content: center;
+}
+.search-fab:hover { background: #4338ca; }
+.search-overlay {
+  position: fixed; inset: 0; z-index: 200; background: rgba(28,25,23,.45);
+  display: none; align-items: flex-start; justify-content: center; padding-top: 12vh;
+  backdrop-filter: blur(2px);
+}
+.search-overlay.open { display: flex; }
+.search-panel {
+  width: min(560px, 92vw); background: var(--bg-paper, #fffefa); border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(28,25,23,.35); overflow: hidden; direction: rtl;
+}
+.search-panel input {
+  width: 100%; border: none; border-bottom: 1px solid var(--rule, #e7e5e0);
+  padding: 18px 22px; font-family: var(--sans, sans-serif); font-size: 18px; outline: none;
+  background: transparent; color: var(--ink, #1c1917);
+}
+.search-results { max-height: 50vh; overflow-y: auto; }
+.search-results a {
+  display: flex; align-items: center; gap: 10px; padding: 13px 22px;
+  text-decoration: none; color: var(--ink, #1c1917); border-bottom: 1px solid var(--rule-soft, #f1efe9);
+  font-size: 15px;
+}
+.search-results a:hover, .search-results a.sel { background: var(--indigo-1, #eef2ff); }
+.search-results .r-num { font-family: var(--mono, monospace); font-size: 12px; color: var(--indigo-7, #4f46e5); font-weight: 700; min-width: 34px; }
+.search-empty { padding: 22px; text-align: center; color: var(--ink-mute, #78716c); }
+.search-hint { padding: 9px 22px; font-size: 12px; color: var(--ink-mute, #78716c); background: var(--rule-soft, #f1efe9); }
+
+  /* exam page */
+  .exam-intro { background: var(--indigo-1); border: 1px solid var(--indigo-3); border-radius: 14px; padding: 20px 24px; margin: 24px 0 32px; }
+  .exam-q { background: #fff; border: 1px solid var(--rule); border-radius: 14px; margin: 20px 0; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .exam-q-head { display: flex; align-items: center; gap: 12px; padding: 13px 22px; background: var(--c-summary-bg); border-bottom: 1px solid var(--rule-soft); flex-wrap: wrap; }
+  .exam-qnum { font-family: var(--serif); font-weight: 700; font-size: 17px; color: var(--indigo-9); }
+  .exam-topic { font-size: 12.5px; font-weight: 700; color: var(--c-exercise-h); background: var(--c-exercise-bg); padding: 3px 12px; border-radius: 99px; }
+  .exam-q-body { padding: 20px 24px; }
+  .exam-q-body ol { margin: 12px 26px; }
+  .exam-ans { font-size: 16px; background: var(--c-example-bg); border: 1px solid var(--c-example-edge); color: var(--c-example-h); padding: 10px 16px; border-radius: 10px; margin-bottom: 16px; font-weight: 600; }
+  .solution h4 { font-size: 15px; color: var(--indigo-7); margin: 18px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--rule-soft); }
+  .topic-link { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 700; color: var(--indigo-7); text-decoration: none; }
+  .topic-link:hover { text-decoration: underline; }
+  .exam-options { list-style: none; margin: 16px 0 0; padding: 0; }
+  .exam-options .opt { display: flex; gap: 10px; align-items: baseline; padding: 8px 14px; margin: 6px 0;
+    border: 1px solid var(--rule-soft); border-radius: 9px; background: #fdfdfc; font-size: 15px; }
+  .exam-options .opt-l { font-family: var(--serif); font-weight: 700; color: var(--indigo-7); min-width: 20px; }
+  .exam-options .opt-t { flex: 1; }
+  /* the correct option is only highlighted once the solution is revealed */
+  .exercise-card.open .exam-options .opt.correct { background: var(--c-example-bg);
+    border-color: var(--c-example-h); font-weight: 600; }
+  .exercise-card.open .exam-options .opt.correct .opt-l { color: var(--c-example-h); }
+  .exercise-card.open .exam-options .opt.correct::after { content: '✓'; color: var(--c-example-h); font-weight: 900; }
+  .exam-toc { columns: 2; gap: 20px; margin: 16px 0; }
+  .exam-toc a { display: block; padding: 5px 0; font-size: 14px; color: var(--indigo-7); text-decoration: none; }
+  @media (max-width: 600px) { .exam-toc { columns: 1; } }
+</style>
+</head>
+<body>
+<button class="menu-toggle" id="menuToggle" aria-label="הצג/הסתר תפריט" title="הצג/הסתר תפריט">☰</button>
+<button class="search-fab" id="searchFab" aria-label="חיפוש באתר" title="חיפוש (מקש /)">🔍</button>
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-panel">
+    <input type="text" id="siteSearch" placeholder="חפש נושא באתר..." autocomplete="off" />
+    <div class="search-results" id="searchResults">
+    <a href="00-intro.html" data-label="רשת האינטרנט והמבנה השכבתי"><span class="r-num">00</span><span>רשת האינטרנט והמבנה השכבתי</span></a>
+    <a href="01-delays.html" data-label="השהיות ברשת"><span class="r-num">01</span><span>השהיות ברשת</span></a>
+    <a href="02-app-sockets.html" data-label="סוקטים, לקוח-שרת, P2P"><span class="r-num">02</span><span>סוקטים, לקוח-שרת, P2P</span></a>
+    <a href="03-app-http.html" data-label="HTTP — פרוטוקול ה-Web"><span class="r-num">03</span><span>HTTP — פרוטוקול ה-Web</span></a>
+    <a href="04-app-proxy-cache.html" data-label="Proxy, Web Cache, ו-Conditional GET"><span class="r-num">04</span><span>Proxy, Web Cache, ו-Conditional GET</span></a>
+    <a href="05-app-cookies.html" data-label="Cookies — איך HTTP &quot;זוכר&quot; אותך"><span class="r-num">05</span><span>Cookies — איך HTTP &quot;זוכר&quot; אותך</span></a>
+    <a href="06-app-dns.html" data-label="DNS — מערכת שמות הדומיינים"><span class="r-num">06</span><span>DNS — מערכת שמות הדומיינים</span></a>
+    <a href="07-trans-udp.html" data-label="UDP ו-Multiplexing"><span class="r-num">07</span><span>UDP ו-Multiplexing</span></a>
+    <a href="08-trans-rdt.html" data-label="RDT — Reliable Data Transfer"><span class="r-num">08</span><span>RDT — Reliable Data Transfer</span></a>
+    <a href="09-trans-tcp.html" data-label="TCP — מבנה ו-Sequence Numbers"><span class="r-num">09</span><span>TCP — מבנה ו-Sequence Numbers</span></a>
+    <a href="10-trans-flow.html" data-label="בקרת זרימה — Flow Control"><span class="r-num">10</span><span>בקרת זרימה — Flow Control</span></a>
+    <a href="11-trans-handshake.html" data-label="הקמת קשר וסגירתו — 3-Way HandShake"><span class="r-num">11</span><span>הקמת קשר וסגירתו — 3-Way HandShake</span></a>
+    <a href="12-trans-congestion.html" data-label="בקרת גודש — Congestion Control"><span class="r-num">12</span><span>בקרת גודש — Congestion Control</span></a>
+    <a href="13-net-intro.html" data-label="שכבת הרשת ו-IP Datagram"><span class="r-num">13</span><span>שכבת הרשת ו-IP Datagram</span></a>
+    <a href="14-net-fragmentation.html" data-label="פרגמנטציה — חלוקת דאטהגרם"><span class="r-num">14</span><span>פרגמנטציה — חלוקת דאטהגרם</span></a>
+    <a href="15-net-ip-addressing.html" data-label="כתובות IP, Subnets ו-CIDR"><span class="r-num">15</span><span>כתובות IP, Subnets ו-CIDR</span></a>
+    <a href="16-net-dhcp.html" data-label="DHCP — קבלת כתובת IP אוטומטית"><span class="r-num">16</span><span>DHCP — קבלת כתובת IP אוטומטית</span></a>
+    <a href="17-net-nat-ipv6.html" data-label="NAT, IPv6, ו-ICMP"><span class="r-num">17</span><span>NAT, IPv6, ו-ICMP</span></a>
+    <a href="18-net-routing.html" data-label="אלגוריתמי ניתוב — DV ו-LS"><span class="r-num">18</span><span>אלגוריתמי ניתוב — DV ו-LS</span></a>
+    <a href="19-net-ospf-bgp.html" data-label="OSPF, BGP, ו-Autonomous Systems"><span class="r-num">19</span><span>OSPF, BGP, ו-Autonomous Systems</span></a>
+    <a href="20-link-framing.html" data-label="Framing ושירותי שכבת הקישור"><span class="r-num">20</span><span>Framing ושירותי שכבת הקישור</span></a>
+    <a href="21-link-aloha.html" data-label="ALOHA ו-Slotted ALOHA"><span class="r-num">21</span><span>ALOHA ו-Slotted ALOHA</span></a>
+    <a href="22-link-csma.html" data-label="CSMA, CSMA/CD ו-Ethernet"><span class="r-num">22</span><span>CSMA, CSMA/CD ו-Ethernet</span></a>
+    <a href="23-link-mac-arp.html" data-label="MAC ו-ARP"><span class="r-num">23</span><span>MAC ו-ARP</span></a>
+    <a href="24-link-switches.html" data-label="סוויצ׳ים — Layer 2 Switches"><span class="r-num">24</span><span>סוויצ׳ים — Layer 2 Switches</span></a>
+    <a href="25-link-day-in-life.html" data-label="יום בחיי הודעה"><span class="r-num">25</span><span>יום בחיי הודעה</span></a>
+    <a href="26-phys-signals.html" data-label="השכבה הפיזית — אותות וביטים"><span class="r-num">26</span><span>השכבה הפיזית — אותות וביטים</span></a>
+    <a href="27-sec-threats.html" data-label="איומי אבטחה ברשת"><span class="r-num">27</span><span>איומי אבטחה ברשת</span></a>
+    <a href="28-sec-crypto.html" data-label="הצפנה סימטרית מול אסימטרית"><span class="r-num">28</span><span>הצפנה סימטרית מול אסימטרית</span></a>
+    <a href="29-sec-signatures.html" data-label="חתימה דיגיטלית"><span class="r-num">29</span><span>חתימה דיגיטלית</span></a>
+    <a href="30-sec-ssl.html" data-label="SSL ו-TLS"><span class="r-num">30</span><span>SSL ו-TLS</span></a>
+    <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
+    <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
+    <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
+    <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
+    <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
+    <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
+    <a href="sum-sec.html" data-label="מה היה לנו באבטחה וקריפטוגרפיה"><span class="r-num">•</span><span>מה היה לנו באבטחה וקריפטוגרפיה</span></a>
+    <a href="sum-trans.html" data-label="מה היה לנו בשכבת התעבורה"><span class="r-num">•</span><span>מה היה לנו בשכבת התעבורה</span></a>
+    </div>
+    <div class="search-empty" id="searchEmpty" style="display:none">לא נמצא נושא תואם</div>
+    <div class="search-hint">↑↓ לניווט · Enter לפתיחה · Esc לסגירה</div>
+  </div>
+</div>
+<div class="app">
+
+<aside class="sidebar">
+  <div class="brand"><a href="index.html">מבוא לתקשורת<br>מחשבים</a></div>
+  <div class="brand-sub">ד״ר מור פרי · ד״ר הדר בינסקי</div>
+  <div class="brand-meta">MTA · הכנה למבחן</div>
+
+  <div class="nav-label first">📘 מבוא</div>
+  <ul class="nav-list">
+    <li><a href="00-intro.html" data-page="00"><span class="nav-num">0.1</span>רשת האינטרנט והשכבות</a></li>
+    <li><a href="01-delays.html" data-page="01"><span class="nav-num">0.2</span>השהיות ברשת</a></li>
+  </ul>
+
+  <div class="nav-label">1️⃣ שכבת האפליקציה</div>
+  <ul class="nav-list">
+    <li><a href="02-app-sockets.html" data-page="02"><span class="nav-num">1.1</span>סוקטים, לקוח-שרת, P2P</a></li>
+    <li><a href="03-app-http.html" data-page="03"><span class="nav-num">1.2</span>HTTP</a></li>
+    <li><a href="04-app-proxy-cache.html" data-page="04"><span class="nav-num">1.3</span>Proxy, Cache, Cond. GET</a></li>
+    <li><a href="05-app-cookies.html" data-page="05"><span class="nav-num">1.4</span>Cookies</a></li>
+    <li><a href="06-app-dns.html" data-page="06"><span class="nav-num">1.5</span>DNS</a></li>
+    <li><a href="sum-app.html" data-page="sum-app"><span class="nav-num">📌</span>סיכום השכבה</a></li>
+  </ul>
+
+  <div class="nav-label">2️⃣ שכבת התעבורה</div>
+  <ul class="nav-list">
+    <li><a href="07-trans-udp.html" data-page="07"><span class="nav-num">2.1</span>UDP ומולטיפלקסינג</a></li>
+    <li><a href="08-trans-rdt.html" data-page="08"><span class="nav-num">2.2</span>העברה אמינה (RDT)</a></li>
+    <li><a href="09-trans-tcp.html" data-page="09"><span class="nav-num">2.3</span>TCP — מבנה</a></li>
+    <li><a href="10-trans-flow.html" data-page="10"><span class="nav-num">2.4</span>בקרת זרימה</a></li>
+    <li><a href="11-trans-handshake.html" data-page="11"><span class="nav-num">2.5</span>הקמת וסגירת קשר</a></li>
+    <li><a href="12-trans-congestion.html" data-page="12"><span class="nav-num">2.6</span>בקרת גודש</a></li>
+    <li><a href="sum-trans.html" data-page="sum-trans"><span class="nav-num">📌</span>סיכום השכבה</a></li>
+  </ul>
+
+  <div class="nav-label">3️⃣ שכבת הרשת</div>
+  <ul class="nav-list">
+    <li><a href="13-net-intro.html" data-page="13"><span class="nav-num">3.1</span>IP דאטהגרם</a></li>
+    <li><a href="14-net-fragmentation.html" data-page="14"><span class="nav-num">3.2</span>פרגמנטציה</a></li>
+    <li><a href="15-net-ip-addressing.html" data-page="15"><span class="nav-num">3.3</span>כתובות IP</a></li>
+    <li><a href="16-net-dhcp.html" data-page="16"><span class="nav-num">3.4</span>DHCP</a></li>
+    <li><a href="17-net-nat-ipv6.html" data-page="17"><span class="nav-num">3.5</span>NAT, IPv6, ICMP</a></li>
+    <li><a href="18-net-routing.html" data-page="18"><span class="nav-num">3.6</span>ראוטינג — DV, LS</a></li>
+    <li><a href="19-net-ospf-bgp.html" data-page="19"><span class="nav-num">3.7</span>OSPF, BGP, AS</a></li>
+    <li><a href="sum-net.html" data-page="sum-net"><span class="nav-num">📌</span>סיכום השכבה</a></li>
+  </ul>
+
+  <div class="nav-label">4️⃣ שכבת הקישור</div>
+  <ul class="nav-list">
+    <li><a href="20-link-framing.html" data-page="20"><span class="nav-num">4.1</span>Framing ושירותים</a></li>
+    <li><a href="21-link-aloha.html" data-page="21"><span class="nav-num">4.2</span>ALOHA</a></li>
+    <li><a href="22-link-csma.html" data-page="22"><span class="nav-num">4.3</span>CSMA, Ethernet</a></li>
+    <li><a href="23-link-mac-arp.html" data-page="23"><span class="nav-num">4.4</span>MAC, ARP</a></li>
+    <li><a href="24-link-switches.html" data-page="24"><span class="nav-num">4.5</span>סוויצ'ים</a></li>
+    <li><a href="25-link-day-in-life.html" data-page="25"><span class="nav-num">4.6</span>יום בחיי הודעה</a></li>
+    <li><a href="sum-link.html" data-page="sum-link"><span class="nav-num">📌</span>סיכום השכבה</a></li>
+  </ul>
+
+  <div class="nav-label">5️⃣ השכבה הפיזית</div>
+  <ul class="nav-list">
+    <li><a href="26-phys-signals.html" data-page="26"><span class="nav-num">5.1</span>אותות וביטים</a></li>
+  </ul>
+
+  <div class="nav-label">🔐 אבטחה וקריפטוגרפיה</div>
+  <ul class="nav-list">
+    <li><a href="27-sec-threats.html" data-page="27"><span class="nav-num">6.1</span>איומים</a></li>
+    <li><a href="28-sec-crypto.html" data-page="28"><span class="nav-num">6.2</span>הצפנה סימטרית/אסימטרית</a></li>
+    <li><a href="29-sec-signatures.html" data-page="29"><span class="nav-num">6.3</span>חתימה דיגיטלית</a></li>
+    <li><a href="30-sec-ssl.html" data-page="30"><span class="nav-num">6.4</span>SSL/TLS</a></li>
+    <li><a href="sum-sec.html" data-page="sum-sec"><span class="nav-num">📌</span>סיכום השכבה</a></li>
+  </ul>
+
+  <div class="nav-label">📋 חזרה</div>
+  <ul class="nav-list">
+    <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
+    <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
+    <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34" class="active"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
+    <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
+  </ul>
+
+</aside>
+
+<main>
+  <span class="page-eyebrow">📄 מבחן · מועד א'</span>
+  <h1 class="page-title">שאלות ממבחן מועד א'</h1>
+  <p class="page-subtitle">כל 20 השאלות ממבחן מועד א' (מבוא לתקשורת מחשבים), עם התשובה הנכונה, פתרון מפורט צעד-אחר-צעד, והרחבה על הנושא של כל שאלה.</p>
+
+  <div class="exam-intro">
+    💡 <strong>איך להשתמש בזה:</strong> נסה לפתור כל שאלה בעצמך <em>לפני</em> שאתה פותח את הפתרון. מועד ב' בדרך כלל בוחן את <strong>אותם נושאים</strong> עם וריאציות במספרים ובניסוח — אז ההבנה של <em>שיטת</em> הפתרון חשובה יותר מהתשובה הספציפית. כל שאלה מקושרת לפרק המלא באתר להעמקה.
+  </div>
+
+  <h2>ניווט מהיר</h2>
+  <div class="exam-toc">
+    <a href="#q1">שאלה 1 · Store & Forward</a><a href="#q2">שאלה 2 · שינוי רוחב פס</a><a href="#q3">שאלה 3 · HTTP</a><a href="#q4">שאלה 4 · פרגמנטציה</a><a href="#q5">שאלה 5 · DNS</a><a href="#q6">שאלה 6 · Switch מול Hub</a><a href="#q7">שאלה 7 · Stream Cipher</a><a href="#q8">שאלה 8 · Traceroute</a><a href="#q9">שאלה 9 · DHCP</a><a href="#q10">שאלה 10 · Slotted ALOHA</a><a href="#q11">שאלה 11 · Slotted ALOHA (וריאציה)</a><a href="#q12">שאלה 12 · IPv6</a><a href="#q13">שאלה 13 · Cookies</a><a href="#q14">שאלה 14 · TCP Receive Window</a><a href="#q15">שאלה 15 · מודל השכבות</a><a href="#q16">שאלה 16 · Wireshark</a><a href="#q17">שאלה 17 · ניתוב בין AS</a><a href="#q18">שאלה 18 · MAC</a><a href="#q19">שאלה 19 · UDP</a><a href="#q20">שאלה 20 · Subnetting</a>
+  </div>
+
+  <div class="exam-q exercise-card" id="q1">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 1</span>
+      <span class="exam-topic">השהיות · Store & Forward</span>
+    </div>
+    <div class="exam-q-body">
+      מארח <bdi dir="ltr">A</bdi> שולח 2,000 בתים (<bdi dir="ltr">Bytes</bdi>) של מידע למארח <bdi dir="ltr">B</bdi>. המסלול עובר בשני נתבים <bdi dir="ltr">R1</bdi> ו-<bdi dir="ltr">R2</bdi>. המידע נשלח כשהוא מחולק לשתי מנות בגודל שווה. רוחב הפס לאורך כל המסלול קבוע <bdi dir="ltr">10 Mbit/sec</bdi>, אורך המסלול הכולל <bdi dir="ltr">440</bdi> ק"מ, ומהירות ההתפשטות <bdi dir="ltr">200,000</bdi> ק"מ בשנייה. הנתבים עובדים בשיטת <bdi dir="ltr">Store &amp; Forward</bdi>. כמה זמן יעבור מתחילת השליחה ועד שכל המידע הגיע ל-<bdi dir="ltr">B</bdi>?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">4.4 ms</bdi></span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">6.0 ms</bdi></span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">8.0 ms</bdi></span></li><li class="opt correct"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">5.4 ms</bdi></span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">2.8 ms</bdi></span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ד'</strong> — <bdi dir="ltr">5.4 ms</bdi></div>
+      <h4>פתרון</h4>
+      <p>יש <strong>3 קטעים</strong> (<bdi dir="ltr">A→R1→R2→B</bdi>) ו-<strong>2 מנות</strong>. כל מנה = 1000 בתים = <bdi dir="ltr">8000</bdi> ביט.</p>
+    <p><strong>זמן שידור למנה בקטע אחד:</strong></p>
+    $$d_{trans} = \frac{8000}{10 \times 10^6} = 0.8\text{ ms}$$
+    <p><strong>עם Store &amp; Forward ופיצול למנות</strong> (צנרת/pipelining), הנוסחה היא:</p>
+    $$(N + P - 1)\cdot d_{trans} = (3 + 2 - 1)\cdot 0.8 = 5 \times 0.8 = 3.2\text{ ms}$$
+    <p><strong>זמן התפשטות</strong> (המנה האחרונה עוברת את כל המרחק):</p>
+    $$d_{prop} = \frac{440}{200{,}000} = 2.2\text{ ms}$$
+    <p><strong>סה"כ:</strong> $3.2 + 2.2 = 5.4$ ms.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>זו שאלת ההשהיות הקלאסית. שני רכיבים: <strong>שידור</strong> (הכנסת הביטים לקו, תלוי ב-$L/R$) ו<strong>התפשטות</strong> (מסע האות בקו, תלוי במרחק/מהירות). ב-Store &amp; Forward כל נתב מקבל את המנה <em>במלואה</em> לפני שמעביר הלאה — לכן כל קטע מוסיף $d_{trans}$. פיצול למנות מאפשר <strong>צנרת</strong>: בזמן שמנה 1 בקטע 2, מנה 2 כבר בקטע 1. הנוסחה $(N+P-1)$ סופרת את מספר ה"צעדים" עד שהמנה האחרונה יוצאת.</p>
+      <a class="topic-link" href="01-delays.html">→ לפרק המלא: השהיות ברשת</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q2">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 2</span>
+      <span class="exam-topic">השהיות · שינוי רוחב פס</span>
+    </div>
+    <div class="exam-q-body">
+      בוב מבצע ניסוי שבו הוא חוזר על שליחת המידע משאלה 1, אבל שולח את כולו במנה <strong>אחת גדולה</strong>. בנוסף, הוא מגדיל את רוחב הפס בין הנתבים <bdi dir="ltr">R1</bdi> ו-<bdi dir="ltr">R2</bdi> ל-<bdi dir="ltr">20 Mbit/sec</bdi>. כיצד ישתנו עיכובי השידור וההתפשטות ביחס לתרשים משאלה 1?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t">סך כל עיכובי השידור לא ישתנה, וגם עיכוב ההתפשטות לא ישתנה.</span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t">סך כל עיכובי השידור יקטן, ואילו עיכוב ההתפשטות לא ישתנה.</span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t">סך כל עיכובי השידור לא ישתנה, אך עיכוב ההתפשטות יגדל.</span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t">סך כל עיכובי השידור יקטן, וגם עיכוב ההתפשטות יקטן.</span></li><li class="opt correct"><span class="opt-l">ה.</span><span class="opt-t">סך כל עיכובי השידור יגדל, ואילו עיכוב ההתפשטות לא ישתנה.</span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ה'</strong> — סך כל עיכובי השידור יגדל, ואילו עיכוב ההתפשטות לא ישתנה.</div>
+      <h4>פתרון</h4>
+      
+    <p>שתי שינויים בבת אחת, ובכיוונים מנוגדים — וזו כל המלכודת:</p>
+    <ol>
+      <li><strong>מנה אחת גדולה במקום שתיים</strong> — מאבדים את ה<strong>צנרת</strong> (pipelining).</li>
+      <li><strong>הקו <bdi dir="ltr">R1-R2</bdi> הוכפל</strong> ל-<bdi dir="ltr">20 Mbit/s</bdi> — חוסך זמן בקטע אחד.</li>
+    </ol>
+    <p><strong>נחשב בפועל.</strong> מנה אחת = <bdi dir="ltr">2000</bdi> בתים = <bdi dir="ltr">16,000</bdi> ביט:</p>
+    $$A\to R_1:\ \frac{16000}{10\times10^6} = 1.6\text{ ms}$$
+    $$R_1\to R_2:\ \frac{16000}{20\times10^6} = 0.8\text{ ms}$$
+    $$R_2\to B:\ \frac{16000}{10\times10^6} = 1.6\text{ ms}$$
+    <p><strong>סך השידור</strong> = $1.6+0.8+1.6 = 4.0$ ms, לעומת <strong>3.2 ms</strong> בשאלה 1.</p>
+    <div class="final-answer">השידור <strong>גדל</strong> (מ-3.2 ל-4.0), וההתפשטות (2.2 ms) <strong>לא השתנתה</strong> — תשובה ה'.</div>
+    <p>הפסד הצנרת (‎+1.6 ms) גדול מהחיסכון בהכפלת הקו (‎−0.8 ms). הרווח נטו שלילי.</p>
+      <h4>הרחבה — על הנושא</h4>
+      
+    <p>זו אחת השאלות הכי מלמדות במבחן, כי היא מכריחה אותך <strong>לחשב ולא לנחש</strong>. האינטואיציה אומרת "הגדלנו רוחב פס → הכל יימהר", אבל שני עקרונות מתנגשים:</p>
+    <p><strong>1. צנרת (pipelining) שווה יותר מרוחב פס בקטע בודד.</strong> חלוקה ל-$P$ מנות על $N$ קטעים נותנת $(N+P-1)\cdot d_{trans}$ במקום $N\cdot d_{trans}$ למנה שלמה. ככל שיש יותר מנות, ה"זנב" מתקצר — הקטעים עובדים <em>במקביל</em>. ביטול הפיצול מחזיר אותנו לעבודה סדרתית.</p>
+    <p><strong>2. רוחב פס לא נוגע בהתפשטות.</strong> $d_{prop} = \frac{\text{מרחק}}{\text{מהירות}}$ — שום שינוי בקו לא ישנה אותה. רק שינוי מרחק או תווך פיזי.</p>
+    <p><strong>הכלל למועד ב':</strong> כשמשנים כמה פרמטרים בו-זמנית — תמיד לחשב את שני המצבים במספרים ולהשוות. שאלות מסוג "כיצד ישתנה" כמעט תמיד מסתירות שינוי אחד שמושך לכיוון ההפוך.</p>
+      <a class="topic-link" href="01-delays.html">→ לפרק המלא: השהיות ברשת</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q3">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 3</span>
+      <span class="exam-topic">שכבת אפליקציה · HTTP</span>
+    </div>
+    <div class="exam-q-body">
+      דפדפן משתמש בפרוטוקול <bdi dir="ltr">HTTP</bdi> להורדת דף <bdi dir="ltr">Web</bdi> מאתר מרוחק. הדף מכיל <bdi dir="ltr">9</bdi> אובייקטים באותו שרת, כל אחד בגודל זניח. זמן ה-<bdi dir="ltr">RTT</bdi> הוא <bdi dir="ltr">1ms</bdi>. הדפדפן פותח במקביל עד <bdi dir="ltr">3</bdi> קישורי <bdi dir="ltr">TCP</bdi> מול השרת, ותומך רק בגרסת <bdi dir="ltr">HTTP/1.0</bdi>. אם אין שימוש ב-<bdi dir="ltr">proxy</bdi> ומתעלמים מ-<bdi dir="ltr">DNS</bdi>, כמה זמן נדרש להצגת דף ה-<bdi dir="ltr">Web</bdi> במלואו?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">4 ms</bdi></span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">10 ms</bdi></span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">12 ms</bdi></span></li><li class="opt correct"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">8 ms</bdi></span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">9 ms</bdi></span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ד'</strong> — <bdi dir="ltr">8 ms</bdi></div>
+      <h4>פתרון</h4>
+      <p><bdi dir="ltr">HTTP/1.0</bdi> = <strong>לא-מתמיד</strong> (non-persistent): כל אובייקט דורש חיבור <bdi dir="ltr">TCP</bdi> נפרד = <strong>2 RTT</strong> (אחד ל-handshake, אחד לבקשה+תשובה).</p>
+    <ol>
+      <li><strong>דף הבסיס (HTML):</strong> $2 \times \text{RTT} = 2$ ms.</li>
+      <li><strong>9 אובייקטים ב-3 חיבורים מקבילים</strong> = 3 סבבים, כל סבב 3 אובייקטים במקביל = $2$ ms לסבב:
+      $$3 \text{ סבבים} \times 2\text{ ms} = 6\text{ ms}$$</li>
+    </ol>
+    <p><strong>סה"כ:</strong> $2 + 6 = 8$ ms.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>שתי מלכודות: (1) <bdi dir="ltr">HTTP/1.0</bdi> תמיד לא-מתמיד — כל אובייקט = 2 RTT (בניגוד ל-<bdi dir="ltr">1.1</bdi> המתמיד, שחוסך את ה-handshake). (2) מקביליות: 9 אובייקטים ב-3 חיבורים = 3 "גלים", לא 9 סדרתיים. תמיד לספור קודם את דף הבסיס (חייבים אותו כדי לדעת אילו אובייקטים להוריד), ואז את גלי האובייקטים.</p>
+      <a class="topic-link" href="03-app-http.html">→ לפרק המלא: HTTP ובקשות</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q4">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 4</span>
+      <span class="exam-topic">שכבת רשת · פרגמנטציה</span>
+    </div>
+    <div class="exam-q-body">
+      חבילת <bdi dir="ltr">IP</bdi> בגודל <bdi dir="ltr">3094</bdi> בתים (כולל הכותרת) צריכה לעבור ברשת שבה ה-<bdi dir="ltr">MTU</bdi> הוא <bdi dir="ltr">996</bdi> בתים, ועוברת פרגמנטציה. מה יופיע בשדה ה-<bdi dir="ltr">offset</bdi> של הפרגמנט <strong>השלישי</strong>, אם הגודל של כותרת <bdi dir="ltr">IP</bdi> הוא <bdi dir="ltr">20</bdi> בתים?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">366</bdi></span></li><li class="opt correct"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">244</bdi></span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">122</bdi></span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">249</bdi></span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">381</bdi></span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ב'</strong> — <bdi dir="ltr">244</bdi></div>
+      <h4>פתרון</h4>
+      <p><strong>נתונים לפרגמנט</strong> = <bdi dir="ltr">MTU − 20</bdi> = <bdi dir="ltr">976</bdi> בתים, וחייב להיות כפולה של 8: $976 / 8 = 122$ ✓.</p>
+    <p><strong>הפרגמנטים:</strong></p>
+    <ul>
+      <li>פרגמנט 1: בתים 0–975 (offset 0)</li>
+      <li>פרגמנט 2: בתים 976–1951 (offset $976/8 = 122$)</li>
+      <li>פרגמנט 3: מתחיל בבית 1952</li>
+    </ul>
+    <p><strong>ה-offset של פרגמנט 3:</strong></p>
+    $$\text{offset} = \frac{2 \times 976}{8} = \frac{1952}{8} = 244$$
+      <h4>הרחבה — על הנושא</h4>
+      <p>שני עקרונות: (1) שדה ה-offset נמדד <strong>ביחידות של 8 בתים</strong>, לא בבתים — לכן מחלקים ב-8. (2) הנתונים בכל פרגמנט (חוץ מהאחרון) חייבים להיות <strong>כפולה של 8</strong>. מחשבים כמה נתונים נכנסים לפרגמנט ($MTU-20$, מעוגל כלפי מטה לכפולה של 8), ואז ה-offset של הפרגמנט ה-$k$ הוא (נתונים שקדמו)/8.</p>
+      <a class="topic-link" href="14-net-fragmentation.html">→ לפרק המלא: פרגמנטציה של IP</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q5">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 5</span>
+      <span class="exam-topic">שכבת אפליקציה · DNS</span>
+    </div>
+    <div class="exam-q-body">
+      איזו מהטענות הבאות נכונה לגבי פעולת ה-<bdi dir="ltr">Local Name Server</bdi>?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t">ה-<bdi dir="ltr">Local Name Server</bdi> פונה ישירות לשרת ה-<bdi dir="ltr">Authoritative</bdi>.</span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t">ה-<bdi dir="ltr">Local Name Server</bdi> אינו שומר תוצאות ב-<bdi dir="ltr">Cache</bdi>.</span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t">ה-<bdi dir="ltr">Local Name Server</bdi> מחזיר תמיד למארח את כתובת ה-<bdi dir="ltr">IP</bdi> הסופית של השרת.</span></li><li class="opt correct"><span class="opt-l">ד.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t">ה-<bdi dir="ltr">Local Name Server</bdi> מבצע תמיד שאילתות רקורסיביות מול שרתי ה-<bdi dir="ltr">Root</bdi>.</span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ד'</strong> — כל התשובות האחרות אינן נכונות.</div>
+      <h4>פתרון</h4>
+      <p><strong>ד' — כל התשובות האחרות אינן נכונות.</strong> נבדוק כל טענה:</p>
+    <ul>
+      <li>"פונה ישירות לשרת ה-<bdi dir="ltr">Authoritative</bdi>" — <strong>לא נכון.</strong> בדרך כלל פונה קודם לשרתי ה-<bdi dir="ltr">Root</bdi> ו-<bdi dir="ltr">TLD</bdi>.</li>
+      <li>"אינו שומר תוצאות ב-<bdi dir="ltr">Cache</bdi>" — <strong>לא נכון.</strong> דווקא כן שומר (caching) כדי לזרז.</li>
+      <li>"מחזיר תמיד את כתובת ה-<bdi dir="ltr">IP</bdi> הסופית" — <strong>לא נכון.</strong> לפעמים מחזיר הפניה לשרת אחר.</li>
+      <li>"מבצע תמיד שאילתות רקורסיביות מול ה-<bdi dir="ltr">Root</bdi>" — <strong>לא נכון.</strong> מול ה-Root השאילתות בדרך כלל <strong>איטרטיביות</strong>.</li>
+    </ul>
+      <h4>הרחבה — על הנושא</h4>
+      <p>ה-<bdi dir="ltr">Local Name Server</bdi> הוא ה"מתווך" של תחנת הקצה. הוא מקבל שאילתה <strong>רקורסיבית</strong> מהמחשב ("תמצא לי הכל"), אבל מבצע מולה הרשת שאילתות <strong>איטרטיביות</strong> (Root → TLD → Authoritative), כל אחת מחזירה הפניה לשלב הבא. הוא שומר תוצאות ב-Cache עם TTL. כל טענה חד-משמעית מדי ("תמיד", "ישירות", "אינו") היא בדרך כלל שגויה — לכן "כל האחרות לא נכונות".</p>
+      <a class="topic-link" href="06-app-dns.html">→ לפרק המלא: DNS ותרגום שמות</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q6">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 6</span>
+      <span class="exam-topic">שכבת קישור · Switch מול Hub</span>
+    </div>
+    <div class="exam-q-body">
+      מה מהבאים קיים בסוויץ׳ (<bdi dir="ltr">Switch</bdi>) אך לא ב-<bdi dir="ltr">Hub</bdi>?
+      <ul class="exam-options"><li class="opt correct"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">Spanning Tree Protocol</bdi></span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">Plug and Play</bdi></span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">Cut-through</bdi></span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t">יש יותר מתשובה אחת נכונה מבין התשובות א'–ג'.</span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>א'</strong> — <bdi dir="ltr">Spanning Tree Protocol</bdi></div>
+      <h4>פתרון</h4>
+      <p><strong>א' — <bdi dir="ltr">Spanning Tree Protocol</bdi>.</strong></p>
+    <p>‏<bdi dir="ltr">STP</bdi> מונע לולאות בטופולוגיה של סוויצ'ים — הוא רלוונטי רק להתקן ש<strong>מקבל החלטות ניתוב</strong> ברמת השכבה השנייה, כלומר סוויץ'. ה-<bdi dir="ltr">Hub</bdi> הוא התקן "טיפש" בשכבה הפיזית שרק משכפל חשמלית את האות לכל הפורטים — אין לו טבלאות, אין לו החלטות, ואין לו צורך ב-STP.</p>
+    <p>(<bdi dir="ltr">Plug-and-Play</bdi> קיים בשניהם; <bdi dir="ltr">Cut-through</bdi> הוא שיטת העברה בחלק מהסוויצ'ים אך לא הבחירה הנכונה כאן.)</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>ההבדל המהותי: <bdi dir="ltr">Hub</bdi> = שכבה 1, משכפל ביטים לכולם (domain התנגשות אחד גדול). <bdi dir="ltr">Switch</bdi> = שכבה 2, לומד כתובות <bdi dir="ltr">MAC</bdi> (self-learning), מפריד domains, ומעביר רק לפורט הנכון. כל יכולת "חכמה" — טבלאות, מניעת לולאות (STP), בידוד התנגשויות — שייכת לסוויץ' בלבד.</p>
+      <a class="topic-link" href="24-link-switches.html">→ לפרק המלא: סוויצ׳ים</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q7">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 7</span>
+      <span class="exam-topic">אבטחה · Stream Cipher</span>
+    </div>
+    <div class="exam-q-body">
+      השתמשו ב-<bdi dir="ltr">Stream Cipher</bdi> על מנת להצפין את ההודעה הבאה: <bdi dir="ltr">m = 01101101</bdi> כאשר נתון שה-<bdi dir="ltr">keystream</bdi> הוא <bdi dir="ltr">ks = 10110110</bdi>. מהו ה-<bdi dir="ltr">ciphertext</bdi> שיישלח?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">11000011</bdi></span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">11111001</bdi></span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">00011011</bdi></span></li><li class="opt correct"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">11011011</bdi></span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ה'</strong> — <bdi dir="ltr">11011011</bdi></div>
+      <h4>פתרון</h4>
+      <p><bdi dir="ltr">Stream Cipher</bdi> מצפין ב-<strong>XOR</strong> בין ההודעה ל-keystream, ביט-ביט:</p>
+    <table>
+      <thead><tr><th></th><th>ביטים</th></tr></thead>
+      <tbody>
+        <tr><td><bdi dir="ltr">m</bdi></td><td class="mono">0 1 1 0 1 1 0 1</td></tr>
+        <tr><td><bdi dir="ltr">ks</bdi></td><td class="mono">1 0 1 1 0 1 1 0</td></tr>
+        <tr class="ok"><td><bdi dir="ltr">c = m ⊕ ks</bdi></td><td class="mono">1 1 0 1 1 0 1 1</td></tr>
+      </tbody>
+    </table>
+    <p><strong>התוצאה:</strong> <bdi dir="ltr">11011011</bdi> — תשובה <strong>ה'</strong>.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>‏XOR הוא הלב של הצפנת זרם: <bdi dir="ltr">0⊕0=0, 1⊕1=0, 0⊕1=1, 1⊕0=1</bdi> (שונים→1, זהים→0). היופי: אותה פעולה בדיוק מפענחת — $c \oplus ks = m$, כי $m \oplus ks \oplus ks = m$. הביטחון תלוי לגמרי בכך שה-keystream אקראי, סודי, ולא חוזר על עצמו.</p>
+      <a class="topic-link" href="28-sec-crypto.html">→ לפרק המלא: הצפנה</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q8">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 8</span>
+      <span class="exam-topic">שכבת רשת · Traceroute</span>
+    </div>
+    <div class="exam-q-body">
+      ‏<bdi dir="ltr">Traceroute</bdi> מציג מסלול ממחשב כלשהו לאחד משרתי המכללה. כיצד המארח מצליח לקבל מענה מהנתבים לאורך המסלול?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t">בכל פנייה לנתב, המענה יכיל את כתובתו של הנתב הבא במסלול.</span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t">בעזרת שימוש במספר פורט מיוחד השמור ליישום זה.</span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t">על ידי שליחת מנה מסוג <bdi dir="ltr">ICMP Ping</bdi>.</span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li><li class="opt correct"><span class="opt-l">ה.</span><span class="opt-t">בעזרת שתילת ערך קטן בשדה ה-<bdi dir="ltr">TTL</bdi> של המנה.</span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ה'</strong> — בעזרת שתילת ערך קטן בשדה ה-<bdi dir="ltr">TTL</bdi> של המנה.</div>
+      <h4>פתרון</h4>
+      
+    <p><strong>ה' — בעזרת שתילת ערך קטן בשדה ה-<bdi dir="ltr">TTL</bdi> של המנה.</strong></p>
+    <p>המנגנון של <bdi dir="ltr">Traceroute</bdi>:</p>
+    <ol>
+      <li>שולחים מנה עם <bdi dir="ltr">TTL = 1</bdi>. הנתב הראשון מוריד ל-<bdi dir="ltr">0</bdi>, <strong>זורק</strong> את המנה, ומחזיר <bdi dir="ltr">ICMP Time Exceeded</bdi> — וכך נחשפת כתובתו.</li>
+      <li>שולחים <bdi dir="ltr">TTL = 2</bdi> → הנתב השני נחשף. וכן הלאה, עד היעד.</li>
+    </ol>
+    <p><strong>למה לא ג' (<bdi dir="ltr">ICMP Ping</bdi>)?</strong> ‏<bdi dir="ltr">Ping</bdi> הוא <bdi dir="ltr">Echo Request/Reply</bdi> — הוא בודק אם יעד <em>חי</em>, ולא גורם לנתבי-ביניים להגיב. מה שמייצר את התגובות הוא <strong>פקיעת ה-TTL</strong>. הודעת ה-ICMP היא ה<em>תוצאה</em>; השאלה שואלת מהו ה<strong>מנגנון</strong>, וזה ה-TTL.</p>
+      <h4>הרחבה — על הנושא</h4>
+      
+    <p>שדה ה-<bdi dir="ltr">TTL</bdi> (Time To Live) נועד במקור <strong>למנוע לולאות</strong>: כל נתב מוריד אותו ב-1, וכשהוא מגיע ל-0 המנה נזרקת — כך מנה שנתקעה בלולאת ניתוב לא מסתובבת לנצח. <bdi dir="ltr">Traceroute</bdi> "מנצל לרעה" את המנגנון הזה: במקום למנוע לולאות, הוא משתמש בפקיעה כדי <strong>לאלץ כל נתב בתורו להזדהות</strong>.</p>
+    <p><strong>מה חשוב לזכור להבחנה:</strong></p>
+    <ul>
+      <li><bdi dir="ltr">ICMP Echo Request/Reply</bdi> = <bdi dir="ltr">Ping</bdi> — "אתה שם?"</li>
+      <li><bdi dir="ltr">ICMP Time Exceeded</bdi> = תגובת פקיעת TTL — זה מה ש-Traceroute מקבל.</li>
+      <li><bdi dir="ltr">ICMP Destination Unreachable</bdi> — מסמן שהגענו ליעד (בגרסת UDP של traceroute).</li>
+    </ul>
+    <p><strong>למועד ב':</strong> אם השאלה שואלת "כיצד/באיזה מנגנון" — חפש את הסיבה (TTL), לא את הסימפטום (הודעת ICMP). ואם מוצע לך "Ping" — כמעט תמיד זו מלכודת, כי Ping לא חושף מסלול.</p>
+      <a class="topic-link" href="13-net-intro.html">→ לפרק המלא: שכבת הרשת</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q9">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 9</span>
+      <span class="exam-topic">שכבת רשת · DHCP</span>
+    </div>
+    <div class="exam-q-body">
+      כחלק מפרוטוקול <bdi dir="ltr">DHCP</bdi>, מארח שמצטרף לרשת מקבל גם את מסכת הרשת (<bdi dir="ltr">Network Mask</bdi>). מדוע הוא זקוק למידע זה?
+      <ul class="exam-options"><li class="opt correct"><span class="opt-l">א.</span><span class="opt-t">כדי להחליט אם כתובת ה-<bdi dir="ltr">IP</bdi> אליה הוא רוצה לשלוח חבילות נמצאת איתו באותה רשת.</span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t">בכדי שיוכל לנתב הלאה חבילות שנקלטו אצלו ואינן מיועדות אליו.</span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t">כדי להעריך כמה מארחים נוספים, לכל היותר, יכולים להיות איתו באותה רשת.</span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t">כדי לחשב ממנה את כתובת ההפצה של הרשת שבה הוא נמצא.</span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>א'</strong> — כדי להחליט אם כתובת ה-<bdi dir="ltr">IP</bdi> אליה הוא רוצה לשלוח חבילות נמצאת איתו באותה רשת.</div>
+      <h4>פתרון</h4>
+      
+    <p><strong>א' — כדי להחליט אם כתובת ה-<bdi dir="ltr">IP</bdi> שאליה הוא שולח נמצאת איתו באותה רשת.</strong></p>
+    <p>המארח מבצע <bdi dir="ltr">AND</bdi> בין כתובת היעד למסכה, ומשווה לכתובת הרשת שלו:</p>
+    <ul>
+      <li><strong>זהה</strong> → היעד באותה רשת מקומית: שולחים <strong>ישירות</strong> (דרך <bdi dir="ltr">ARP</bdi> + שכבת הקישור).</li>
+      <li><strong>שונה</strong> → היעד מחוץ לרשת: שולחים ל-<bdi dir="ltr">Default Gateway</bdi>.</li>
+    </ul>
+    <p><strong>למה לא ה' (כתובת ההפצה)?</strong> נכון שאפשר לחשב <bdi dir="ltr">broadcast</bdi> מהמסכה, אבל זו <em>תוצאת לוואי</em> ולא הסיבה שבגללה כל מארח חייב את המסכה. בלי מסכה מארח לא יכול לשלוח שום דבר החוצה נכון — זו ההחלטה הבסיסית ביותר בכל שליחה.</p>
+      <h4>הרחבה — על הנושא</h4>
+      
+    <p>כל שליחה של מנה מתחילה בשאלה אחת: <strong>"האם היעד שכן שלי, או רחוק?"</strong> זו ההחלטה שמכתיבה הכל:</p>
+    <ul>
+      <li><strong>שכן</strong> → צריך את ה-<bdi dir="ltr">MAC</bdi> של היעד עצמו (בקשת <bdi dir="ltr">ARP</bdi> ליעד), ושולחים אליו פריים ישירות.</li>
+      <li><strong>רחוק</strong> → צריך את ה-<bdi dir="ltr">MAC</bdi> של <em>הראוטר</em> (ARP לגייטוויי), והפריים נשלח לראוטר עם <bdi dir="ltr">IP</bdi> יעד של המחשב המרוחק.</li>
+    </ul>
+    <p>שים לב לעדינות: כתובת ה-<bdi dir="ltr">IP</bdi> ביעד הפריים <strong>לא משתנה</strong>, אבל כתובת ה-<bdi dir="ltr">MAC</bdi> כן — וזה בדיוק ההבדל בין כתובת לוגית גלובלית לכתובת פיזית מקומית.</p>
+    <p><strong>מה DHCP נותן ולמה כל פריט:</strong> כתובת IP (מי אני), מסכת רשת (מי שכן שלי), <bdi dir="ltr">Default Gateway</bdi> (לאן לשלוח את הרחוקים), ושרת <bdi dir="ltr">DNS</bdi> (איך לתרגם שמות). ארבעתם נדרשים כדי לתפקד.</p>
+      <a class="topic-link" href="16-net-dhcp.html">→ לפרק המלא: DHCP</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q10">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 10</span>
+      <span class="exam-topic">שכבת קישור · Slotted ALOHA</span>
+    </div>
+    <div class="exam-q-body">
+      נתונה רשת <bdi dir="ltr">Slotted ALOHA</bdi> עם <bdi dir="ltr">N</bdi> תחנות (<bdi dir="ltr">HOSTS</bdi>). מספר התחנות שתרמו להתנגשות הוא <bdi dir="ltr">X</bdi>, וההסתברות שכל אחת מהן תשדר בסלוט היא <bdi dir="ltr">1/X</bdi>. בהינתן שבזמן הבא <strong>אחת</strong> מהתחנות שהשתתפו בהתנגשות תשדר תמיד (הסתברות 1), ויתר התחנות לא ישדרו — מה ההסתברות לשידור מוצלח בסלוט הבא?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t">$(N-X)\frac{1}{X}\left(1-\frac{1}{X}\right)^{X-1}$</span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t">$(N-X)\left(1-\frac{1}{X}\right)^{X-1}$</span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t">$\left(1-\frac{1}{X}\right)^{2X}$</span></li><li class="opt correct"><span class="opt-l">ה.</span><span class="opt-t">$\left(1-\frac{1}{X}\right)^{X}$</span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ה'</strong> — $\left(1-\frac{1}{X}\right)^{X}$</div>
+      <h4>פתרון</h4>
+      <p>לשידור מוצלח צריך: תחנה אחת ספציפית משדרת (הסתברות 1), <strong>וכל</strong> יתר ה-$X-1$ התחנות <strong>לא</strong> משדרות. הסתברות שתחנה בודדת לא משדרת = $(1 - \frac{1}{X})$.</p>
+    <p>אבל השאלה מגדירה שהזמן הבא: אחת משדרת תמיד ויתר התחנות שהשתתפו לא ישדרו. לכן ההסתברות מתייחסת ל-$X$ התחנות המנסות, וההסתברות שאף אחת לא מתנגשת:</p>
+    $$\left(1 - \frac{1}{X}\right)^{X}$$
+    <p>תשובה <strong>ה'</strong>.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>‏<bdi dir="ltr">Slotted ALOHA</bdi>: הזמן מחולק לסלוטים, ותחנה משדרת בתחילת סלוט. שידור מוצלח = <strong>בדיוק תחנה אחת</strong> משדרת. אם שתיים או יותר משדרות — התנגשות, וכולן מנסות שוב בהסתברות $p$. הביטוי $(1-\frac{1}{X})^{X}$ הוא ההסתברות שאף תחנה נוספת לא "מפריעה". כש-$X$ גדול, ביטוי זה שואף ל-$1/e \approx 0.37$ — הניצולת המקסימלית המפורסמת של Slotted ALOHA.</p>
+      <a class="topic-link" href="21-link-aloha.html">→ לפרק המלא: ALOHA</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q11">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 11</span>
+      <span class="exam-topic">שכבת קישור · Slotted ALOHA (וריאציה)</span>
+    </div>
+    <div class="exam-q-body">
+      אותה רשת <bdi dir="ltr">Slotted ALOHA</bdi> כמו בשאלה 10, אך הפעם: בזמן הבא <strong>שתיים</strong> מהתחנות שלא השתתפו בהתנגשות ישדרו תמיד (הסתברות 1), ויתר התחנות לא ישדרו. מה ההסתברות לשידור מוצלח בסלוט הבא?
+      <ul class="exam-options"><li class="opt correct"><span class="opt-l">א.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t">$\frac{1}{X}\left(1-\frac{1}{X}\right)^{2X}$</span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t">$(N-X)\frac{1}{X}\left(1-\frac{1}{X}\right)^{X-1}$</span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t">$\left(1-\frac{1}{X}\right)^{X-1}$</span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t">$(N-X)(N-X-1)\left(1-\frac{1}{X}\right)^{X}$</span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>א'</strong> — כל התשובות האחרות אינן נכונות.</div>
+      <h4>פתרון</h4>
+      <p><strong>א' — כל התשובות האחרות אינן נכונות.</strong></p>
+    <p>אם <strong>שתי</strong> תחנות משדרות בוודאות (הסתברות 1) באותו סלוט — הן <strong>מתנגשות זו בזו תמיד</strong>. שתי תחנות בו-זמנית = התנגשות מובטחת = שידור מוצלח בהסתברות <strong>0</strong>.</p>
+    <p>אף אחד מהביטויים המוצעים (ב'–ה') לא שווה 0, ולכן התשובה הנכונה היא "כל האחרות לא נכונות".</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>מלכודת נהדרת: וריאציה קטנה בניסוח משנה את התשובה לגמרי. שידור מוצלח ב-ALOHA דורש <strong>בדיוק אחת</strong>. אם המצב מכריח <strong>שתיים</strong> לשדר בוודאות — התנגשות ודאית, הסתברות הצלחה 0. תמיד לקרוא בזהירות כמה תחנות משדרות "בוודאות": אחת → חשב את ההסתברות; שתיים+ → הצלחה בלתי אפשרית.</p>
+      <a class="topic-link" href="21-link-aloha.html">→ לפרק המלא: ALOHA</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q12">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 12</span>
+      <span class="exam-topic">שכבת רשת · IPv6</span>
+    </div>
+    <div class="exam-q-body">
+      מהו מספר הביטים בכתובת <bdi dir="ltr">IPv6</bdi>?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t">לא קיים אורך קבוע לכתובת <bdi dir="ltr">IPv6</bdi>.</span></li><li class="opt correct"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">128</bdi> ביטים.</span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">64</bdi> ביטים.</span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">32</bdi> ביטים.</span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">96</bdi> ביטים.</span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ב'</strong> — <bdi dir="ltr">128</bdi> ביטים.</div>
+      <h4>פתרון</h4>
+      <p><strong>ב' — <bdi dir="ltr">128</bdi> ביטים.</strong></p>
+    <p>לשם השוואה: <bdi dir="ltr">IPv4</bdi> היא <bdi dir="ltr">32</bdi> ביט ($2^{32} \approx 4.3$ מיליארד כתובות), ו-<bdi dir="ltr">IPv6</bdi> היא <bdi dir="ltr">128</bdi> ביט:</p>
+    $$2^{128} \approx 3.4 \times 10^{38} \text{ כתובות}$$
+      <h4>הרחבה — על הנושא</h4>
+      <p>‏<bdi dir="ltr">IPv6</bdi> נוצרה כדי לפתור את מיצוי כתובות ה-IPv4. הרחבה מ-32 ל-128 ביט אינה "פי 4" אלא <strong>פי $2^{96}$</strong> כתובות — מספר אסטרונומי שמספיק לכל מכשיר על כדור הארץ ומעבר. נכתבת ב-8 קבוצות של 4 ספרות הקסה, למשל <bdi dir="ltr">2001:0db8::7334</bdi>.</p>
+      <a class="topic-link" href="17-net-nat-ipv6.html">→ לפרק המלא: IPv6</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q13">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 13</span>
+      <span class="exam-topic">שכבת אפליקציה · Cookies</span>
+    </div>
+    <div class="exam-q-body">
+      בפרוטוקול <bdi dir="ltr">HTTP</bdi>, היכן נקבע תוכן העוגייה (<bdi dir="ltr">cookie</bdi>)?
+      <ul class="exam-options"><li class="opt correct"><span class="opt-l">א.</span><span class="opt-t">אצל השרת.</span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t">אצל הלקוח.</span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t">תשובות א' + ב' נכונות.</span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t">בבסיס הנתונים (<bdi dir="ltr">data base</bdi>).</span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>א'</strong> — אצל השרת.</div>
+      <h4>פתרון</h4>
+      
+    <p><strong>א' — אצל השרת.</strong></p>
+    <p>שים לב לניסוח המדויק: השאלה שואלת היכן <strong>נקבע</strong> תוכן העוגייה — מי <em>מחליט</em> מה יהיה בה.</p>
+    <ul>
+      <li><strong>השרת</strong> מייצר את הערך ושולח אותו בכותרת <bdi dir="ltr">Set-Cookie</bdi> — הוא זה שקובע.</li>
+      <li><strong>הלקוח</strong> רק <em>שומר</em> את מה שקיבל ומחזיר אותו בכל בקשה. הוא לא קובע כלום.</li>
+    </ul>
+    <p><strong>למה לא ה' (בסיס הנתונים)?</strong> מסד הנתונים בצד השרת הוא המקום שבו נשמר ה<em>מידע המשויך</em> למזהה (היסטוריית קניות, העדפות). אבל ה"קביעה" של תוכן העוגייה עצמה נעשית ב<strong>לוגיקה של השרת</strong> ששולח את <bdi dir="ltr">Set-Cookie</bdi>.</p>
+      <h4>הרחבה — על הנושא</h4>
+      
+    <p><bdi dir="ltr">HTTP</bdi> הוא פרוטוקול <strong>חסר-מצב</strong> (stateless) — השרת לא זוכר בקשות קודמות. עוגיות הן התיקון לזה. ארבעת הרכיבים (לפי Kurose):</p>
+    <ol>
+      <li>שורת <bdi dir="ltr">Set-Cookie</bdi> ב<strong>תגובת</strong> ה-HTTP — כאן השרת <em>קובע</em>.</li>
+      <li>שורת <bdi dir="ltr">Cookie</bdi> ב<strong>בקשת</strong> ה-HTTP — כאן הלקוח <em>מחזיר</em>.</li>
+      <li>קובץ עוגיות אצל הלקוח, מנוהל על ידי הדפדפן.</li>
+      <li>מסד נתונים ב<strong>אחורי</strong> השרת — שם יושב המידע שהמזהה מצביע עליו.</li>
+    </ol>
+    <p><strong>הזרימה בפועל:</strong> ביקור ראשון → השרת מייצר <bdi dir="ltr">ID</bdi> ייחודי, פותח רשומה במסד, ושולח <bdi dir="ltr">Set-Cookie: ID=1678</bdi>. ביקור הבא → הדפדפן שולח <bdi dir="ltr">Cookie: ID=1678</bdi>, והשרת שולף את הרשומה. כך נוצרת "זהות" מעל פרוטוקול שלא זוכר.</p>
+    <p><strong>למועד ב':</strong> שים לב אם השאלה שואלת "היכן <em>נקבע</em>" (השרת), "היכן <em>נשמר</em> אצל המשתמש" (הלקוח/הדפדפן), או "היכן נשמר <em>המידע</em>" (מסד הנתונים). שלוש שאלות שונות עם שלוש תשובות שונות.</p>
+      <a class="topic-link" href="05-app-cookies.html">→ לפרק המלא: עוגיות</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q14">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 14</span>
+      <span class="exam-topic">שכבת תעבורה · TCP Receive Window</span>
+    </div>
+    <div class="exam-q-body">
+      מארח <bdi dir="ltr">A</bdi> שולח מידע למארח <bdi dir="ltr">B</bdi>. חוצץ הקליטה (<bdi dir="ltr">receiver buffer</bdi>) של <bdi dir="ltr">B</bdi> באורך <bdi dir="ltr">10,000</bdi> בתים. כל מלבן בתרשים = <bdi dir="ltr">1,000</bdi> בתים. המלבנים המקווקווים מכילים מידע שהגיע מ-<bdi dir="ltr">A</bdi>, והריקים ריקים. מה ערכו של השדה <bdi dir="ltr">Receive Window</bdi> באישור הנשלח מ-<bdi dir="ltr">B</bdi>?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">13,000</bdi></span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">10,000</bdi></span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">6,000</bdi></span></li><li class="opt correct"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">8,000</bdi></span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">15,000</bdi></span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ד'</strong> — <bdi dir="ltr">8,000</bdi></div>
+      <h4>פתרון</h4>
+      
+    <p>הנוסחה לחלון הקליטה:</p>
+    $$\text{RW} = \text{RcvBuffer} - (\text{LastByteRcvd} - \text{LastByteRead})$$
+    <p>המפתח: הביטוי בסוגריים סופר את <strong>הרצף הרציף</strong> שהתקבל וטרם נקרא על ידי האפליקציה.</p>
+    <ul>
+      <li>גודל החוצץ: <bdi dir="ltr">10,000</bdi> בתים.</li>
+      <li>בתרשים, הרצף הרציף שהתקבל מתחילת החוצץ = <strong>2 מלבנים</strong> = <bdi dir="ltr">2,000</bdi> בתים.</li>
+      <li>המלבנים המקווקווים ש<strong>אחרי החור</strong> הם מידע <bdi dir="ltr">out-of-order</bdi> — הוא לא נספר בנוסחה הבסיסית, כי הוא לא ניתן למסירה לאפליקציה כל עוד החור לא נסגר.</li>
+    </ul>
+    $$\text{RW} = 10{,}000 - 2{,}000 = 8{,}000$$
+    <div class="final-answer">‏<bdi dir="ltr">8,000</bdi> בתים — תשובה ד'.</div>
+      <h4>הרחבה — על הנושא</h4>
+      
+    <p><strong>בקרת זרימה</strong> (flow control) פותרת בעיה אחת: שלא ה<em>שולח</em> יציף את החוצץ של ה<em>מקבל</em>. (זה שונה מ<strong>בקרת גודש</strong>, שמגינה על הרשת ולא על המקבל — הבחנה שהמבחן אוהב.)</p>
+    <p>בכל <bdi dir="ltr">ACK</bdi> המקבל מצרף את <bdi dir="ltr">rwnd</bdi> — כמה מקום פנוי נשאר לו. השולח מחויב:</p>
+    $$\text{LastByteSent} - \text{LastByteAcked} \le \text{rwnd}$$
+    <p><strong>המקרה הקצה החשוב:</strong> אם <bdi dir="ltr">rwnd = 0</bdi>, השולח לא יכול לשלוח — אבל אז הוא לא יקבל ACK חדש שיודיע לו שהתפנה מקום. הפתרון: השולח ממשיך לשלוח <strong>סגמנטים קטנים</strong> (בית אחד) כדי "לדגום" את המצב, עד שיקבל <bdi dir="ltr">rwnd &gt; 0</bdi>.</p>
+    <p><strong>שתי מלכודות לספירה בתרשים:</strong> (1) האם המלבן מסמן מידע שהתקבל או מקום פנוי — לקרוא את המקרא. (2) האם יש <strong>חור</strong> — מידע מנותק אחרי החור הוא out-of-order ולא נספר ברצף.</p>
+      <a class="topic-link" href="10-trans-flow.html">→ לפרק המלא: בקרת זרימה</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q15">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 15</span>
+      <span class="exam-topic">כללי · מודל השכבות</span>
+    </div>
+    <div class="exam-q-body">
+      מה היתרון המרכזי בשימוש במודל שכבות בתקשורת מחשבים?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t">מאפשר למחשבים לעבוד ללא צורך בפרוטוקולים.</span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t">מאפשר להעביר קבצים בצורה מוצפנת בין תחנות קצה.</span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t">מחלק את העומס בין השרתים ומונע תעבורה עודפת.</span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t">מבטל את הצורך בבקרת שגיאות במהלך ההעברה.</span></li><li class="opt correct"><span class="opt-l">ה.</span><span class="opt-t">מקל על תהליך התכנון, הפיתוח והתחזוקה של מערכות תקשורת.</span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ה'</strong> — מקל על תהליך התכנון, הפיתוח והתחזוקה של מערכות תקשורת.</div>
+      <h4>פתרון</h4>
+      <p><strong>ה' — מקל על תהליך התכנון, הפיתוח והתחזוקה של מערכות תקשורת.</strong></p>
+    <p>מודל השכבות מפרק בעיה עצומה (תקשורת בין מחשבים) לשכבות עצמאיות, שכל אחת:</p>
+    <ul>
+      <li>אחראית על תפקיד מוגדר (אפליקציה, תעבורה, רשת, קישור, פיזית).</li>
+      <li>מסתירה את המורכבות שלה משאר השכבות (הפשטה).</li>
+      <li>ניתנת לשינוי או החלפה בלי לגעת באחרות (מודולריות).</li>
+    </ul>
+      <h4>הרחבה — על הנושא</h4>
+      <p>מודל השכבות הוא עקרון הנדסי בסיסי: <strong>הפרדת אחריות</strong>. כל שכבה מדברת רק עם השכבות שמעליה ומתחתיה דרך ממשק מוגדר, ולא אכפת לה מה קורה בפנים שלהן. זה מאפשר, למשל, להחליף <bdi dir="ltr">WiFi</bdi> ב-<bdi dir="ltr">Ethernet</bdi> (שכבה 1-2) בלי לגעת ב-<bdi dir="ltr">HTTP</bdi> (שכבה 7). היתרון אינו ביצועים אלא <strong>ניהול מורכבות</strong> — תכנון, פיתוח, וניפוי קלים בהרבה.</p>
+      <a class="topic-link" href="00-intro.html">→ לפרק המלא: מבוא</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q16">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 16</span>
+      <span class="exam-topic">כלים · Wireshark</span>
+    </div>
+    <div class="exam-q-body">
+      לאחר כתיבת <bdi dir="ltr">UDP</bdi> בשורת הפילטר ב-<bdi dir="ltr">Wireshark</bdi>, מה יוצג בעמודת הפרוטוקול במסך הראשי של התוכנה?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t">ייתכן ויוצגו הפרוטוקולים <bdi dir="ltr">IP, UDP, HTTP</bdi>.</span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li><li class="opt correct"><span class="opt-l">ג.</span><span class="opt-t">ייתכן ויוצגו הפרוטוקולים <bdi dir="ltr">UDP, DNS, HTTP</bdi>.</span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t">ייתכן ויוצג הפרוטוקול <bdi dir="ltr">UDP</bdi>. כל פרוטוקול אחר בוודאות לא יוצג.</span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t">ייתכן ויוצגו הפרוטוקולים <bdi dir="ltr">UDP, TCP, DHCP</bdi>.</span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ג'</strong> — ייתכן ויוצגו הפרוטוקולים <bdi dir="ltr">UDP, DNS, HTTP</bdi>.</div>
+      <h4>פתרון</h4>
+      
+    <p><strong>ג' — ייתכן ויוצגו הפרוטוקולים <bdi dir="ltr">UDP, DNS, HTTP</bdi>.</strong></p>
+    <p>הפילטר <bdi dir="ltr">udp</bdi> מציג כל מנה ש<strong>נישאת מעל</strong> UDP. אבל <bdi dir="ltr">Wireshark</bdi> מתייג בעמודת הפרוטוקול את <strong>השכבה הגבוהה ביותר שהוא הצליח לפענח</strong>. לכן ייתכן שנראה:</p>
+    <ul>
+      <li><bdi dir="ltr">UDP</bdi> — כשאין פרוטוקול מוכר מעליו.</li>
+      <li><bdi dir="ltr">DNS</bdi> — שאילתות DNS רצות מעל UDP (פורט 53).</li>
+      <li><bdi dir="ltr">HTTP</bdi> — ‏<bdi dir="ltr">HTTP/3</bdi> רץ מעל <bdi dir="ltr">QUIC</bdi>, שרץ מעל UDP.</li>
+    </ul>
+    <p><strong>למה האחרות נפסלות:</strong></p>
+    <ul>
+      <li>א' כוללת <bdi dir="ltr">IP</bdi> — מנה תתויג "IP" רק אם אין מעליה שכבה מוכרת, ואז היא לא תעבור את פילטר ה-udp בכלל.</li>
+      <li>ה' כוללת <bdi dir="ltr">TCP</bdi> — בלתי אפשרי תחת פילטר udp; הם פרוטוקולי תעבורה חלופיים.</li>
+      <li>ד' טוענת ש"בוודאות" לא יוצג שום פרוטוקול אחר — שגוי, כפי שראינו.</li>
+      <li>ב' ("כל האחרות לא נכונות") נופלת ברגע שג' נכונה.</li>
+    </ul>
+      <h4>הרחבה — על הנושא</h4>
+      
+    <p><bdi dir="ltr">Wireshark</bdi> עובד לפי <strong>פענוח שכבתי</strong>: הוא מקלף מנה שכבה-שכבה (Ethernet → IP → UDP → …) ומתייג בעמודת "Protocol" את הרובד <strong>הגבוה ביותר</strong> שהוא זיהה. זו הנקודה המרכזית של השאלה.</p>
+    <p><strong>ההבחנה בין פילטר לתצוגה:</strong></p>
+    <ul>
+      <li><strong>פילטר</strong> <bdi dir="ltr">udp</bdi> = "הראה לי מנות שיש בהן שכבת UDP" — כולל את כל מה שרץ מעליה.</li>
+      <li><strong>עמודת הפרוטוקול</strong> = "מה השכבה הגבוהה שזיהיתי" — ולכן תראה DNS ולא UDP, למרות שסיננת UDP.</li>
+    </ul>
+    <p><strong>מי רץ מעל UDP (שווה לזכור):</strong> ‏<bdi dir="ltr">DNS</bdi>, <bdi dir="ltr">DHCP</bdi>, <bdi dir="ltr">SNMP</bdi>, <bdi dir="ltr">TFTP</bdi>, <bdi dir="ltr">RTP</bdi> (וידאו/קול), ו-<bdi dir="ltr">QUIC</bdi>/<bdi dir="ltr">HTTP3</bdi>. מי שרץ מעל TCP: <bdi dir="ltr">HTTP/1.1</bdi>, <bdi dir="ltr">HTTPS</bdi>, <bdi dir="ltr">SMTP</bdi>, <bdi dir="ltr">FTP</bdi>, <bdi dir="ltr">IMAP</bdi>.</p>
+    <p><strong>למועד ב':</strong> בשאלות "מה יוצג", פסול קודם כל כל תשובה שמערבת <bdi dir="ltr">TCP</bdi> עם פילטר <bdi dir="ltr">udp</bdi> (ולהפך) — זה מחסל בדרך כלל 2–3 מסיחים מיד.</p>
+      <a class="topic-link" href="07-trans-udp.html">→ לפרק המלא: UDP</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q17">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 17</span>
+      <span class="exam-topic">שכבת רשת · ניתוב בין AS</span>
+    </div>
+    <div class="exam-q-body">
+      איזה פרוטוקול משמש לניתוב חבילות ל-<bdi dir="ltr">Autonomous System (AS)</bdi> אחר?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">RIP</bdi></span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">EIGRP</bdi></span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">OSPF</bdi></span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">ICMP</bdi></span></li><li class="opt correct"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">BGP</bdi></span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ה'</strong> — <bdi dir="ltr">BGP</bdi></div>
+      <h4>פתרון</h4>
+      <p><strong>ה' — <bdi dir="ltr">BGP</bdi> (Border Gateway Protocol).</strong></p>
+    <p>‏<bdi dir="ltr">BGP</bdi> הוא פרוטוקול הניתוב <strong>בין</strong> מערכות אוטונומיות (<bdi dir="ltr">inter-AS</bdi>) — הוא זה שמחבר את האינטרנט כולו. לעומתו:</p>
+    <ul>
+      <li><bdi dir="ltr">RIP</bdi>, <bdi dir="ltr">OSPF</bdi>, <bdi dir="ltr">EIGRP</bdi> — פרוטוקולי ניתוב <strong>בתוך</strong> AS (<bdi dir="ltr">intra-AS</bdi>).</li>
+      <li><bdi dir="ltr">ICMP</bdi> — לא פרוטוקול ניתוב כלל (הודעות בקרה/שגיאה).</li>
+    </ul>
+      <h4>הרחבה — על הנושא</h4>
+      <p>האינטרנט מחולק ל<strong>מערכות אוטונומיות</strong> (AS) — רשתות שבשליטת גוף אחד (ספק, אוניברסיטה). בתוך AS משתמשים בפרוטוקול פנימי (<bdi dir="ltr">OSPF</bdi>/<bdi dir="ltr">RIP</bdi>) שמחפש מסלול אופטימלי. <strong>בין</strong> AS-ים משתמשים ב-<bdi dir="ltr">BGP</bdi>, שמתמקד ב<em>מדיניות</em> (עם מי מסכימים להעביר תעבורה) לא רק במרחק. השם "Border Gateway" רומז: הוא חי בשערי הגבול בין הרשתות.</p>
+      <a class="topic-link" href="19-net-ospf-bgp.html">→ לפרק המלא: OSPF ו-BGP</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q18">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 18</span>
+      <span class="exam-topic">שכבת קישור · MAC</span>
+    </div>
+    <div class="exam-q-body">
+      בראשי התיבות <bdi dir="ltr">MAC</bdi> נתקלנו כאשר למדנו את:
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t">שכבת היישום (<bdi dir="ltr">Application</bdi>) ושכבת התעבורה (<bdi dir="ltr">Transport</bdi>).</span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t">שכבת היישום (<bdi dir="ltr">Application</bdi>) ושכבת הערוץ (<bdi dir="ltr">Link</bdi>).</span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t">שכבת הרשת (<bdi dir="ltr">Network</bdi>) ואבטחה ברשת (<bdi dir="ltr">Security</bdi>).</span></li><li class="opt correct"><span class="opt-l">ד.</span><span class="opt-t">שכבת הערוץ (<bdi dir="ltr">Link</bdi>) ואבטחה ברשת (<bdi dir="ltr">Security</bdi>).</span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ד'</strong> — שכבת הערוץ (<bdi dir="ltr">Link</bdi>) ואבטחה ברשת (<bdi dir="ltr">Security</bdi>).</div>
+      <h4>פתרון</h4>
+      
+    <p><strong>ד' — שכבת הערוץ (<bdi dir="ltr">Link</bdi>) ואבטחה ברשת (<bdi dir="ltr">Security</bdi>).</strong></p>
+    <p>ראשי התיבות <bdi dir="ltr">MAC</bdi> מופיעים בקורס בשני הקשרים שונים לחלוטין:</p>
+    <table>
+      <thead><tr><th>הקשר</th><th>פירוש</th><th>תפקיד</th></tr></thead>
+      <tbody>
+        <tr><td>שכבת הקישור</td><td><bdi dir="ltr">Media Access Control</bdi></td><td>כתובת חומרה של כרטיס הרשת (48 ביט), ובקרת גישה למדיום המשותף.</td></tr>
+        <tr><td>אבטחה</td><td><bdi dir="ltr">Message Authentication Code</bdi></td><td>קוד המבטיח <strong>שלמות</strong> ההודעה ו<strong>אימות</strong> מקורה.</td></tr>
+      </tbody>
+    </table>
+    <p>לכן שתי השכבות הנכונות הן <strong>הערוץ</strong> ו<strong>האבטחה</strong> — ולא הרשת (שם חיים <bdi dir="ltr">IP</bdi> ו-<bdi dir="ltr">ICMP</bdi>, לא MAC).</p>
+      <h4>הרחבה — על הנושא</h4>
+      
+    <p>זו שאלת "קיצור עמוס" — אותן שלוש אותיות, שני עולמות. שווה לוודא שאתה מפריד ביניהם חד:</p>
+    <p><strong>1. <bdi dir="ltr">MAC = Media Access Control</bdi> (שכבה 2).</strong> שני מובנים משלימים: (א) <em>כתובת</em> — מזהה ייחודי של 48 ביט, שנצרב בכרטיס הרשת, שלושת הבתים הראשונים הם <bdi dir="ltr">OUI</bdi> של היצרן. (ב) <em>תת-שכבה</em> — הפרוטוקולים שמחליטים מי משדר מתי על מדיום משותף: <bdi dir="ltr">ALOHA</bdi>, <bdi dir="ltr">CSMA/CD</bdi>, <bdi dir="ltr">TDMA</bdi>, <bdi dir="ltr">FDMA</bdi>.</p>
+    <p><strong>2. <bdi dir="ltr">MAC = Message Authentication Code</bdi> (אבטחה).</strong> מחושב מההודעה יחד עם מפתח סודי משותף: $\text{MAC} = H(m + s)$. הנמען מחשב מחדש ומשווה. נותן <strong>שלמות</strong> (ההודעה לא שונתה) ו<strong>אימות</strong> (רק מי שמחזיק במפתח יכל לייצר אותו) — אבל <strong>לא</strong> סודיות ו<strong>לא</strong> אי-התכחשות (בשביל אי-התכחשות צריך חתימה דיגיטלית עם מפתח פרטי).</p>
+    <p><strong>למועד ב':</strong> אם השאלה מזכירה פריים, כרטיס רשת, <bdi dir="ltr">ARP</bdi> או סוויץ' → Media Access Control. אם היא מזכירה מפתח, גיבוב, שלמות או אימות → Message Authentication Code. ושים לב שהתשובה כאן היא על ה<em>הקשרים</em> שבהם למדנו את הקיצור, לא על מה הוא עושה.</p>
+      <a class="topic-link" href="23-link-mac-arp.html">→ לפרק המלא: כתובות MAC</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q19">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 19</span>
+      <span class="exam-topic">שכבת תעבורה · UDP</span>
+    </div>
+    <div class="exam-q-body">
+      קשר <bdi dir="ltr">UDP</bdi> הינו:
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li><li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">Half Duplex</bdi></span></li><li class="opt correct"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">Best Effort</bdi></span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t">מאובטח (<bdi dir="ltr">Secured</bdi>).</span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">Connection Oriented</bdi></span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ג'</strong> — <bdi dir="ltr">Best Effort</bdi></div>
+      <h4>פתרון</h4>
+      <p><strong>ג' — <bdi dir="ltr">Best Effort</bdi>.</strong></p>
+    <p>‏<bdi dir="ltr">UDP</bdi> הוא פרוטוקול <strong>חסר חיבור</strong> (connectionless) ו<strong>לא אמין</strong>: הוא שולח מנות "כמיטב היכולת" — בלי אישורים, בלי שידור חוזר, בלי הבטחת סדר. נבדוק את האחרים:</p>
+    <ul>
+      <li><bdi dir="ltr">Half Duplex</bdi> — לא רלוונטי ל-UDP.</li>
+      <li><bdi dir="ltr">Secured</bdi> — לא, UDP לא מספק אבטחה.</li>
+      <li><bdi dir="ltr">Connection Oriented</bdi> — לא, זה דווקא <bdi dir="ltr">TCP</bdi>.</li>
+    </ul>
+      <h4>הרחבה — על הנושא</h4>
+      <p><bdi dir="ltr">UDP</bdi> הוא ההפך מ-<bdi dir="ltr">TCP</bdi>: מהיר, קל, ו-<strong>Best Effort</strong> — "אני אשלח, ואם יגיע יגיע". אין handshake, אין ACK, אין בקרת זרימה או גודש. זה מה שהופך אותו למתאים לזרימת וידאו/קול (<bdi dir="ltr">DNS</bdi>, <bdi dir="ltr">VoIP</bdi>, משחקים) — שם עדיף לאבד מנה מאשר לחכות לשידור חוזר. "Best Effort" היא המילה המדויקת לתיאור מודל השירות שלו.</p>
+      <a class="topic-link" href="07-trans-udp.html">→ לפרק המלא: UDP</a>
+    </div>
+  </div>
+
+  <div class="exam-q exercise-card" id="q20">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 20</span>
+      <span class="exam-topic">שכבת רשת · Subnetting</span>
+    </div>
+    <div class="exam-q-body">
+      כתובות ה-<bdi dir="ltr">IP</bdi> הבאות נמצאות באותה רשת: <bdi dir="ltr">192.168.45.130</bdi> ו-<bdi dir="ltr">192.168.46.12</bdi>. מהי מסכת הרשת הארוכה ביותר (כלומר, הערך <bdi dir="ltr">k</bdi>/ המקסימלי) שמאפשרת לשתי הכתובות להימצא באותה רשת?
+      <ul class="exam-options"><li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">255.255.248.0</bdi></span></li><li class="opt correct"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">255.255.252.0</bdi></span></li><li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">255.255.255.0</bdi></span></li><li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">255.255.255.128</bdi></span></li><li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">255.255.254.0</bdi></span></li></ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ב'</strong> — <bdi dir="ltr">255.255.252.0</bdi></div>
+      <h4>פתרון</h4>
+      <p>מחפשים את ה-<bdi dir="ltr">prefix</bdi> הארוך ביותר שבו לשתי הכתובות אותה כתובת רשת. ההבדל הוא באוקטט השלישי: <bdi dir="ltr">45</bdi> מול <bdi dir="ltr">46</bdi>.</p>
+    <p>בבינארי: <bdi dir="ltr">45 = 00101101</bdi>, <bdi dir="ltr">46 = 00101110</bdi>. הם זהים ב-<strong>6 הביטים הראשונים</strong> (<bdi dir="ltr">001011</bdi>), ונבדלים בביט השביעי.</p>
+    <p>אז המסכה מכסה: 16 ביט (שני אוקטטים ראשונים) + 6 ביט = <bdi dir="ltr">/22</bdi>:</p>
+    $$/22 = 255.255.252.0$$
+    <p>תשובה <strong>ב'</strong>.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>כדי למצוא את המסכה המשותפת הארוכה ביותר, כותבים את שתי הכתובות בבינארי ומוצאים כמה ביטים <strong>שמאליים</strong> משותפים. ככל שיותר ביטים משותפים → מסכה ארוכה יותר → רשת קטנה יותר. כאן ההבדל מתחיל בביט ה-23, אז /22 היא הארוכה ביותר ששתיהן עדיין באותה רשת. אימות: <bdi dir="ltr">192.168.44.0/22</bdi> מכסה <bdi dir="ltr">192.168.44.0</bdi> עד <bdi dir="ltr">192.168.47.255</bdi> — ושתי הכתובות בפנים.</p>
+      <a class="topic-link" href="15-net-ip-addressing.html">→ לפרק המלא: כתובות IP</a>
+    </div>
+  </div>
+
+
+<nav class="pager" aria-label="ניווט בין נושאים">
+  <a class="prev" href="33-summary-glossary.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">סיכום ומילון</span></a>
+  <a class="next" href="35-toward-moed-b.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">לקראת מועד ב׳</span></a>
+  <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
+</nav>
+</main>
+
+</div>
+
+
+<script>
+/* ===== glossary-tooltips-v2 =====
+   One floating tooltip element on <body>, positioned with JS (position:fixed),
+   so it is never clipped by tables, boxes, or overflow containers, and is
+   clamped to the viewport. English expansions are bidi-isolated. */
+(function () {
+  const DEFS = [
+    // [definition, ...term variants]
+    ['Transmission Control Protocol — פרוטוקול תעבורה אמין ומבוסס-חיבור בשכבה 4. מבטיח סדר וללא איבוד.', 'TCP'],
+    ['User Datagram Protocol — פרוטוקול תעבורה ללא חיבור בשכבה 4. מהיר, בלי ערבויות.', 'UDP'],
+    ['Reliable UDP — תוספת מנגנוני אמינות (ACK, מספור) מעל UDP באפליקציה.', 'RUDP'],
+    ['Round Trip Time — הזמן שלוקח לחבילה להגיע ליעד ולחזור עם אישור.', 'RTT'],
+    ['Acknowledgment — אישור קבלה של סגמנט/פריים.', 'ACK'],
+    ['Sequence Number — מספר סידורי של הבית הראשון בסגמנט TCP.', 'SEQ'],
+    ['Initial Sequence Number — המספר הסידורי ההתחלתי שנבחר אקראית בהקמת קשר.', 'ISN'],
+    ['Synchronize — דגל TCP לפתיחת חיבור (שלב 1 ו-2 בהקמת קשר).', 'SYN'],
+    ['Finish — דגל TCP לסגירה מסודרת של חיבור.', 'FIN'],
+    ['Maximum Segment Size — גודל מרבי של חלק הנתונים בסגמנט TCP.', 'MSS'],
+    ['Reliable Data Transfer — משפחת פרוטוקולים תיאורטיים (rdt1.0–3.0) להעברה אמינה.', 'RDT'],
+    ['Congestion Window — חלון הגודש: כמה בייטים מותר לשלוח בלי אישור, לפי מצב הרשת.', 'CW'],
+    ['Receive Window — חלון הקבלה: כמה מקום פנוי נשאר בבאפר של המקבל (בקרת זרימה).', 'RW'],
+    ['Additive Increase Multiplicative Decrease — עלייה ליניארית, ירידה כפולית: העיקרון של בקרת גודש ב-TCP.', 'AIMD'],
+    ['Slow Start Threshold — הסף שמפריד בין Slow Start (גדילה מעריכית) ל-Congestion Avoidance (ליניארית).', 'ssthresh'],
+    ['Internet Protocol — פרוטוקול הרשת בשכבה 3: כתובות וניתוב, ללא אמינות.', 'IP'],
+    ['Internet Protocol version 4 — הגרסה הקלאסית, כתובות של 32 ביט.', 'IPv4'],
+    ['Internet Protocol version 6 — הגרסה החדשה, כתובות של 128 ביט.', 'IPv6'],
+    ['Network Address Translation — מיפוי כתובות פרטיות לכתובת ציבורית אחת לפי פורטים.', 'NAT'],
+    ['Dynamic Host Configuration Protocol — מקצה כתובות IP אוטומטית (תהליך DORA).', 'DHCP'],
+    ['Discover, Offer, Request, ACK — ארבעת שלבי הקצאת כתובת ב-DHCP.', 'DORA'],
+    ['Internet Control Message Protocol — הודעות שגיאה ובקרה בשכבת הרשת (ping, TTL exceeded).', 'ICMP'],
+    ['Time To Live — מונה קפיצות בכותרת IP; יורד ב-1 בכל ראוטר, ב-0 החבילה נזרקת.', 'TTL'],
+    ['Classless Inter-Domain Routing — רישום כתובת/פריפיקס (למשל ‎/24) במקום מחלקות.', 'CIDR'],
+    ['Autonomous System — מערכת אוטונומית: אוסף רשתות תחת ניהול אחד (למשל ספקית).', 'AS'],
+    ['Open Shortest Path First — פרוטוקול ניתוב תוך-AS מבוסס Link State (דייקסטרה).', 'OSPF'],
+    ['Border Gateway Protocol — פרוטוקול הניתוב בין AS-ים, מבוסס Path Vector ומדיניות.', 'BGP'],
+    ['Routing Information Protocol — פרוטוקול ניתוב מבוסס Distance Vector (בלמן-פורד).', 'RIP'],
+    ['Distance Vector — גישת ניתוב מבוזרת: כל ראוטר משתף שכנים בטבלת המרחקים שלו.', 'DV'],
+    ['Link State — גישת ניתוב גלובלית: כל ראוטר מכיר את כל הטופולוגיה ומריץ דייקסטרה.', 'LS'],
+    ['Hypertext Transfer Protocol — פרוטוקול הבקשות/תשובות של ה-web, מעל TCP פורט 80.', 'HTTP'],
+    ['HTTP Secure — HTTP מעל SSL/TLS, פורט 443, לתקשורת מוצפנת.', 'HTTPS'],
+    ['Hypertext Markup Language — שפת הסימון של דפי web.', 'HTML'],
+    ['Domain Name System — ממיר שמות דומיין לכתובות IP. היררכי, מעל UDP פורט 53.', 'DNS'],
+    ['Top Level Domain — הרמה העליונה בהיררכיית DNS‏ (com, org, il).', 'TLD'],
+    ['Canonical Name — רשומת DNS שממפה שם נרדף לשם הקנוני.', 'CNAME'],
+    ['Internet Corporation for Assigned Names and Numbers — הגוף שמנהל שמות דומיין וכתובות.', 'ICANN'],
+    ['Simple Mail Transfer Protocol — פרוטוקול שליחת דואר, מעל TCP פורט 25.', 'SMTP'],
+    ['Internet Message Access Protocol — פרוטוקול גישה לתיבת דואר בשרת.', 'IMAP'],
+    ['File Transfer Protocol — פרוטוקול העברת קבצים עם חיבור בקרה וחיבור נתונים נפרדים.', 'FTP'],
+    ['Uniform Resource Locator — כתובת של משאב ברשת: פרוטוקול, שרת ונתיב.', 'URL'],
+    ['Peer to Peer — ארכיטקטורה בלי שרת מרכזי: הקצוות מדברים ישירות זה עם זה.', 'P2P'],
+    ['Application Programming Interface — ממשק תכנותי בין רכיבי תוכנה (למשל Socket API).', 'API'],
+    ['Media Access Control — כתובת חומרה של 48 ביט של כרטיס הרשת; וגם שכבת הגישה לערוץ.', 'MAC'],
+    ['Address Resolution Protocol — מוצא כתובת MAC עבור כתובת IP ידועה באותה רשת.', 'ARP'],
+    ['CSMA with Collision Detection — מאזין לפני שידור ומזהה התנגשות תוך כדי (Ethernet קווי).', 'CSMA/CD'],
+    ['Carrier Sense Multiple Access — פרוטוקול גישה לערוץ: מאזין לפני ששולח.', 'CSMA'],
+    ['פרוטוקול הגישה האקראית הראשון: משדרים בלי להאזין. ניצולת מקס׳ 18% (או 37% ב-Slotted).', 'ALOHA'],
+    ['Time Division Multiple Access — חלוקת הערוץ לפרוסות זמן קבועות בין המשתמשים.', 'TDMA'],
+    ['Frequency Division Multiple Access — חלוקת הערוץ לתדרים קבועים בין המשתמשים.', 'FDMA'],
+    ['Cyclic Redundancy Check — קוד גילוי שגיאות שמחושב לכל פריים בשכבת הקישור.', 'CRC'],
+    ['Organizationally Unique Identifier — שלושת הבייטים הראשונים בכתובת MAC, מזהים את היצרן.', 'OUI'],
+    ['Local Area Network — רשת מקומית (בניין/קמפוס), בדרך כלל Ethernet או WiFi.', 'LAN'],
+    ['טכנולוגיית ה-LAN הקווית הנפוצה: פריימים עם כתובות MAC, ‏CSMA/CD היסטורית.', 'Ethernet'],
+    ['Rivest–Shamir–Adleman — אלגוריתם הצפנה אסימטרי (מפתח ציבורי) מבוסס פירוק לגורמים.', 'RSA'],
+    ['Advanced Encryption Standard — אלגוריתם ההצפנה הסימטרי הסטנדרטי כיום.', 'AES'],
+    ['Triple DES — הפעלת DES שלוש פעמים ברצף לחיזוק המפתח.', '3DES'],
+    ['Data Encryption Standard — אלגוריתם הצפנה סימטרי ישן (מפתח 56 ביט, נחשב חלש).', 'DES'],
+    ['Transport Layer Security — היורש המודרני של SSL; מצפין תעבורה מעל TCP.', 'TLS'],
+    ['Secure Sockets Layer — שכבת הצפנה בין האפליקציה ל-TCP‏; הבסיס של HTTPS.', 'SSL'],
+    ['Public Key — המפתח הציבורי: גלוי לכולם, מצפינים איתו הודעות אל הבעלים.', 'PK'],
+    ['Secret/Private Key — המפתח הפרטי: רק הבעלים מחזיק בו, מפענח וחותם.', 'SK'],
+    ['Distributed Denial of Service — מתקפת מניעת שירות ממקורות רבים במקביל.', 'DDoS'],
+    ['Denial of Service — מתקפה שמציפה שרת בבקשות עד שקורס או לא זמין.', 'DoS'],
+    ['Internet Service Provider — ספקית שירותי אינטרנט.', 'ISP'],
+    ['Open Systems Interconnection — מודל 7 השכבות של ISO.', 'OSI'],
+    ['International Organization for Standardization — ארגון התקנים הבינלאומי.', 'ISO'],
+    ['Maximum Transmission Unit — הגודל המרבי של חבילה בלינק; מעליו נדרשת פרגמנטציה.', 'MTU'],
+    // --- added in v2 ---
+    ['תחום התנגשות — קבוצת התקנים שחולקים ערוץ ויכולים להתנגש זה בזה. Hub = תחום אחד גדול; Switch מפריד תחום נפרד לכל פורט.', 'Collision Domains', 'Collision Domain', 'collision domains', 'collision domain'],
+    ['חבר-והפעל — עובד מהרגע הראשון בלי שום הגדרה ידנית. סוויץ׳, למשל, לומד את הרשת לבד.', 'Plug-and-Play', 'plug-and-play', 'Plug and Play', 'plug and play'],
+    ['שכבה 2 (הקישור) — פריימים וכתובות MAC. סוויץ׳ הוא התקן שכבה 2: לא מסתכל על IP בכלל.', 'Layer 2', 'layer 2'],
+    ['שכבה 3 (הרשת) — IP וניתוב בין רשתות. ראוטר הוא התקן שכבה 3.', 'Layer 3', 'layer 3'],
+    ['רכזת — התקן פיזי "טיפש" שמשכפל כל ביט לכל הפורטים. כולם שומעים הכול: תחום התנגשות אחד גדול.', 'Hub', 'hub'],
+    ['מתג — התקן שכבה 2 שמעביר פריים רק לפורט הנכון, לפי טבלת MAC שהוא לומד לבד (self-learning).', 'Switch', 'switch'],
+    ['שידור לכולם — הודעה לכל ההתקנים ברשת (כתובת MAC‏: FF:FF:FF:FF:FF:FF).', 'Broadcast', 'broadcast'],
+    ['שידור ליעד יחיד — התקשורת הרגילה של אחד-אל-אחד.', 'Unicast', 'unicast'],
+    ['שידור לקבוצה — ההודעה מגיעה רק למי שנרשם לקבוצה מסוימת.', 'Multicast', 'multicast'],
+    ['שידור לקרוב ביותר — ההודעה מגיעה לאחד (הקרוב) מתוך קבוצת שרתים זהים.', 'Anycast', 'anycast'],
+    ['הצפה — כשהסוויץ׳ לא מכיר את יעד ה-MAC בטבלה, הוא שולח את הפריים לכל הפורטים חוץ ממקור ההגעה.', 'Flooding', 'flooding'],
+    ['למידה עצמית — הסוויץ׳ ממלא את טבלת ה-MAC לבד, מכתובות המקור של פריימים שעוברים דרכו.', 'Self-Learning', 'self-learning', 'Self Learning'],
+    ['אחסן-והעבר — הראוטר/סוויץ׳ קולט את החבילה במלואה לפני שהוא מתחיל לשדר אותה הלאה.', 'Store-and-Forward', 'store-and-forward', 'Store and Forward'],
+  ];
+
+  const GLOSSARY = {};
+  for (const row of DEFS) for (let i = 1; i < row.length; i++) GLOSSARY[row[i]] = row[0];
+
+  const TERMS = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length);
+  const PATTERN = TERMS.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+  const RE = new RegExp('(?<![A-Za-z0-9])(' + PATTERN + ')(?![A-Za-z0-9])', 'g');
+
+  const SKIP_TAGS = new Set(['SCRIPT', 'STYLE', 'CODE', 'PRE', 'TEXTAREA', 'A', 'BUTTON', 'H1']);
+  const SKIP_CLASSES = ['gloss', 'katex', 'katex-display', 'sidebar', 'exercise-tag',
+                        'page-eyebrow', 'card-tags', 'tag', 'pager', 'badge', 'nav-num'];
+
+  function insideSkipped(el) {
+    for (let n = el; n && n.nodeType === 1; n = n.parentElement) {
+      if (SKIP_TAGS.has(n.tagName)) return true;
+      const c = n.classList;
+      if (c) for (const cls of SKIP_CLASSES) if (c.contains(cls)) return true;
+    }
+    return false;
+  }
+
+  // ---- tooltip element ----
+  let tip = null, arrow = null, current = null;
+  function ensureTip() {
+    if (tip) return;
+    tip = document.createElement('div');
+    tip.id = 'gloss-tip';
+    arrow = document.createElement('div');
+    arrow.className = 'arrow';
+    tip.appendChild(arrow);
+    document.body.appendChild(tip);
+  }
+
+  const HEB = /[\u0590-\u05FF]/;
+  function setContent(text) {
+    // isolate a leading English expansion ("Media Access Control — ...")
+    while (tip.childNodes.length > 1) tip.removeChild(tip.firstChild);
+    const sep = text.indexOf(' — ');
+    if (sep > 0 && !HEB.test(text.slice(0, sep))) {
+      const bdi = document.createElement('bdi');
+      bdi.dir = 'ltr';
+      bdi.textContent = text.slice(0, sep);
+      tip.insertBefore(document.createTextNode(text.slice(sep)), tip.firstChild);
+      tip.insertBefore(bdi, tip.firstChild);
+    } else {
+      tip.insertBefore(document.createTextNode(text), tip.firstChild);
+    }
+  }
+
+  function show(span) {
+    ensureTip();
+    current = span;
+    setContent(span.getAttribute('data-tip') || '');
+    tip.classList.remove('above', 'below');
+    tip.classList.add('show');
+    // measure after content set
+    const r = span.getBoundingClientRect();
+    const vw = window.innerWidth, margin = 8, gap = 9;
+    const tw = Math.min(tip.offsetWidth, vw - 2 * margin);
+    tip.style.maxWidth = (vw - 2 * margin) + 'px';
+    let left = r.left + r.width / 2 - tw / 2;
+    left = Math.max(margin, Math.min(left, vw - tw - margin));
+    const th = tip.offsetHeight;
+    let top = r.top - th - gap;
+    if (top < margin) { top = r.bottom + gap; tip.classList.add('below'); }
+    else tip.classList.add('above');
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    // arrow points at the term's center, clamped inside the tip
+    let ax = r.left + r.width / 2 - left - 6;
+    ax = Math.max(10, Math.min(ax, tw - 22));
+    arrow.style.left = ax + 'px';
+  }
+
+  function hide() {
+    current = null;
+    if (tip) tip.classList.remove('show');
+  }
+
+  function run() {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const t = node.nodeValue;
+        if (!t || t.indexOf('$') !== -1) return NodeFilter.FILTER_REJECT;
+        RE.lastIndex = 0;
+        if (!RE.test(t)) return NodeFilter.FILTER_REJECT;
+        if (insideSkipped(node.parentElement)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    for (const node of nodes) {
+      const text = node.nodeValue;
+      const frag = document.createDocumentFragment();
+      let last = 0, m;
+      RE.lastIndex = 0;
+      while ((m = RE.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        const span = document.createElement('span');
+        span.className = 'gloss';
+        span.setAttribute('data-tip', GLOSSARY[m[1]]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    }
+
+    document.body.addEventListener('mouseover', e => {
+      const g = e.target.closest && e.target.closest('.gloss');
+      if (g && g !== current) show(g);
+      else if (!g && current) hide();
+    });
+    document.body.addEventListener('click', e => {
+      const g = e.target.closest && e.target.closest('.gloss');
+      if (g) { (g === current && tip.classList.contains('show')) ? hide() : show(g); }
+      else hide();
+    });
+    window.addEventListener('scroll', hide, { passive: true });
+    window.addEventListener('resize', hide);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+})();
+</script>
+
+
+<script>
+/* ===== ui-fixes-v3: sidebar toggle ===== */
+(function () {
+  var btn = document.getElementById('menuToggle');
+  if (!btn) return;
+  // restore last state (per-tab, no storage API: use a URL-independent global on window.name)
+  try { if (window.name === 'nav-hidden') document.body.classList.add('nav-hidden'); } catch (e) {}
+  function sync() {
+    var hidden = document.body.classList.contains('nav-hidden');
+    btn.classList.toggle('always', !hidden); // stay visible even when menu shown
+    try { window.name = hidden ? 'nav-hidden' : ''; } catch (e) {}
+  }
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('nav-hidden');
+    sync();
+  });
+  sync();
+})();
+</script>
+
+
+<script>
+/* ===== site search ===== */
+(function(){
+  var fab=document.getElementById('searchFab'),
+      ov=document.getElementById('searchOverlay'),
+      inp=document.getElementById('siteSearch'),
+      res=document.getElementById('searchResults'),
+      empty=document.getElementById('searchEmpty');
+  if(!fab||!ov) return;
+  var links=[].slice.call(res.querySelectorAll('a'));
+  function open(){ ov.classList.add('open'); inp.value=''; filter(); setTimeout(function(){inp.focus();},30); }
+  function close(){ ov.classList.remove('open'); }
+  function filter(){
+    var q=inp.value.trim().toLowerCase(), any=false, first=true;
+    links.forEach(function(a){
+      var hit=a.getAttribute('data-label').toLowerCase().indexOf(q)!==-1;
+      a.style.display=hit?'':'none'; a.classList.remove('sel');
+      if(hit){ any=true; if(first){a.classList.add('sel'); first=false;} }
+    });
+    empty.style.display=any?'none':'block';
+  }
+  function sel(dir){
+    var vis=links.filter(function(a){return a.style.display!=='none';});
+    var i=vis.findIndex(function(a){return a.classList.contains('sel');});
+    if(i>=0) vis[i].classList.remove('sel');
+    var n=(i+dir+vis.length)%vis.length;
+    if(vis[n]){ vis[n].classList.add('sel'); vis[n].scrollIntoView({block:'nearest'}); }
+  }
+  fab.addEventListener('click', open);
+  ov.addEventListener('click', function(e){ if(e.target===ov) close(); });
+  inp&&inp.addEventListener('input', filter);
+  document.addEventListener('keydown', function(e){
+    if(e.key==='/' && !ov.classList.contains('open') &&
+       ['INPUT','TEXTAREA'].indexOf(document.activeElement.tagName)===-1){ e.preventDefault(); open(); }
+    else if(e.key==='Escape'){ close(); }
+    else if(ov.classList.contains('open')){
+      if(e.key==='ArrowDown'){ e.preventDefault(); sel(1); }
+      else if(e.key==='ArrowUp'){ e.preventDefault(); sel(-1); }
+      else if(e.key==='Enter'){ var s=res.querySelector('a.sel'); if(s) location.href=s.href; }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

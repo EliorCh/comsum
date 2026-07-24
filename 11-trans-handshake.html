@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,11 +414,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 2.5 · שכבת התעבורה</span>
-  <h1 class="page-title">הקמת קשר וסגירתו — 3-Way HandShake</h1>
-  <p class="page-subtitle">למה ‎2-way לא עובד, ואיך ‎SYN/SYN-ACK/ACK פותר את הבעיה.</p>
+  <h1 class="page-title">הקמת קשר וסגירתו — <bdi dir="ltr">3-Way HandShake</bdi></h1>
+  <p class="page-subtitle">למה <bdi dir="ltr">2-way</bdi> לא עובד, ואיך <bdi dir="ltr">SYN/SYN-ACK/ACK</bdi> פותר את הבעיה.</p>
 
   <p class="lead">
-    TCP הוא <strong>Connection-Oriented</strong> — כל קשר מתחיל בהקמה ומסתיים בסגירה. במהלך ההקמה מסכימים על <strong>מספרי רצף התחלתיים</strong> וגודלי באפרים. הקמה ב-2 דרך לא עובדת בגלל Delayed Duplicates. הפתרון: <strong>3-Way HandShake</strong> — שלוש הודעות עם דגלי SYN ו-ACK.
+    <bdi dir="ltr">TCP</bdi> הוא <strong>Connection-Oriented</strong> — כל קשר מתחיל בהקמה ומסתיים בסגירה. במהלך ההקמה מסכימים על <strong>מספרי רצף התחלתיים</strong> וגודלי באפרים. הקמה ב-2 דרך לא עובדת בגלל <bdi dir="ltr">Delayed Duplicates</bdi>. הפתרון: <strong>3-Way HandShake</strong> — שלוש הודעות עם דגלי <bdi dir="ltr">SYN</bdi> ו-<bdi dir="ltr">ACK</bdi>.
   </p>
 
   <h2>למה צריך הקמת קשר?</h2>
@@ -424,32 +428,32 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <ol>
         <li><strong>הסכמה על קיום הקשר</strong> — כל אחד מצדדים יודע שהשני רוצה תקשורת.</li>
-        <li><strong>הסכמה על פרמטרים</strong> — Sequence Number התחלתי של כל צד, גודל באפר, MSS וכו'.</li>
+        <li><strong>הסכמה על פרמטרים</strong> — <bdi dir="ltr">Sequence Number</bdi> התחלתי של כל צד, גודל באפר, <bdi dir="ltr">MSS</bdi> וכו'.</li>
       </ol>
     </div>
   </div>
 
-  <h2>למה 2-Way HandShake לא עובד?</h2>
+  <h2>למה <bdi dir="ltr">2-Way HandShake</bdi> לא עובד?</h2>
 
   <div class="box warn">
     <div class="box-head"><span class="icon">⚠</span>Delayed Duplicates</div>
     <div class="box-body">
-      <p>נניח הקמה ב-2 הודעות: לקוח שולח CR (Connection Request), שרת מחזיר CA (Connection Accept). הקשר מוקם.</p>
+      <p>נניח הקמה ב-2 הודעות: לקוח שולח <bdi dir="ltr">CR</bdi> (<bdi dir="ltr">Connection Request</bdi>), שרת מחזיר <bdi dir="ltr">CA</bdi> (<bdi dir="ltr">Connection Accept</bdi>). הקשר מוקם.</p>
       <h4>תרחיש בעייתי</h4>
       <ol>
-        <li>הלקוח שלח CR — אבד בדרך.</li>
-        <li>אחרי Timeout — שלח שוב CR. הגיע. השרת אישר. הקשר מוקם, דאטה זרם, הקשר נסגר.</li>
-        <li>פתאום — ה-CR <strong>הראשון</strong> (שחשבנו שאבד) מגיע לשרת באיחור עצום.</li>
-        <li>השרת חושב שזו בקשת קשר חדשה — שולח CA.</li>
+        <li>הלקוח שלח <bdi dir="ltr">CR</bdi> — אבד בדרך.</li>
+        <li>אחרי <bdi dir="ltr">Timeout</bdi> — שלח שוב <bdi dir="ltr">CR</bdi>. הגיע. השרת אישר. הקשר מוקם, דאטה זרם, הקשר נסגר.</li>
+        <li>פתאום — ה-<bdi dir="ltr">CR</bdi> <strong>הראשון</strong> (שחשבנו שאבד) מגיע לשרת באיחור עצום.</li>
+        <li>השרת חושב שזו בקשת קשר חדשה — שולח <bdi dir="ltr">CA</bdi>.</li>
         <li>הלקוח כבר סגר — לא יודע על הקשר הזה.</li>
         <li>בינתיים דאטה ישנה (שגם הייתה בדרך) מגיעה.</li>
         <li><strong>השרת מקבל את הדאטה כחלק מהקשר החדש שיצר — נתוני זבל!</strong></li>
       </ol>
-      <p>הבעיה: השרת לא יכול להבחין בין CR אמיתי לכפיל שהתעכב.</p>
+      <p>הבעיה: השרת לא יכול להבחין בין <bdi dir="ltr">CR</bdi> אמיתי לכפיל שהתעכב.</p>
     </div>
   </div>
 
-  <h2>פתרון: 3-Way HandShake</h2>
+  <h2>פתרון: <bdi dir="ltr">3-Way HandShake</bdi></h2>
 
   <div class="figure">
     <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="3-Way HandShake">
@@ -459,82 +463,82 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="600" y1="40" x2="600" y2="260" stroke="#475569" stroke-width="1"/>
 
         <rect x="60" y="20" width="120" height="22" rx="4" fill="#fef9e7" stroke="#b45309"/>
-        <text x="120" y="35" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700">לקוח</text>
+        <text x="120" y="35" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700" direction="rtl">לקוח</text>
 
         <rect x="540" y="20" width="120" height="22" rx="4" fill="#ecfdf5" stroke="#047857"/>
-        <text x="600" y="35" text-anchor="middle" font-size="11" fill="#047857" font-weight="700">שרת</text>
+        <text x="600" y="35" text-anchor="middle" font-size="11" fill="#047857" font-weight="700" direction="rtl">שרת</text>
 
         <!-- Step 1: SYN -->
         <line x1="120" y1="70" x2="600" y2="100" stroke="#b45309" stroke-width="2"/>
         <text x="360" y="65" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700">1. SYN</text>
-        <text x="360" y="80" text-anchor="middle" font-size="9" fill="#b45309">SYN=1, seq=x (ISN של לקוח)</text>
-        <text x="360" y="92" text-anchor="middle" font-size="9" fill="#78716c">אין דאטה</text>
+        <text x="360" y="80" text-anchor="middle" font-size="9" fill="#b45309" direction="rtl">SYN=1, seq=x (ISN של לקוח)</text>
+        <text x="360" y="92" text-anchor="middle" font-size="9" fill="#78716c" direction="rtl">אין דאטה</text>
 
         <!-- Step 2: SYN-ACK -->
         <line x1="600" y1="120" x2="120" y2="150" stroke="#047857" stroke-width="2"/>
         <text x="360" y="118" text-anchor="middle" font-size="11" fill="#047857" font-weight="700">2. SYN-ACK</text>
         <text x="360" y="133" text-anchor="middle" font-size="9" fill="#047857">SYN=1, ACK=1, seq=y, ack=x+1</text>
-        <text x="360" y="145" text-anchor="middle" font-size="9" fill="#78716c">השרת מקצה באפר</text>
+        <text x="360" y="145" text-anchor="middle" font-size="9" fill="#78716c" direction="rtl">השרת מקצה באפר</text>
 
         <!-- Step 3: ACK -->
         <line x1="120" y1="170" x2="600" y2="200" stroke="#b45309" stroke-width="2"/>
         <text x="360" y="168" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700">3. ACK</text>
         <text x="360" y="183" text-anchor="middle" font-size="9" fill="#b45309">ACK=1, seq=x+1, ack=y+1</text>
-        <text x="360" y="195" text-anchor="middle" font-size="9" fill="#78716c">עשוי להכיל דאטה!</text>
+        <text x="360" y="195" text-anchor="middle" font-size="9" fill="#78716c" direction="rtl">עשוי להכיל דאטה!</text>
 
         <!-- Connection established -->
         <rect x="100" y="215" width="520" height="30" rx="5" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
-        <text x="360" y="234" text-anchor="middle" font-size="12" fill="#047857" font-weight="700">קשר מוקם · ESTAB · שני הצדדים יודעים על ה-ISN של השני</text>
+        <text x="360" y="234" text-anchor="middle" font-size="12" fill="#047857" font-weight="700" direction="rtl">קשר מוקם · ESTAB · שני הצדדים יודעים על ה-ISN של השני</text>
       </g>
     </svg>
-    <div class="cap">‎3 הודעות. הלקוח שולח SYN, השרת מחזיר SYN-ACK, הלקוח מאשר. אחרי זה הקשר מוקם.</div>
+    <div class="cap">3 הודעות. הלקוח שולח <bdi dir="ltr">SYN</bdi>, השרת מחזיר <bdi dir="ltr">SYN-ACK</bdi>, הלקוח מאשר. אחרי זה הקשר מוקם.</div>
   </div>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>שלושת השלבים</div>
     <div class="box-body">
-      <h4>שלב 1: SYN <span class="term">(לקוח → שרת)</span></h4>
+      <h4>שלב <bdi dir="ltr">1</bdi>: <bdi dir="ltr">SYN</bdi> <span class="term">(לקוח → שרת)</span></h4>
       <ul>
-        <li>הלקוח שולח סגמנט עם <strong>ביט SYN דולק</strong>.</li>
-        <li>בוחר Sequence Number התחלתי (Initial Sequence Number, ISN) — בדרך כלל אקראי. נקרא לו <span class="term">x</span>.</li>
+        <li>הלקוח שולח סגמנט עם <strong>ביט <bdi dir="ltr">SYN</bdi> דולק</strong>.</li>
+        <li>בוחר <bdi dir="ltr">Sequence Number</bdi> התחלתי (<bdi dir="ltr">Initial Sequence Number, ISN</bdi>) — בדרך כלל אקראי. נקרא לו <span class="term">x</span>.</li>
         <li>אין דאטה.</li>
       </ul>
 
-      <h4>שלב 2: SYN-ACK <span class="term">(שרת → לקוח)</span></h4>
+      <h4>שלב <bdi dir="ltr">2</bdi>: <bdi dir="ltr">SYN-ACK</bdi> <span class="term">(שרת → לקוח)</span></h4>
       <ul>
-        <li>השרת מקבל את ה-SYN, ומחליט לקבל את הקשר.</li>
+        <li>השרת מקבל את ה-<bdi dir="ltr">SYN</bdi>, ומחליט לקבל את הקשר.</li>
         <li>שולח חזרה סגמנט עם <strong>SYN=1, ACK=1</strong>.</li>
-        <li>בוחר ISN משלו: <span class="term">y</span>.</li>
-        <li>שדה ה-ACK שווה ל-<span class="term">x+1</span> — מאשר את ה-SYN של הלקוח.</li>
+        <li>בוחר <bdi dir="ltr">ISN</bdi> משלו: <span class="term">y</span>.</li>
+        <li>שדה ה-<bdi dir="ltr">ACK</bdi> שווה ל-<span class="term">x+1</span> — מאשר את ה-<bdi dir="ltr">SYN</bdi> של הלקוח.</li>
         <li>מקצה משאבים (באפר).</li>
       </ul>
 
-      <h4>שלב 3: ACK <span class="term">(לקוח → שרת)</span></h4>
+      <h4>שלב <bdi dir="ltr">3</bdi>: <bdi dir="ltr">ACK</bdi> <span class="term">(לקוח → שרת)</span></h4>
       <ul>
-        <li>הלקוח מקבל את ה-SYN-ACK ושולח ACK.</li>
-        <li>שדה ה-ACK שווה ל-<span class="term">y+1</span> — מאשר את ה-SYN של השרת.</li>
+        <li>הלקוח מקבל את ה-<bdi dir="ltr">SYN-ACK</bdi> ושולח <bdi dir="ltr">ACK</bdi>.</li>
+        <li>שדה ה-<bdi dir="ltr">ACK</bdi> שווה ל-<span class="term">y+1</span> — מאשר את ה-<bdi dir="ltr">SYN</bdi> של השרת.</li>
         <li><strong>יכול להכיל דאטה!</strong> זה הסגמנט הראשון של הקשר.</li>
       </ul>
     </div>
   </div>
 
-  <h2>למה זה פותר את ה-Delayed Duplicate?</h2>
+  <h2>למה זה פותר את ה-<bdi dir="ltr">Delayed Duplicate</bdi>?</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>איך 3WHS חוסם duplicates</div>
+    <div class="box-head"><span class="icon">📘</span>איך <bdi dir="ltr">3WHS</bdi> חוסם <bdi dir="ltr">duplicates</bdi></div>
     <div class="box-body">
-      <p>נניח CR ישן (SYN עם seq=x) מגיע באיחור — אחרי שהקשר הקודם נסגר.</p>
+      <p>נניח <bdi dir="ltr">CR</bdi> ישן (<bdi dir="ltr">SYN</bdi> עם <bdi dir="ltr">seq=x</bdi>) מגיע באיחור — אחרי שהקשר הקודם נסגר.</p>
       <ol>
-        <li>השרת חושב שזו בקשת קשר חדשה ושולח SYN-ACK עם <span class="term">ack=x+1, seq=y'</span> (y' חדש).</li>
-        <li>הלקוח מקבל SYN-ACK עם ack=x+1, אבל הוא <strong>לא שלח SYN לאחרונה</strong>!</li>
-        <li>הלקוח לא ישלח ACK. הקשר לא יוקם.</li>
+        <li>השרת חושב שזו בקשת קשר חדשה ושולח <bdi dir="ltr">SYN-ACK</bdi> עם <span class="term">ack=x+1, seq=y'</span> (<bdi dir="ltr">y</bdi>' חדש).</li>
+        <li>הלקוח מקבל <bdi dir="ltr">SYN-ACK</bdi> עם <bdi dir="ltr">ack=x+1</bdi>, אבל הוא <strong>לא שלח <bdi dir="ltr">SYN</bdi> לאחרונה</strong>!</li>
+        <li>הלקוח לא ישלח <bdi dir="ltr">ACK</bdi>. הקשר לא יוקם.</li>
         <li>אם הגיעה דאטה ישנה — לא תעבור, כי אין קשר פתוח.</li>
       </ol>
-      <p><strong>המפתח:</strong> הלקוח שולח ACK רק כשהוא <strong>מצפה ל-SYN-ACK</strong>. כפיל ישן לא יזכה ל-ACK ← הקשר לא יוקם.</p>
+      <p><strong>המפתח:</strong> הלקוח שולח <bdi dir="ltr">ACK</bdi> רק כשהוא <strong>מצפה ל-<bdi dir="ltr">SYN-ACK</bdi></strong>. כפיל ישן לא יזכה ל-<bdi dir="ltr">ACK</bdi> ← הקשר לא יוקם.</p>
     </div>
   </div>
 
-  <h2>סגירת הקשר — FIN</h2>
+  <h2>סגירת הקשר — <bdi dir="ltr">FIN</bdi></h2>
 
   <div class="figure">
     <svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="סגירת קשר TCP">
@@ -543,53 +547,53 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="600" y1="40" x2="600" y2="240" stroke="#475569" stroke-width="1"/>
 
         <rect x="60" y="20" width="120" height="22" rx="4" fill="#fef9e7" stroke="#b45309"/>
-        <text x="120" y="35" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700">לקוח</text>
+        <text x="120" y="35" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700" direction="rtl">לקוח</text>
 
         <rect x="540" y="20" width="120" height="22" rx="4" fill="#ecfdf5" stroke="#047857"/>
-        <text x="600" y="35" text-anchor="middle" font-size="11" fill="#047857" font-weight="700">שרת</text>
+        <text x="600" y="35" text-anchor="middle" font-size="11" fill="#047857" font-weight="700" direction="rtl">שרת</text>
 
         <!-- FIN from client -->
         <line x1="120" y1="70" x2="600" y2="95" stroke="#b45309" stroke-width="2"/>
         <text x="360" y="65" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700">1. FIN</text>
-        <text x="360" y="80" text-anchor="middle" font-size="9" fill="#b45309">"סיימתי לשלוח"</text>
+        <text x="360" y="80" text-anchor="middle" font-size="9" fill="#b45309" direction="rtl">"סיימתי לשלוח"</text>
 
         <!-- ACK from server -->
         <line x1="600" y1="105" x2="120" y2="125" stroke="#047857" stroke-width="2"/>
         <text x="360" y="103" text-anchor="middle" font-size="11" fill="#047857" font-weight="700">2. ACK</text>
-        <text x="360" y="118" text-anchor="middle" font-size="9" fill="#047857">קיבל את ה-FIN</text>
+        <text x="360" y="118" text-anchor="middle" font-size="9" fill="#047857" direction="rtl">קיבל את ה-FIN</text>
 
-        <text x="360" y="145" text-anchor="middle" font-size="10" fill="#78716c">השרת עוד יכול לשלוח דאטה אם רוצה</text>
+        <text x="360" y="145" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">השרת עוד יכול לשלוח דאטה אם רוצה</text>
 
         <!-- FIN from server -->
         <line x1="600" y1="160" x2="120" y2="185" stroke="#047857" stroke-width="2"/>
         <text x="360" y="158" text-anchor="middle" font-size="11" fill="#047857" font-weight="700">3. FIN</text>
-        <text x="360" y="173" text-anchor="middle" font-size="9" fill="#047857">"גם אני סיימתי"</text>
+        <text x="360" y="173" text-anchor="middle" font-size="9" fill="#047857" direction="rtl">"גם אני סיימתי"</text>
 
         <!-- ACK from client -->
         <line x1="120" y1="195" x2="600" y2="220" stroke="#b45309" stroke-width="2"/>
         <text x="360" y="193" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700">4. ACK</text>
-        <text x="360" y="208" text-anchor="middle" font-size="9" fill="#b45309">קיבל את ה-FIN של השרת</text>
+        <text x="360" y="208" text-anchor="middle" font-size="9" fill="#b45309" direction="rtl">קיבל את ה-FIN של השרת</text>
 
-        <text x="360" y="245" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700">הקשר סגור (אחרי 2·MSL זמן המתנה)</text>
+        <text x="360" y="245" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700" direction="rtl">הקשר סגור (אחרי 2·MSL זמן המתנה)</text>
       </g>
     </svg>
-    <div class="cap">סגירה היא ‎4 הודעות. כל צד שולח FIN משלו ומחכה ל-ACK. הקשר חצי-פתוח אפשרי.</div>
+    <div class="cap">סגירה היא 4 הודעות. כל צד שולח <bdi dir="ltr">FIN</bdi> משלו ומחכה ל-<bdi dir="ltr">ACK</bdi>. הקשר חצי-פתוח אפשרי.</div>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>סגירה עם FIN</div>
+    <div class="box-head"><span class="icon">📘</span>סגירה עם <bdi dir="ltr">FIN</bdi></div>
     <div class="box-body">
       <p>הקשר נסגר בעזרת דגל <span class="term">FIN</span> (Finish):</p>
       <ol>
-        <li><strong>לקוח שולח FIN:</strong> "סיימתי לשלוח. עדיין אקבל".</li>
-        <li><strong>שרת מאשר עם ACK:</strong> רושם שהלקוח סגר.</li>
-        <li><strong>השרת ממשיך לשלוח דאטה אם נשאר לו</strong> (Half-Close — חצי סגור).</li>
-        <li><strong>שרת שולח FIN משלו:</strong> "גם אני סיימתי".</li>
-        <li><strong>לקוח מאשר עם ACK</strong>. הקשר נסגר.</li>
+        <li><strong>לקוח שולח <bdi dir="ltr">FIN</bdi>:</strong> "סיימתי לשלוח. עדיין אקבל".</li>
+        <li><strong>שרת מאשר עם <bdi dir="ltr">ACK</bdi>:</strong> רושם שהלקוח סגר.</li>
+        <li><strong>השרת ממשיך לשלוח דאטה אם נשאר לו</strong> (<bdi dir="ltr">Half-Close</bdi> — חצי סגור).</li>
+        <li><strong>שרת שולח <bdi dir="ltr">FIN</bdi> משלו:</strong> "גם אני סיימתי".</li>
+        <li><strong>לקוח מאשר עם <bdi dir="ltr">ACK</bdi></strong>. הקשר נסגר.</li>
       </ol>
-      <p><strong><bdi>4 הודעות בסך הכל</bdi></strong> (לפעמים ‎3 אם ה-ACK ו-FIN של השרת מצורפים).</p>
+      <p><strong><bdi>4 הודעות בסך הכל</bdi></strong> (לפעמים 3 אם ה-<bdi dir="ltr">ACK</bdi> ו-<bdi dir="ltr">FIN</bdi> של השרת מצורפים).</p>
       <h4>TIME_WAIT</h4>
-      <p>אחרי שליחת ה-ACK האחרון, הלקוח נשאר במצב <strong>TIME_WAIT</strong> — מחכה <strong>2·MSL</strong> (Maximum Segment Lifetime) למקרה שה-ACK שלו אבד. רק אחר כך משחרר את המשאבים.</p>
+      <p>אחרי שליחת ה-<bdi dir="ltr">ACK</bdi> האחרון, הלקוח נשאר במצב <strong>TIME_WAIT</strong> — מחכה <strong>2·MSL</strong> (<bdi dir="ltr">Maximum Segment Lifetime</bdi>) למקרה שה-<bdi dir="ltr">ACK</bdi> שלו אבד. רק אחר כך משחרר את המשאבים.</p>
     </div>
   </div>
 
@@ -597,8 +601,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · רצף ה-SEQ ב-3WHS</span>
-      <p>לקוח שולח SYN עם seq=<strong>1000</strong>. השרת בוחר ISN משלו: <strong>5000</strong>. <strong>איך ייראו 3 הסגמנטים</strong> בלחיצת היד? אם הלקוח שולח דאטה של 100 בתים בסגמנט השלישי, מה ה-SEQ של הסגמנט הרביעי שישלח?</p>
+      <span class="exercise-tag">תרגול · רצף ה-<bdi dir="ltr">SEQ</bdi> ב-<bdi dir="ltr">3WHS</bdi></span>
+      <p>לקוח שולח <bdi dir="ltr">SYN</bdi> עם <bdi dir="ltr">seq</bdi>=<strong>1000</strong>. השרת בוחר <bdi dir="ltr">ISN</bdi> משלו: <strong>5000</strong>. <strong>איך ייראו 3 הסגמנטים</strong> בלחיצת היד? אם הלקוח שולח דאטה של 100 בתים בסגמנט השלישי, מה ה-<bdi dir="ltr">SEQ</bdi> של הסגמנט הרביעי שישלח?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
@@ -607,7 +611,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <ul>
           <li>SYN=1, ACK=0</li>
           <li><strong>seq = 1000</strong></li>
-          <li>ack = 0 (לא רלוונטי)</li>
+          <li><bdi dir="ltr">ack = 0</bdi> (לא רלוונטי)</li>
           <li>אין דאטה</li>
         </ul>
       </div>
@@ -615,17 +619,17 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <div class="step-label">סגמנט 2 · <span class="term">שרת → לקוח</span> (SYN-ACK)</div>
         <ul>
           <li>SYN=1, ACK=1</li>
-          <li><strong>seq = 5000</strong> (ISN של השרת)</li>
-          <li><strong>ack = 1001</strong> (= 1000 + 1, מאשר את SYN של הלקוח)</li>
+          <li><strong>seq = 5000</strong> (<bdi dir="ltr">ISN</bdi> של השרת)</li>
+          <li><strong>ack = 1001</strong> (= 1000 + 1, מאשר את <bdi dir="ltr">SYN</bdi> של הלקוח)</li>
           <li>אין דאטה</li>
         </ul>
       </div>
       <div class="step">
-        <div class="step-label">סגמנט 3 · <span class="term">לקוח → שרת</span> (ACK + נתונים)</div>
+        <div class="step-label">סגמנט 3 · <span class="term">לקוח → שרת</span> (<bdi dir="ltr">ACK</bdi> + נתונים)</div>
         <ul>
           <li>SYN=0, ACK=1</li>
-          <li><strong>seq = 1001</strong> (= 1000 + 1, ה-SYN "אכל" בית)</li>
-          <li><strong>ack = 5001</strong> (= 5000 + 1, מאשר את SYN של השרת)</li>
+          <li><strong>seq = 1001</strong> (= 1000 + 1, ה-<bdi dir="ltr">SYN</bdi> "אכל" בית)</li>
+          <li><strong>ack = 5001</strong> (= 5000 + 1, מאשר את <bdi dir="ltr">SYN</bdi> של השרת)</li>
           <li>דאטה של 100 בתים</li>
         </ul>
       </div>
@@ -634,7 +638,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <p>הסגמנט השלישי שלח בתים 1001 עד 1100 (כי הוא בגודל 100 בתים).</p>
         <p>הסגמנט הבא יתחיל מ-<strong>SEQ = 1101</strong>.</p>
       </div>
-      <div class="final-answer">ה-SYN עצמו נחשב כ"בית" אחד לעניין מספור — לכן אחרי SYN עם seq=1000, הדאטה הראשונה מתחילה ב-1001. הקופץ ל-1101 אחרי 100 בתים נוספים.</div>
+      <div class="final-answer">ה-<bdi dir="ltr">SYN</bdi> עצמו נחשב כ"בית" אחד לעניין מספור — לכן אחרי <bdi dir="ltr">SYN</bdi> עם <bdi dir="ltr">seq=1000</bdi>, הדאטה הראשונה מתחילה ב-1001. הקופץ ל-1101 אחרי 100 בתים נוספים.</div>
     </div>
   </div>
 
@@ -642,14 +646,14 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li>TCP הוא <strong>connection-oriented</strong> — כל קשר עם הקמה וסגירה</li>
-        <li>‎2-Way HandShake לא עובד — סובל מ-Delayed Duplicates</li>
+        <li><bdi dir="ltr">TCP</bdi> הוא <strong>connection-oriented</strong> — כל קשר עם הקמה וסגירה</li>
+        <li><bdi dir="ltr">2-Way HandShake</bdi> לא עובד — סובל מ-<bdi dir="ltr">Delayed Duplicates</bdi></li>
         <li><strong>3WHS:</strong> <span class="term">SYN → SYN-ACK → ACK</span></li>
-        <li>בכל הודעה: ISN חדש לכל צד (x, y); כל ACK = ISN של השני + 1</li>
+        <li>בכל הודעה: <bdi dir="ltr">ISN</bdi> חדש לכל צד (<bdi dir="ltr">x, y</bdi>); כל <bdi dir="ltr">ACK = ISN</bdi> של השני + 1</li>
         <li>הסגמנט השלישי יכול לשאת דאטה</li>
         <li>סגירה: <strong><span class="term">FIN → ACK → FIN → ACK</span></strong> (4 הודעות)</li>
-        <li><strong>TIME_WAIT:</strong> המתנה ‎2·MSL לפני שחרור משאבים</li>
-        <li>SYN עצמו "אוכל" בית אחד ב-SEQ (כך גם FIN)</li>
+        <li><strong>TIME_WAIT:</strong> המתנה <bdi dir="ltr">2·MSL</bdi> לפני שחרור משאבים</li>
+        <li><bdi dir="ltr">SYN</bdi> עצמו "אוכל" בית אחד ב-<bdi dir="ltr">SEQ</bdi> (כך גם <bdi dir="ltr">FIN</bdi>)</li>
       </ul>
     </div>
   </div>

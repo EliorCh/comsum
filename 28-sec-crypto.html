@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -411,24 +415,24 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 <main>
   <span class="page-eyebrow">פרק 6.2 · אבטחה</span>
   <h1 class="page-title">הצפנה סימטרית מול אסימטרית</h1>
-  <p class="page-subtitle">מקיסר ועד RSA: סימטרי מול אסימטרי, יצירת מפתחות ו-brute force. מופיע בשאלות מבחני עבר.</p>
+  <p class="page-subtitle">מקיסר ועד <bdi dir="ltr">RSA</bdi>: סימטרי מול אסימטרי, יצירת מפתחות ו-<bdi dir="ltr">brute force</bdi>. מופיע בשאלות מבחני עבר.</p>
 
 
   <h2>הבסיס — שתי גישות להצפנה</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>סימטרי vs אסימטרי</div>
+    <div class="box-head"><span class="icon">📘</span>סימטרי <bdi dir="ltr">vs</bdi> אסימטרי</div>
     <div class="box-body">
-      <h4>‎הצפנה סימטרית (DES, AES)</h4>
+      <h4>הצפנה סימטרית (<bdi dir="ltr">DES, AES</bdi>)</h4>
       <ul>
         <li><strong>מפתח אחד</strong> משמש להצפנה ולפענוח.</li>
         <li>שני הצדדים <strong>חייבים לחלוק אותו</strong> מראש.</li>
         <li><strong>מהיר מאוד</strong> חישובית.</li>
       </ul>
-      <h4>הצפנה אסימטרית (RSA)</h4>
+      <h4>הצפנה אסימטרית (<bdi dir="ltr">RSA</bdi>)</h4>
       <ul>
-        <li>לכל צד <strong>זוג מפתחות:</strong> ציבורי (PK) ופרטי (SK).</li>
-        <li>הצפנה עם <strong>PK</strong> ניתנת לפענוח <strong>רק עם SK</strong>.</li>
+        <li>לכל צד <strong>זוג מפתחות:</strong> ציבורי (<bdi dir="ltr">PK</bdi>) ופרטי (<bdi dir="ltr">SK</bdi>).</li>
+        <li>הצפנה עם <strong>PK</strong> ניתנת לפענוח <strong>רק עם <bdi dir="ltr">SK</bdi></strong>.</li>
         <li><strong>איטי</strong> משמעותית.</li>
       </ul>
     </div>
@@ -439,45 +443,45 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגיל בית 4 · שאלה 5.א</span>
-      <p>מהו <strong>יתרונה של שיטת DES</strong> (מפתח סימטרי) על-פני <strong>RSA</strong> (מפתח ציבורי)?</p>
+      <p>מהו <strong>יתרונה של שיטת <bdi dir="ltr">DES</bdi></strong> (מפתח סימטרי) על-פני <strong>RSA</strong> (מפתח ציבורי)?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">תשובה</div>
-        <p>‎<strong>DES מהיר משמעותית מ-RSA</strong>. הצפנה סימטרית מבוססת על פעולות פשוטות (XOR, החלפות) — איטרציה אחת היא קטנה ומהירה.</p>
-        <p>RSA דורש פעולות חזקה במספרים גדולים מאוד (2048 ביט) — איטי בערך פי 1000 ויותר.</p>
-        <p>בנוסף: RSA דורש משאבי חישוב כבדים יותר (CPU, זיכרון).</p>
+        <p><strong><bdi dir="ltr">DES</bdi> מהיר משמעותית מ-<bdi dir="ltr">RSA</bdi></strong>. הצפנה סימטרית מבוססת על פעולות פשוטות (<bdi dir="ltr">XOR</bdi>, החלפות) — איטרציה אחת היא קטנה ומהירה.</p>
+        <p><bdi dir="ltr">RSA</bdi> דורש פעולות חזקה במספרים גדולים מאוד (2048 ביט) — איטי בערך פי 1000 ויותר.</p>
+        <p>בנוסף: <bdi dir="ltr">RSA</bdi> דורש משאבי חישוב כבדים יותר (<bdi dir="ltr">CPU</bdi>, זיכרון).</p>
       </div>
-      <div class="final-answer">‎<strong>DES מהיר משמעותית מ-RSA</strong> מבחינת ביצועים וצריכת משאבים. ‎ולכן ‎DES מתאים להצפנת נפחים גדולים, ‎RSA מתאים להחלפת מפתחות.</div>
+      <div class="final-answer"><strong><bdi dir="ltr">DES</bdi> מהיר משמעותית מ-<bdi dir="ltr">RSA</bdi></strong> מבחינת ביצועים וצריכת משאבים. ולכן <bdi dir="ltr">DES</bdi> מתאים להצפנת נפחים גדולים, <bdi dir="ltr">RSA</bdi> מתאים להחלפת מפתחות.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגיל בית 4 · שאלה 5.ג</span>
-      <p>בשפה מדוברת יש <strong>16 אותיות</strong>. ‎טרודי תפס הודעה מוצפנת ב-<strong>monoalphabetic substitution</strong> (החלפת אות באות). השפה והשיטה ידועות. בספירת מופעים נראה שנעשה שימוש רק ב-<strong>10 אותיות שונות</strong>. ב-brute force, <strong>כמה ניסיונות בממוצע</strong> דרושים למציאת המפתח?</p>
+      <p>בשפה מדוברת יש <strong>16 אותיות</strong>. טרודי תפס הודעה מוצפנת ב-<strong>monoalphabetic substitution</strong> (החלפת אות באות). השפה והשיטה ידועות. בספירת מופעים נראה שנעשה שימוש רק ב-<strong>10 אותיות שונות</strong>. ב-<bdi dir="ltr">brute force</bdi>, <strong>כמה ניסיונות בממוצע</strong> דרושים למציאת המפתח?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">מהו "מפתח" ב-monoalphabetic substitution</div>
-        <p>המפתח = <strong>מיפוי מאותיות הטקסט לאותיות המוצפנות</strong>. ‎כל אות מוצפנת ייחודית (זה substitution).</p>
+        <div class="step-label">מהו "מפתח" ב-<bdi dir="ltr">monoalphabetic substitution</bdi></div>
+        <p>המפתח = <strong>מיפוי מאותיות הטקסט לאותיות המוצפנות</strong>. כל אות מוצפנת ייחודית (זה <bdi dir="ltr">substitution</bdi>).</p>
       </div>
       <div class="step">
         <div class="step-label">חישוב מספר המפתחות</div>
         <p>טרודי יודע שיש 10 אותיות מוצפנות בטקסט. לכל אחת — אחת מ-16 אותיות השפה:</p>
         <ul>
-          <li>האות המוצפנת הראשונה: ‎16 אפשרויות</li>
-          <li>השנייה: ‎15 אפשרויות (אחת כבר נלקחה)</li>
+          <li>האות המוצפנת הראשונה: 16 אפשרויות</li>
+          <li>השנייה: 15 אפשרויות (אחת כבר נלקחה)</li>
           <li>...</li>
-          <li>העשירית: ‎7 אפשרויות</li>
+          <li>העשירית: 7 אפשרויות</li>
         </ul>
         $$\text{מס׳ מפתחות} = 16 \times 15 \times \ldots \times 7 = \frac{16!}{6!} \approx 2.9 \times 10^{10}$$
       </div>
       <div class="step">
-        <div class="step-label">ממוצע ניסיונות ב-brute force</div>
-        <p>בממוצע, ‎brute force ימצא את המפתח אחרי <strong>חצי</strong> מסך הניסיונות:</p>
+        <div class="step-label">ממוצע ניסיונות ב-<bdi dir="ltr">brute force</bdi></div>
+        <p>בממוצע, <bdi dir="ltr">brute force</bdi> ימצא את המפתח אחרי <strong>חצי</strong> מסך הניסיונות:</p>
         $$\text{ממוצע} = \frac{1}{2} \cdot \frac{16!}{6!} \approx 1.45 \times 10^{10}$$
       </div>
       <div class="final-answer">בממוצע <strong><bdi>~14.5 מיליארד ניסיונות</bdi></strong>.</div>
@@ -491,27 +495,27 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <h3>אלגוריתמים מוכרים</h3>
       <ul>
         <li><strong>DES (Data Encryption Standard):</strong> פותח בשנות ה-70. מפתח 56 ביט. נשבר היום.</li>
-        <li><strong>3DES:</strong> DES שלושה פעמים. ‎112-168 ביט אפקטיביים.</li>
+        <li><strong>3DES:</strong> <bdi dir="ltr">DES</bdi> שלושה פעמים. 112-168 ביט אפקטיביים.</li>
         <li><strong>AES (Advanced Encryption Standard):</strong> סטנדרט מודרני. 128/192/256 ביט.</li>
       </ul>
 
-      <h3>RSA — האלגוריתם המוכר ביותר</h3>
-      <p><strong>RSA</strong> = Rivest, Shamir, Adleman (המציאים). מבוסס על קושי <strong>פירוק מספרים גדולים לראשוניים</strong>.</p>
+      <h3><bdi dir="ltr">RSA</bdi> — האלגוריתם המוכר ביותר</h3>
+      <p><strong>RSA</strong> = <bdi dir="ltr">Rivest, Shamir, Adleman</bdi> (המציאים). מבוסס על קושי <strong>פירוק מספרים גדולים לראשוניים</strong>.</p>
       <ul>
         <li>גודל מפתח טיפוסי: <strong>2048 ביט</strong>.</li>
-        <li>איטי יחסית — אלפי פעמים יותר מ-AES.</li>
+        <li>איטי יחסית — אלפי פעמים יותר מ-<bdi dir="ltr">AES</bdi>.</li>
       </ul>
 
-      <h3>השוואה: DES vs RSA</h3>
+      <h3>השוואה: <bdi dir="ltr">DES vs RSA</bdi></h3>
       <table>
         <thead>
-          <tr><th>תכונה</th><th>DES (סימטרי)</th><th>RSA (אסימטרי)</th></tr>
+          <tr><th>תכונה</th><th><bdi dir="ltr">DES</bdi> (סימטרי)</th><th><bdi dir="ltr">RSA</bdi> (אסימטרי)</th></tr>
         </thead>
         <tbody>
-          <tr><td>מפתחות</td><td>אחד (משותף)</td><td>שניים (PK + SK)</td></tr>
-          <tr><td>מהירות</td><td><strong>מהיר מאוד</strong></td><td>איטי (1000x ויותר)</td></tr>
-          <tr><td>אורך מפתח</td><td>‎56 ביט (DES), 256 (AES)</td><td>‎2048 ביט</td></tr>
-          <tr><td>הפצת מפתחות</td><td>בעיה גדולה</td><td>אין בעיה (PK פתוח)</td></tr>
+          <tr><td>מפתחות</td><td>אחד (משותף)</td><td>שניים (<bdi dir="ltr">PK + SK</bdi>)</td></tr>
+          <tr><td>מהירות</td><td><strong>מהיר מאוד</strong></td><td>איטי (<bdi dir="ltr">1000x</bdi> ויותר)</td></tr>
+          <tr><td>אורך מפתח</td><td>56 ביט (<bdi dir="ltr">DES</bdi>), 256 (<bdi dir="ltr">AES</bdi>)</td><td>2048 ביט</td></tr>
+          <tr><td>הפצת מפתחות</td><td>בעיה גדולה</td><td>אין בעיה (<bdi dir="ltr">PK</bdi> פתוח)</td></tr>
           <tr><td>שימוש מתאים</td><td>נפחים גדולים</td><td>החלפת מפתחות, חתימות</td></tr>
         </tbody>
       </table>
@@ -519,10 +523,10 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <h3>שילוב היברידי בפועל</h3>
       <p>אף אלגוריתם לא מושלם — אז משלבים:</p>
       <ol>
-        <li><strong>RSA</strong> משמש להחלפת <strong>מפתח סשן</strong> סימטרי (קצר, ‎128/256 ביט).</li>
+        <li><strong>RSA</strong> משמש להחלפת <strong>מפתח סשן</strong> סימטרי (קצר, 128/256 ביט).</li>
         <li><strong>AES/DES</strong> משמש להצפנת <strong>הנתונים בפועל</strong> עם מפתח הסשן.</li>
       </ol>
-      <p>זה בדיוק מה ש-SSL/TLS עושה (פרק 6.4).</p>
+      <p>זה בדיוק מה ש-<bdi dir="ltr">SSL/TLS</bdi> עושה (פרק 6.4).</p>
     </div>
   
 
@@ -532,14 +536,14 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box theory">
     <div class="box-head"><span class="icon">🏛️</span>צופן יוליוס קיסר</div>
     <div class="box-body">
-      <p>הצופן הסימטרי העתיק ביותר: <strong>מזיזים כל אות 3 צעדים קדימה</strong> באלפבית (הגרסה ה"קלאסית" — ההזזה היא תמיד 3, וזה בעצם המפתח). בסוף האלפבית מתגלגלים להתחלה: ‏<span class="term">X→A, Y→B, Z→C</span>.</p>
-      <p>דוגמה: ‏<span class="term">HI HOW ARE YOU</span> ← ‏<span class="term">KL KRZ DUH BRX</span>. שימו לב ל-Y שמתגלגל: ‏<span class="term">Y→B</span>.</p>
-      <p><strong>למה הוא שביר:</strong> יש רק 25 הזזות אפשריות — brute force של שניות. השדרוג הוא <strong>החלפה מונו-אלפביתית:</strong> כל אות ממופה לאות שרירותית אחרת. שם מרחב המפתחות קופץ ל-$26!$, אבל הוא עדיין נשבר בניתוח שכיחויות.</p>
-      <p>ספירת מפתחות בהחלפה כשמופיעות רק $k$ אותיות שונות מתוך אלפבית של $n$: $\dfrac{n!}{(n-k)!}$, וב-brute force בודקים בממוצע <strong>חצי</strong> מהמרחב.</p>
+      <p>הצופן הסימטרי העתיק ביותר: <strong>מזיזים כל אות 3 צעדים קדימה</strong> באלפבית (הגרסה ה"קלאסית" — ההזזה היא תמיד 3, וזה בעצם המפתח). בסוף האלפבית מתגלגלים להתחלה: <span class="term">X→A, Y→B, Z→C</span>.</p>
+      <p>דוגמה: <span class="term">HI HOW ARE YOU</span> ← <span class="term">KL KRZ DUH BRX</span>. שימו לב ל-<bdi dir="ltr">Y</bdi> שמתגלגל: <span class="term">Y→B</span>.</p>
+      <p><strong>למה הוא שביר:</strong> יש רק 25 הזזות אפשריות — <bdi dir="ltr">brute force</bdi> של שניות. השדרוג הוא <strong>החלפה מונו-אלפביתית:</strong> כל אות ממופה לאות שרירותית אחרת. שם מרחב המפתחות קופץ ל-$26!$, אבל הוא עדיין נשבר בניתוח שכיחויות.</p>
+      <p>ספירת מפתחות בהחלפה כשמופיעות רק $k$ אותיות שונות מתוך אלפבית של $n$: $\dfrac{n!}{(n-k)!}$, וב-<bdi dir="ltr">brute force</bdi> בודקים בממוצע <strong>חצי</strong> מהמרחב.</p>
     </div>
   </div>
 
-  <h2>המתמטיקה של RSA — איך נוצרים המפתחות</h2>
+  <h2>המתמטיקה של <bdi dir="ltr">RSA</bdi> — איך נוצרים המפתחות</h2>
 
   <div class="box formula">
     <div class="box-head"><span class="icon">🔑</span>מתכון יצירת המפתחות</div>
@@ -566,10 +570,10 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li><strong>סימטרי:</strong> מפתח אחד משותף. ‎דוגמה: DES. ‎מהיר אבל בעיית הפצת מפתחות</li>
-        <li><strong>אסימטרי:</strong> זוג מפתחות (PK + SK). ‎דוגמה: RSA. ‎פותר הפצה אבל איטי</li>
-        <li><strong>תשובה לשאלה 5.א:</strong> ‎DES מהיר משמעותית מ-RSA</li>
-        <li><strong>תשובה לשאלה 5.ג:</strong> ‎brute force ~14.5 מיליארד ניסיונות בממוצע</li>
+        <li><strong>סימטרי:</strong> מפתח אחד משותף. דוגמה: <bdi dir="ltr">DES</bdi>. מהיר אבל בעיית הפצת מפתחות</li>
+        <li><strong>אסימטרי:</strong> זוג מפתחות (<bdi dir="ltr">PK + SK</bdi>). דוגמה: <bdi dir="ltr">RSA</bdi>. פותר הפצה אבל איטי</li>
+        <li><strong>תשובה לשאלה 5.א:</strong> <bdi dir="ltr">DES</bdi> מהיר משמעותית מ-<bdi dir="ltr">RSA</bdi></li>
+        <li><strong>תשובה לשאלה 5.ג:</strong> <bdi dir="ltr">brute force</bdi> ~14.5 מיליארד ניסיונות בממוצע</li>
       </ul>
     </div>
   </div>

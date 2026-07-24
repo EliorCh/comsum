@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,11 +414,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 3.5 · שכבת הרשת</span>
-  <h1 class="page-title">NAT, IPv6, ו-ICMP</h1>
-  <p class="page-subtitle">איך כל הבית שלך גולש דרך IP אחד · והעתיד של כתובות.</p>
+  <h1 class="page-title"><bdi dir="ltr">NAT, IPv6</bdi>, ו-<bdi dir="ltr">ICMP</bdi></h1>
+  <p class="page-subtitle">איך כל הבית שלך גולש דרך <bdi dir="ltr">IP</bdi> אחד · והעתיד של כתובות.</p>
 
   <p class="lead">
-    יש רק <strong>4 מיליארד כתובות IPv4</strong> — מעט מדי. ‎<strong>NAT</strong> פתר את הבעיה זמנית: כתובת פרטית פנימה, כתובת אחת ציבורית החוצה. ‎<strong>IPv6</strong> הוא הפתרון לטווח ארוך — 128 ביטים. ‎<strong>ICMP</strong> הוא ה-"קונטרול פלין" של הרשת — איך ראוטרים מדווחים על בעיות.
+    יש רק <strong>4 מיליארד כתובות <bdi dir="ltr">IPv4</bdi></strong> — מעט מדי. <strong>NAT</strong> פתר את הבעיה זמנית: כתובת פרטית פנימה, כתובת אחת ציבורית החוצה. <strong>IPv6</strong> הוא הפתרון לטווח ארוך — 128 ביטים. <strong>ICMP</strong> הוא ה-"קונטרול פלין" של הרשת — איך ראוטרים מדווחים על בעיות.
   </p>
 
   <h2>NAT — Network Address Translation</h2>
@@ -424,7 +428,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <g font-family="Assistant, sans-serif" font-size="11">
         <!-- Private LAN -->
         <rect x="20" y="40" width="260" height="200" rx="14" fill="#fef9e7" stroke="#b45309" stroke-width="2" stroke-dasharray="6,4"/>
-        <text x="150" y="60" text-anchor="middle" font-size="12" fill="#b45309" font-weight="700">רשת פרטית (LAN)</text>
+        <text x="150" y="60" text-anchor="middle" font-size="12" fill="#b45309" font-weight="700" direction="rtl">רשת פרטית (LAN)</text>
 
         <circle cx="80" cy="100" r="18" fill="#fff" stroke="#b45309"/>
         <text x="80" y="104" text-anchor="middle" font-size="9" font-family="JetBrains Mono, monospace" fill="#b45309">PC1</text>
@@ -449,9 +453,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
         <!-- Internet side -->
         <ellipse cx="540" cy="140" rx="140" ry="80" fill="#ecfdf5" stroke="#047857" stroke-width="2" stroke-dasharray="6,4"/>
-        <text x="540" y="100" text-anchor="middle" font-size="13" fill="#047857" font-weight="700">האינטרנט הציבורי</text>
-        <text x="540" y="145" text-anchor="middle" font-size="11" fill="#047857">(כתובות אמיתיות)</text>
-        <text x="540" y="170" text-anchor="middle" font-size="10" fill="#047857" font-style="italic">כל הבית = ‎IP אחד</text>
+        <text x="540" y="100" text-anchor="middle" font-size="13" fill="#047857" font-weight="700" direction="rtl">האינטרנט הציבורי</text>
+        <text x="540" y="145" text-anchor="middle" font-size="11" fill="#047857" direction="rtl">(כתובות אמיתיות)</text>
+        <text x="540" y="170" text-anchor="middle" font-size="10" fill="#047857" font-style="italic" direction="rtl">כל הבית = ‎IP אחד</text>
 
         <!-- Lines -->
         <line x1="98" y1="100" x2="290" y2="135" stroke="#475569" stroke-width="1"/>
@@ -459,10 +463,10 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="218" y1="140" x2="290" y2="140" stroke="#475569" stroke-width="1"/>
         <line x1="370" y1="140" x2="400" y2="140" stroke="#475569" stroke-width="2"/>
 
-        <text x="360" y="265" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700">פנים: 10.0.0.x פרטיים · חוץ: IP ציבורי אחד של ה-NAT</text>
+        <text x="360" y="265" text-anchor="middle" font-size="11" fill="#1c1917" font-weight="700" direction="rtl">פנים: 10.0.0.x פרטיים · חוץ: IP ציבורי אחד של ה-NAT</text>
       </g>
     </svg>
-    <div class="cap">NAT מסתיר רשת שלמה מאחורי IP ציבורי אחד. כל הלקוחות עם כתובות פרטיות 10.0.0.x.</div>
+    <div class="cap"><bdi dir="ltr">NAT</bdi> מסתיר רשת שלמה מאחורי <bdi dir="ltr">IP</bdi> ציבורי אחד. כל הלקוחות עם כתובות פרטיות <bdi dir="ltr">10.0.0.x</bdi>.</div>
   </div>
 
   <div class="box theory">
@@ -471,28 +475,28 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <p>הראוטר הביתי שלך הוא <strong>NAT</strong>. הוא:</p>
       <ol>
         <li>נותן לכל מחשב בבית כתובת פרטית (לדוגמה <span class="term">10.0.0.5</span>).</li>
-        <li>ל<strong>עצמו</strong>, מקבל מ-ISP כתובת ציבורית (<span class="term">138.76.29.7</span>).</li>
-        <li>כשמחשב פונה לאינטרנט — הראוטר <strong>מחליף</strong> את ה-IP מקור מהפרטי לציבורי.</li>
-        <li>כשהתשובה חוזרת — הראוטר <strong>מחזיר</strong> את ה-IP יעד לפרטי הנכון.</li>
+        <li>ל<strong>עצמו</strong>, מקבל מ-<bdi dir="ltr">ISP</bdi> כתובת ציבורית (<span class="term">138.76.29.7</span>).</li>
+        <li>כשמחשב פונה לאינטרנט — הראוטר <strong>מחליף</strong> את ה-<bdi dir="ltr">IP</bdi> מקור מהפרטי לציבורי.</li>
+        <li>כשהתשובה חוזרת — הראוטר <strong>מחזיר</strong> את ה-<bdi dir="ltr">IP</bdi> יעד לפרטי הנכון.</li>
       </ol>
     </div>
   </div>
 
-  <h2>איך NAT מתפעל — דוגמה מפורטת</h2>
+  <h2>איך <bdi dir="ltr">NAT</bdi> מתפעל — דוגמה מפורטת</h2>
 
   <div class="box example">
     <div class="box-head"><span class="icon">💡</span>תהליך מלא של בקשה ותגובה</div>
     <div class="box-body">
-      <h4>שלב 1: PC1 שולח לעולם</h4>
-      <p>PC1 (10.0.0.1, פורט 3345) שולח לשרת (128.119.40.186, פורט 80):</p>
+      <h4>שלב <bdi dir="ltr">1</bdi>: <bdi dir="ltr">PC1</bdi> שולח לעולם</h4>
+      <p><bdi dir="ltr">PC1</bdi> (10.0.0.1, פורט 3345) שולח לשרת (128.119.40.186, פורט 80):</p>
       <pre><code>SRC IP : 10.0.0.1     SRC Port: 3345
 DST IP : 128.119.40.186  DST Port: 80</code></pre>
 
-      <h4>שלב 2: ה-NAT מחליף ושומר בטבלה</h4>
-      <p>הראוטר מחליף את ה-SRC IP והפורט:</p>
+      <h4>שלב 2: ה-<bdi dir="ltr">NAT</bdi> מחליף ושומר בטבלה</h4>
+      <p>הראוטר מחליף את ה-<bdi dir="ltr">SRC IP</bdi> והפורט:</p>
       <pre><code>SRC IP : 138.76.29.7   SRC Port: 5001  ← חדש!
 DST IP : 128.119.40.186 DST Port: 80</code></pre>
-      <p>שומר בטבלת NAT:</p>
+      <p>שומר בטבלת <bdi dir="ltr">NAT</bdi>:</p>
       <table>
         <thead><tr><th>NAT side</th><th>Private side</th></tr></thead>
         <tbody>
@@ -504,60 +508,60 @@ DST IP : 128.119.40.186 DST Port: 80</code></pre>
       <pre><code>SRC IP : 128.119.40.186 SRC Port: 80
 DST IP : 138.76.29.7   DST Port: 5001</code></pre>
 
-      <h4>שלב 4: ה-NAT ממירה חזרה</h4>
-      <p>הראוטר רואה DST Port=5001, מחפש בטבלה, מוצא ש-‎5001 ↔ ‎10.0.0.1:3345. מתרגם:</p>
+      <h4>שלב 4: ה-<bdi dir="ltr">NAT</bdi> ממירה חזרה</h4>
+      <p>הראוטר רואה <bdi dir="ltr">DST Port=5001</bdi>, מחפש בטבלה, מוצא ש-5001 ↔ 10.0.0.1:3345. מתרגם:</p>
       <pre><code>SRC IP : 128.119.40.186 SRC Port: 80
 DST IP : 10.0.0.1      DST Port: 3345</code></pre>
-      <p>ושולח ל-PC1 הפנימי.</p>
+      <p>ושולח ל-<bdi dir="ltr">PC1</bdi> הפנימי.</p>
     </div>
   </div>
 
   <div class="keypoint">
-    המפתח: ה-NAT משתמש ב-<strong>פורט מקור (שונה לכל קשר)</strong> כדי לזהות לאיזה מחשב פנימי להחזיר.
+    המפתח: ה-<bdi dir="ltr">NAT</bdi> משתמש ב-<strong>פורט מקור (שונה לכל קשר)</strong> כדי לזהות לאיזה מחשב פנימי להחזיר.
   </div>
 
-  <h2>יתרונות NAT</h2>
+  <h2>יתרונות <bdi dir="ltr">NAT</bdi></h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>למה NAT הצליח?</div>
+    <div class="box-head"><span class="icon">📘</span>למה <bdi dir="ltr">NAT</bdi> הצליח?</div>
     <div class="box-body">
       <ol>
-        <li><strong>חוסך כתובות:</strong> כל הבית/חברה מהאינטרנט נראים כ-IP אחד.</li>
-        <li><strong>גמישות פנימית:</strong> אפשר לשנות כתובות פנימיות בלי לעדכן את העולם. אם מעבירים ISP — רק ה-NAT מקבל IP חדש.</li>
-        <li><strong>אבטחה:</strong> מחשב מבחוץ לא יכול ליזום קשר למחשב פנימי — ה-NAT לא יידע אליו להעביר. דמוי-Firewall.</li>
+        <li><strong>חוסך כתובות:</strong> כל הבית/חברה מהאינטרנט נראים כ-<bdi dir="ltr">IP</bdi> אחד.</li>
+        <li><strong>גמישות פנימית:</strong> אפשר לשנות כתובות פנימיות בלי לעדכן את העולם. אם מעבירים <bdi dir="ltr">ISP</bdi> — רק ה-<bdi dir="ltr">NAT</bdi> מקבל <bdi dir="ltr">IP</bdi> חדש.</li>
+        <li><strong>אבטחה:</strong> מחשב מבחוץ לא יכול ליזום קשר למחשב פנימי — ה-<bdi dir="ltr">NAT</bdi> לא יידע אליו להעביר. דמוי-<bdi dir="ltr">Firewall</bdi>.</li>
       </ol>
     </div>
   </div>
 
-  <h2>חסרונות NAT</h2>
+  <h2>חסרונות <bdi dir="ltr">NAT</bdi></h2>
 
   <div class="box warn">
-    <div class="box-head"><span class="icon">⚠</span>הצד האפל של NAT</div>
+    <div class="box-head"><span class="icon">⚠</span>הצד האפל של <bdi dir="ltr">NAT</bdi></div>
     <div class="box-body">
       <ul>
-        <li><strong>שובר עקרון השכבות:</strong> ראוטר אמור לטפל רק עד שכבת הרשת (3). NAT נוגע ב-port (שכבה 4). הפרת ההפרדה.</li>
-        <li><strong>אי אפשר ליזום קשר פנימה:</strong> אם רוצים לארח שרת בבית — בעיה. ה-NAT לא יודע למי להעביר.</li>
-        <li><strong>בעיות עם פרוטוקולים מסוימים:</strong> פרוטוקולים שמשתמשים ב-IP בתוך ה-payload (FTP, SIP) לא עובדים נכון.</li>
+        <li><strong>שובר עקרון השכבות:</strong> ראוטר אמור לטפל רק עד שכבת הרשת (3). <bdi dir="ltr">NAT</bdi> נוגע ב-<bdi dir="ltr">port</bdi> (שכבה 4). הפרת ההפרדה.</li>
+        <li><strong>אי אפשר ליזום קשר פנימה:</strong> אם רוצים לארח שרת בבית — בעיה. ה-<bdi dir="ltr">NAT</bdi> לא יודע למי להעביר.</li>
+        <li><strong>בעיות עם פרוטוקולים מסוימים:</strong> פרוטוקולים שמשתמשים ב-<bdi dir="ltr">IP</bdi> בתוך ה-<bdi dir="ltr">payload</bdi> (<bdi dir="ltr">FTP, SIP</bdi>) לא עובדים נכון.</li>
       </ul>
-      <h4>‎3 פתרונות לקבלת קשר נכנס</h4>
+      <h4>3 פתרונות לקבלת קשר נכנס</h4>
       <ol>
-        <li><strong>Port Forwarding</strong> סטטי: הגדרה בראוטר — "כל מה שמגיע לפורט 2300 ← תעביר ל-IP פנימי X".</li>
-        <li><strong>DynDNS:</strong> שירות שעוקב אחרי ה-IP של ה-NAT שלך וממפה לדומיין קבוע (myname.dyndns.com).</li>
-        <li><strong>איש קשר באמצע:</strong> שני המחשבים יוזמים קשר לשרת מרכזי (Skype, WhatsApp), והוא מקשר ביניהם.</li>
+        <li><strong>Port Forwarding</strong> סטטי: הגדרה בראוטר — "כל מה שמגיע לפורט 2300 ← תעביר ל-<bdi dir="ltr">IP</bdi> פנימי <bdi dir="ltr">X</bdi>".</li>
+        <li><strong>DynDNS:</strong> שירות שעוקב אחרי ה-<bdi dir="ltr">IP</bdi> של ה-<bdi dir="ltr">NAT</bdi> שלך וממפה לדומיין קבוע (<bdi dir="ltr">myname.dyndns.com</bdi>).</li>
+        <li><strong>איש קשר באמצע:</strong> שני המחשבים יוזמים קשר לשרת מרכזי (<bdi dir="ltr">Skype, WhatsApp</bdi>), והוא מקשר ביניהם.</li>
       </ol>
     </div>
   </div>
 
-  <h2>IPv6 — הפתרון הסופי</h2>
+  <h2><bdi dir="ltr">IPv6</bdi> — הפתרון הסופי</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הרעיון: כתובות יותר ארוכות</div>
     <div class="box-body">
-      <p><strong><bdi>128 ביטים</bdi></strong> במקום 32. גודל הכתובת ב-IPv6:</p>
+      <p><strong><bdi>128 ביטים</bdi></strong> במקום 32. גודל הכתובת ב-<bdi dir="ltr">IPv6</bdi>:</p>
       $$2^{128} \approx 3.4 \times 10^{38} \text{ כתובות}$$
-      <p>זה ‎10²⁸ כתובות לכל אדם בעולם. <em>לא ייגמרו</em>.</p>
+      <p>זה 10²⁸ כתובות לכל אדם בעולם. <em>לא ייגמרו</em>.</p>
       <h4>פורמט כתיב</h4>
-      <p>‎8 קבוצות של 16 ביטים כל אחת, מופרדות ב<strong>:נקודותיים</strong>, בהקסה:</p>
+      <p>8 קבוצות של 16 ביטים כל אחת, מופרדות ב<strong>:נקודותיים</strong>, בהקסה:</p>
       <p><span class="term purple">2001:0db8:85a3:0000:0000:8a2e:0370:7334</span></p>
       <p>אפשר לקצר רצף 0-ים ל-<span class="term">::</span> (פעם אחת בכתובת):</p>
       <p><span class="term purple">2001:db8:85a3::8a2e:370:7334</span></p>
@@ -565,52 +569,52 @@ DST IP : 10.0.0.1      DST Port: 3345</code></pre>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>שיפורים נוספים ב-IPv6</div>
+    <div class="box-head"><span class="icon">📘</span>שיפורים נוספים ב-<bdi dir="ltr">IPv6</bdi></div>
     <div class="box-body">
       <h4>הדר באורך קבוע (40 בתים)</h4>
-      <p>ב-IPv4 ההדר באורך משתנה (בגלל options). בכל ראוטר צריך לבדוק כמה גדול. ב-IPv6 — <strong>תמיד 40 בתים</strong>. ראוטרים מהירים יותר.</p>
+      <p>ב-<bdi dir="ltr">IPv4</bdi> ההדר באורך משתנה (בגלל <bdi dir="ltr">options</bdi>). בכל ראוטר צריך לבדוק כמה גדול. ב-<bdi dir="ltr">IPv6</bdi> — <strong>תמיד 40 בתים</strong>. ראוטרים מהירים יותר.</p>
 
       <h4>אין פרגמנטציה בראוטרים</h4>
-      <p>אם דאטהגרם גדול מ-MTU — הראוטר <strong>זורק</strong> ושולח ICMP לשולח שיקטין. השולח מבצע <strong>Path MTU Discovery</strong> ושולח דאטהגרמים בגודל הנכון מההתחלה.</p>
+      <p>אם דאטהגרם גדול מ-<bdi dir="ltr">MTU</bdi> — הראוטר <strong>זורק</strong> ושולח <bdi dir="ltr">ICMP</bdi> לשולח שיקטין. השולח מבצע <strong>Path MTU Discovery</strong> ושולח דאטהגרמים בגודל הנכון מההתחלה.</p>
 
-      <h4>אין Checksum בהדר</h4>
-      <p>נשמטה כי שכבות אחרות (תעבורה, לינק) כבר עושות checksum. <strong>חיסכון בזמן עיבוד בכל ראוטר</strong>.</p>
+      <h4>אין <bdi dir="ltr">Checksum</bdi> בהדר</h4>
+      <p>נשמטה כי שכבות אחרות (תעבורה, לינק) כבר עושות <bdi dir="ltr">checksum</bdi>. <strong>חיסכון בזמן עיבוד בכל ראוטר</strong>.</p>
 
-      <h4>שדה Hop Limit במקום TTL</h4>
+      <h4>שדה <bdi dir="ltr">Hop Limit</bdi> במקום <bdi dir="ltr">TTL</bdi></h4>
       <p>בדיוק אותה פונקציה — נמנע מלולאות.</p>
     </div>
   </div>
 
-  <h2>מעבר מ-IPv4 ל-IPv6 — Tunneling</h2>
+  <h2>מעבר מ-<bdi dir="ltr">IPv4</bdi> ל-<bdi dir="ltr">IPv6</bdi> — <bdi dir="ltr">Tunneling</bdi></h2>
 
   <div class="box warn">
     <div class="box-head"><span class="icon">⚠</span>למה זה לא קל?</div>
     <div class="box-body">
-      <p>לא ניתן להחליף את כל הראוטרים בעולם בו-זמנית. רובם תומכים ב-IPv4 בלבד. אז יש <strong>תקופת מעבר</strong> ארוכה.</p>
-      <p>ראוטרים תומכי-IPv6 גם תומכים ב-IPv4 (תאימות לאחור). אבל לא הפוך.</p>
+      <p>לא ניתן להחליף את כל הראוטרים בעולם בו-זמנית. רובם תומכים ב-<bdi dir="ltr">IPv4</bdi> בלבד. אז יש <strong>תקופת מעבר</strong> ארוכה.</p>
+      <p>ראוטרים תומכי-<bdi dir="ltr">IPv6</bdi> גם תומכים ב-<bdi dir="ltr">IPv4</bdi> (תאימות לאחור). אבל לא הפוך.</p>
     </div>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>Tunneling — פתרון המעבר</div>
+    <div class="box-head"><span class="icon">📘</span><bdi dir="ltr">Tunneling</bdi> — פתרון המעבר</div>
     <div class="box-body">
-      <p>אם ראוטר IPv6 צריך לשלוח דרך ראוטר IPv4 — הוא <strong>עוטף</strong> את הדאטהגרם IPv6 בתוך דאטהגרם IPv4.</p>
+      <p>אם ראוטר <bdi dir="ltr">IPv6</bdi> צריך לשלוח דרך ראוטר <bdi dir="ltr">IPv4</bdi> — הוא <strong>עוטף</strong> את הדאטהגרם <bdi dir="ltr">IPv6</bdi> בתוך דאטהגרם <bdi dir="ltr">IPv4</bdi>.</p>
       <pre><code>IPv4 הדר | IPv6 הדר | TCP/UDP segment | Data</code></pre>
-      <p>הראוטר IPv4 מטפל בזה כמו דאטהגרם רגיל. הראוטר IPv6 בצד השני <strong>פותח</strong> את העטיפה ומקבל את ה-IPv6 המקורי.</p>
-      <p>זה דמוי "מנהרה" — הדאטהגרם IPv6 עובר דרך תשתית IPv4.</p>
+      <p>הראוטר <bdi dir="ltr">IPv4</bdi> מטפל בזה כמו דאטהגרם רגיל. הראוטר <bdi dir="ltr">IPv6</bdi> בצד השני <strong>פותח</strong> את העטיפה ומקבל את ה-<bdi dir="ltr">IPv6</bdi> המקורי.</p>
+      <p>זה דמוי "מנהרה" — הדאטהגרם <bdi dir="ltr">IPv6</bdi> עובר דרך תשתית <bdi dir="ltr">IPv4</bdi>.</p>
     </div>
   </div>
 
   <h2>ICMP — Internet Control Message Protocol</h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>למה צריך ICMP?</div>
+    <div class="box-head"><span class="icon">📘</span>למה צריך <bdi dir="ltr">ICMP</bdi>?</div>
     <div class="box-body">
-      <p>ראוטרים <strong>זורקים פאקטות</strong> ב-best effort בלי דיווח. אבל לפעמים אנחנו רוצים לדעת למה. <strong>ICMP</strong> הוא הפרוטוקול שמדווח על שגיאות ושאלות.</p>
+      <p>ראוטרים <strong>זורקים פאקטות</strong> ב-<bdi dir="ltr">best effort</bdi> בלי דיווח. אבל לפעמים אנחנו רוצים לדעת למה. <strong>ICMP</strong> הוא הפרוטוקול שמדווח על שגיאות ושאלות.</p>
       <ul>
         <li><strong>איפה רץ:</strong> אפליקציה ברמת הראוטר.</li>
-        <li><strong>שכבה:</strong> שכבת הרשת (3) — בצמוד ל-IP.</li>
-        <li><strong>מעל IP:</strong> ICMP messages עטופים ב-IP datagram עם Protocol=1.</li>
+        <li><strong>שכבה:</strong> שכבת הרשת (3) — בצמוד ל-<bdi dir="ltr">IP</bdi>.</li>
+        <li><strong>מעל <bdi dir="ltr">IP</bdi>:</strong> <bdi dir="ltr">ICMP messages</bdi> עטופים ב-<bdi dir="ltr">IP datagram</bdi> עם <bdi dir="ltr">Protocol=1</bdi>.</li>
       </ul>
     </div>
   </div>
@@ -620,7 +624,7 @@ DST IP : 10.0.0.1      DST Port: 3345</code></pre>
       <tr><th>Type</th><th>Code</th><th>משמעות</th></tr>
     </thead>
     <tbody>
-      <tr><td>0</td><td>0</td><td>echo reply (תגובה ל-ping)</td></tr>
+      <tr><td>0</td><td>0</td><td><bdi dir="ltr">echo reply</bdi> (תגובה ל-<bdi dir="ltr">ping</bdi>)</td></tr>
       <tr><td>3</td><td>0</td><td>dest network unreachable</td></tr>
       <tr><td>3</td><td>1</td><td>dest host unreachable</td></tr>
       <tr><td>3</td><td>2</td><td>dest protocol unreachable</td></tr>
@@ -635,10 +639,10 @@ DST IP : 10.0.0.1      DST Port: 3345</code></pre>
     <div class="box-head"><span class="icon">📘</span>שימושים נפוצים</div>
     <div class="box-body">
       <h4>ping</h4>
-      <p>שולח <span class="term">Type 8 (echo request)</span> ליעד. אם היעד פעיל — מחזיר <span class="term">Type 0 (echo reply)</span>. מודד RTT.</p>
+      <p>שולח <span class="term">Type 8 (echo request)</span> ליעד. אם היעד פעיל — מחזיר <span class="term">Type 0 (echo reply)</span>. מודד <bdi dir="ltr">RTT</bdi>.</p>
 
       <h4>traceroute</h4>
-      <p>חכם יותר. שולח חבילות עם TTL הולך וגדל: TTL=1, TTL=2, וכו'. כל ראוטר שמקבל TTL=0 <strong>זורק ושולח ICMP Type 11 (TTL expired)</strong> חזרה לשולח. ככה מגלים את כל הראוטרים במסלול.</p>
+      <p>חכם יותר. שולח חבילות עם <bdi dir="ltr">TTL</bdi> הולך וגדל: <bdi dir="ltr">TTL=1, TTL=2</bdi>, וכו'. כל ראוטר שמקבל <bdi dir="ltr">TTL=0</bdi> <strong>זורק ושולח <bdi dir="ltr">ICMP Type 11</bdi> (<bdi dir="ltr">TTL expired</bdi>)</strong> חזרה לשולח. ככה מגלים את כל הראוטרים במסלול.</p>
     </div>
   </div>
 
@@ -646,25 +650,25 @@ DST IP : 10.0.0.1      DST Port: 3345</code></pre>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · NAT</span>
-      <p>PC ברשת ביתית עם IP פנימי 192.168.1.5 שולח בקשה לשרת 8.8.8.8 בפורט 53 (DNS). ה-NAT בכתובת ציבורית 203.0.113.7.</p>
+      <span class="exercise-tag">תרגול · <bdi dir="ltr">NAT</bdi></span>
+      <p><bdi dir="ltr">PC</bdi> ברשת ביתית עם <bdi dir="ltr">IP</bdi> פנימי 192.168.1.5 שולח בקשה לשרת 8.8.8.8 בפורט 53 (<bdi dir="ltr">DNS</bdi>). ה-<bdi dir="ltr">NAT</bdi> בכתובת ציבורית 203.0.113.7.</p>
       <ol style="list-style: hebrew;">
-        <li>מה ה-PC שולח בפועל (לפני NAT)?</li>
-        <li>מה ה-NAT שולח לאינטרנט (אחרי המרה)?</li>
+        <li>מה ה-<bdi dir="ltr">PC</bdi> שולח בפועל (לפני <bdi dir="ltr">NAT</bdi>)?</li>
+        <li>מה ה-<bdi dir="ltr">NAT</bdi> שולח לאינטרנט (אחרי המרה)?</li>
         <li>מה השרת מקבל ומגיב אליו?</li>
-        <li>איך ה-NAT יודע למי להחזיר?</li>
+        <li>איך ה-<bdi dir="ltr">NAT</bdi> יודע למי להחזיר?</li>
       </ol>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">1. ה-PC שולח</div>
+        <div class="step-label">1. ה-<bdi dir="ltr">PC</bdi> שולח</div>
         <pre><code>SRC IP : 192.168.1.5    SRC Port: 49234 (אקראי)
 DST IP : 8.8.8.8        DST Port: 53</code></pre>
       </div>
       <div class="step">
-        <div class="step-label">2. ה-NAT ממיר</div>
-        <p>ה-NAT מחליף את ה-SRC IP ל-IP שלו, ואת ה-SRC Port לפורט חדש (לשמירה בטבלה):</p>
+        <div class="step-label">2. ה-<bdi dir="ltr">NAT</bdi> ממיר</div>
+        <p>ה-<bdi dir="ltr">NAT</bdi> מחליף את ה-<bdi dir="ltr">SRC IP</bdi> ל-<bdi dir="ltr">IP</bdi> שלו, ואת ה-<bdi dir="ltr">SRC Port</bdi> לפורט חדש (לשמירה בטבלה):</p>
         <pre><code>SRC IP : 203.0.113.7    SRC Port: 7892 (חדש)
 DST IP : 8.8.8.8        DST Port: 53</code></pre>
         <p>ושומר בטבלה: <span class="term">203.0.113.7:7892 ↔ 192.168.1.5:49234</span></p>
@@ -673,16 +677,16 @@ DST IP : 8.8.8.8        DST Port: 53</code></pre>
         <div class="step-label">3. השרת מגיב</div>
         <pre><code>SRC IP : 8.8.8.8        SRC Port: 53
 DST IP : 203.0.113.7    DST Port: 7892</code></pre>
-        <p>השרת לא יודע על ה-NAT — הוא רואה את התשובה הולכת ל-203.0.113.7.</p>
+        <p>השרת לא יודע על ה-<bdi dir="ltr">NAT</bdi> — הוא רואה את התשובה הולכת ל-203.0.113.7.</p>
       </div>
       <div class="step">
-        <div class="step-label">4. ה-NAT מחזיר ל-PC</div>
-        <p>ה-NAT מקבל פאקטה עם DST Port=7892. מחפש בטבלה — זה משויך ל-192.168.1.5:49234.</p>
+        <div class="step-label">4. ה-<bdi dir="ltr">NAT</bdi> מחזיר ל-<bdi dir="ltr">PC</bdi></div>
+        <p>ה-<bdi dir="ltr">NAT</bdi> מקבל פאקטה עם <bdi dir="ltr">DST Port=7892</bdi>. מחפש בטבלה — זה משויך ל-192.168.1.5:49234.</p>
         <pre><code>SRC IP : 8.8.8.8        SRC Port: 53
 DST IP : 192.168.1.5    DST Port: 49234</code></pre>
-        <p>שולח ל-PC הפנימי. ה-PC לא יודע שהיה NAT באמצע — הוא רואה תגובה רגילה משרת 8.8.8.8.</p>
+        <p>שולח ל-<bdi dir="ltr">PC</bdi> הפנימי. ה-<bdi dir="ltr">PC</bdi> לא יודע שהיה <bdi dir="ltr">NAT</bdi> באמצע — הוא רואה תגובה רגילה משרת 8.8.8.8.</p>
       </div>
-      <div class="final-answer">ה-NAT מתפקד כשכבת תרגום שקופה. שני הצדדים רואים מציאות שונה — ה-PC רואה את עצמו עם 192.168.1.5, השרת רואה אותו כ-203.0.113.7. ה-Port הוא המפתח לזיהוי.</div>
+      <div class="final-answer">ה-<bdi dir="ltr">NAT</bdi> מתפקד כשכבת תרגום שקופה. שני הצדדים רואים מציאות שונה — ה-<bdi dir="ltr">PC</bdi> רואה את עצמו עם 192.168.1.5, השרת רואה אותו כ-203.0.113.7. ה-<bdi dir="ltr">Port</bdi> הוא המפתח לזיהוי.</div>
     </div>
   </div>
 
@@ -690,13 +694,13 @@ DST IP : 192.168.1.5    DST Port: 49234</code></pre>
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li><strong>NAT:</strong> רשת שלמה פנימה ‎= IP אחד החוצה. ‎חוסך כתובות, פוגע בעקרון השכבות.</li>
-        <li>NAT משתמש ב-<strong>Port מקור</strong> לזיהוי איזה לקוח פנימי שייך לאיזה תקשורת.</li>
-        <li>בעיה: אי אפשר ליזום קשר נכנס. ‎פתרונות: Port Forwarding, DynDNS, איש קשר באמצע.</li>
-        <li><strong>IPv6:</strong> 128 ביטים, הדר קבוע 40 בתים, בלי פרגמנטציה ובלי checksum בהדר</li>
-        <li>מעבר: <strong>Tunneling</strong> — לעטוף IPv6 בתוך IPv4</li>
-        <li><strong>ICMP:</strong> פרוטוקול לדיווחי שגיאה ובקרה. Type+Code לכל סוג הודעה.</li>
-        <li>שימושים מפורסמים: <strong>ping</strong> (Echo Req/Reply) ו-<strong>traceroute</strong> <bdi dir="ltr">(TTL expired)</bdi></li>
+        <li><strong>NAT:</strong> רשת שלמה פנימה = <bdi dir="ltr">IP</bdi> אחד החוצה. חוסך כתובות, פוגע בעקרון השכבות.</li>
+        <li><bdi dir="ltr">NAT</bdi> משתמש ב-<strong><bdi dir="ltr">Port</bdi> מקור</strong> לזיהוי איזה לקוח פנימי שייך לאיזה תקשורת.</li>
+        <li>בעיה: אי אפשר ליזום קשר נכנס. פתרונות: <bdi dir="ltr">Port Forwarding, DynDNS</bdi>, איש קשר באמצע.</li>
+        <li><strong>IPv6:</strong> 128 ביטים, הדר קבוע 40 בתים, בלי פרגמנטציה ובלי <bdi dir="ltr">checksum</bdi> בהדר</li>
+        <li>מעבר: <strong>Tunneling</strong> — לעטוף <bdi dir="ltr">IPv6</bdi> בתוך <bdi dir="ltr">IPv4</bdi></li>
+        <li><strong>ICMP:</strong> פרוטוקול לדיווחי שגיאה ובקרה. <bdi dir="ltr">Type+Code</bdi> לכל סוג הודעה.</li>
+        <li>שימושים מפורסמים: <strong>ping</strong> (<bdi dir="ltr">Echo Req/Reply</bdi>) ו-<strong>traceroute</strong> (TTL expired)</li>
       </ul>
     </div>
   </div>
@@ -707,7 +711,7 @@ DST IP : 192.168.1.5    DST Port: 49234</code></pre>
 <nav class="pager" aria-label="ניווט בין נושאים">
   <a class="prev" href="16-net-dhcp.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">DHCP</span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
-  <a class="next" href="18-net-routing.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">ראוטינג — DV, LS</span></a>
+  <a class="next" href="18-net-routing.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">ראוטינג — <bdi dir="ltr">DV, LS</bdi></span></a>
 </nav>
 
 </main>

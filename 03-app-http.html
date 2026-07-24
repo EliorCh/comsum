@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,34 +414,34 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 1.2 · שכבת האפליקציה</span>
-  <h1 class="page-title">HTTP — פרוטוקול ה-Web</h1>
-  <p class="page-subtitle">איך הדפדפן מקבל את הדף שאתה רואה — בקשות, תגובות, וזמני RTT.</p>
+  <h1 class="page-title"><bdi dir="ltr">HTTP</bdi> — פרוטוקול ה-<bdi dir="ltr">Web</bdi></h1>
+  <p class="page-subtitle">איך הדפדפן מקבל את הדף שאתה רואה — בקשות, תגובות, וזמני <bdi dir="ltr">RTT</bdi>.</p>
 
   <p class="lead">
-    HTTP הוא פרוטוקול לקוח-שרת, רץ מעל TCP על פורט <span class="term">80</span>, ו<strong>חסר מצב (stateless)</strong> — השרת לא זוכר אותך בין בקשות. השאלה הקריטית למבחן: <strong>כמה RTT-ים</strong> לוקח להוריד דף עם N אובייקטים, ומה ההבדל בין ‎Persistent, Non-Persistent, Concurrent, ו-Pipelined.
+    <bdi dir="ltr">HTTP</bdi> הוא פרוטוקול לקוח-שרת, רץ מעל <bdi dir="ltr">TCP</bdi> על פורט <span class="term">80</span>, ו<strong>חסר מצב (<bdi dir="ltr">stateless</bdi>)</strong> — השרת לא זוכר אותך בין בקשות. השאלה הקריטית למבחן: <strong>כמה <bdi dir="ltr">RTT</bdi>-ים</strong> לוקח להוריד דף עם <bdi dir="ltr">N</bdi> אובייקטים, ומה ההבדל בין <bdi dir="ltr">Persistent, Non-Persistent, Concurrent</bdi>, ו-<bdi dir="ltr">Pipelined</bdi>.
   </p>
 
-  <h2>מבנה דף Web</h2>
+  <h2>מבנה דף <bdi dir="ltr">Web</bdi></h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>דף = HTML + אובייקטים</div>
+    <div class="box-head"><span class="icon">📘</span>דף = <bdi dir="ltr">HTML</bdi> + אובייקטים</div>
     <div class="box-body">
       <p>דף אינטרנט מורכב מ-<strong>אובייקטים:</strong></p>
       <ul>
-        <li>קובץ HTML בסיסי (template) — תמיד יחיד.</li>
-        <li>N תמונות, סקריפטים, קבצי CSS, פונטים, אובייקטים אחרים.</li>
+        <li>קובץ <bdi dir="ltr">HTML</bdi> בסיסי (<bdi dir="ltr">template</bdi>) — תמיד יחיד.</li>
+        <li><bdi dir="ltr">N</bdi> תמונות, סקריפטים, קבצי <bdi dir="ltr">CSS</bdi>, פונטים, אובייקטים אחרים.</li>
       </ul>
       <p>כל אובייקט יכול להיות באותו שרת או בשרת אחר. הגישה אליו דרך <strong>URL:</strong></p>
       <p><span class="term blue">https://www.example.com/images/cat.jpg</span></p>
       <ul>
         <li>הפרוטוקול: <span class="term">https</span></li>
-        <li>שם השרת: <span class="term">www.example.com</span> (יתורגם ל-IP דרך DNS)</li>
+        <li>שם השרת: <span class="term">www.example.com</span> (יתורגם ל-<bdi dir="ltr">IP</bdi> דרך <bdi dir="ltr">DNS</bdi>)</li>
         <li>הנתיב בשרת: <span class="term">/images/cat.jpg</span></li>
       </ul>
     </div>
   </div>
 
-  <h2>HTTP — נקודות מרכזיות</h2>
+  <h2><bdi dir="ltr">HTTP</bdi> — נקודות מרכזיות</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>מאפיינים בסיסיים</div>
@@ -446,13 +450,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li>פרוטוקול בשכבת ה<strong>אפליקציה</strong>.</li>
         <li>ארכיטקטורת <strong>לקוח-שרת</strong>. הלקוח = דפדפן. השרת = מחשב שמחזיק את האובייקטים.</li>
         <li>רץ מעל <strong>TCP</strong> (כי דפים חייבים להגיע במלואם).</li>
-        <li>הפורט הסטנדרטי של שרת HTTP: <span class="term">80</span>. ל-HTTPS: <span class="term">443</span>.</li>
-        <li><strong>Stateless</strong> — השרת לא זוכר מי הלקוח בין בקשות. אם צריך זיכרון (התחברות) — משתמשים ב-Cookies (פרק ‎1.4).</li>
+        <li>הפורט הסטנדרטי של שרת <bdi dir="ltr">HTTP</bdi>: <span class="term">80</span>. ל-<bdi dir="ltr">HTTPS</bdi>: <span class="term">443</span>.</li>
+        <li><strong>Stateless</strong> — השרת לא זוכר מי הלקוח בין בקשות. אם צריך זיכרון (התחברות) — משתמשים ב-<bdi dir="ltr">Cookies</bdi> (פרק 1.4).</li>
       </ul>
     </div>
   </div>
 
-  <h2>‎4 סוגי חיבורי HTTP</h2>
+  <h2>4 סוגי חיבורי <bdi dir="ltr">HTTP</bdi></h2>
 
   <div class="figure">
     <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="‎4 סוגי חיבורי HTTP">
@@ -461,8 +465,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <text x="80" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#be123c">Non-Persistent</text>
         <line x1="40" y1="40" x2="40" y2="260" stroke="#475569" stroke-width="1"/>
         <line x1="120" y1="40" x2="120" y2="260" stroke="#475569" stroke-width="1"/>
-        <text x="40" y="36" text-anchor="middle" font-size="10" fill="#475569">לקוח</text>
-        <text x="120" y="36" text-anchor="middle" font-size="10" fill="#475569">שרת</text>
+        <text x="40" y="36" text-anchor="middle" font-size="10" fill="#475569" direction="rtl">לקוח</text>
+        <text x="120" y="36" text-anchor="middle" font-size="10" fill="#475569" direction="rtl">שרת</text>
         <!-- TCP setup 1 -->
         <line x1="40" y1="55" x2="120" y2="65" stroke="#0891b2" stroke-width="1.5"/>
         <line x1="120" y1="65" x2="40" y2="75" stroke="#0891b2" stroke-width="1.5"/>
@@ -480,15 +484,15 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="40" y1="175" x2="120" y2="185" stroke="#047857" stroke-width="1.5"/>
         <line x1="120" y1="185" x2="40" y2="205" stroke="#047857" stroke-width="2.5"/>
         <text x="0" y="190" font-size="8" fill="#047857">obj2</text>
-        <text x="80" y="240" text-anchor="middle" font-size="9" fill="#78716c">TCP חדש לכל אובייקט</text>
-        <text x="80" y="255" text-anchor="middle" font-size="9" fill="#be123c" font-weight="700">2·RTT לכל אובייקט</text>
+        <text x="80" y="240" text-anchor="middle" font-size="9" fill="#78716c" direction="rtl">TCP חדש לכל אובייקט</text>
+        <text x="80" y="255" text-anchor="middle" font-size="9" fill="#be123c" font-weight="700" direction="rtl">2·RTT לכל אובייקט</text>
 
         <!-- Persistent -->
         <text x="280" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#b45309">Persistent</text>
         <line x1="240" y1="40" x2="240" y2="260" stroke="#475569" stroke-width="1"/>
         <line x1="320" y1="40" x2="320" y2="260" stroke="#475569" stroke-width="1"/>
-        <text x="240" y="36" text-anchor="middle" font-size="10" fill="#475569">לקוח</text>
-        <text x="320" y="36" text-anchor="middle" font-size="10" fill="#475569">שרת</text>
+        <text x="240" y="36" text-anchor="middle" font-size="10" fill="#475569" direction="rtl">לקוח</text>
+        <text x="320" y="36" text-anchor="middle" font-size="10" fill="#475569" direction="rtl">שרת</text>
         <!-- TCP setup once -->
         <line x1="240" y1="55" x2="320" y2="65" stroke="#0891b2" stroke-width="1.5"/>
         <line x1="320" y1="65" x2="240" y2="75" stroke="#0891b2" stroke-width="1.5"/>
@@ -504,15 +508,15 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="240" y1="165" x2="320" y2="175" stroke="#047857" stroke-width="1.5"/>
         <line x1="320" y1="175" x2="240" y2="195" stroke="#047857" stroke-width="2.5"/>
         <text x="200" y="180" font-size="8" fill="#047857">obj3</text>
-        <text x="280" y="240" text-anchor="middle" font-size="9" fill="#78716c">TCP אחד לכולם</text>
-        <text x="280" y="255" text-anchor="middle" font-size="9" fill="#b45309" font-weight="700">2RTT + RTT לכל אובייקט נוסף</text>
+        <text x="280" y="240" text-anchor="middle" font-size="9" fill="#78716c" direction="rtl">TCP אחד לכולם</text>
+        <text x="280" y="255" text-anchor="middle" font-size="9" fill="#b45309" font-weight="700" direction="rtl">2RTT + RTT לכל אובייקט נוסף</text>
 
         <!-- Concurrent -->
         <text x="480" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#4f46e5">Concurrent</text>
         <line x1="440" y1="40" x2="440" y2="260" stroke="#475569" stroke-width="1"/>
         <line x1="520" y1="40" x2="520" y2="260" stroke="#475569" stroke-width="1"/>
-        <text x="440" y="36" text-anchor="middle" font-size="10" fill="#475569">לקוח</text>
-        <text x="520" y="36" text-anchor="middle" font-size="10" fill="#475569">שרת</text>
+        <text x="440" y="36" text-anchor="middle" font-size="10" fill="#475569" direction="rtl">לקוח</text>
+        <text x="520" y="36" text-anchor="middle" font-size="10" fill="#475569" direction="rtl">שרת</text>
         <!-- 3 parallel TCP setups -->
         <line x1="440" y1="55" x2="520" y2="63" stroke="#0891b2" stroke-width="1"/>
         <line x1="440" y1="58" x2="520" y2="66" stroke="#0891b2" stroke-width="1"/>
@@ -527,15 +531,15 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="520" y1="109" x2="440" y2="130" stroke="#047857" stroke-width="1.5"/>
         <line x1="520" y1="112" x2="440" y2="133" stroke="#047857" stroke-width="1.5"/>
         <line x1="520" y1="115" x2="440" y2="136" stroke="#047857" stroke-width="1.5"/>
-        <text x="480" y="240" text-anchor="middle" font-size="9" fill="#78716c">N TCPs במקביל</text>
-        <text x="480" y="255" text-anchor="middle" font-size="9" fill="#4f46e5" font-weight="700">N אובייקטים ב-2RTT</text>
+        <text x="480" y="240" text-anchor="middle" font-size="9" fill="#78716c" direction="rtl">N TCPs במקביל</text>
+        <text x="480" y="255" text-anchor="middle" font-size="9" fill="#4f46e5" font-weight="700" direction="rtl">N אובייקטים ב-2RTT</text>
 
         <!-- Pipelined -->
         <text x="680" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#6d28d9">Pipelined</text>
         <line x1="640" y1="40" x2="640" y2="260" stroke="#475569" stroke-width="1"/>
         <line x1="720" y1="40" x2="720" y2="260" stroke="#475569" stroke-width="1"/>
-        <text x="640" y="36" text-anchor="middle" font-size="10" fill="#475569">לקוח</text>
-        <text x="720" y="36" text-anchor="middle" font-size="10" fill="#475569">שרת</text>
+        <text x="640" y="36" text-anchor="middle" font-size="10" fill="#475569" direction="rtl">לקוח</text>
+        <text x="720" y="36" text-anchor="middle" font-size="10" fill="#475569" direction="rtl">שרת</text>
         <!-- TCP -->
         <line x1="640" y1="55" x2="720" y2="65" stroke="#0891b2" stroke-width="1.5"/>
         <line x1="720" y1="65" x2="640" y2="75" stroke="#0891b2" stroke-width="1.5"/>
@@ -547,11 +551,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="720" y1="115" x2="640" y2="140" stroke="#047857" stroke-width="2"/>
         <line x1="720" y1="145" x2="640" y2="170" stroke="#047857" stroke-width="2"/>
         <line x1="720" y1="175" x2="640" y2="200" stroke="#047857" stroke-width="2"/>
-        <text x="680" y="240" text-anchor="middle" font-size="9" fill="#78716c">בקשות בלי המתנה</text>
+        <text x="680" y="240" text-anchor="middle" font-size="9" fill="#78716c" direction="rtl">בקשות בלי המתנה</text>
         <text x="680" y="255" text-anchor="middle" font-size="9" fill="#6d28d9" font-weight="700">‎2RTT + N·trans</text>
       </g>
     </svg>
-    <div class="cap">4 הסוגים: Non-Persistent בזבזני, Persistent חוסך TCPs, Concurrent מקבילי, Pipelined יעיל ביותר.</div>
+    <div class="cap">4 הסוגים: <bdi dir="ltr">Non-Persistent</bdi> בזבזני, <bdi dir="ltr">Persistent</bdi> חוסך <bdi dir="ltr">TCPs, Concurrent</bdi> מקבילי, <bdi dir="ltr">Pipelined</bdi> יעיל ביותר.</div>
   </div>
 
   <div class="box theory">
@@ -559,36 +563,36 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <h4>1. Non-Persistent HTTP (HTTP 1.0)</h4>
       <ul>
-        <li>נפתח TCP, נשלח אובייקט אחד, נסגר TCP.</li>
-        <li>לכל אובייקט — קשר TCP חדש.</li>
-        <li><strong>עלות:</strong> ‎2RTT לכל אובייקט + זמן הטרנסמישן.</li>
+        <li>נפתח <bdi dir="ltr">TCP</bdi>, נשלח אובייקט אחד, נסגר <bdi dir="ltr">TCP</bdi>.</li>
+        <li>לכל אובייקט — קשר <bdi dir="ltr">TCP</bdi> חדש.</li>
+        <li><strong>עלות:</strong> <bdi dir="ltr">2RTT</bdi> לכל אובייקט + זמן הטרנסמישן.</li>
       </ul>
 
-      <h4>2. Persistent HTTP (HTTP 1.1 ברירת מחדל)</h4>
+      <h4><bdi dir="ltr">2. Persistent HTTP</bdi> (<bdi dir="ltr">HTTP 1.1</bdi> ברירת מחדל)</h4>
       <ul>
-        <li>נפתח TCP, נשלחים כמה אובייקטים, נסגר TCP בסוף.</li>
-        <li>בקשה שנייה מחכה לתגובה של הראשונה ("non-pipelined").</li>
-        <li><strong>עלות:</strong> ‎2RTT לראשון + RTT לכל נוסף.</li>
+        <li>נפתח <bdi dir="ltr">TCP</bdi>, נשלחים כמה אובייקטים, נסגר <bdi dir="ltr">TCP</bdi> בסוף.</li>
+        <li>בקשה שנייה מחכה לתגובה של הראשונה ("<bdi dir="ltr">non-pipelined</bdi>").</li>
+        <li><strong>עלות:</strong> <bdi dir="ltr">2RTT</bdi> לראשון + <bdi dir="ltr">RTT</bdi> לכל נוסף.</li>
       </ul>
 
       <h4>3. Concurrent HTTP</h4>
       <ul>
-        <li>הדפדפן פותח כמה חיבורי TCP <strong>במקביל</strong>.</li>
-        <li>כל TCP מטפל באובייקט אחד.</li>
-        <li><strong>עלות:</strong> אם פותחים N חיבורים ויש N אובייקטים — ‎2RTT לכולם.</li>
+        <li>הדפדפן פותח כמה חיבורי <bdi dir="ltr">TCP</bdi> <strong>במקביל</strong>.</li>
+        <li>כל <bdi dir="ltr">TCP</bdi> מטפל באובייקט אחד.</li>
+        <li><strong>עלות:</strong> אם פותחים <bdi dir="ltr">N</bdi> חיבורים ויש <bdi dir="ltr">N</bdi> אובייקטים — <bdi dir="ltr">2RTT</bdi> לכולם.</li>
       </ul>
 
       <h4>4. Pipelined HTTP</h4>
       <ul>
         <li>שולחים את כל הבקשות ברצף <strong>בלי לחכות</strong> לתגובות.</li>
         <li>השרת עונה לפי הסדר.</li>
-        <li>הכי יעיל — חוסך RTT-ים ויוצר ניצול מקסימלי של ה-TCP.</li>
+        <li>הכי יעיל — חוסך <bdi dir="ltr">RTT</bdi>-ים ויוצר ניצול מקסימלי של ה-<bdi dir="ltr">TCP</bdi>.</li>
       </ul>
     </div>
   </div>
 
   <div class="keypoint">
-    <strong>למבחן:</strong> שאלה קלאסית — שתי בקשות נשלחו ל-Server. הגיעה <em>קודם השנייה</em>. למה? אם נשלחו על TCPs שונים (Concurrent) — סדר ההגעה לא מובטח. או — הסגמנט של הראשונה אבד והוגש שוב.
+    <strong>למבחן:</strong> שאלה קלאסית — שתי בקשות נשלחו ל-<bdi dir="ltr">Server</bdi>. הגיעה <em>קודם השנייה</em>. למה? אם נשלחו על <bdi dir="ltr">TCPs</bdi> שונים (<bdi dir="ltr">Concurrent</bdi>) — סדר ההגעה לא מובטח. או — הסגמנט של הראשונה אבד והוגש שוב.
   </div>
 
   <h2>חישוב זמני תגובה</h2>
@@ -598,49 +602,49 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <p>הזמן שלוקח לפאקטה לעבור מלקוח לשרת <strong>וחזרה</strong>.</p>
       $$RTT = 2 \cdot (d_{prop} + d_{trans} + d_{proc})$$
-      <p>בדרך כלל מזניחים את הטרנסמישן (כי הפאקטות קצרות) — אז RTT ≈ ‎2 × propagation.</p>
+      <p>בדרך כלל מזניחים את הטרנסמישן (כי הפאקטות קצרות) — אז <bdi dir="ltr">RTT</bdi> ≈ <bdi dir="ltr">2 × propagation</bdi>.</p>
     </div>
   </div>
 
   <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>זמן תגובה — Non-Persistent HTTP</div>
+    <div class="box-head"><span class="icon">📐</span>זמן תגובה — <bdi dir="ltr">Non-Persistent HTTP</bdi></div>
     <div class="box-body">
       <p>לאובייקט אחד:</p>
       $$T_{response} = 2 \cdot RTT + T_{transmission}$$
       <p>הפירוט:</p>
       <ul>
-        <li>‎1 RTT — לפתיחת TCP (3-Way HandShake).</li>
-        <li>‎1 RTT — לבקשת HTTP ולקבלת הבתים הראשונים של התגובה.</li>
-        <li>T_transmission — זמן ההפצה של האובייקט עצמו (תלוי בגודלו).</li>
+        <li><bdi dir="ltr">1 RTT</bdi> — לפתיחת <bdi dir="ltr">TCP</bdi> (<bdi dir="ltr">3-Way HandShake</bdi>).</li>
+        <li><bdi dir="ltr">1 RTT</bdi> — לבקשת <bdi dir="ltr">HTTP</bdi> ולקבלת הבתים הראשונים של התגובה.</li>
+        <li><bdi dir="ltr">T_transmission</bdi> — זמן ההפצה של האובייקט עצמו (תלוי בגודלו).</li>
       </ul>
-      <p>לדף עם <strong>HTML + N אובייקטים:</strong></p>
+      <p>לדף עם <strong><bdi dir="ltr">HTML + N</bdi> אובייקטים:</strong></p>
       $$T_{total} = (N+1) \cdot 2 \cdot RTT + \sum T_{trans}$$
     </div>
   </div>
 
   <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>זמן תגובה — Persistent HTTP</div>
+    <div class="box-head"><span class="icon">📐</span>זמן תגובה — <bdi dir="ltr">Persistent HTTP</bdi></div>
     <div class="box-body">
-      <p>לדף עם HTML + N אובייקטים:</p>
+      <p>לדף עם <bdi dir="ltr">HTML + N</bdi> אובייקטים:</p>
       $$T_{total} = 2 \cdot RTT + N \cdot RTT + \sum T_{trans}$$
       <p>או: <strong><bdi>2RTT עבור ה-HTML, ועוד RTT אחד לכל אובייקט נוסף</bdi></strong>.</p>
     </div>
   </div>
 
   <div class="box warn">
-    <div class="box-head"><span class="icon">⚠</span>מה אם היה UDP במקום TCP?</div>
+    <div class="box-head"><span class="icon">⚠</span>מה אם היה <bdi dir="ltr">UDP</bdi> במקום <bdi dir="ltr">TCP</bdi>?</div>
     <div class="box-body">
-      <p>UDP לא דורש hand-shake ← חוסך ‎1 RTT. אבל לא אמין ← לא מתאים ל-Web אמיתי.</p>
-      <p>זמן תגובה ב-UDP: <span class="term">RTT + transmission</span> בלבד (במקום ‎2RTT).</p>
+      <p><bdi dir="ltr">UDP</bdi> לא דורש <bdi dir="ltr">hand-shake</bdi> ← חוסך <bdi dir="ltr">1 RTT</bdi>. אבל לא אמין ← לא מתאים ל-<bdi dir="ltr">Web</bdi> אמיתי.</p>
+      <p>זמן תגובה ב-<bdi dir="ltr">UDP</bdi>: <span class="term">RTT + transmission</span> בלבד (במקום <bdi dir="ltr">2RTT</bdi>).</p>
     </div>
   </div>
 
-  <h2>הודעות HTTP</h2>
+  <h2>הודעות <bdi dir="ltr">HTTP</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>שני סוגי הודעות</div>
     <div class="box-body">
-      <h4>בקשה (Request)</h4>
+      <h4>בקשה (<bdi dir="ltr">Request</bdi>)</h4>
       <p>מבנה:</p>
       <pre><code>GET /index.html HTTP/1.1
 Host: www.example.com
@@ -649,9 +653,9 @@ Accept: text/html
 Connection: keep-alive
 
 </code></pre>
-      <p>השורה הראשונה: <span class="term">method · URL · version</span>. כל שורת header הוא <span class="term">Key: Value</span>. שורה ריקה מסיימת את ה-Header. אחריה — Body (אופציונלי).</p>
+      <p>השורה הראשונה: <span class="term">method · URL · version</span>. כל שורת <bdi dir="ltr">header</bdi> הוא <span class="term">Key: Value</span>. שורה ריקה מסיימת את ה-<bdi dir="ltr">Header</bdi>. אחריה — <bdi dir="ltr">Body</bdi> (אופציונלי).</p>
 
-      <h4>תגובה (Response)</h4>
+      <h4>תגובה (<bdi dir="ltr">Response</bdi>)</h4>
       <pre><code>HTTP/1.1 200 OK
 Date: Sun, 16 Jun 2026 10:30:00 GMT
 Server: nginx/1.18.0
@@ -662,7 +666,7 @@ Content-Length: 1450
 &lt;html&gt;
 ...
 </code></pre>
-      <p>השורה הראשונה: <span class="term">version · status code · phrase</span>. אחר כך headers. שורה ריקה. אחר כך — תוכן האובייקט.</p>
+      <p>השורה הראשונה: <span class="term">version · status code · phrase</span>. אחר כך <bdi dir="ltr">headers</bdi>. שורה ריקה. אחר כך — תוכן האובייקט.</p>
     </div>
   </div>
 
@@ -673,11 +677,11 @@ Content-Length: 1450
     <tbody>
       <tr><td><strong>GET</strong></td><td>הבאת אובייקט קיים — הנפוץ ביותר</td></tr>
       <tr><td><strong>POST</strong></td><td>שליחת נתונים לשרת — טופס, יצירת אובייקט</td></tr>
-      <tr><td><strong>HEAD</strong></td><td>בקשת רק ה-headers של אובייקט — לא הגוף. שימושי כדי לדעת גודל קובץ או תאריך עדכון</td></tr>
-      <tr><td><strong>PUT</strong></td><td>העלאת אובייקט חדש או החלפה של קיים. ה-URL הוא השם, ה-body הוא התוכן</td></tr>
+      <tr><td><strong>HEAD</strong></td><td>בקשת רק ה-<bdi dir="ltr">headers</bdi> של אובייקט — לא הגוף. שימושי כדי לדעת גודל קובץ או תאריך עדכון</td></tr>
+      <tr><td><strong>PUT</strong></td><td>העלאת אובייקט חדש או החלפה של קיים. ה-<bdi dir="ltr">URL</bdi> הוא השם, ה-<bdi dir="ltr">body</bdi> הוא התוכן</td></tr>
       <tr><td><strong>DELETE</strong></td><td>מחיקת אובייקט</td></tr>
       <tr><td><strong>OPTIONS</strong></td><td>שאלת מה השרת תומך בו</td></tr>
-      <tr><td><strong>TRACE</strong></td><td>החזרת ה-request שהשרת קיבל — לדיבאג</td></tr>
+      <tr><td><strong>TRACE</strong></td><td>החזרת ה-<bdi dir="ltr">request</bdi> שהשרת קיבל — לדיבאג</td></tr>
     </tbody>
   </table>
 
@@ -689,8 +693,8 @@ Content-Length: 1450
     </thead>
     <tbody>
       <tr><td><strong style="color:#047857">200</strong></td><td>OK</td><td>הצליח. הבקשה מומשה והתגובה כוללת את האובייקט.</td></tr>
-      <tr><td><strong style="color:#b45309">301</strong></td><td>Moved Permanently</td><td>האובייקט עבר לכתובת חדשה (ב-Header: Location).</td></tr>
-      <tr><td><strong style="color:#b45309">304</strong></td><td>Not Modified</td><td>(בתגובה ל-Conditional GET) — לא השתנה, אפשר להשתמש בעותק במטמון.</td></tr>
+      <tr><td><strong style="color:#b45309">301</strong></td><td>Moved Permanently</td><td>האובייקט עבר לכתובת חדשה (ב-<bdi dir="ltr">Header</bdi>: <bdi dir="ltr">Location</bdi>).</td></tr>
+      <tr><td><strong style="color:#b45309">304</strong></td><td>Not Modified</td><td>(בתגובה ל-<bdi dir="ltr">Conditional GET</bdi>) — לא השתנה, אפשר להשתמש בעותק במטמון.</td></tr>
       <tr><td><strong style="color:#be123c">400</strong></td><td>Bad Request</td><td>הבקשה לא נקראה (שגיאת תחביר).</td></tr>
       <tr><td><strong style="color:#be123c">404</strong></td><td>Not Found</td><td>האובייקט לא קיים בשרת.</td></tr>
       <tr><td><strong style="color:#be123c">505</strong></td><td>HTTP Version Not Supported</td><td>השרת לא תומך בגרסה שביקשת.</td></tr>
@@ -702,34 +706,34 @@ Content-Length: 1450
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגיל בית 1 · שאלה 1.1 · ממבחן 2009</span>
-      <p>משתמש הריץ דפדפן והקיש URL בו לא ביקר קודם. בתגובה הוא קיבל דף HTML המכיל טקסט ו-<strong>4 תמונות שונות זו מזו</strong>. כמה קשרי TCP נפתחו בין הדפדפן ושרת ה-Web מרגע הקשת ה-URL ועד להצגת הדף במלואו?</p>
+      <p>משתמש הריץ דפדפן והקיש <bdi dir="ltr">URL</bdi> בו לא ביקר קודם. בתגובה הוא קיבל דף <bdi dir="ltr">HTML</bdi> המכיל טקסט ו-<strong>4 תמונות שונות זו מזו</strong>. כמה קשרי <bdi dir="ltr">TCP</bdi> נפתחו בין הדפדפן ושרת ה-<bdi dir="ltr">Web</bdi> מרגע הקשת ה-<bdi dir="ltr">URL</bdi> ועד להצגת הדף במלואו?</p>
       <ol style="list-style: hebrew;">
-        <li>ב-HTTP 1.0?</li>
-        <li>ב-HTTP 1.1?</li>
+        <li>ב-<bdi dir="ltr">HTTP 1.0</bdi>?</li>
+        <li>ב-<bdi dir="ltr">HTTP 1.1</bdi>?</li>
       </ol>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">סעיף א · HTTP 1.0</div>
-        <p>HTTP 1.0 הוא <strong>Non-Persistent</strong> כברירת מחדל. כל אובייקט מגיע בקשר TCP נפרד.</p>
+        <div class="step-label">סעיף א · <bdi dir="ltr">HTTP 1.0</bdi></div>
+        <p><bdi dir="ltr">HTTP 1.0</bdi> הוא <strong>Non-Persistent</strong> כברירת מחדל. כל אובייקט מגיע בקשר <bdi dir="ltr">TCP</bdi> נפרד.</p>
         <ul>
-          <li>קשר 1 — לקובץ ה-HTML</li>
-          <li>קשרים ‎2-5 — אחד לכל תמונה (4 תמונות שונות)</li>
+          <li>קשר 1 — לקובץ ה-<bdi dir="ltr">HTML</bdi></li>
+          <li>קשרים 2-5 — אחד לכל תמונה (4 תמונות שונות)</li>
         </ul>
-        <div class="final-answer">סה״כ ב-HTTP 1.0: <strong><bdi>5 קשרי TCP</bdi></strong></div>
+        <div class="final-answer">סה״כ ב-<bdi dir="ltr">HTTP 1.0</bdi>: <strong><bdi>5 קשרי TCP</bdi></strong></div>
       </div>
       <div class="step">
-        <div class="step-label">סעיף ב · HTTP 1.1</div>
-        <p>HTTP 1.1 הוא <strong>Persistent</strong> כברירת מחדל. אותו קשר TCP משמש לכל הבקשות.</p>
+        <div class="step-label">סעיף ב · <bdi dir="ltr">HTTP 1.1</bdi></div>
+        <p><bdi dir="ltr">HTTP 1.1</bdi> הוא <strong>Persistent</strong> כברירת מחדל. אותו קשר <bdi dir="ltr">TCP</bdi> משמש לכל הבקשות.</p>
         <ul>
-          <li>קשר ‎1 — נפתח בהתחלה לקובץ ה-HTML, ואותו קשר משמש גם לכל ‎4 התמונות.</li>
+          <li>קשר 1 — נפתח בהתחלה לקובץ ה-<bdi dir="ltr">HTML</bdi>, ואותו קשר משמש גם לכל 4 התמונות.</li>
         </ul>
-        <div class="final-answer">סה״כ ב-HTTP 1.1: <strong><bdi>1 קשר TCP</bdi></strong></div>
+        <div class="final-answer">סה״כ ב-<bdi dir="ltr">HTTP 1.1</bdi>: <strong><bdi>1 קשר TCP</bdi></strong></div>
       </div>
       <div class="step">
         <div class="step-label">הערה</div>
-        <p>אם השאלה היתה על Concurrent HTTP (כמה דפדפנים מודרניים פותחים) — הייתה תשובה אחרת. אבל הטקסט אומר "ב-HTTP 1.0/1.1" כברירת מחדל.</p>
+        <p>אם השאלה היתה על <bdi dir="ltr">Concurrent HTTP</bdi> (כמה דפדפנים מודרניים פותחים) — הייתה תשובה אחרת. אבל הטקסט אומר "ב-<bdi dir="ltr">HTTP 1.0/1.1</bdi>" כברירת מחדל.</p>
       </div>
     </div>
   </div>
@@ -737,56 +741,56 @@ Content-Length: 1450
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">סיכום למבחן · סדר הגעה הפוך</span>
-      <p>בשימוש בפרוטוקול HTTP, נשלחו שתי בקשות לאפליקציה בצד השרת. אם הגיעה <strong>קודם הבקשה השנייה</strong>, מהן הסיבות לכך? ומה <em>אינה</em> סיבה?</p>
+      <p>בשימוש בפרוטוקול <bdi dir="ltr">HTTP</bdi>, נשלחו שתי בקשות לאפליקציה בצד השרת. אם הגיעה <strong>קודם הבקשה השנייה</strong>, מהן הסיבות לכך? ומה <em>אינה</em> סיבה?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">שתי סיבות אפשריות</div>
         <ol>
-          <li><strong>הבקשות נשלחו על קישורי TCP שונים</strong> (Concurrent). אם הן ב-TCPs נפרדים, אין סנכרון בין הסדר שלהם. אחד יכול לעבור מסלול ארוך יותר ולהגיע אחר-כך.</li>
-          <li><strong>המקטע שהכיל את הראשונה אבד והוגש שוב</strong> (retransmission). הסגמנט של הבקשה הראשונה אבד בדרך, ה-TCP זיהה ושלח שוב — אבל בינתיים הבקשה השנייה כבר הגיעה.</li>
+          <li><strong>הבקשות נשלחו על קישורי <bdi dir="ltr">TCP</bdi> שונים</strong> (<bdi dir="ltr">Concurrent</bdi>). אם הן ב-<bdi dir="ltr">TCPs</bdi> נפרדים, אין סנכרון בין הסדר שלהם. אחד יכול לעבור מסלול ארוך יותר ולהגיע אחר-כך.</li>
+          <li><strong>המקטע שהכיל את הראשונה אבד והוגש שוב</strong> (<bdi dir="ltr">retransmission</bdi>). הסגמנט של הבקשה הראשונה אבד בדרך, ה-<bdi dir="ltr">TCP</bdi> זיהה ושלח שוב — אבל בינתיים הבקשה השנייה כבר הגיעה.</li>
         </ol>
       </div>
       <div class="step">
         <div class="step-label">מה אינו סיבה</div>
-        <p><strong>"אם הן נשלחו באותו מסלול"</strong> — זו לא סיבה. אם הן באותו TCP ועוברות אותו מסלול, TCP מבטיח סדר (sequence numbers), והשניה לא תגיע לפני הראשונה.</p>
+        <p><strong>"אם הן נשלחו באותו מסלול"</strong> — זו לא סיבה. אם הן באותו <bdi dir="ltr">TCP</bdi> ועוברות אותו מסלול, <bdi dir="ltr">TCP</bdi> מבטיח סדר (<bdi dir="ltr">sequence numbers</bdi>), והשניה לא תגיע לפני הראשונה.</p>
       </div>
-      <div class="final-answer">סדר הפוך אפשרי רק אם <strong>אין TCP משותף</strong> ביניהן או אם <strong>היתה אבדה ושליחה חוזרת</strong>.</div>
+      <div class="final-answer">סדר הפוך אפשרי רק אם <strong>אין <bdi dir="ltr">TCP</bdi> משותף</strong> ביניהן או אם <strong>היתה אבדה ושליחה חוזרת</strong>.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">חישוב · השוואת זמני תגובה</span>
-      <p>דף Web מכיל HTML + ‎8 תמונות. נתון: RTT = 100ms, וזמן הטרנסמישן של כל אובייקט הוא ‎10ms (זניח גם בלי).</p>
+      <p>דף <bdi dir="ltr">Web</bdi> מכיל <bdi dir="ltr">HTML + 8</bdi> תמונות. נתון: <bdi dir="ltr">RTT = 100ms</bdi>, וזמן הטרנסמישן של כל אובייקט הוא <bdi dir="ltr">10ms</bdi> (זניח גם בלי).</p>
       <ol style="list-style: hebrew;">
-        <li>כמה זמן תגובה ב-Non-Persistent (HTTP 1.0)?</li>
-        <li>כמה זמן ב-Persistent (HTTP 1.1, ללא pipelining)?</li>
-        <li>כמה זמן ב-Concurrent עם ‎8 חיבורים מקבילים (אחרי שה-HTML הגיע)?</li>
+        <li>כמה זמן תגובה ב-<bdi dir="ltr">Non-Persistent</bdi> (<bdi dir="ltr">HTTP 1.0</bdi>)?</li>
+        <li>כמה זמן ב-<bdi dir="ltr">Persistent</bdi> (<bdi dir="ltr">HTTP 1.1</bdi>, ללא <bdi dir="ltr">pipelining</bdi>)?</li>
+        <li>כמה זמן ב-<bdi dir="ltr">Concurrent</bdi> עם 8 חיבורים מקבילים (אחרי שה-<bdi dir="ltr">HTML</bdi> הגיע)?</li>
       </ol>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">סעיף א · Non-Persistent</div>
-        <p>‎9 אובייקטים סה״כ (HTML + 8 תמונות). לכל אובייקט: 2 RTT + transmission.</p>
+        <div class="step-label">סעיף א · <bdi dir="ltr">Non-Persistent</bdi></div>
+        <p>9 אובייקטים סה״כ (<bdi dir="ltr">HTML + 8</bdi> תמונות). לכל אובייקט: <bdi dir="ltr">2 RTT + transmission</bdi>.</p>
         $$T = 9 \cdot (2 \cdot 100 + 10) = 9 \cdot 210 = 1890\,\text{ms}$$
       </div>
       <div class="step">
-        <div class="step-label">סעיף ב · Persistent</div>
-        <p>אובייקט ראשון: 2RTT + trans. כל אובייקט נוסף: RTT + trans.</p>
+        <div class="step-label">סעיף ב · <bdi dir="ltr">Persistent</bdi></div>
+        <p>אובייקט ראשון: <bdi dir="ltr">2RTT + trans</bdi>. כל אובייקט נוסף: <bdi dir="ltr">RTT + trans</bdi>.</p>
         $$T = (2 \cdot 100 + 10) + 8 \cdot (100 + 10) = 210 + 880 = 1090\,\text{ms}$$
       </div>
       <div class="step">
-        <div class="step-label">סעיף ג · Concurrent (HTML ראשון, אז ‎8 במקביל)</div>
+        <div class="step-label">סעיף ג · <bdi dir="ltr">Concurrent</bdi> (<bdi dir="ltr">HTML</bdi> ראשון, אז 8 במקביל)</div>
         <ul>
-          <li>HTML: ‎2RTT + trans = 210ms</li>
-          <li>‎8 תמונות במקביל: כל אחת ‎2RTT + trans, אבל הן מקבילות — סך הכל 210ms (לא ‎8×).</li>
+          <li>HTML: 2RTT + trans = 210ms</li>
+          <li>8 תמונות במקביל: כל אחת <bdi dir="ltr">2RTT + trans</bdi>, אבל הן מקבילות — סך הכל <bdi dir="ltr">210ms</bdi> (לא 8×).</li>
         </ul>
         $$T = 210 + 210 = 420\,\text{ms}$$
       </div>
-      <div class="final-answer">השוואה: Non-Persistent ‎1890ms, Persistent ‎1090ms, Concurrent ‎420ms. <strong>Concurrent מהיר פי 4.5</strong> מ-Non-Persistent.</div>
+      <div class="final-answer">השוואה: <bdi dir="ltr">Non-Persistent 1890ms, Persistent 1090ms, Concurrent 420ms</bdi>. <strong><bdi dir="ltr">Concurrent</bdi> מהיר פי 4.5</strong> מ-<bdi dir="ltr">Non-Persistent</bdi>.</div>
     </div>
   </div>
 
@@ -794,14 +798,14 @@ Content-Length: 1450
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li>HTTP רץ מעל TCP על פורט <strong>80</strong>. HTTPS על <strong>443</strong>.</li>
-        <li>HTTP הוא <strong>stateless</strong> — לזיכרון משתמשים ב-Cookies.</li>
-        <li>‎4 סוגי חיבורים: <strong>Non-Persistent, Persistent, Concurrent, Pipelined</strong>.</li>
-        <li>זמן תגובה Non-Persistent לאובייקט: <strong><bdi>2RTT + trans</bdi></strong>.</li>
-        <li>זמן תגובה Persistent לדף: <strong><bdi>2RTT + N·RTT + Σtrans</bdi></strong>.</li>
+        <li><bdi dir="ltr">HTTP</bdi> רץ מעל <bdi dir="ltr">TCP</bdi> על פורט <strong>80</strong>. <bdi dir="ltr">HTTPS</bdi> על <strong>443</strong>.</li>
+        <li><bdi dir="ltr">HTTP</bdi> הוא <strong>stateless</strong> — לזיכרון משתמשים ב-<bdi dir="ltr">Cookies</bdi>.</li>
+        <li>4 סוגי חיבורים: <strong>Non-Persistent, Persistent, Concurrent, Pipelined</strong>.</li>
+        <li>זמן תגובה <bdi dir="ltr">Non-Persistent</bdi> לאובייקט: <strong><bdi>2RTT + trans</bdi></strong>.</li>
+        <li>זמן תגובה <bdi dir="ltr">Persistent</bdi> לדף: <strong><bdi>2RTT + N·RTT + Σtrans</bdi></strong>.</li>
         <li>Methods: <strong>GET, POST, HEAD, PUT, DELETE</strong>.</li>
-        <li>קודי סטטוס: ‎200 OK, ‎301 Moved, ‎304 Not Modified, ‎404 Not Found.</li>
-        <li>HTTP 1.0 ← Non-Persistent · HTTP 1.1 ← Persistent (ברירת מחדל).</li>
+        <li>קודי סטטוס: <bdi dir="ltr">200 OK, 301 Moved, 304 Not Modified, 404 Not Found</bdi>.</li>
+        <li><bdi dir="ltr">HTTP 1.0</bdi> ← <bdi dir="ltr">Non-Persistent · HTTP 1.1</bdi> ← <bdi dir="ltr">Persistent</bdi> (ברירת מחדל).</li>
       </ul>
     </div>
   </div>
@@ -810,7 +814,7 @@ Content-Length: 1450
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="02-app-sockets.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">סוקטים, לקוח-שרת, P2P</span></a>
+  <a class="prev" href="02-app-sockets.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">סוקטים, לקוח-שרת, <bdi dir="ltr">P2P</bdi></span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
   <a class="next" href="04-app-proxy-cache.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">Proxy, Cache, Conditional GET</span></a>
 </nav>

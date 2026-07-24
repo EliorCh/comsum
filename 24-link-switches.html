@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,29 +414,29 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 4.5 · שכבת הקישור</span>
-  <h1 class="page-title">סוויצ׳ים — Layer 2 Switches</h1>
-  <p class="page-subtitle">איך הם לומדים לבד, מבדילים collision domains, ומהירים יותר מ-Hub.</p>
+  <h1 class="page-title">סוויצ׳ים — <bdi dir="ltr">Layer 2 Switches</bdi></h1>
+  <p class="page-subtitle">איך הם לומדים לבד, מבדילים <bdi dir="ltr">collision domains</bdi>, ומהירים יותר מ-<bdi dir="ltr">Hub</bdi>.</p>
 
   <p class="lead">
-    <strong>Switch (סוויצ׳)</strong> הוא <strong>Layer 2 device</strong> — עובד ברמת MAC. בניגוד ל-Hub שמשדר לכל הרגליים — Switch מעביר רק לרגל הנכונה. הוא <strong>לומד את הטבלה לבד</strong>, ‎plug-and-play, שקוף לתחנות, ו<strong>מבדיל collision domains</strong>.
+    <strong><bdi dir="ltr">Switch</bdi> (סוויצ׳)</strong> הוא <strong>Layer 2 device</strong> — עובד ברמת <bdi dir="ltr">MAC</bdi>. בניגוד ל-<bdi dir="ltr">Hub</bdi> שמשדר לכל הרגליים — <bdi dir="ltr">Switch</bdi> מעביר רק לרגל הנכונה. הוא <strong>לומד את הטבלה לבד</strong>, <bdi dir="ltr">plug-and-play</bdi>, שקוף לתחנות, ו<strong>מבדיל <bdi dir="ltr">collision domains</bdi></strong>.
   </p>
 
-  <h2>הבעיה עם Hub</h2>
+  <h2>הבעיה עם <bdi dir="ltr">Hub</bdi></h2>
 
   <div class="box warn">
-    <div class="box-head"><span class="icon">⚠</span>Hub = כבל אחד גדול</div>
+    <div class="box-head"><span class="icon">⚠</span><bdi dir="ltr">Hub</bdi> = כבל אחד גדול</div>
     <div class="box-body">
-      <p>Hub מקבל אות באחת הרגליים ו<strong>משכפל אותו לכל השאר</strong>. למעשה — מתנהג כמו כבל ארוך אחד.</p>
+      <p><bdi dir="ltr">Hub</bdi> מקבל אות באחת הרגליים ו<strong>משכפל אותו לכל השאר</strong>. למעשה — מתנהג כמו כבל ארוך אחד.</p>
       <h4>בעיות</h4>
       <ul>
-        <li><strong>כולם באותו collision domain</strong> — אם שניים משדרים בו-זמנית בכל מקום, יש התנגשות.</li>
+        <li><strong>כולם באותו <bdi dir="ltr">collision domain</bdi></strong> — אם שניים משדרים בו-זמנית בכל מקום, יש התנגשות.</li>
         <li><strong>בזבוז רוחב פס</strong> — כל ההודעות הולכות לכולם.</li>
-        <li><strong>בעיות אבטחה</strong> — כל מחשב יכול לרגל על כולם (sniffing).</li>
+        <li><strong>בעיות אבטחה</strong> — כל מחשב יכול לרגל על כולם (<bdi dir="ltr">sniffing</bdi>).</li>
       </ul>
     </div>
   </div>
 
-  <h2>Switch — הפתרון</h2>
+  <h2><bdi dir="ltr">Switch</bdi> — הפתרון</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>איך עובד</div>
@@ -447,7 +451,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
           <tr><td>CC:..:03</td><td>5</td><td>10:16:01</td></tr>
         </tbody>
       </table>
-      <p>כשמגיע פריים — הסוויצ׳ קורא את ה-MAC dst, מסתכל בטבלה, ומעביר רק <strong>לפורט אחד</strong>.</p>
+      <p>כשמגיע פריים — הסוויצ׳ קורא את ה-<bdi dir="ltr">MAC dst</bdi>, מסתכל בטבלה, ומעביר רק <strong>לפורט אחד</strong>.</p>
     </div>
   </div>
 
@@ -461,22 +465,22 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li>פריים מגיע מפורט מסוים.</li>
         <li>הסוויצ׳ קורא את ה-<strong>MAC src</strong>.</li>
         <li>מוסיף לטבלה: <span class="term">MAC src ↔ Port הקלט</span>.</li>
-        <li>‎<strong>אם ה-MAC dst כבר בטבלה</strong> — מעביר רק לפורט הזה.</li>
-        <li><strong>אם ה-MAC dst לא בטבלה</strong> — עושה <strong>flooding</strong> (שולח לכל הפורטים חוץ מהקלט).</li>
+        <li><strong>אם ה-<bdi dir="ltr">MAC dst</bdi> כבר בטבלה</strong> — מעביר רק לפורט הזה.</li>
+        <li><strong>אם ה-<bdi dir="ltr">MAC dst</bdi> לא בטבלה</strong> — עושה <strong>flooding</strong> (שולח לכל הפורטים חוץ מהקלט).</li>
       </ol>
-      <p>אחרי כמה דקות פעילות — הסוויצ׳ "מכיר" את כל המחשבים ב-LAN, ומפסיק לעשות flooding.</p>
+      <p>אחרי כמה דקות פעילות — הסוויצ׳ "מכיר" את כל המחשבים ב-<bdi dir="ltr">LAN</bdi>, ומפסיק לעשות <bdi dir="ltr">flooding</bdi>.</p>
     </div>
   </div>
 
-  <h2>Plug-and-Play ושקיפות</h2>
+  <h2><bdi dir="ltr">Plug-and-Play</bdi> ושקיפות</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>תכונות חשובות</div>
     <div class="box-body">
       <ul>
         <li><strong>Plug-and-Play:</strong> פשוט מחברים. לא צריך לקנפג. הסוויצ׳ ילמד לבד.</li>
-        <li><strong>שקוף לתחנות:</strong> המחשבים לא יודעים על קיומו. אין כתובת MAC לסוויצ׳ (בדרך כלל). הוא לא משנה את הפריים.</li>
-        <li><strong>אין רכיב routing:</strong> הוא לא יודע על IP. רק על MAC.</li>
+        <li><strong>שקוף לתחנות:</strong> המחשבים לא יודעים על קיומו. אין כתובת <bdi dir="ltr">MAC</bdi> לסוויצ׳ (בדרך כלל). הוא לא משנה את הפריים.</li>
+        <li><strong>אין רכיב <bdi dir="ltr">routing</bdi>:</strong> הוא לא יודע על <bdi dir="ltr">IP</bdi>. רק על <bdi dir="ltr">MAC</bdi>.</li>
       </ul>
     </div>
   </div>
@@ -487,7 +491,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hub vs Switch collision domains">
       <g font-family="Assistant, sans-serif" font-size="11">
         <!-- Hub side -->
-        <text x="180" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#be123c">Hub · collision domain אחד</text>
+        <text x="180" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#be123c" direction="rtl">Hub · collision domain אחד</text>
 
         <ellipse cx="180" cy="120" rx="140" ry="70" fill="#fff1f2" stroke="#be123c" stroke-width="2" stroke-dasharray="6,4"/>
 
@@ -504,11 +508,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="200" y1="110" x2="258" y2="90" stroke="#475569"/>
         <line x1="200" y1="130" x2="258" y2="150" stroke="#475569"/>
 
-        <text x="180" y="220" text-anchor="middle" font-size="10" fill="#be123c">כולם באותו collision domain</text>
-        <text x="180" y="240" text-anchor="middle" font-size="10" fill="#78716c">‎4 מחשבים = רוחב פס משותף</text>
+        <text x="180" y="220" text-anchor="middle" font-size="10" fill="#be123c" direction="rtl">כולם באותו collision domain</text>
+        <text x="180" y="240" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">‎4 מחשבים = רוחב פס משותף</text>
 
         <!-- Switch side -->
-        <text x="540" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">Switch · ‎4 collision domains נפרדים</text>
+        <text x="540" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#047857" direction="rtl">Switch · ‎4 collision domains נפרדים</text>
 
         <ellipse cx="540" cy="120" rx="140" ry="70" fill="#ecfdf5" stroke="#047857" stroke-width="2" stroke-dasharray="6,4"/>
 
@@ -529,34 +533,34 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="560" y1="110" x2="618" y2="90" stroke="#475569"/>
         <line x1="560" y1="130" x2="618" y2="150" stroke="#475569"/>
 
-        <text x="540" y="220" text-anchor="middle" font-size="10" fill="#047857">כל לינק = collision domain נפרד</text>
-        <text x="540" y="240" text-anchor="middle" font-size="10" fill="#78716c">אין התנגשויות ביניהם · רוחב פס מלא לכל אחד</text>
+        <text x="540" y="220" text-anchor="middle" font-size="10" fill="#047857" direction="rtl">כל לינק = collision domain נפרד</text>
+        <text x="540" y="240" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">אין התנגשויות ביניהם · רוחב פס מלא לכל אחד</text>
       </g>
     </svg>
-    <div class="cap">Hub: כולם באותו collision domain — מתחרים על רוחב הפס. Switch: כל פורט = domain נפרד — אין התנגשויות.</div>
+    <div class="cap"><bdi dir="ltr">Hub</bdi>: כולם באותו <bdi dir="ltr">collision domain</bdi> — מתחרים על רוחב הפס. <bdi dir="ltr">Switch</bdi>: כל פורט = <bdi dir="ltr">domain</bdi> נפרד — אין התנגשויות.</div>
   </div>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>למה זה חשוב</div>
     <div class="box-body">
-      <p>ב-Hub: ‎10 מחשבים על ערוץ של 100 Mbps. הם <strong>חולקים</strong> את ה-100. בממוצע 10 Mbps לכל אחד.</p>
-      <p>ב-Switch: כל מחשב עם הקישור הפרטי שלו, ‎100 Mbps מלאים. <strong>פי 10 ביצועים</strong>.</p>
+      <p>ב-<bdi dir="ltr">Hub</bdi>: <bdi dir="ltr">10</bdi> מחשבים על ערוץ של <bdi dir="ltr">100 Mbps</bdi>. הם <strong>חולקים</strong> את ה-100. בממוצע <bdi dir="ltr">10 Mbps</bdi> לכל אחד.</p>
+      <p>ב-<bdi dir="ltr">Switch</bdi>: כל מחשב עם הקישור הפרטי שלו, <bdi dir="ltr">100 Mbps</bdi> מלאים. <strong>פי 10 ביצועים</strong>.</p>
       <p>בנוסף, כל לינק יכול להיות <strong>Full Duplex</strong> — שני הצדדים מדברים יחד.</p>
     </div>
   </div>
 
-  <h2>סוויצ׳ים בשרשרת — Filtering ו-Forwarding</h2>
+  <h2>סוויצ׳ים בשרשרת — <bdi dir="ltr">Filtering</bdi> ו-<bdi dir="ltr">Forwarding</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>איך הסוויצ׳ים מתואמים</div>
     <div class="box-body">
       <p>אפשר לחבר כמה סוויצ׳ים יחד — בנייני משרדים, קומות, וכו'. כל סוויצ׳ לומד בנפרד.</p>
-      <p>אם הסוויצ׳ של קומה 1 לא מכיר MAC של C מקומה 2 — הוא יעשה flooding. הפריים יגיע לסוויצ׳ של קומה 2 (דרך פורט uplink), שיתעדכן: "אה, C נמצא דרך uplink".</p>
+      <p>אם הסוויצ׳ של קומה 1 לא מכיר <bdi dir="ltr">MAC</bdi> של <bdi dir="ltr">C</bdi> מקומה 2 — הוא יעשה <bdi dir="ltr">flooding</bdi>. הפריים יגיע לסוויצ׳ של קומה 2 (דרך פורט <bdi dir="ltr">uplink</bdi>), שיתעדכן: "אה, <bdi dir="ltr">C</bdi> נמצא דרך <bdi dir="ltr">uplink</bdi>".</p>
       <p>אבל יש סכנה: <strong>Loops</strong>. אם 3 סוויצ׳ים מחוברים במעגל, פריימים יכולים להסתובב לנצח. הפתרון: <strong>Spanning Tree Protocol</strong> (לא נדון בעומק).</p>
     </div>
   </div>
 
-  <h2>השוואה: Hub vs Switch vs Router</h2>
+  <h2>השוואה: <bdi dir="ltr">Hub vs Switch vs Router</bdi></h2>
 
   <table>
     <thead>
@@ -565,11 +569,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <tbody>
       <tr><td>שכבה</td><td>1 (פיזית)</td><td>2 (קישור)</td><td>3 (רשת)</td></tr>
       <tr><td>קורא</td><td>אותות</td><td>MAC</td><td>IP</td></tr>
-      <tr><td>פעולה</td><td>משכפל לכל הרגליים</td><td>שולח לפורט אחד</td><td>מנתב לפי IP</td></tr>
+      <tr><td>פעולה</td><td>משכפל לכל הרגליים</td><td>שולח לפורט אחד</td><td>מנתב לפי <bdi dir="ltr">IP</bdi></td></tr>
       <tr><td>Collision domains</td><td>אחד גדול</td><td>אחד לכל פורט</td><td>אחד לכל ממשק</td></tr>
       <tr><td>Broadcast domains</td><td>אחד</td><td>אחד</td><td>אחד לכל ממשק</td></tr>
-      <tr><td>קונפיגורציה</td><td>plug-and-play</td><td>plug-and-play (לומד)</td><td>מצריך קונפיגורציה</td></tr>
-      <tr><td>מהירות</td><td>איטי (כולם חולקים)</td><td>מהיר</td><td>איטי יחסית (עיבוד IP)</td></tr>
+      <tr><td>קונפיגורציה</td><td>plug-and-play</td><td><bdi dir="ltr">plug-and-play</bdi> (לומד)</td><td>מצריך קונפיגורציה</td></tr>
+      <tr><td>מהירות</td><td>איטי (כולם חולקים)</td><td>מהיר</td><td>איטי יחסית (עיבוד <bdi dir="ltr">IP</bdi>)</td></tr>
     </tbody>
   </table>
 
@@ -577,12 +581,12 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · ‎Self-learning</span>
-      <p>סוויצ׳ עם 4 פורטים (1, 2, 3, 4) מתחיל עם טבלה ריקה. ‎הפעולות הבאות מתרחשות:</p>
+      <span class="exercise-tag">תרגול · <bdi dir="ltr">Self-learning</bdi></span>
+      <p>סוויצ׳ עם 4 פורטים (1, 2, 3, 4) מתחיל עם טבלה ריקה. הפעולות הבאות מתרחשות:</p>
       <ol style="list-style: hebrew;">
-        <li>פריים מ-MAC <span class="term">A</span> מגיע לפורט 1, יעד <span class="term">B</span></li>
-        <li>פריים מ-MAC <span class="term">B</span> מגיע לפורט 3, יעד <span class="term">A</span></li>
-        <li>פריים מ-MAC <span class="term">C</span> מגיע לפורט 2, יעד <span class="term">D</span></li>
+        <li>פריים מ-<bdi dir="ltr">MAC</bdi> <span class="term">A</span> מגיע לפורט 1, יעד <span class="term">B</span></li>
+        <li>פריים מ-<bdi dir="ltr">MAC</bdi> <span class="term">B</span> מגיע לפורט 3, יעד <span class="term">A</span></li>
+        <li>פריים מ-<bdi dir="ltr">MAC</bdi> <span class="term">C</span> מגיע לפורט 2, יעד <span class="term">D</span></li>
       </ol>
       <p>איך נראה הטבלה אחרי כל אחת מהפעולות, ולאיזה פורטים נשלח כל פריים?</p>
     </div>
@@ -591,8 +595,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <div class="step">
         <div class="step-label">פעולה 1: <span class="term">A → B</span> מפורט 1</div>
         <ul>
-          <li>הסוויצ׳ לומד: <strong>A ↔ פורט 1</strong>.</li>
-          <li>B לא בטבלה ← <strong>flooding</strong> (שולח לפורטים 2, 3, 4).</li>
+          <li>הסוויצ׳ לומד: <strong><bdi dir="ltr">A</bdi> ↔ פורט 1</strong>.</li>
+          <li><bdi dir="ltr">B</bdi> לא בטבלה ← <strong>flooding</strong> (שולח לפורטים 2, 3, 4).</li>
         </ul>
         <table>
           <thead><tr><th>MAC</th><th>Port</th></tr></thead>
@@ -602,8 +606,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <div class="step">
         <div class="step-label">פעולה 2: <span class="term">B → A</span> מפורט 3</div>
         <ul>
-          <li>הסוויצ׳ לומד: <strong>B ↔ פורט 3</strong>.</li>
-          <li>A בטבלה — בפורט 1. שולח רק לפורט 1.</li>
+          <li>הסוויצ׳ לומד: <strong><bdi dir="ltr">B</bdi> ↔ פורט 3</strong>.</li>
+          <li><bdi dir="ltr">A</bdi> בטבלה — בפורט 1. שולח רק לפורט 1.</li>
         </ul>
         <table>
           <thead><tr><th>MAC</th><th>Port</th></tr></thead>
@@ -613,15 +617,15 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <div class="step">
         <div class="step-label">פעולה 3: <span class="term">C → D</span> מפורט 2</div>
         <ul>
-          <li>הסוויצ׳ לומד: <strong>C ↔ פורט 2</strong>.</li>
-          <li>D לא בטבלה ← <strong>flooding</strong> (שולח לפורטים 1, 3, 4 — לא 2 כי משם הגיע).</li>
+          <li>הסוויצ׳ לומד: <strong><bdi dir="ltr">C</bdi> ↔ פורט 2</strong>.</li>
+          <li><bdi dir="ltr">D</bdi> לא בטבלה ← <strong>flooding</strong> (שולח לפורטים 1, 3, 4 — לא 2 כי משם הגיע).</li>
         </ul>
         <table>
           <thead><tr><th>MAC</th><th>Port</th></tr></thead>
           <tbody><tr><td>A</td><td>1</td></tr><tr><td>B</td><td>3</td></tr><tr><td>C</td><td>2</td></tr></tbody>
         </table>
       </div>
-      <div class="final-answer">הסוויצ׳ לומד MAC src מכל פריים שמגיע. אם MAC dst לא ידוע — flooding. הטבלה מתמלאת תוך כמה פריימים — אחר כך flooding נעשה נדיר.</div>
+      <div class="final-answer">הסוויצ׳ לומד <bdi dir="ltr">MAC src</bdi> מכל פריים שמגיע. אם <bdi dir="ltr">MAC dst</bdi> לא ידוע — <bdi dir="ltr">flooding</bdi>. הטבלה מתמלאת תוך כמה פריימים — אחר כך <bdi dir="ltr">flooding</bdi> נעשה נדיר.</div>
     </div>
   </div>
 
@@ -629,15 +633,15 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li><strong>Switch</strong> = ‎Layer 2 device. ‎עובד ברמת MAC, לא IP</li>
-        <li>שולח רק לפורט הנכון (לא לכולם, בניגוד ל-Hub)</li>
-        <li><strong>Self-learning:</strong> לומד MAC src מכל פריים שעובר</li>
-        <li>אם MAC dst לא בטבלה ← ‎<strong>flooding</strong> לכל הפורטים חוץ מהקלט</li>
+        <li><strong>Switch</strong> = <bdi dir="ltr">Layer 2 device</bdi>. עובד ברמת <bdi dir="ltr">MAC</bdi>, לא <bdi dir="ltr">IP</bdi></li>
+        <li>שולח רק לפורט הנכון (לא לכולם, בניגוד ל-<bdi dir="ltr">Hub</bdi>)</li>
+        <li><strong>Self-learning:</strong> לומד <bdi dir="ltr">MAC src</bdi> מכל פריים שעובר</li>
+        <li>אם <bdi dir="ltr">MAC dst</bdi> לא בטבלה ← <strong>flooding</strong> לכל הפורטים חוץ מהקלט</li>
         <li><strong>Plug-and-Play:</strong> אין צורך לקנפג</li>
-        <li><strong>שקוף לתחנות:</strong> לא משנה פריימים, אין MAC משלו לתחנות</li>
-        <li><strong>כל פורט = collision domain נפרד</strong></li>
-        <li>אבל ‎<strong>broadcast domain אחד</strong> — broadcasts יוצאים לכולם</li>
-        <li>למניעת לולאות: Spanning Tree Protocol</li>
+        <li><strong>שקוף לתחנות:</strong> לא משנה פריימים, אין <bdi dir="ltr">MAC</bdi> משלו לתחנות</li>
+        <li><strong>כל פורט = <bdi dir="ltr">collision domain</bdi> נפרד</strong></li>
+        <li>אבל <strong><bdi dir="ltr">broadcast domain</bdi> אחד</strong> — <bdi dir="ltr">broadcasts</bdi> יוצאים לכולם</li>
+        <li>למניעת לולאות: <bdi dir="ltr">Spanning Tree Protocol</bdi></li>
       </ul>
     </div>
   </div>

@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -419,13 +423,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <table>
       <thead><tr><th>פרק</th><th>שורה תחתונה</th></tr></thead>
       <tbody>
-      <tr><td><a href="13-net-intro.html"><strong>3.1</strong> · IP דאטהגרם</a></td><td>שכבה 3 = כתובות + ניתוב, בלי אמינות. מבנה כותרת ה-IP‏: TTL‏, פרוטוקול, כתובות מקור/יעד.</td></tr>
-      <tr><td><a href="14-net-fragmentation.html"><strong>3.2</strong> · פרגמנטציה</a></td><td>חבילה גדולה מ-MTU נחתכת לפרגמנטים: אותו ID, שדה Offset ביחידות של 8 בתים, ‏MF=1 לכולם חוץ מהאחרון.</td></tr>
-      <tr><td><a href="15-net-ip-addressing.html"><strong>3.3</strong> · כתובות IP</a></td><td>‏32 ביט, רישום CIDR‏ (‏a.b.c.d/x). ה-subnet מתקבל מ-AND עם המסכה.</td></tr>
-      <tr><td><a href="16-net-dhcp.html"><strong>3.4</strong> · DHCP</a></td><td>קבלת כתובת אוטומטית בארבעה שלבים — <strong>DORA:</strong> ‏Discover, Offer, Request, ACK‏ (broadcast, פורטים 67/68).</td></tr>
-      <tr><td><a href="17-net-nat-ipv6.html"><strong>3.5</strong> · NAT, IPv6, ICMP</a></td><td>NAT ממפה רשת פרטית שלמה לכתובת ציבורית אחת לפי פורטים. IPv6 = ‏128 ביט. ICMP = הודעות שגיאה (ping, traceroute).</td></tr>
-      <tr><td><a href="18-net-routing.html"><strong>3.6</strong> · ראוטינג — DV, LS</a></td><td>שתי גישות: Distance Vector (מבוזר, בלמן-פורד, שיתוף שכנים) מול Link State (גלובלי, דייקסטרה).</td></tr>
-      <tr><td><a href="19-net-ospf-bgp.html"><strong>3.7</strong> · OSPF, BGP, AS</a></td><td>בתוך AS‏: OSPF‏ (LS). בין AS-ים: BGP‏ (Path Vector, מבוסס מדיניות ולא בהכרח המסלול הקצר).</td></tr>
+      <tr><td><a href="13-net-intro.html"><strong>3.1</strong> · <bdi dir="ltr">IP</bdi> דאטהגרם</a></td><td>שכבה 3 = כתובות + ניתוב, בלי אמינות. מבנה כותרת ה-<bdi dir="ltr">IP</bdi>: <bdi dir="ltr">TTL</bdi>, פרוטוקול, כתובות מקור/יעד.</td></tr>
+      <tr><td><a href="14-net-fragmentation.html"><strong>3.2</strong> · פרגמנטציה</a></td><td>חבילה גדולה מ-<bdi dir="ltr">MTU</bdi> נחתכת לפרגמנטים: אותו <bdi dir="ltr">ID</bdi>, שדה <bdi dir="ltr">Offset</bdi> ביחידות של 8 בתים, <bdi dir="ltr">MF=1</bdi> לכולם חוץ מהאחרון.</td></tr>
+      <tr><td><a href="15-net-ip-addressing.html"><strong>3.3</strong> · כתובות <bdi dir="ltr">IP</bdi></a></td><td>32 ביט, רישום <bdi dir="ltr">CIDR</bdi> (<bdi dir="ltr">a.b.c.d/x</bdi>). ה-<bdi dir="ltr">subnet</bdi> מתקבל מ-<bdi dir="ltr">AND</bdi> עם המסכה.</td></tr>
+      <tr><td><a href="16-net-dhcp.html"><strong>3.4</strong> · DHCP</a></td><td>קבלת כתובת אוטומטית בארבעה שלבים — <strong>DORA:</strong> <bdi dir="ltr">Discover, Offer, Request, ACK</bdi> (<bdi dir="ltr">broadcast</bdi>, פורטים 67/68).</td></tr>
+      <tr><td><a href="17-net-nat-ipv6.html"><strong>3.5</strong> · NAT, IPv6, ICMP</a></td><td><bdi dir="ltr">NAT</bdi> ממפה רשת פרטית שלמה לכתובת ציבורית אחת לפי פורטים. <bdi dir="ltr">IPv6 = 128</bdi> ביט. <bdi dir="ltr">ICMP</bdi> = הודעות שגיאה (<bdi dir="ltr">ping, traceroute</bdi>).</td></tr>
+      <tr><td><a href="18-net-routing.html"><strong>3.6</strong> · ראוטינג — <bdi dir="ltr">DV, LS</bdi></a></td><td>שתי גישות: <bdi dir="ltr">Distance Vector</bdi> (מבוזר, בלמן-פורד, שיתוף שכנים) מול <bdi dir="ltr">Link State</bdi> (גלובלי, דייקסטרה).</td></tr>
+      <tr><td><a href="19-net-ospf-bgp.html"><strong>3.7</strong> · OSPF, BGP, AS</a></td><td>בתוך <bdi dir="ltr">AS</bdi>: <bdi dir="ltr">OSPF</bdi> (<bdi dir="ltr">LS</bdi>). בין <bdi dir="ltr">AS</bdi>-ים: <bdi dir="ltr">BGP</bdi> (<bdi dir="ltr">Path Vector</bdi>, מבוסס מדיניות ולא בהכרח המסלול הקצר).</td></tr>
       </tbody>
     </table>
   </div>
@@ -435,10 +439,10 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box-body">
 
     <ul>
-      <li><strong>פרגמנטציה:</strong> נתונים לפרגמנט ≤ <span class="term">MTU − 20</span>, חייב כפולה של 8. ‏<span class="term">Offset = (נתונים שקדמו) / 8</span>. מספר פרגמנטים: $\lceil \text{Data} / (\text{MTU}-20) \rceil$.</li>
-      <li><strong>כתובות בסאבנט:</strong> $2^{32-x} - 2$ (מורידים כתובת רשת ו-broadcast).</li>
-      <li><strong>בלמן-פורד (DV):</strong> $d_X(Y) = \min_v \{c(X,v) + d_v(Y)\}$.</li>
-      <li><strong>טווחים פרטיים:</strong> ‏<span class="term">10.0.0.0/8</span>, ‏<span class="term">172.16.0.0/12</span>, ‏<span class="term">192.168.0.0/16</span>.</li>
+      <li><strong>פרגמנטציה:</strong> נתונים לפרגמנט ≤ <span class="term">MTU − 20</span>, חייב כפולה של 8. <span class="term">Offset = (נתונים שקדמו) / 8</span>. מספר פרגמנטים: $\lceil \text{Data} / (\text{MTU}-20) \rceil$.</li>
+      <li><strong>כתובות בסאבנט:</strong> $2^{32-x} - 2$ (מורידים כתובת רשת ו-<bdi dir="ltr">broadcast</bdi>).</li>
+      <li><strong>בלמן-פורד (<bdi dir="ltr">DV</bdi>):</strong> $d_X(Y) = \min_v \{c(X,v) + d_v(Y)\}$.</li>
+      <li><strong>טווחים פרטיים:</strong> <span class="term">10.0.0.0/8</span>, <span class="term">172.16.0.0/12</span>, <span class="term">192.168.0.0/16</span>.</li>
     </ul>
   </div>
 </div>
@@ -447,10 +451,10 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box-body">
 
     <ul>
-      <li>Offset נמדד <strong>ביחידות של 8 בתים</strong>, לא בבתים — לכתוב 480 במקום 60 זו הטעות הכי נפוצה בתרגיל.</li>
+      <li><bdi dir="ltr">Offset</bdi> נמדד <strong>ביחידות של 8 בתים</strong>, לא בבתים — לכתוב 480 במקום 60 זו הטעות הכי נפוצה בתרגיל.</li>
       <li>ה-<span class="term">MTU</span> כולל את הכותרת: הנתונים בפועל הם <span class="term">MTU − 20</span>.</li>
-      <li>TTL יורד ב-1 <strong>בכל ראוטר</strong>; כשמגיע ל-0 החבילה נזרקת ונשלח ICMP‏ (ככה traceroute עובד).</li>
-      <li>RIP מגדיר אינסוף = 16 כדי לעצור ספירה לאינסוף; ‏BGP בוחר לפי <strong>מדיניות</strong>, לא לפי מרחק.</li>
+      <li><bdi dir="ltr">TTL</bdi> יורד ב-1 <strong>בכל ראוטר</strong>; כשמגיע ל-0 החבילה נזרקת ונשלח <bdi dir="ltr">ICMP</bdi> (ככה <bdi dir="ltr">traceroute</bdi> עובד).</li>
+      <li><bdi dir="ltr">RIP</bdi> מגדיר אינסוף = 16 כדי לעצור ספירה לאינסוף; <bdi dir="ltr">BGP</bdi> בוחר לפי <strong>מדיניות</strong>, לא לפי מרחק.</li>
     </ul>
   </div>
 </div>
@@ -465,7 +469,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 <nav class="pager" aria-label="ניווט בין נושאים">
   <a class="prev" href="19-net-ospf-bgp.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">OSPF, BGP, AS</span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
-  <a class="next" href="20-link-framing.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">Framing ושירותים</span></a>
+  <a class="next" href="20-link-framing.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name"><bdi dir="ltr">Framing</bdi> ושירותים</span></a>
 </nav>
 
 </main>

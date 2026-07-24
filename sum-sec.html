@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -411,7 +415,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 <main>
   <span class="page-eyebrow">📌 סיכום שכבה · 🔐 אבטחה וקריפטוגרפיה</span>
   <h1 class="page-title">מה היה לנו באבטחה וקריפטוגרפיה</h1>
-  <p class="page-subtitle">ארבעה פרקים בדקה אחת — מהאיומים ועד הפתרון המלא של SSL/TLS.</p>
+  <p class="page-subtitle">ארבעה פרקים בדקה אחת — מהאיומים ועד הפתרון המלא של <bdi dir="ltr">SSL/TLS</bdi>.</p>
 
 <div class="box theory">
   <div class="box-head"><span class="icon">🗺️</span>מפת השכבה</div>
@@ -419,10 +423,10 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <table>
       <thead><tr><th>פרק</th><th>שורה תחתונה</th></tr></thead>
       <tbody>
-      <tr><td><a href="27-sec-threats.html"><strong>6.1</strong> · איומים</a></td><td>מה יכול להשתבש: Packet Sniffing (האזנה), ‏IP Spoofing (התחזות), ‏DoS/DDoS (הצפה). המסגרת: שלשת CIA.</td></tr>
-      <tr><td><a href="28-sec-crypto.html"><strong>6.2</strong> · הצפנה סימטרית/אסימטרית</a></td><td>סימטרי (DES/AES): מפתח אחד משותף, מהיר, בעיית הפצת מפתח. אסימטרי (RSA): זוג PK/SK, איטי פי ~1000.</td></tr>
-      <tr><td><a href="29-sec-signatures.html"><strong>6.3</strong> · חתימה דיגיטלית</a></td><td>הוכחת זהות ושלמות: חותמים על ה-Hash של ההודעה עם המפתח <strong>הפרטי</strong>; כל אחד מאמת עם הציבורי.</td></tr>
-      <tr><td><a href="30-sec-ssl.html"><strong>6.4</strong> · SSL/TLS</a></td><td>השילוב בפועל: RSA להחלפת מפתח סשן, ‏AES להצפנת הנתונים. יושב בין האפליקציה לתעבורה — הבסיס של HTTPS.</td></tr>
+      <tr><td><a href="27-sec-threats.html"><strong>6.1</strong> · איומים</a></td><td>מה יכול להשתבש: <bdi dir="ltr">Packet Sniffing</bdi> (האזנה), <bdi dir="ltr">IP Spoofing</bdi> (התחזות), <bdi dir="ltr">DoS/DDoS</bdi> (הצפה). המסגרת: שלשת <bdi dir="ltr">CIA</bdi>.</td></tr>
+      <tr><td><a href="28-sec-crypto.html"><strong>6.2</strong> · הצפנה סימטרית/אסימטרית</a></td><td>סימטרי (<bdi dir="ltr">DES/AES</bdi>): מפתח אחד משותף, מהיר, בעיית הפצת מפתח. אסימטרי (<bdi dir="ltr">RSA</bdi>): זוג <bdi dir="ltr">PK/SK</bdi>, איטי פי ~1000.</td></tr>
+      <tr><td><a href="29-sec-signatures.html"><strong>6.3</strong> · חתימה דיגיטלית</a></td><td>הוכחת זהות ושלמות: חותמים על ה-<bdi dir="ltr">Hash</bdi> של ההודעה עם המפתח <strong>הפרטי</strong>; כל אחד מאמת עם הציבורי.</td></tr>
+      <tr><td><a href="30-sec-ssl.html"><strong>6.4</strong> · SSL/TLS</a></td><td>השילוב בפועל: <bdi dir="ltr">RSA</bdi> להחלפת מפתח סשן, <bdi dir="ltr">AES</bdi> להצפנת הנתונים. יושב בין האפליקציה לתעבורה — הבסיס של <bdi dir="ltr">HTTPS</bdi>.</td></tr>
       </tbody>
     </table>
   </div>
@@ -432,11 +436,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box-body">
 
     <ul>
-      <li><strong>הצפנה אל X:</strong> ‏<span class="term">Enc(PK_X, M)</span> — עם המפתח <em>הציבורי</em> של המקבל.</li>
-      <li><strong>חתימה:</strong> ‏<span class="term">Enc(SK_שלי, Hash(M))</span> — עם המפתח <em>הפרטי</em> של השולח. הפוך מהצפנה!</li>
-      <li><strong>Brute Force על החלפה מונו-אלפביתית:</strong> שפה עם $n$ אותיות, $k$ מופיעות בטקסט: $\frac{n!}{(n-k)!}$ מפתחות; בממוצע בודקים חצי.</li>
-      <li><strong>DES:</strong> ‏56 ביט (חלש). ‏<strong>AES:</strong> ‏128/256. ‏<strong>RSA:</strong> ‏2048.</li>
-      <li><strong>RSA keygen:</strong> $n = pq$, ‏$\varphi = (p-1)(q-1)$, ‏$e \cdot d \equiv 1 \pmod{\varphi}$, ‏$1 \lt e \lt \varphi$.</li>
+      <li><strong>הצפנה אל <bdi dir="ltr">X</bdi>:</strong> <span class="term">Enc(PK_X, M)</span> — עם המפתח <em>הציבורי</em> של המקבל.</li>
+      <li><strong>חתימה:</strong> <span class="term">Enc(SK_שלי, Hash(M))</span> — עם המפתח <em>הפרטי</em> של השולח. הפוך מהצפנה!</li>
+      <li><strong><bdi dir="ltr">Brute Force</bdi> על החלפה מונו-אלפביתית:</strong> שפה עם $n$ אותיות, $k$ מופיעות בטקסט: $\frac{n!}{(n-k)!}$ מפתחות; בממוצע בודקים חצי.</li>
+      <li><strong>DES:</strong> 56 ביט (חלש). <strong>AES:</strong> 128/256. <strong>RSA:</strong> 2048.</li>
+      <li><strong>RSA keygen:</strong> $n = pq$, $\varphi = (p-1)(q-1)$, $e \cdot d \equiv 1 \pmod{\varphi}$, $1 \lt e \lt \varphi$.</li>
     </ul>
   </div>
 </div>
@@ -446,9 +450,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
     <ul>
       <li>הצפנה = מפתח ציבורי של <strong>המקבל</strong>; חתימה = מפתח פרטי של <strong>השולח</strong>. רוב הנקודות במבחן הולכות לאיבוד כאן.</li>
-      <li>MAC בהקשר אבטחה = ‏Message Authentication Code — נותן שלמות + אימות (לא סודיות!), ולא כתובת החומרה משכבה 2.</li>
-      <li>Nonce מונע <strong>Playback Attack</strong> — הקלטה של אימות ישן לא עונה על אתגר טרי.</li>
-      <li>SSL לא מחליף את TCP — הוא רץ <strong>מעליו</strong>, בין האפליקציה לתעבורה.</li>
+      <li><bdi dir="ltr">MAC</bdi> בהקשר אבטחה = <bdi dir="ltr">Message Authentication Code</bdi> — נותן שלמות + אימות (לא סודיות!), ולא כתובת החומרה משכבה 2.</li>
+      <li><bdi dir="ltr">Nonce</bdi> מונע <strong>Playback Attack</strong> — הקלטה של אימות ישן לא עונה על אתגר טרי.</li>
+      <li><bdi dir="ltr">SSL</bdi> לא מחליף את <bdi dir="ltr">TCP</bdi> — הוא רץ <strong>מעליו</strong>, בין האפליקציה לתעבורה.</li>
       <li>אסימטרי לא "יותר טוב" — הוא איטי מדי לנפחים גדולים; לכן תמיד משלבים (היברידי).</li>
     </ul>
   </div>
@@ -464,7 +468,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 <nav class="pager" aria-label="ניווט בין נושאים">
   <a class="prev" href="30-sec-ssl.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">SSL/TLS</span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
-  <a class="next" href="32-practice-cidr-delays.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">תרגול — IP, השהיות והצפנה</span></a>
+  <a class="next" href="32-practice-cidr-delays.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">תרגול — <bdi dir="ltr">IP</bdi>, השהיות והצפנה</span></a>
 </nav>
 
 </main>

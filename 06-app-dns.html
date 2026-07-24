@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,8 +414,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 1.5 · שכבת האפליקציה</span>
-  <h1 class="page-title">DNS — מערכת שמות הדומיינים</h1>
-  <p class="page-subtitle">איך www.amazon.com הופך ל-‎52.94.236.248 — מסע דרך עץ עולמי של שרתים.</p>
+  <h1 class="page-title"><bdi dir="ltr">DNS</bdi> — מערכת שמות הדומיינים</h1>
+  <p class="page-subtitle">איך <bdi dir="ltr">www.amazon.com</bdi> הופך ל-52.94.236.248 — מסע דרך עץ עולמי של שרתים.</p>
 
   <div class="figure">
     <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="היררכיית DNS">
@@ -472,91 +476,91 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <line x1="330" y1="236" x2="350" y2="270" stroke="#475569" stroke-width="1"/>
 
         <!-- Labels -->
-        <text x="40" y="42" font-size="10" fill="#1e1b4b" font-weight="700">רמה 0 ·</text>
-        <text x="40" y="122" font-size="10" fill="#4f46e5" font-weight="700">רמה 1 · TLD</text>
-        <text x="40" y="222" font-size="10" fill="#047857" font-weight="700">רמה 2 · Authoritative</text>
-        <text x="170" y="290" font-size="10" fill="#b45309" font-weight="700">רמה 3 · sub-domain</text>
+        <text x="40" y="42" font-size="10" fill="#1e1b4b" font-weight="700" direction="rtl">רמה 0 ·</text>
+        <text x="40" y="122" font-size="10" fill="#4f46e5" font-weight="700" direction="rtl">רמה 1 · TLD</text>
+        <text x="40" y="222" font-size="10" fill="#047857" font-weight="700" direction="rtl">רמה 2 · Authoritative</text>
+        <text x="170" y="290" font-size="10" fill="#b45309" font-weight="700" direction="rtl">רמה 3 · sub-domain</text>
       </g>
     </svg>
-    <div class="cap">DNS = עץ. Root בראש. תחתיו TLD (com, org, edu...). תחתיהם Authoritative (amazon.com).</div>
+    <div class="cap"><bdi dir="ltr">DNS</bdi> = עץ. <bdi dir="ltr">Root</bdi> בראש. תחתיו <bdi dir="ltr">TLD</bdi> (<bdi dir="ltr">com, org, edu</bdi>...). תחתיהם <bdi dir="ltr">Authoritative</bdi> (<bdi dir="ltr">amazon.com</bdi>).</div>
   </div>
 
   <p class="lead">
-    DNS הופך שמות אינטרנט (<span class="term">www.amazon.com</span>) ל-IP. הוא מיושם כ-<strong>בסיס נתונים מבוזר בעולם</strong> בצורת עץ. למבחן: <strong>לדעת את ההיררכיה</strong> (<span class="term">Root → TLD → Authoritative</span>), <strong>ההבדל בין שאילתה איטרטיבית לרקורסיבית</strong>, ו-<strong>סוגי הרשומות</strong>.
+    <bdi dir="ltr">DNS</bdi> הופך שמות אינטרנט (<span class="term">www.amazon.com</span>) ל-<bdi dir="ltr">IP</bdi>. הוא מיושם כ-<strong>בסיס נתונים מבוזר בעולם</strong> בצורת עץ. למבחן: <strong>לדעת את ההיררכיה</strong> (<span class="term">Root → TLD → Authoritative</span>), <strong>ההבדל בין שאילתה איטרטיבית לרקורסיבית</strong>, ו-<strong>סוגי הרשומות</strong>.
   </p>
 
-  <h2>למה DNS?</h2>
+  <h2>למה <bdi dir="ltr">DNS</bdi>?</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הבעיה</div>
     <div class="box-body">
-      <p>מחשב מזוהה ע״י IP (32 ביטים ב-IPv4). יש שתי בעיות:</p>
+      <p>מחשב מזוהה ע״י <bdi dir="ltr">IP</bdi> (32 ביטים ב-<bdi dir="ltr">IPv4</bdi>). יש שתי בעיות:</p>
       <ul>
-        <li>IP זה <strong>לא נוח לבני אדם</strong> — אף אחד לא יזכור <span class="term">52.94.236.248</span>.</li>
-        <li>IP <strong>יכול להשתנות</strong> — שרת עובר מ-data center אחד לשני, ה-IP משתנה אבל אנחנו רוצים שהשם יישאר.</li>
+        <li><bdi dir="ltr">IP</bdi> זה <strong>לא נוח לבני אדם</strong> — אף אחד לא יזכור <span class="term">52.94.236.248</span>.</li>
+        <li>IP <strong>יכול להשתנות</strong> — שרת עובר מ-<bdi dir="ltr">data center</bdi> אחד לשני, ה-<bdi dir="ltr">IP</bdi> משתנה אבל אנחנו רוצים שהשם יישאר.</li>
       </ul>
-      <p><strong>הפתרון:</strong> מערכת שתתרגם שם נוח (כמו <span class="term">www.amazon.com</span>) לכתובת IP.</p>
+      <p><strong>הפתרון:</strong> מערכת שתתרגם שם נוח (כמו <span class="term">www.amazon.com</span>) לכתובת <bdi dir="ltr">IP</bdi>.</p>
     </div>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>DNS — סקירה</div>
+    <div class="box-head"><span class="icon">📘</span><bdi dir="ltr">DNS</bdi> — סקירה</div>
     <div class="box-body">
       <ul>
         <li><strong>אפליקציה</strong> בשכבת האפליקציה — לא חלק מליבת הרשת.</li>
         <li>בסיס נתונים <strong>מבוזר</strong> בעולם, מבוסס על שרתי שמות.</li>
         <li>מסודר ב<strong>היררכיה (עץ)</strong>.</li>
-        <li>אם DNS קורס — הרשת ממשיכה לעבוד, רק שמות לא נפתרים. (אם יש לך כבר IP — אפשר להמשיך).</li>
-        <li>תומך ב<strong>אלייסים</strong> (שמות נרדפים) — דרך רשומות CNAME.</li>
-        <li>פורט DNS: <span class="term">53</span>. רץ מעל UDP (לבקשות קצרות).</li>
+        <li>אם <bdi dir="ltr">DNS</bdi> קורס — הרשת ממשיכה לעבוד, רק שמות לא נפתרים. (אם יש לך כבר <bdi dir="ltr">IP</bdi> — אפשר להמשיך).</li>
+        <li>תומך ב<strong>אלייסים</strong> (שמות נרדפים) — דרך רשומות <bdi dir="ltr">CNAME</bdi>.</li>
+        <li>פורט <bdi dir="ltr">DNS</bdi>: <span class="term">53</span>. רץ מעל <bdi dir="ltr">UDP</bdi> (לבקשות קצרות).</li>
       </ul>
     </div>
   </div>
 
-  <h2>היררכיית שרתי DNS</h2>
+  <h2>היררכיית שרתי <bdi dir="ltr">DNS</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>3 רמות</div>
     <div class="box-body">
-      <h4>‎1. Root Name Server</h4>
+      <h4>1. Root Name Server</h4>
       <ul>
         <li>שרת השורש של ההיררכיה.</li>
         <li>נקודת ההתחלה של כל חיפוש (אם אין במטמון).</li>
-        <li>כל שרת DNS מכיר את ה-IP שלו.</li>
+        <li>כל שרת <bdi dir="ltr">DNS</bdi> מכיר את ה-<bdi dir="ltr">IP</bdi> שלו.</li>
         <li>13 שרתים בעולם (אבל כל אחד עם הרבה רפליקות).</li>
-        <li>לא יודע IP-ים סופיים — יודע רק <strong>איפה למצוא את ה-TLDs</strong>.</li>
+        <li>לא יודע <bdi dir="ltr">IP</bdi>-ים סופיים — יודע רק <strong>איפה למצוא את ה-<bdi dir="ltr">TLDs</bdi></strong>.</li>
       </ul>
 
       <h4>2. TLD — Top Level Domain</h4>
       <ul>
         <li>שרתים שמטפלים בסיומות: <span class="term">.com</span>, <span class="term">.org</span>, <span class="term">.edu</span>, <span class="term">.gov</span>, <span class="term">.il</span>, <span class="term">.de</span>...</li>
-        <li>מנוהלים ע״י ארגונים גדולים (Verisign מנהלת את <span class="term">.com</span>).</li>
-        <li>לא יודעים IP סופי — יודעים <strong>איפה לחפש את ה-Authoritative</strong>.</li>
+        <li>מנוהלים ע״י ארגונים גדולים (<bdi dir="ltr">Verisign</bdi> מנהלת את <span class="term">.com</span>).</li>
+        <li>לא יודעים <bdi dir="ltr">IP</bdi> סופי — יודעים <strong>איפה לחפש את ה-<bdi dir="ltr">Authoritative</bdi></strong>.</li>
       </ul>
 
-      <h4>‎3. Authoritative Name Server</h4>
+      <h4>3. Authoritative Name Server</h4>
       <ul>
-        <li>השרת ש<strong>באמת יודע</strong> את ה-IP של דומיין מסוים.</li>
-        <li>מתוחזק ע״י <strong>בעלי הדומיין</strong> (אמאזון מתחזקת את amazon.com).</li>
+        <li>השרת ש<strong>באמת יודע</strong> את ה-<bdi dir="ltr">IP</bdi> של דומיין מסוים.</li>
+        <li>מתוחזק ע״י <strong>בעלי הדומיין</strong> (אמאזון מתחזקת את <bdi dir="ltr">amazon.com</bdi>).</li>
         <li>מחזיק את כל רשומות הדומיין: <span class="term">www.amazon.com</span>, <span class="term">shop.amazon.com</span>, וכו'.</li>
       </ul>
     </div>
   </div>
 
   <div class="box warn">
-    <div class="box-head"><span class="icon">⚠</span>Local DNS Server — חוץ מההיררכיה</div>
+    <div class="box-head"><span class="icon">⚠</span><bdi dir="ltr">Local DNS Server</bdi> — חוץ מההיררכיה</div>
     <div class="box-body">
       <p><strong>Local Name Server</strong> אינו חלק מההיררכיה הפורמלית. הוא:</p>
       <ul>
-        <li>שרת DNS שמסופק ע״י ה-ISP שלך (או שאתה מגדיר ידנית, כמו ‎8.8.8.8 של גוגל).</li>
-        <li>מתפקד כ<strong>פרוקסי לשמות</strong> — אם מישהו ברשת שלך כבר שאל את אותה שאלה, התשובה במטמון של ה-Local.</li>
+        <li>שרת <bdi dir="ltr">DNS</bdi> שמסופק ע״י ה-<bdi dir="ltr">ISP</bdi> שלך (או שאתה מגדיר ידנית, כמו 8.8.8.8 של גוגל).</li>
+        <li>מתפקד כ<strong>פרוקסי לשמות</strong> — אם מישהו ברשת שלך כבר שאל את אותה שאלה, התשובה במטמון של ה-<bdi dir="ltr">Local</bdi>.</li>
         <li>פנייה ראשונה של המחשב שלך תמיד תהיה אליו.</li>
         <li>אם הוא לא יודע — הוא יפנה לשאר ההיררכיה.</li>
       </ul>
     </div>
   </div>
 
-  <h2>‎2 סוגי שאילתות — איטרטיבי ורקורסיבי</h2>
+  <h2>2 סוגי שאילתות — איטרטיבי ורקורסיבי</h2>
 
   <div class="figure">
     <svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="שאילתה איטרטיבית">
@@ -567,12 +571,12 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </defs>
       <g font-family="Assistant, sans-serif" font-size="11">
         <!-- Title -->
-        <text x="360" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#4f46e5">שאילתה איטרטיבית (Iterative)</text>
+        <text x="360" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#4f46e5" direction="rtl">שאילתה איטרטיבית (Iterative)</text>
 
         <!-- Client (NYU) -->
         <circle cx="80" cy="170" r="30" fill="#fef9e7" stroke="#b45309" stroke-width="2"/>
         <text x="80" y="168" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700">cis.poly</text>
-        <text x="80" y="180" text-anchor="middle" font-size="9" fill="#b45309">(לקוח NYU)</text>
+        <text x="80" y="180" text-anchor="middle" font-size="9" fill="#b45309" direction="rtl">(לקוח NYU)</text>
 
         <!-- Local DNS -->
         <rect x="180" y="140" width="100" height="60" rx="8" fill="#f5f3ff" stroke="#6d28d9" stroke-width="2"/>
@@ -594,105 +598,105 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
         <!-- Step 1: Client to Local -->
         <line x1="110" y1="170" x2="178" y2="170" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#arrIter)"/>
-        <text x="145" y="160" text-anchor="middle" font-size="9" fill="#4f46e5" font-weight="700">1. שאילתה</text>
+        <text x="145" y="160" text-anchor="middle" font-size="9" fill="#4f46e5" font-weight="700" direction="rtl">1. שאילתה</text>
         <text x="145" y="195" text-anchor="middle" font-size="8" fill="#4f46e5">"gaia.cs.umass.edu?"</text>
 
         <!-- Step 2: Local to Root -->
         <line x1="270" y1="145" x2="380" y2="75" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#arrIter)"/>
-        <text x="310" y="100" text-anchor="middle" font-size="9" fill="#4f46e5" font-weight="700">2. שואל Root</text>
+        <text x="310" y="100" text-anchor="middle" font-size="9" fill="#4f46e5" font-weight="700" direction="rtl">2. שואל Root</text>
 
         <!-- Step 3: Root replies "ask edu" -->
         <line x1="380" y1="85" x2="280" y2="155" stroke="#047857" stroke-width="1.5" marker-end="url(#arrIter)"/>
-        <text x="340" y="135" text-anchor="middle" font-size="9" fill="#047857" font-weight="700">3. "שאל את .edu"</text>
+        <text x="340" y="135" text-anchor="middle" font-size="9" fill="#047857" font-weight="700" direction="rtl">3. "שאל את .edu"</text>
 
         <!-- Step 4: Local to TLD -->
         <line x1="280" y1="165" x2="540" y2="150" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#arrIter)"/>
-        <text x="400" y="155" text-anchor="middle" font-size="9" fill="#4f46e5" font-weight="700">4. שואל TLD</text>
+        <text x="400" y="155" text-anchor="middle" font-size="9" fill="#4f46e5" font-weight="700" direction="rtl">4. שואל TLD</text>
 
         <!-- Step 5: TLD replies "ask umass" -->
         <line x1="540" y1="170" x2="280" y2="185" stroke="#047857" stroke-width="1.5" marker-end="url(#arrIter)"/>
-        <text x="400" y="200" text-anchor="middle" font-size="9" fill="#047857" font-weight="700">5. "שאל את umass.edu"</text>
+        <text x="400" y="200" text-anchor="middle" font-size="9" fill="#047857" font-weight="700" direction="rtl">5. "שאל את umass.edu"</text>
 
         <!-- Step 6: Local to Auth -->
         <line x1="280" y1="195" x2="540" y2="290" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#arrIter)"/>
-        <text x="430" y="245" text-anchor="middle" font-size="9" fill="#4f46e5" font-weight="700">6. שואל Auth.</text>
+        <text x="430" y="245" text-anchor="middle" font-size="9" fill="#4f46e5" font-weight="700" direction="rtl">6. שואל Auth.</text>
 
         <!-- Step 7: Auth replies IP -->
         <line x1="540" y1="305" x2="280" y2="200" stroke="#047857" stroke-width="2" marker-end="url(#arrIter)"/>
-        <text x="430" y="290" text-anchor="middle" font-size="9" fill="#047857" font-weight="700">7. ה-IP! ✓</text>
+        <text x="430" y="290" text-anchor="middle" font-size="9" fill="#047857" font-weight="700" direction="rtl">7. ה-IP! ✓</text>
 
         <!-- Step 8: Local replies to client -->
         <line x1="178" y1="180" x2="110" y2="180" stroke="#047857" stroke-width="2" marker-end="url(#arrIter)"/>
-        <text x="145" y="215" text-anchor="middle" font-size="9" fill="#047857" font-weight="700">8. IP ללקוח</text>
+        <text x="145" y="215" text-anchor="middle" font-size="9" fill="#047857" font-weight="700" direction="rtl">8. IP ללקוח</text>
 
         <!-- Note -->
-        <text x="360" y="345" text-anchor="middle" font-size="10" fill="#78716c" font-style="italic">Local DNS עושה את כל העבודה — כל שרת בהיררכיה רק מצביע על הבא</text>
+        <text x="360" y="345" text-anchor="middle" font-size="10" fill="#78716c" font-style="italic" direction="rtl">Local DNS עושה את כל העבודה — כל שרת בהיררכיה רק מצביע על הבא</text>
       </g>
     </svg>
-    <div class="cap">איטרטיבי: Local DNS שואל כל שרת בעצמו. כל שרת מצביע על הבא, לא ממשיך לבד.</div>
+    <div class="cap">איטרטיבי: <bdi dir="ltr">Local DNS</bdi> שואל כל שרת בעצמו. כל שרת מצביע על הבא, לא ממשיך לבד.</div>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>שאילתה איטרטיבית (Iterative)</div>
+    <div class="box-head"><span class="icon">📘</span>שאילתה איטרטיבית (<bdi dir="ltr">Iterative</bdi>)</div>
     <div class="box-body">
-      <p>ה-Local DNS עושה את כל החיפוש. כל שרת ב-Hierarchy <strong>רק מצביע</strong> על השרת הבא — לא מבצע חיפוש בעצמו.</p>
-      <h4>שלבים (לדומיין gaia.cs.umass.edu)</h4>
+      <p>ה-<bdi dir="ltr">Local DNS</bdi> עושה את כל החיפוש. כל שרת ב-<bdi dir="ltr">Hierarchy</bdi> <strong>רק מצביע</strong> על השרת הבא — לא מבצע חיפוש בעצמו.</p>
+      <h4>שלבים (לדומיין <bdi dir="ltr">gaia.cs.umass.edu</bdi>)</h4>
       <ol>
-        <li>הלקוח (cis.poly) שואל את ה-Local DNS.</li>
-        <li>Local DNS שואל את ה-Root.</li>
-        <li>Root עונה: "שאל את ה-TLD של .edu".</li>
-        <li>Local DNS שואל את TLD .edu.</li>
-        <li>TLD עונה: "שאל את Authoritative של umass.edu".</li>
-        <li>Local DNS שואל את ה-Auth.</li>
-        <li>Auth מחזיר את ה-IP.</li>
-        <li>Local DNS מחזיר את ה-IP ללקוח.</li>
+        <li>הלקוח (<bdi dir="ltr">cis.poly</bdi>) שואל את ה-<bdi dir="ltr">Local DNS</bdi>.</li>
+        <li><bdi dir="ltr">Local DNS</bdi> שואל את ה-<bdi dir="ltr">Root</bdi>.</li>
+        <li><bdi dir="ltr">Root</bdi> עונה: "שאל את ה-<bdi dir="ltr">TLD</bdi> של .<bdi dir="ltr">edu</bdi>".</li>
+        <li><bdi dir="ltr">Local DNS</bdi> שואל את <bdi dir="ltr">TLD .edu</bdi>.</li>
+        <li><bdi dir="ltr">TLD</bdi> עונה: "שאל את <bdi dir="ltr">Authoritative</bdi> של <bdi dir="ltr">umass.edu</bdi>".</li>
+        <li><bdi dir="ltr">Local DNS</bdi> שואל את ה-<bdi dir="ltr">Auth</bdi>.</li>
+        <li><bdi dir="ltr">Auth</bdi> מחזיר את ה-<bdi dir="ltr">IP</bdi>.</li>
+        <li><bdi dir="ltr">Local DNS</bdi> מחזיר את ה-<bdi dir="ltr">IP</bdi> ללקוח.</li>
       </ol>
-      <p><strong>היתרון:</strong> השרתים בהיררכיה (Root, TLD) <strong>לא בעומס</strong> — הם רק נותנים תשובה קצרה ולא ממשיכים.</p>
+      <p><strong>היתרון:</strong> השרתים בהיררכיה (<bdi dir="ltr">Root, TLD</bdi>) <strong>לא בעומס</strong> — הם רק נותנים תשובה קצרה ולא ממשיכים.</p>
     </div>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>שאילתה רקורסיבית (Recursive)</div>
+    <div class="box-head"><span class="icon">📘</span>שאילתה רקורסיבית (<bdi dir="ltr">Recursive</bdi>)</div>
     <div class="box-body">
-      <p>במקום שה-Local DNS יעבור שרת-שרת — <strong>הוא שואל את ה-Root, וה-Root ממשיך בעצמו:</strong> שואל את ה-TLD, שמשאל את ה-Auth, והתשובה <strong>חוזרת בשרשרת</strong>.</p>
+      <p>במקום שה-<bdi dir="ltr">Local DNS</bdi> יעבור שרת-שרת — <strong>הוא שואל את ה-<bdi dir="ltr">Root</bdi>, וה-<bdi dir="ltr">Root</bdi> ממשיך בעצמו:</strong> שואל את ה-<bdi dir="ltr">TLD</bdi>, שמשאל את ה-<bdi dir="ltr">Auth</bdi>, והתשובה <strong>חוזרת בשרשרת</strong>.</p>
       <h4>תהליך</h4>
       <ol>
-        <li>Local DNS שואל את ה-Root: "מה ה-IP של gaia.cs.umass.edu?"</li>
-        <li>Root שואל את TLD .edu (במקום להפנות).</li>
-        <li>TLD שואל את ה-Auth.</li>
-        <li>Auth מחזיר ל-TLD.</li>
-        <li>TLD מחזיר ל-Root.</li>
-        <li>Root מחזיר ל-Local.</li>
-        <li>Local מחזיר ללקוח.</li>
+        <li><bdi dir="ltr">Local DNS</bdi> שואל את ה-<bdi dir="ltr">Root</bdi>: "מה ה-<bdi dir="ltr">IP</bdi> של <bdi dir="ltr">gaia.cs.umass.edu</bdi>?"</li>
+        <li><bdi dir="ltr">Root</bdi> שואל את <bdi dir="ltr">TLD .edu</bdi> (במקום להפנות).</li>
+        <li><bdi dir="ltr">TLD</bdi> שואל את ה-<bdi dir="ltr">Auth</bdi>.</li>
+        <li><bdi dir="ltr">Auth</bdi> מחזיר ל-<bdi dir="ltr">TLD</bdi>.</li>
+        <li><bdi dir="ltr">TLD</bdi> מחזיר ל-<bdi dir="ltr">Root</bdi>.</li>
+        <li><bdi dir="ltr">Root</bdi> מחזיר ל-<bdi dir="ltr">Local</bdi>.</li>
+        <li><bdi dir="ltr">Local</bdi> מחזיר ללקוח.</li>
       </ol>
-      <p><strong>החיסרון:</strong> ה-Root וה-TLD נכנסים לעומס גדול — הם עושים יותר עבודה.</p>
-      <p>בעולם האמיתי: Root ו-TLD מסרבים לרקורסיה. רק Local DNS בדרך כלל מאפשר אותה.</p>
+      <p><strong>החיסרון:</strong> ה-<bdi dir="ltr">Root</bdi> וה-<bdi dir="ltr">TLD</bdi> נכנסים לעומס גדול — הם עושים יותר עבודה.</p>
+      <p>בעולם האמיתי: <bdi dir="ltr">Root</bdi> ו-<bdi dir="ltr">TLD</bdi> מסרבים לרקורסיה. רק <bdi dir="ltr">Local DNS</bdi> בדרך כלל מאפשר אותה.</p>
     </div>
   </div>
 
   <div class="keypoint">
-    <strong>למה איטרטיבי עדיף בעולם?</strong> כי הוא <strong>מקל על שרתי השורש</strong>. אם כל בקשה הייתה רקורסיבית — Root ו-TLD היו קורסים. איטרטיבי מפזר את העומס.
+    <strong>למה איטרטיבי עדיף בעולם?</strong> כי הוא <strong>מקל על שרתי השורש</strong>. אם כל בקשה הייתה רקורסיבית — <bdi dir="ltr">Root</bdi> ו-<bdi dir="ltr">TLD</bdi> היו קורסים. איטרטיבי מפזר את העומס.
   </div>
 
-  <h2>Caching ב-DNS</h2>
+  <h2><bdi dir="ltr">Caching</bdi> ב-<bdi dir="ltr">DNS</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>שמירת תשובות</div>
     <div class="box-body">
-      <p>כששרת DNS מקבל תשובה — הוא <strong>שומר אותה במטמון</strong> לפעמים הבאות.</p>
-      <p>לכל רשומה יש <strong>TTL — Time To Live</strong> בשניות. אחרי שה-TTL פוקע, השרת מוחק את המטמון של הרשומה הזו.</p>
+      <p>כששרת <bdi dir="ltr">DNS</bdi> מקבל תשובה — הוא <strong>שומר אותה במטמון</strong> לפעמים הבאות.</p>
+      <p>לכל רשומה יש <strong>TTL — Time To Live</strong> בשניות. אחרי שה-<bdi dir="ltr">TTL</bdi> פוקע, השרת מוחק את המטמון של הרשומה הזו.</p>
       <h4>יתרונות</h4>
       <ul>
         <li>חיפוש מהיר יותר.</li>
         <li>פחות תנועה באינטרנט.</li>
-        <li>פחות עומס על Root ו-TLD (דומיינים נפוצים תמיד במטמון של Local DNS).</li>
+        <li>פחות עומס על <bdi dir="ltr">Root</bdi> ו-<bdi dir="ltr">TLD</bdi> (דומיינים נפוצים תמיד במטמון של <bdi dir="ltr">Local DNS</bdi>).</li>
       </ul>
       <h4>חיסרון</h4>
-      <p>אם IP של שרת השתנה — המטמון לא יודע. ה-TTL נועד לטפל בזה — בעלי דומיינים מגדירים TTL קצר אם הם מצפים לשינויים.</p>
+      <p>אם <bdi dir="ltr">IP</bdi> של שרת השתנה — המטמון לא יודע. ה-<bdi dir="ltr">TTL</bdi> נועד לטפל בזה — בעלי דומיינים מגדירים <bdi dir="ltr">TTL</bdi> קצר אם הם מצפים לשינויים.</p>
     </div>
   </div>
 
-  <h2>סוגי רשומות (Resource Records)</h2>
+  <h2>סוגי רשומות (<bdi dir="ltr">Resource Records</bdi>)</h2>
 
   <table>
     <thead>
@@ -701,15 +705,15 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <tbody>
       <tr>
         <td><strong>A</strong></td>
-        <td>מיפוי שם דומיין ל-IP</td>
+        <td>מיפוי שם דומיין ל-<bdi dir="ltr">IP</bdi></td>
         <td>example.com</td>
-        <td>‎93.129.0.24</td>
+        <td>93.129.0.24</td>
       </tr>
       <tr>
         <td><strong>CNAME</strong></td>
-        <td>שם נרדף (alias)</td>
+        <td>שם נרדף (<bdi dir="ltr">alias</bdi>)</td>
         <td>www.example.com</td>
-        <td>example.com (השם האמיתי)</td>
+        <td><bdi dir="ltr">example.com</bdi> (השם האמיתי)</td>
       </tr>
       <tr>
         <td><strong>NS</strong></td>
@@ -727,13 +731,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   </table>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>מבנה הודעת DNS</div>
+    <div class="box-head"><span class="icon">📘</span>מבנה הודעת <bdi dir="ltr">DNS</bdi></div>
     <div class="box-body">
       <p>שאילתה ותגובה משתמשות באותו פורמט (חוסך עיבוד אצל השרת).</p>
-      <h4>Header (12 בתים)</h4>
+      <h4><bdi dir="ltr">Header</bdi> (12 בתים)</h4>
       <ul>
-        <li><strong>Identification (16 ביט):</strong> ‎ID של השאילתה — כך התגובה תוכל להיות מקושרת לבקשה הנכונה.</li>
-        <li><strong>Flags:</strong> שאילתה/תגובה, האם רקורסיבי, האם authoritative.</li>
+        <li><strong><bdi dir="ltr">Identification</bdi> (16 ביט):</strong> <bdi dir="ltr">ID</bdi> של השאילתה — כך התגובה תוכל להיות מקושרת לבקשה הנכונה.</li>
+        <li><strong>Flags:</strong> שאילתה/תגובה, האם רקורסיבי, האם <bdi dir="ltr">authoritative</bdi>.</li>
         <li><strong># questions, # answers, # authority, # additional:</strong> כמה רשומות בכל חלק.</li>
       </ul>
       <h4>Body</h4>
@@ -746,19 +750,19 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     </div>
   </div>
 
-  <h2>אבטחת DNS</h2>
+  <h2>אבטחת <bdi dir="ltr">DNS</bdi></h2>
 
   <div class="box warn">
     <div class="box-head"><span class="icon">⚠</span>איומים</div>
     <div class="box-body">
-      <h4>DDoS על Root</h4>
-      <p>הצפת שרתי Root. עד עכשיו לא הצליח — מוגן ע״י סינון תעבורה. גם אם יצליח חלקית, רוב הדומיינים הנפוצים במטמון של ה-Locals.</p>
+      <h4><bdi dir="ltr">DDoS</bdi> על <bdi dir="ltr">Root</bdi></h4>
+      <p>הצפת שרתי <bdi dir="ltr">Root</bdi>. עד עכשיו לא הצליח — מוגן ע״י סינון תעבורה. גם אם יצליח חלקית, רוב הדומיינים הנפוצים במטמון של ה-<bdi dir="ltr">Locals</bdi>.</p>
 
-      <h4>DDoS על TLD</h4>
-      <p>מסוכן יותר. אם TLD .com יורד, אתרים נפוצים יכולים להפוך לבלתי נגישים.</p>
+      <h4><bdi dir="ltr">DDoS</bdi> על <bdi dir="ltr">TLD</bdi></h4>
+      <p>מסוכן יותר. אם <bdi dir="ltr">TLD .com</bdi> יורד, אתרים נפוצים יכולים להפוך לבלתי נגישים.</p>
 
       <h4>DNS Spoofing</h4>
-      <p>תוקף מחזיר תגובות זדוניות לשאילתות DNS. אם הקש שומר אותה — כל מי שישאל יקבל IP זדוני. הפתרון: <strong>DNSSEC</strong> — חתימה דיגיטלית על תגובות.</p>
+      <p>תוקף מחזיר תגובות זדוניות לשאילתות <bdi dir="ltr">DNS</bdi>. אם הקש שומר אותה — כל מי שישאל יקבל <bdi dir="ltr">IP</bdi> זדוני. הפתרון: <strong>DNSSEC</strong> — חתימה דיגיטלית על תגובות.</p>
     </div>
   </div>
 
@@ -767,54 +771,54 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגיל בית 1 · שאלה 2.1</span>
-      <p>מנו <strong>שלוש סיבות עיקריות</strong> לכך שאין שרת DNS אחד עולמי. (גודל, קרבה, ושרידות survivability).</p>
+      <p>מנו <strong>שלוש סיבות עיקריות</strong> לכך שאין שרת <bdi dir="ltr">DNS</bdi> אחד עולמי. (גודל, קרבה, ושרידות <bdi dir="ltr">survivability</bdi>).</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">‎1. גודל (Size)</div>
+        <div class="step-label">1. גודל (<bdi dir="ltr">Size</bdi>)</div>
         <p>יש <strong>מיליארדי דומיינים</strong> רשומים בעולם. שרת אחד לא יוכל להחזיק את הטבלה הענקית הזו. גם אם יוכל — חיפוש בה יהיה איטי מאוד.</p>
       </div>
       <div class="step">
-        <div class="step-label">‎2. קרבה לאזורים שונים</div>
-        <p>אם שרת ה-DNS היחיד בארה״ב, כל בקשה מישראל תעבור את האוקיינוס — פרופגיישן גבוה, חוויה איטית. <strong>פיזור גיאוגרפי</strong> מקרב את ה-DNS למשתמשים.</p>
+        <div class="step-label">2. קרבה לאזורים שונים</div>
+        <p>אם שרת ה-<bdi dir="ltr">DNS</bdi> היחיד בארה״ב, כל בקשה מישראל תעבור את האוקיינוס — פרופגיישן גבוה, חוויה איטית. <strong>פיזור גיאוגרפי</strong> מקרב את ה-<bdi dir="ltr">DNS</bdi> למשתמשים.</p>
       </div>
       <div class="step">
-        <div class="step-label">‎3. שרידות (Survivability)</div>
-        <p>אם השרת היחיד יורד — <strong>כל האינטרנט מפסיק לעבוד</strong> (שמות לא נפתרים). שרת בודד הוא Single Point of Failure. ‎13 שרתי Root + רפליקות = עמידות לקריסות.</p>
+        <div class="step-label">3. שרידות (<bdi dir="ltr">Survivability</bdi>)</div>
+        <p>אם השרת היחיד יורד — <strong>כל האינטרנט מפסיק לעבוד</strong> (שמות לא נפתרים). שרת בודד הוא <bdi dir="ltr">Single Point of Failure. 13</bdi> שרתי <bdi dir="ltr">Root</bdi> + רפליקות = עמידות לקריסות.</p>
       </div>
-      <div class="final-answer">‎3 סיבות: גודל, קרבה גאוגרפית, ושרידות. כולן מצדיקות מערכת מבוזרת.</div>
+      <div class="final-answer">3 סיבות: גודל, קרבה גאוגרפית, ושרידות. כולן מצדיקות מערכת מבוזרת.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגיל בית 1 · שאלה 2.2 · ממבחן 2010</span>
-      <p>סטודנט נדרש לכתוב פונקצית שירות של ‎OS עבור דפדפנים — מקבלת URL ומחזירה IP. נתון שאין תמיכה בשאילתות רקורסיביות בשרת ה-DNS המקומי, אך יש תמיכה רקורסיבית בשרתי DNS אחרים. תארו מימוש אפשרי.</p>
+      <p>סטודנט נדרש לכתוב פונקצית שירות של <bdi dir="ltr">OS</bdi> עבור דפדפנים — מקבלת <bdi dir="ltr">URL</bdi> ומחזירה <bdi dir="ltr">IP</bdi>. נתון שאין תמיכה בשאילתות רקורסיביות בשרת ה-<bdi dir="ltr">DNS</bdi> המקומי, אך יש תמיכה רקורסיבית בשרתי <bdi dir="ltr">DNS</bdi> אחרים. תארו מימוש אפשרי.</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">המגבלה</div>
-        <p>ה-Local DNS לא יודע לעשות רקורסיה. אם נשאל אותו על gaia.cs.umass.edu והוא לא יודע, הוא יחזיר רק "תפנה לשרת אחר" ולא ימשיך.</p>
+        <p>ה-<bdi dir="ltr">Local DNS</bdi> לא יודע לעשות רקורסיה. אם נשאל אותו על <bdi dir="ltr">gaia.cs.umass.edu</bdi> והוא לא יודע, הוא יחזיר רק "תפנה לשרת אחר" ולא ימשיך.</p>
       </div>
       <div class="step">
         <div class="step-label">המימוש</div>
         <p>הפונקציה תבצע <strong>שאילתה איטרטיבית בעצמה:</strong></p>
         <ol>
-          <li>שואלת את ה-Local DNS. אם יש לו תשובה (במטמון) — מחזירה.</li>
-          <li>אם לא — הלוקאל יחזיר "שאל את ה-Root" עם ה-IP שלו.</li>
-          <li>הפונקציה שולחת שאילתה ל-Root. ה-Root יחזיר "שאל את ה-TLD" (לדוגמה .edu).</li>
-          <li>הפונקציה שולחת ל-TLD. הוא יחזיר "שאל את ‎umass.edu Auth".</li>
-          <li>הפונקציה שולחת ל-Auth. הוא יחזיר את ה-IP.</li>
-          <li>מחזירים ל-Browser.</li>
+          <li>שואלת את ה-<bdi dir="ltr">Local DNS</bdi>. אם יש לו תשובה (במטמון) — מחזירה.</li>
+          <li>אם לא — הלוקאל יחזיר "שאל את ה-<bdi dir="ltr">Root</bdi>" עם ה-<bdi dir="ltr">IP</bdi> שלו.</li>
+          <li>הפונקציה שולחת שאילתה ל-<bdi dir="ltr">Root</bdi>. ה-<bdi dir="ltr">Root</bdi> יחזיר "שאל את ה-<bdi dir="ltr">TLD</bdi>" (לדוגמה .<bdi dir="ltr">edu</bdi>).</li>
+          <li>הפונקציה שולחת ל-<bdi dir="ltr">TLD</bdi>. הוא יחזיר "שאל את <bdi dir="ltr">umass.edu Auth</bdi>".</li>
+          <li>הפונקציה שולחת ל-<bdi dir="ltr">Auth</bdi>. הוא יחזיר את ה-<bdi dir="ltr">IP</bdi>.</li>
+          <li>מחזירים ל-<bdi dir="ltr">Browser</bdi>.</li>
         </ol>
       </div>
       <div class="step">
         <div class="step-label">חלופה — תשתמש בשרת רקורסיבי אחר</div>
-        <p>אם ב-OS מוגדר שרת רקורסיבי חיצוני (לדוגמה ‎8.8.8.8 של גוגל), פשוט נפנה אליו — הוא יעשה את כל העבודה ויחזיר IP.</p>
+        <p>אם ב-<bdi dir="ltr">OS</bdi> מוגדר שרת רקורסיבי חיצוני (לדוגמה 8.8.8.8 של גוגל), פשוט נפנה אליו — הוא יעשה את כל העבודה ויחזיר <bdi dir="ltr">IP</bdi>.</p>
       </div>
-      <div class="final-answer">או הפונקציה עושה איטרציה בעצמה, או היא מפנה לשרת DNS רקורסיבי חיצוני (כמו DNS פומבי).</div>
+      <div class="final-answer">או הפונקציה עושה איטרציה בעצמה, או היא מפנה לשרת <bdi dir="ltr">DNS</bdi> רקורסיבי חיצוני (כמו <bdi dir="ltr">DNS</bdi> פומבי).</div>
     </div>
   </div>
 
@@ -826,35 +830,35 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">‎3 סוגי השרתים</div>
+        <div class="step-label">3 סוגי השרתים</div>
         <ul>
-          <li><strong>Local Name Server:</strong> שרת DNS שמספק ה-ISP שלך. הפנייה הראשונה של המחשב. לא חלק מההיררכיה הפורמלית — מתפקד כפרוקסי לשמות.</li>
-          <li><strong>Root Name Server:</strong> שרת השורש של ההיררכיה. 13 שרתים בעולם (עם רפליקות). יודע איפה ה-TLDs.</li>
-          <li><strong>Authoritative Name Server:</strong> השרת שאחראי על דומיין ספציפי. יודע את ה-IP הסופי. מתוחזק ע״י בעלי הדומיין.</li>
+          <li><strong>Local Name Server:</strong> שרת <bdi dir="ltr">DNS</bdi> שמספק ה-<bdi dir="ltr">ISP</bdi> שלך. הפנייה הראשונה של המחשב. לא חלק מההיררכיה הפורמלית — מתפקד כפרוקסי לשמות.</li>
+          <li><strong>Root Name Server:</strong> שרת השורש של ההיררכיה. 13 שרתים בעולם (עם רפליקות). יודע איפה ה-<bdi dir="ltr">TLDs</bdi>.</li>
+          <li><strong>Authoritative Name Server:</strong> השרת שאחראי על דומיין ספציפי. יודע את ה-<bdi dir="ltr">IP</bdi> הסופי. מתוחזק ע״י בעלי הדומיין.</li>
         </ul>
       </div>
       <div class="step">
         <div class="step-label">למה איטרטיבי עדיף</div>
-        <p>איטרטיבי <strong>מקל על שרתי השורש וה-TLD:</strong></p>
+        <p>איטרטיבי <strong>מקל על שרתי השורש וה-<bdi dir="ltr">TLD</bdi>:</strong></p>
         <ul>
-          <li>ב-Iterative: Root מקבל שאלה, נותן תשובה קצרה, ושכח.</li>
-          <li>ב-Recursive: Root מקבל שאלה, ממשיך לשאול בעצמו את TLD, ממתין, מקבל תשובה, מעביר חזרה. הוא <strong>חייב לעבוד יותר ולזכור</strong>.</li>
+          <li>ב-<bdi dir="ltr">Iterative</bdi>: <bdi dir="ltr">Root</bdi> מקבל שאלה, נותן תשובה קצרה, ושכח.</li>
+          <li>ב-<bdi dir="ltr">Recursive</bdi>: <bdi dir="ltr">Root</bdi> מקבל שאלה, ממשיך לשאול בעצמו את <bdi dir="ltr">TLD</bdi>, ממתין, מקבל תשובה, מעביר חזרה. הוא <strong>חייב לעבוד יותר ולזכור</strong>.</li>
         </ul>
-        <p>בהתחשב שיש <strong>טריליוני בקשות DNS ביום</strong>, איטרטיבי הוא היחיד שיכול לשרוד.</p>
+        <p>בהתחשב שיש <strong>טריליוני בקשות <bdi dir="ltr">DNS</bdi> ביום</strong>, איטרטיבי הוא היחיד שיכול לשרוד.</p>
       </div>
-      <div class="final-answer">איטרטיבי = פחות עומס על שרתי הליבה. הוא <strong>מקל על Root ו-TLD</strong>, וזו הסיבה שהמערכת בעולם בנויה ככה.</div>
+      <div class="final-answer">איטרטיבי = פחות עומס על שרתי הליבה. הוא <strong>מקל על <bdi dir="ltr">Root</bdi> ו-<bdi dir="ltr">TLD</bdi></strong>, וזו הסיבה שהמערכת בעולם בנויה ככה.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">סיכום למבחן · נקודות עיקריות</span>
-      <p>בחר את ההצהרות הנכונות לגבי DNS:</p>
+      <p>בחר את ההצהרות הנכונות לגבי <bdi dir="ltr">DNS</bdi>:</p>
       <ol style="list-style: hebrew;">
-        <li>מערך שרתי ה-DNS בעולם הוא מבוזר</li>
-        <li>מערך שרתי ה-DNS הוא סדרתי</li>
-        <li>שרתי ה-DNS שייכים לגופים פרטיים בלבד</li>
-        <li>אם DNS קורס — כל האינטרנט מפסיק לעבוד</li>
+        <li>מערך שרתי ה-<bdi dir="ltr">DNS</bdi> בעולם הוא מבוזר</li>
+        <li>מערך שרתי ה-<bdi dir="ltr">DNS</bdi> הוא סדרתי</li>
+        <li>שרתי ה-<bdi dir="ltr">DNS</bdi> שייכים לגופים פרטיים בלבד</li>
+        <li>אם <bdi dir="ltr">DNS</bdi> קורס — כל האינטרנט מפסיק לעבוד</li>
       </ol>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
@@ -862,27 +866,27 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <div class="step">
         <div class="step-label">בדיקה משפט-משפט</div>
         <ul>
-          <li><strong><bdi>1. מבוזר ✓ נכון.</bdi></strong> מיליוני שרתי DNS בעולם, מסודרים בעץ. לא מרכז אחד.</li>
-          <li><strong><bdi>2. סדרתי ✗ לא נכון.</bdi></strong> ה-DNS הוא <strong>היררכי</strong> ולא סדרתי. כל רמה ממליצה על הבאה — לא רץ ברצף לינארי.</li>
-          <li><strong><bdi>3. גופים פרטיים בלבד ✗ לא נכון.</bdi></strong> Root ו-TLD מנוהלים ע״י ארגונים בינלאומיים (ICANN, Verisign). Authoritative יכולים להיות פרטיים, אבל לא רק.</li>
-          <li><strong><bdi>4. אינטרנט נופל ✗ לא נכון.</bdi></strong> אם DNS נופל, רק <strong>תרגום שמות</strong> נפסק. מי שיודע IP יכול עדיין להגיע. הליבה ממשיכה לעבוד.</li>
+          <li><strong><bdi>1. מבוזר ✓ נכון.</bdi></strong> מיליוני שרתי <bdi dir="ltr">DNS</bdi> בעולם, מסודרים בעץ. לא מרכז אחד.</li>
+          <li><strong><bdi>2. סדרתי ✗ לא נכון.</bdi></strong> ה-<bdi dir="ltr">DNS</bdi> הוא <strong>היררכי</strong> ולא סדרתי. כל רמה ממליצה על הבאה — לא רץ ברצף לינארי.</li>
+          <li><strong><bdi>3. גופים פרטיים בלבד ✗ לא נכון.</bdi></strong> <bdi dir="ltr">Root</bdi> ו-<bdi dir="ltr">TLD</bdi> מנוהלים ע״י ארגונים בינלאומיים (<bdi dir="ltr">ICANN, Verisign</bdi>). <bdi dir="ltr">Authoritative</bdi> יכולים להיות פרטיים, אבל לא רק.</li>
+          <li><strong><bdi>4. אינטרנט נופל ✗ לא נכון.</bdi></strong> אם <bdi dir="ltr">DNS</bdi> נופל, רק <strong>תרגום שמות</strong> נפסק. מי שיודע <bdi dir="ltr">IP</bdi> יכול עדיין להגיע. הליבה ממשיכה לעבוד.</li>
         </ul>
       </div>
-      <div class="final-answer">רק <strong>הצהרה 1 נכונה</strong>. מבוזר, היררכי (לא סדרתי), משולב פרטי/ציבורי, לא Single Point of Failure.</div>
+      <div class="final-answer">רק <strong>הצהרה 1 נכונה</strong>. מבוזר, היררכי (לא סדרתי), משולב פרטי/ציבורי, לא <bdi dir="ltr">Single Point of Failure</bdi>.</div>
     </div>
   </div>
 
-  <h2>‎4 סוגי העברת נתונים ברשת</h2>
+  <h2>4 סוגי העברת נתונים ברשת</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>קסטים</div>
     <div class="box-body">
-      <p>הסיכום למבחן מציין ‎4 סוגי תעבורה — חשוב להכיר את השמות:</p>
+      <p>הסיכום למבחן מציין 4 סוגי תעבורה — חשוב להכיר את השמות:</p>
       <ul>
-        <li><strong>Unicast</strong> (יוניקאסט): ‎שולח יחיד <strong>למקבל יחיד</strong>. ‎המקרה הרגיל — רוב התעבורה ברשת.</li>
-        <li><strong>Broadcast</strong> (ברודקאסט): ‎שולח יחיד <strong>לכולם</strong> (בסאבנט). ‎כתובת FF:FF:FF... ב-MAC, או 255.255.255.255 ב-IP. ‎דוגמה: DHCP Discover.</li>
-        <li><strong>Multicast</strong> (מולטיקאסט): ‎שולח יחיד <strong>לקבוצה</strong> של מקבלים (subset). ‎דוגמאות: סטרימינג, פגישות וידאו.</li>
-        <li><strong>Anycast</strong> (אניקאסט): ‎שולח יחיד <strong>לקרוב ביותר</strong> מתוך קבוצת מקבלים עם אותה כתובת. ‎דוגמה: שרתי Root של DNS — אותה כתובת IP, מספר שרתים, ההודעה הולכת לקרוב ביותר גאוגרפית.</li>
+        <li><strong>Unicast</strong> (יוניקאסט): שולח יחיד <strong>למקבל יחיד</strong>. המקרה הרגיל — רוב התעבורה ברשת.</li>
+        <li><strong>Broadcast</strong> (ברודקאסט): שולח יחיד <strong>לכולם</strong> (בסאבנט). כתובת <bdi dir="ltr">FF:FF:FF</bdi>... ב-<bdi dir="ltr">MAC</bdi>, או 255.255.255.255 ב-<bdi dir="ltr">IP</bdi>. דוגמה: <bdi dir="ltr">DHCP Discover</bdi>.</li>
+        <li><strong>Multicast</strong> (מולטיקאסט): שולח יחיד <strong>לקבוצה</strong> של מקבלים (<bdi dir="ltr">subset</bdi>). דוגמאות: סטרימינג, פגישות וידאו.</li>
+        <li><strong>Anycast</strong> (אניקאסט): שולח יחיד <strong>לקרוב ביותר</strong> מתוך קבוצת מקבלים עם אותה כתובת. דוגמה: שרתי <bdi dir="ltr">Root</bdi> של <bdi dir="ltr">DNS</bdi> — אותה כתובת <bdi dir="ltr">IP</bdi>, מספר שרתים, ההודעה הולכת לקרוב ביותר גאוגרפית.</li>
       </ul>
     </div>
   </div>
@@ -891,15 +895,15 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li>DNS = שירות לתרגום <strong>שם דומיין ← IP</strong>. אפליקציה, לא חלק מהליבה.</li>
-        <li>‎3 רמות היררכיה: <strong><span class="term">Root → TLD → Authoritative</span></strong></li>
+        <li><bdi dir="ltr">DNS</bdi> = שירות לתרגום <strong>שם דומיין ← <bdi dir="ltr">IP</bdi></strong>. אפליקציה, לא חלק מהליבה.</li>
+        <li>3 רמות היררכיה: <strong><span class="term">Root → TLD → Authoritative</span></strong></li>
         <li><strong>Local DNS</strong> מחוץ להיררכיה — פרוקסי לשמות, נקודת פנייה ראשונה</li>
-        <li>‎2 סוגי שאילתות: <strong>איטרטיבי</strong> (Local שואל בעצמו את כולם) ו<strong>רקורסיבי</strong> (כל שרת ממשיך לבד)</li>
-        <li>איטרטיבי <strong>עדיף</strong> — מקל על Root ו-TLD</li>
-        <li>‎4 סוגי רשומות: <strong>A</strong> (IP), <strong>CNAME</strong> (alias), <strong>NS</strong> (name server), <strong>MX</strong> <bdi dir="ltr">(mail)</bdi></li>
-        <li>Cache עם <strong>TTL</strong> — חוסך זמן ועומס; פוקע לפי TTL</li>
-        <li>DNS רץ מעל <strong>UDP</strong> על פורט <span class="term">53</span></li>
-        <li>איומים: DDoS, DNS Spoofing. הגנה: סינון, DNSSEC</li>
+        <li>2 סוגי שאילתות: <strong>איטרטיבי</strong> (<bdi dir="ltr">Local</bdi> שואל בעצמו את כולם) ו<strong>רקורסיבי</strong> (כל שרת ממשיך לבד)</li>
+        <li>איטרטיבי <strong>עדיף</strong> — מקל על <bdi dir="ltr">Root</bdi> ו-<bdi dir="ltr">TLD</bdi></li>
+        <li>4 סוגי רשומות: <strong>A</strong> (IP), <strong>CNAME</strong> (alias), <strong>NS</strong> (name server), <strong>MX</strong> (mail)</li>
+        <li><bdi dir="ltr">Cache</bdi> עם <strong>TTL</strong> — חוסך זמן ועומס; פוקע לפי <bdi dir="ltr">TTL</bdi></li>
+        <li><bdi dir="ltr">DNS</bdi> רץ מעל <strong>UDP</strong> על פורט <span class="term">53</span></li>
+        <li>איומים: <bdi dir="ltr">DDoS, DNS Spoofing</bdi>. הגנה: סינון, <bdi dir="ltr">DNSSEC</bdi></li>
       </ul>
     </div>
   </div>

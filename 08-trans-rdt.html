@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -411,10 +415,10 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 <main>
   <span class="page-eyebrow">פרק 2.2 · שכבת התעבורה</span>
   <h1 class="page-title">RDT — Reliable Data Transfer</h1>
-  <p class="page-subtitle">איך לבנות פרוטוקול אמין מעל ערוץ לא אמין — מ-Stop&Wait עד Go-Back-N.</p>
+  <p class="page-subtitle">איך לבנות פרוטוקול אמין מעל ערוץ לא אמין — מ-<bdi dir="ltr">Stop&Wait</bdi> עד <bdi dir="ltr">Go-Back-N</bdi>.</p>
 
   <p class="lead">
-    הערוץ לא אמין — פאקטות מתעוותות, אובדות, ומתעכבות. אבל TCP מבטיח אמינות. איך? <strong>RDT</strong> — שכבת פרוטוקול שמוסיפה <strong><bdi>ACK, sequence numbers, ו-timeouts</bdi></strong>. במבחן: לזהות איזה מנגנון פותר איזה תקלה.
+    הערוץ לא אמין — פאקטות מתעוותות, אובדות, ומתעכבות. אבל <bdi dir="ltr">TCP</bdi> מבטיח אמינות. איך? <strong>RDT</strong> — שכבת פרוטוקול שמוסיפה <strong><bdi>ACK, sequence numbers, ו-timeouts</bdi></strong>. במבחן: לזהות איזה מנגנון פותר איזה תקלה.
   </p>
 
   <h2>הרעיון הבסיסי</h2>
@@ -424,7 +428,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <p><strong>תקשורת אמינה:</strong> כל הודעה שאני שולח <strong>מובטח שתגיע ליעד</strong>, במצב תקין, ובסדר הנכון.</p>
       <p>אבל הערוץ הפיזי לא אמין. אז מה לעשות?</p>
-      <p>נבנה <strong>פרוטוקול</strong> שמוסיף מנגנונים מעל הערוץ. נציג את הגרסאות כ-<strong>מכונות מצבים</strong> (FSM) — קונבנציה: <span class="term">EVENT</span> בקו עליון, <span class="term">ACTION</span> בקו תחתון.</p>
+      <p>נבנה <strong>פרוטוקול</strong> שמוסיף מנגנונים מעל הערוץ. נציג את הגרסאות כ-<strong>מכונות מצבים</strong> (<bdi dir="ltr">FSM</bdi>) — קונבנציה: <span class="term">EVENT</span> בקו עליון, <span class="term">ACTION</span> בקו תחתון.</p>
     </div>
   </div>
 
@@ -438,13 +442,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>הפתרון: Checksum + ACK</div>
+    <div class="box-head"><span class="icon">📘</span>הפתרון: <bdi dir="ltr">Checksum + ACK</bdi></div>
     <div class="box-body">
       <ul>
         <li>השולח מצרף <strong>Checksum</strong> לכל פאקטה.</li>
-        <li>המקבל מחשב את ה-Checksum. אם תקין — שולח <strong>ACK</strong> (Acknowledge).</li>
+        <li>המקבל מחשב את ה-<bdi dir="ltr">Checksum</bdi>. אם תקין — שולח <strong>ACK</strong> (Acknowledge).</li>
         <li>אם פגום — שולח <strong>NAK</strong> (Negative ACK).</li>
-        <li>השולח, כשמקבל NAK, שולח שוב.</li>
+        <li>השולח, כשמקבל <bdi dir="ltr">NAK</bdi>, שולח שוב.</li>
       </ul>
     </div>
   </div>
@@ -454,50 +458,50 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הגרסה הבסיסית</div>
     <div class="box-body">
-      <p><strong>השולח שולח פאקטה אחת ואז מחכה ל-ACK.</strong> רק אחרי שמקבל ACK, שולח את הבאה.</p>
-      <p>פשוט. אבל מה אם <strong>הפאקטה עצמה אובדת</strong> בדרך? לא יהיה NAK, לא יהיה ACK. השולח יתקע לנצח.</p>
+      <p><strong>השולח שולח פאקטה אחת ואז מחכה ל-<bdi dir="ltr">ACK</bdi>.</strong> רק אחרי שמקבל <bdi dir="ltr">ACK</bdi>, שולח את הבאה.</p>
+      <p>פשוט. אבל מה אם <strong>הפאקטה עצמה אובדת</strong> בדרך? לא יהיה <bdi dir="ltr">NAK</bdi>, לא יהיה <bdi dir="ltr">ACK</bdi>. השולח יתקע לנצח.</p>
     </div>
   </div>
 
-  <h2>בעיה 2: פאקטה אובדת — Timeout</h2>
+  <h2>בעיה 2: פאקטה אובדת — <bdi dir="ltr">Timeout</bdi></h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>הפתרון: Timer</div>
+    <div class="box-head"><span class="icon">📘</span>הפתרון: <bdi dir="ltr">Timer</bdi></div>
     <div class="box-body">
-      <p>השולח מפעיל <strong>טיימר</strong> כשהוא שולח פאקטה. אם לא מקבל ACK תוך זמן Timeout — <strong>שולח שוב</strong> (Retransmission).</p>
+      <p>השולח מפעיל <strong>טיימר</strong> כשהוא שולח פאקטה. אם לא מקבל <bdi dir="ltr">ACK</bdi> תוך זמן <bdi dir="ltr">Timeout</bdi> — <strong>שולח שוב</strong> (Retransmission).</p>
       <p>עכשיו יש שלושה מנגנונים מצטברים:</p>
       <ol>
         <li><strong>Checksum</strong> — זיהוי שגיאות</li>
         <li><strong>ACK</strong> — אישור קבלה</li>
-        <li><strong>Timeout</strong> — שליחה חוזרת אם לא הגיע ACK</li>
+        <li><strong>Timeout</strong> — שליחה חוזרת אם לא הגיע <bdi dir="ltr">ACK</bdi></li>
       </ol>
     </div>
   </div>
 
-  <h2>בעיה 3: ACK אובד או מתעכב — Sequence Numbers</h2>
+  <h2>בעיה <bdi dir="ltr">3</bdi>: <bdi dir="ltr">ACK</bdi> אובד או מתעכב — <bdi dir="ltr">Sequence Numbers</bdi></h2>
 
   <div class="box warn">
     <div class="box-head"><span class="icon">⚠</span>תרחיש לא ברור</div>
     <div class="box-body">
-      <p>השולח שלח פאקטה, היא הגיעה, המקבל שלח ACK. ה-ACK <strong>אובד בדרך</strong>. השולח מקבל timeout ושולח שוב. עכשיו למקבל יש <strong>פאקטה כפולה</strong> — וגרוע מזה, הוא לא יודע אם זו פאקטה חדשה עם אותו תוכן או חזרה על הקודמת.</p>
+      <p>השולח שלח פאקטה, היא הגיעה, המקבל שלח <bdi dir="ltr">ACK</bdi>. ה-<bdi dir="ltr">ACK</bdi> <strong>אובד בדרך</strong>. השולח מקבל <bdi dir="ltr">timeout</bdi> ושולח שוב. עכשיו למקבל יש <strong>פאקטה כפולה</strong> — וגרוע מזה, הוא לא יודע אם זו פאקטה חדשה עם אותו תוכן או חזרה על הקודמת.</p>
     </div>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>הפתרון: Sequence Numbers</div>
+    <div class="box-head"><span class="icon">📘</span>הפתרון: <bdi dir="ltr">Sequence Numbers</bdi></div>
     <div class="box-body">
-      <p>השולח מצרף <strong>מספר סידורי</strong> לכל פאקטה. ב-Stop&Wait מספיק <strong><bdi>0 או 1:</bdi></strong></p>
+      <p>השולח מצרף <strong>מספר סידורי</strong> לכל פאקטה. ב-<bdi dir="ltr">Stop&Wait</bdi> מספיק <strong><bdi>0 או 1:</bdi></strong></p>
       <ul>
-        <li>פאקטה ראשונה: SEQ = 0</li>
-        <li>פאקטה שנייה: SEQ = 1</li>
-        <li>שלישית: SEQ = 0 שוב (חזרה)</li>
+        <li>פאקטה ראשונה: <bdi dir="ltr">SEQ = 0</bdi></li>
+        <li>פאקטה שנייה: <bdi dir="ltr">SEQ = 1</bdi></li>
+        <li>שלישית: <bdi dir="ltr">SEQ = 0</bdi> שוב (חזרה)</li>
       </ul>
-      <p>המקבל זוכר איזה SEQ הוא מצפה לקבל. אם הוא מצפה ל-1 ומגיע 0 — זה כפילות, יזרוק וישלח שוב ACK (למקרה שהקודם אבד).</p>
-      <p>ה-ACK גם מקבל מספר: <span class="term">ACK0, ACK1</span>.</p>
+      <p>המקבל זוכר איזה <bdi dir="ltr">SEQ</bdi> הוא מצפה לקבל. אם הוא מצפה ל-1 ומגיע 0 — זה כפילות, יזרוק וישלח שוב <bdi dir="ltr">ACK</bdi> (למקרה שהקודם אבד).</p>
+      <p>ה-<bdi dir="ltr">ACK</bdi> גם מקבל מספר: <span class="term">ACK0, ACK1</span>.</p>
     </div>
   </div>
 
-  <h2>‎4 תרחישים אפשריים ב-Stop&Wait</h2>
+  <h2>4 תרחישים אפשריים ב-<bdi dir="ltr">Stop&Wait</bdi></h2>
 
   <table>
     <thead>
@@ -506,35 +510,35 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <tbody>
       <tr>
         <td><strong>הכל בסדר</strong></td>
-        <td>פאקטה הגיעה, ACK הגיע. ממשיכים לבאה.</td>
+        <td>פאקטה הגיעה, <bdi dir="ltr">ACK</bdi> הגיע. ממשיכים לבאה.</td>
       </tr>
       <tr>
         <td><strong>פאקטה אבדה</strong></td>
-        <td>אין ACK ← Timeout ← שליחה חוזרת.</td>
+        <td>אין <bdi dir="ltr">ACK</bdi> ← <bdi dir="ltr">Timeout</bdi> ← שליחה חוזרת.</td>
       </tr>
       <tr>
         <td><strong>פאקטה פגומה</strong></td>
-        <td>המקבל זורק. אין ACK ← Timeout ← שליחה חוזרת.</td>
+        <td>המקבל זורק. אין <bdi dir="ltr">ACK</bdi> ← <bdi dir="ltr">Timeout</bdi> ← שליחה חוזרת.</td>
       </tr>
       <tr>
-        <td><strong>ACK אבד</strong></td>
-        <td>השולח לא יודע — חושב שהפאקטה לא הגיעה ← Timeout ← שליחה חוזרת. המקבל יזהה כפילות לפי SEQ, יזרוק את הפאקטה, וישלח ACK שוב.</td>
+        <td><strong><bdi dir="ltr">ACK</bdi> אבד</strong></td>
+        <td>השולח לא יודע — חושב שהפאקטה לא הגיעה ← <bdi dir="ltr">Timeout</bdi> ← שליחה חוזרת. המקבל יזהה כפילות לפי <bdi dir="ltr">SEQ</bdi>, יזרוק את הפאקטה, וישלח <bdi dir="ltr">ACK</bdi> שוב.</td>
       </tr>
       <tr>
-        <td><strong>ACK מתעכב (לא אבד)</strong></td>
-        <td>Timeout קודם ← שליחה חוזרת. השולח יקבל בסוף שני ACKs. השני יזוהה ככפילות ויזרק.</td>
+        <td><strong><bdi dir="ltr">ACK</bdi> מתעכב (לא אבד)</strong></td>
+        <td><bdi dir="ltr">Timeout</bdi> קודם ← שליחה חוזרת. השולח יקבל בסוף שני <bdi dir="ltr">ACKs</bdi>. השני יזוהה ככפילות ויזרק.</td>
       </tr>
     </tbody>
   </table>
 
-  <h2>ביצועים של Stop-and-Wait — בעיה!</h2>
+  <h2>ביצועים של <bdi dir="ltr">Stop-and-Wait</bdi> — בעיה!</h2>
 
   <div class="box formula">
     <div class="box-head"><span class="icon">📐</span>ניצולת השולח</div>
     <div class="box-body">
       <p>ניצולת = החלק מהזמן שהשולח עסוק בשליחה (ולא מחכה).</p>
       $$U_{sender} = \frac{d_{trans}}{RTT + d_{trans}}$$
-      <p>בלינק מהיר ובינתי: RTT הרבה יותר גדול מ-trans. אז הניצולת נמוכה מאוד.</p>
+      <p>בלינק מהיר ובינתי: <bdi dir="ltr">RTT</bdi> הרבה יותר גדול מ-<bdi dir="ltr">trans</bdi>. אז הניצולת נמוכה מאוד.</p>
     </div>
   </div>
 
@@ -549,26 +553,26 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </ul>
       <p>זמן הטרנסמישן:</p>
       $$d_{trans} = \frac{8000}{10^9} = 8 \, \mu\text{sec} = 0.008 \, \text{ms}$$
-      <p>RTT = ‎2 × 15 = 30 ms</p>
+      <p>RTT = 2 × 15 = 30 ms</p>
       <p>ניצולת:</p>
       $$U = \frac{0.008}{30 + 0.008} \approx 0.000267 = 0.027\%$$
-      <div class="final-answer">השולח פעיל רק <strong><bdi>0.027%</bdi></strong> מהזמן! 99.97% מחכה. הפרוטוקול הוא צוואר הבקבוק — לא הרשת.</div>
+      <div class="final-answer">השולח פעיל רק <strong><bdi>0.027%</bdi></strong> מהזמן! <bdi dir="ltr">99.97%</bdi> מחכה. הפרוטוקול הוא צוואר הבקבוק — לא הרשת.</div>
     </div>
   </div>
 
-  <h2>הפתרון: Pipelining</h2>
+  <h2>הפתרון: <bdi dir="ltr">Pipelining</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>צנרת — שליחה במקביל</div>
     <div class="box-body">
-      <p>במקום לחכות אחרי כל פאקטה — נשלח <strong>כמה פאקטות ברצף</strong> בלי לחכות ל-ACKs. בזמן שאנחנו ממתינים ל-ACK של הראשונה — כבר שלחנו ‎4-5 נוספות.</p>
+      <p>במקום לחכות אחרי כל פאקטה — נשלח <strong>כמה פאקטות ברצף</strong> בלי לחכות ל-<bdi dir="ltr">ACKs</bdi>. בזמן שאנחנו ממתינים ל-<bdi dir="ltr">ACK</bdi> של הראשונה — כבר שלחנו 4-5 נוספות.</p>
       <h4>מה זה דורש?</h4>
       <ul>
-        <li><strong>טווח גדול של Sequence Numbers</strong> (לא רק 0,1) כדי למנוע כפילויות.</li>
-        <li><strong>Buffering</strong> בשולח (לשמור פאקטות לא-ACK עד שיגיע ACK).</li>
-        <li><strong>Buffering אופציונלי</strong> במקבל.</li>
+        <li><strong>טווח גדול של <bdi dir="ltr">Sequence Numbers</bdi></strong> (לא רק 0,1) כדי למנוע כפילויות.</li>
+        <li><strong>Buffering</strong> בשולח (לשמור פאקטות לא-<bdi dir="ltr">ACK</bdi> עד שיגיע <bdi dir="ltr">ACK</bdi>).</li>
+        <li><strong><bdi dir="ltr">Buffering</bdi> אופציונלי</strong> במקבל.</li>
       </ul>
-      <p>אם נשלח ‎N פאקטות במקביל — הניצולת גדלה פי N. בדוגמה הקודמת: ‎3 פאקטות = ‎0.08% (פי 3).</p>
+      <p>אם נשלח <bdi dir="ltr">N</bdi> פאקטות במקביל — הניצולת גדלה פי <bdi dir="ltr">N</bdi>. בדוגמה הקודמת: 3 פאקטות = <bdi dir="ltr">0.08%</bdi> (פי 3).</p>
     </div>
   </div>
 
@@ -579,8 +583,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <g font-family="Assistant, sans-serif" font-size="11">
         <line x1="80" y1="40" x2="80" y2="260" stroke="#475569" stroke-width="1"/>
         <line x1="640" y1="40" x2="640" y2="260" stroke="#475569" stroke-width="1"/>
-        <text x="80" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">שולח</text>
-        <text x="640" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">מקבל</text>
+        <text x="80" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309" direction="rtl">שולח</text>
+        <text x="640" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="#047857" direction="rtl">מקבל</text>
 
         <!-- Send 4 packets (window) -->
         <line x1="80" y1="60" x2="640" y2="80" stroke="#b45309" stroke-width="1.5"/>
@@ -590,7 +594,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <!-- PKT2 LOST -->
         <line x1="80" y1="100" x2="380" y2="115" stroke="#be123c" stroke-width="1.5" stroke-dasharray="6,3"/>
         <text x="50" y="105" text-anchor="end" font-size="10" fill="#be123c" font-weight="700">PKT2 ✗</text>
-        <text x="395" y="120" font-size="11" fill="#be123c">אבדה!</text>
+        <text x="395" y="120" font-size="11" fill="#be123c" direction="rtl">אבדה!</text>
 
         <line x1="80" y1="120" x2="640" y2="140" stroke="#b45309" stroke-width="1.5"/>
         <text x="50" y="125" text-anchor="end" font-size="10" fill="#b45309">PKT3</text>
@@ -604,51 +608,51 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <!-- PKT3 arrives, but receiver expects PKT2 - sends duplicate ACK1 -->
         <line x1="640" y1="155" x2="80" y2="180" stroke="#047857" stroke-width="1.5" stroke-dasharray="4,2"/>
         <text x="670" y="160" font-size="10" fill="#047857">ACK1</text>
-        <text x="670" y="175" font-size="9" fill="#78716c">(כפול — מצפה ל-2)</text>
+        <text x="670" y="175" font-size="9" fill="#78716c" direction="rtl">(כפול — מצפה ל-2)</text>
 
         <!-- Timeout, retransmit -->
         <text x="80" y="200" text-anchor="middle" font-size="11" fill="#be123c" font-weight="700">⏰ Timeout!</text>
 
         <line x1="80" y1="220" x2="640" y2="240" stroke="#b45309" stroke-width="2"/>
-        <text x="50" y="225" text-anchor="end" font-size="10" fill="#b45309" font-weight="700">PKT2 שוב</text>
+        <text x="50" y="225" text-anchor="end" font-size="10" fill="#b45309" font-weight="700" direction="rtl">PKT2 שוב</text>
 
         <line x1="80" y1="232" x2="640" y2="252" stroke="#b45309" stroke-width="2"/>
-        <text x="50" y="237" text-anchor="end" font-size="10" fill="#b45309" font-weight="700">PKT3 שוב</text>
+        <text x="50" y="237" text-anchor="end" font-size="10" fill="#b45309" font-weight="700" direction="rtl">PKT3 שוב</text>
 
-        <text x="360" y="275" text-anchor="middle" font-size="10" fill="#78716c">השולח שולח מחדש את כל החלון מהפאקטה שלא קיבלה ACK ואילך</text>
+        <text x="360" y="275" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">השולח שולח מחדש את כל החלון מהפאקטה שלא קיבלה ACK ואילך</text>
       </g>
     </svg>
-    <div class="cap">Go-Back-N: PKT2 אובד. PKT3 נזרק. המקבל שולח רק ACK1 (האחרון שאישר). Timeout ← שולח את כל החלון שוב מ-PKT2.</div>
+    <div class="cap"><bdi dir="ltr">Go-Back-N: PKT2</bdi> אובד. <bdi dir="ltr">PKT3</bdi> נזרק. המקבל שולח רק <bdi dir="ltr">ACK1</bdi> (האחרון שאישר). <bdi dir="ltr">Timeout</bdi> ← שולח את כל החלון שוב מ-<bdi dir="ltr">PKT2</bdi>.</div>
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>חוקי Go-Back-N</div>
+    <div class="box-head"><span class="icon">📘</span>חוקי <bdi dir="ltr">Go-Back-N</bdi></div>
     <div class="box-body">
       <h4>צד השולח</h4>
       <ul>
-        <li>אפשר לשלוח <strong>עד ‎N פאקטות</strong> שעדיין לא קיבלו ACK (חלון בגודל N).</li>
-        <li><strong>טיימר אחד</strong> — על הפאקטה הישנה ביותר שעדיין לא קיבלה ACK.</li>
-        <li>אם Timeout — <strong>שולח מחדש את כל החלון</strong> מאותה פאקטה ואילך.</li>
+        <li>אפשר לשלוח <strong>עד <bdi dir="ltr">N</bdi> פאקטות</strong> שעדיין לא קיבלו <bdi dir="ltr">ACK</bdi> (חלון בגודל <bdi dir="ltr">N</bdi>).</li>
+        <li><strong>טיימר אחד</strong> — על הפאקטה הישנה ביותר שעדיין לא קיבלה <bdi dir="ltr">ACK</bdi>.</li>
+        <li>אם <bdi dir="ltr">Timeout</bdi> — <strong>שולח מחדש את כל החלון</strong> מאותה פאקטה ואילך.</li>
       </ul>
       <h4>צד המקבל</h4>
       <ul>
-        <li>שולח <strong>Cumulative ACK</strong> — מאשר את כל הפאקטות עד למספר ה-ACK.</li>
-        <li><strong>ACK10 מאשר את ‎0 עד 10.</strong></li>
-        <li>אם מגיעה פאקטה לא בסדר (חור באמצע) — <strong>זורק אותה</strong>, שולח שוב את ה-ACK האחרון.</li>
-        <li>אין צורך ב-buffer במקבל.</li>
+        <li>שולח <strong>Cumulative ACK</strong> — מאשר את כל הפאקטות עד למספר ה-<bdi dir="ltr">ACK</bdi>.</li>
+        <li><strong><bdi dir="ltr">ACK10</bdi> מאשר את 0 עד 10.</strong></li>
+        <li>אם מגיעה פאקטה לא בסדר (חור באמצע) — <strong>זורק אותה</strong>, שולח שוב את ה-<bdi dir="ltr">ACK</bdi> האחרון.</li>
+        <li>אין צורך ב-<bdi dir="ltr">buffer</bdi> במקבל.</li>
       </ul>
     </div>
   </div>
 
   <div class="box warn">
-    <div class="box-head"><span class="icon">⚠</span>למה Go-Back-N "מבזבז"?</div>
+    <div class="box-head"><span class="icon">⚠</span>למה <bdi dir="ltr">Go-Back-N</bdi> "מבזבז"?</div>
     <div class="box-body">
       <p>אם פאקטה אחת אבדה — השולח <strong>שולח מחדש את כולה ואת כל מה שאחריה</strong>, גם אם הן הגיעו. למה?</p>
       <ul>
-        <li>המקבל זרק אותן (אין buffer).</li>
+        <li>המקבל זרק אותן (אין <bdi dir="ltr">buffer</bdi>).</li>
         <li>זה <strong>פשוט יותר ליישום</strong>.</li>
       </ul>
-      <p>הפתרון: Selective Repeat (פרוטוקול אחר) — המקבל שומר את ה-out-of-order ושולח ACKs אישיים.</p>
+      <p>הפתרון: <bdi dir="ltr">Selective Repeat</bdi> (פרוטוקול אחר) — המקבל שומר את ה-<bdi dir="ltr">out-of-order</bdi> ושולח <bdi dir="ltr">ACKs</bdi> אישיים.</p>
     </div>
   </div>
 
@@ -661,9 +665,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <tbody>
       <tr><td>ביטים מתעוותים</td><td>Checksum + NAK</td></tr>
       <tr><td>פאקטה אובדת</td><td>Timer + Timeout + Retransmission</td></tr>
-      <tr><td>ACK אובד / פאקטה כפולה</td><td>Sequence Numbers</td></tr>
+      <tr><td><bdi dir="ltr">ACK</bdi> אובד / פאקטה כפולה</td><td>Sequence Numbers</td></tr>
       <tr><td>ניצולת נמוכה</td><td>Pipelining (Go-Back-N)</td></tr>
-      <tr><td>חור בודד מצריך retransmit של הכל</td><td>Selective Repeat</td></tr>
+      <tr><td>חור בודד מצריך <bdi dir="ltr">retransmit</bdi> של הכל</td><td>Selective Repeat</td></tr>
     </tbody>
   </table>
 
@@ -671,13 +675,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגיל בית 4 · שאלה 1 · ממבחן 2008 · RUDP</span>
-      <p>UDP <em>לא</em> אמין, TCP <em>כן</em> אמין אבל מצריך הקמת קשר. עליכם לאפיין פרוטוקול חדש בשכבת התעבורה — <strong>RUDP (Reliable UDP)</strong> שמאפשר העברת נתונים <strong>אמינה ללא הקמת קשר</strong>.</p>
+      <span class="exercise-tag">תרגיל בית 4 · שאלה 1 · ממבחן <bdi dir="ltr">2008 · RUDP</bdi></span>
+      <p>UDP <em>לא</em> אמין, <bdi dir="ltr">TCP</bdi> <em>כן</em> אמין אבל מצריך הקמת קשר. עליכם לאפיין פרוטוקול חדש בשכבת התעבורה — <strong>RUDP (Reliable UDP)</strong> שמאפשר העברת נתונים <strong>אמינה ללא הקמת קשר</strong>.</p>
       <ol style="list-style: hebrew;">
         <li>הגדירו מהי העברת נתונים אמינה.</li>
-        <li>הגדירו את מבנה הנתונים וצורת העבודה של RUDP.</li>
+        <li>הגדירו את מבנה הנתונים וצורת העבודה של <bdi dir="ltr">RUDP</bdi>.</li>
       </ol>
-      <p>כותרת UDP המקורית: <span class="term">Source port, Destination port, Length, Checksum</span>.</p>
+      <p>כותרת <bdi dir="ltr">UDP</bdi> המקורית: <span class="term">Source port, Destination port, Length, Checksum</span>.</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
@@ -687,13 +691,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <p>במונחים פורמליים:</p>
         <ul>
           <li>אין אובדן פאקטות (אם אבדה — נשלחת שוב).</li>
-          <li>אין שיבוש נתונים (Checksum מזהה).</li>
-          <li>אין כפילויות (Sequence Numbers מזהים).</li>
-          <li>הסדר נשמר (Sequence Numbers + Buffering).</li>
+          <li>אין שיבוש נתונים (<bdi dir="ltr">Checksum</bdi> מזהה).</li>
+          <li>אין כפילויות (<bdi dir="ltr">Sequence Numbers</bdi> מזהים).</li>
+          <li>הסדר נשמר (<bdi dir="ltr">Sequence Numbers + Buffering</bdi>).</li>
         </ul>
       </div>
       <div class="step">
-        <div class="step-label">ב. מבנה RUDP — תוספות לכותרת UDP</div>
+        <div class="step-label">ב. מבנה <bdi dir="ltr">RUDP</bdi> — תוספות לכותרת <bdi dir="ltr">UDP</bdi></div>
         <p>נוסיף שדות לכותרת:</p>
         <pre><code>+--------+--------+--------+--------+
 | Src Port (16) | Dst Port (16)   |
@@ -708,29 +712,29 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 +--------+--------+--------+--------+
 | Data ...                        |
 +--------+--------+--------+--------+</code></pre>
-        <p>השדות החדשים מתבססים על מה שלמדנו ב-TCP, ללא ה-3WHS.</p>
+        <p>השדות החדשים מתבססים על מה שלמדנו ב-<bdi dir="ltr">TCP</bdi>, ללא ה-<bdi dir="ltr">3WHS</bdi>.</p>
       </div>
       <div class="step">
         <div class="step-label">צורת עבודה</div>
         <h4>צד שולח</h4>
         <ul>
-          <li>שולח פאקטות עם <strong>SEQ עולה</strong> ומפעיל טיימרים.</li>
-          <li>אם לא קיבל ACK עד Timeout — שולח שוב.</li>
-          <li>משתמש ב-<strong>חלון</strong> (כמו Go-Back-N) — מאפשר pipelining.</li>
+          <li>שולח פאקטות עם <strong><bdi dir="ltr">SEQ</bdi> עולה</strong> ומפעיל טיימרים.</li>
+          <li>אם לא קיבל <bdi dir="ltr">ACK</bdi> עד <bdi dir="ltr">Timeout</bdi> — שולח שוב.</li>
+          <li>משתמש ב-<strong>חלון</strong> (כמו <bdi dir="ltr">Go-Back-N</bdi>) — מאפשר <bdi dir="ltr">pipelining</bdi>.</li>
         </ul>
         <h4>צד מקבל</h4>
         <ul>
-          <li>בודק Checksum. אם פגום — זורק.</li>
-          <li>שולח <strong>ACK</strong> עם מספר הפאקטה הבאה שמצפה לה (Cumulative).</li>
-          <li>זוהה SEQ כפול ← זורק, שולח שוב ACK.</li>
+          <li>בודק <bdi dir="ltr">Checksum</bdi>. אם פגום — זורק.</li>
+          <li>שולח <strong>ACK</strong> עם מספר הפאקטה הבאה שמצפה לה (<bdi dir="ltr">Cumulative</bdi>).</li>
+          <li>זוהה <bdi dir="ltr">SEQ</bdi> כפול ← זורק, שולח שוב <bdi dir="ltr">ACK</bdi>.</li>
         </ul>
         <h4>בלי הקמת קשר</h4>
         <ul>
-          <li>לא נשתמש ב-3WHS. השולח מתחיל לשלוח מיד.</li>
-          <li>זה האתגר — איך מסתנכרנים על SEQ ההתחלתי? אפשרות: SEQ מתחיל מ-0 קבוע, או כל צד מתעדכן בפעם הראשונה שמקבל פאקטה.</li>
+          <li>לא נשתמש ב-<bdi dir="ltr">3WHS</bdi>. השולח מתחיל לשלוח מיד.</li>
+          <li>זה האתגר — איך מסתנכרנים על <bdi dir="ltr">SEQ</bdi> ההתחלתי? אפשרות: <bdi dir="ltr">SEQ</bdi> מתחיל מ-0 קבוע, או כל צד מתעדכן בפעם הראשונה שמקבל פאקטה.</li>
         </ul>
       </div>
-      <div class="final-answer">RUDP = UDP + מנגנוני האמינות (SEQ, ACK, Timeout, Checksum, Window) — אבל בלי 3-Way HandShake.</div>
+      <div class="final-answer"><bdi dir="ltr">RUDP = UDP</bdi> + מנגנוני האמינות (<bdi dir="ltr">SEQ, ACK, Timeout, Checksum, Window</bdi>) — אבל בלי <bdi dir="ltr">3-Way HandShake</bdi>.</div>
     </div>
   </div>
 
@@ -738,15 +742,15 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li>RDT בונה אמינות מעל ערוץ לא אמין — שלב אחר שלב</li>
+        <li><bdi dir="ltr">RDT</bdi> בונה אמינות מעל ערוץ לא אמין — שלב אחר שלב</li>
         <li><strong>Checksum</strong> ← מזהה שגיאות בביטים</li>
         <li><strong>ACK</strong> ← אישור קבלה</li>
-        <li><strong>Timeout</strong> ← שליחה חוזרת אם לא חזר ACK</li>
+        <li><strong>Timeout</strong> ← שליחה חוזרת אם לא חזר <bdi dir="ltr">ACK</bdi></li>
         <li><strong>Sequence Numbers</strong> ← זיהוי כפילויות וסדר</li>
-        <li><strong>Stop&Wait:</strong> פשוט, אבל ניצולת נמוכה (פר 0.03% בלינק מהיר)</li>
-        <li><strong>Pipelining:</strong> שולח חלון של פאקטות — מכפיל ניצולת פי N</li>
-        <li><strong>Go-Back-N:</strong> חלון N, ACK מצרפי, אם חור — שולח את כל החלון שוב</li>
-        <li>חיסרון GBN: מבזבז רוחב פס. פתרון: Selective Repeat (מתקדם יותר)</li>
+        <li><strong>Stop&Wait:</strong> פשוט, אבל ניצולת נמוכה (פר <bdi dir="ltr">0.03%</bdi> בלינק מהיר)</li>
+        <li><strong>Pipelining:</strong> שולח חלון של פאקטות — מכפיל ניצולת פי <bdi dir="ltr">N</bdi></li>
+        <li><strong>Go-Back-N:</strong> חלון <bdi dir="ltr">N, ACK</bdi> מצרפי, אם חור — שולח את כל החלון שוב</li>
+        <li>חיסרון <bdi dir="ltr">GBN</bdi>: מבזבז רוחב פס. פתרון: <bdi dir="ltr">Selective Repeat</bdi> (מתקדם יותר)</li>
       </ul>
     </div>
   </div>
@@ -755,9 +759,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="07-trans-udp.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">UDP ומולטיפלקסינג</span></a>
+  <a class="prev" href="07-trans-udp.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name"><bdi dir="ltr">UDP</bdi> ומולטיפלקסינג</span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
-  <a class="next" href="09-trans-tcp.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">TCP — מבנה</span></a>
+  <a class="next" href="09-trans-tcp.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name"><bdi dir="ltr">TCP</bdi> — מבנה</span></a>
 </nav>
 
 </main>

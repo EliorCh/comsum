@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UDP ומולטיפלקסינג · מבוא לתקשורת מחשבים</title>
+<title>לקראת מועד ב׳ · מבוא לתקשורת מחשבים</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -231,7 +231,16 @@ main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
   direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
-/* ===== ui-fixes-v5 ===== */
+  /* summary-glossary page */
+  .gloss-search { width:100%; padding:11px 16px; font-family:var(--sans); font-size:15px;
+    border:1.5px solid var(--indigo-3); border-radius:10px; margin-bottom:16px; }
+  .gloss-search:focus { outline:none; border-color:var(--indigo-7); }
+  .gloss-table td.gt { font-family:var(--mono); font-weight:700; color:#be185d;
+    text-align:center; direction:ltr; unicode-bidi:isolate; }
+  .gloss-table td { text-align:right; vertical-align:top; }
+  .gloss-table { font-size:14.5px; }
+
+  /* ===== ui-fixes-v5 ===== */
 /* toggle no longer overlaps titles */
 body:not(.nav-hidden) .sidebar .brand { padding-top: 40px; }   /* clear the button when menu open */
 .menu-toggle { top: 12px; inset-inline-start: 12px; }
@@ -274,6 +283,50 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 .search-results .r-num { font-family: var(--mono, monospace); font-size: 12px; color: var(--indigo-7, #4f46e5); font-weight: 700; min-width: 34px; }
 .search-empty { padding: 22px; text-align: center; color: var(--ink-mute, #78716c); }
 .search-hint { padding: 9px 22px; font-size: 12px; color: var(--ink-mute, #78716c); background: var(--rule-soft, #f1efe9); }
+
+  /* exam page */
+  .exam-intro { background: var(--indigo-1); border: 1px solid var(--indigo-3); border-radius: 14px; padding: 20px 24px; margin: 24px 0 32px; }
+  .exam-q { background: #fff; border: 1px solid var(--rule); border-radius: 14px; margin: 20px 0; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .exam-q-head { display: flex; align-items: center; gap: 12px; padding: 13px 22px; background: var(--c-summary-bg); border-bottom: 1px solid var(--rule-soft); flex-wrap: wrap; }
+  .exam-qnum { font-family: var(--serif); font-weight: 700; font-size: 17px; color: var(--indigo-9); }
+  .exam-topic { font-size: 12.5px; font-weight: 700; color: var(--c-exercise-h); background: var(--c-exercise-bg); padding: 3px 12px; border-radius: 99px; }
+  .exam-q-body { padding: 20px 24px; }
+  .exam-q-body ol { margin: 12px 26px; }
+  .exam-ans { font-size: 16px; background: var(--c-example-bg); border: 1px solid var(--c-example-edge); color: var(--c-example-h); padding: 10px 16px; border-radius: 10px; margin-bottom: 16px; font-weight: 600; }
+  .solution h4 { font-size: 15px; color: var(--indigo-7); margin: 18px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--rule-soft); }
+  .topic-link { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 700; color: var(--indigo-7); text-decoration: none; }
+  .topic-link:hover { text-decoration: underline; }
+  .exam-options { list-style: none; margin: 16px 0 0; padding: 0; }
+  .exam-options .opt { display: flex; gap: 10px; align-items: baseline; padding: 8px 14px; margin: 6px 0;
+    border: 1px solid var(--rule-soft); border-radius: 9px; background: #fdfdfc; font-size: 15px; }
+  .exam-options .opt-l { font-family: var(--serif); font-weight: 700; color: var(--indigo-7); min-width: 20px; }
+  .exam-options .opt-t { flex: 1; }
+  /* the correct option is only highlighted once the solution is revealed */
+  .exercise-card.open .exam-options .opt.correct { background: var(--c-example-bg);
+    border-color: var(--c-example-h); font-weight: 600; }
+  .exercise-card.open .exam-options .opt.correct .opt-l { color: var(--c-example-h); }
+  .exercise-card.open .exam-options .opt.correct::after { content: '✓'; color: var(--c-example-h); font-weight: 900; }
+  .exam-toc { columns: 2; gap: 20px; margin: 16px 0; }
+  .exam-toc a { display: block; padding: 5px 0; font-size: 14px; color: var(--indigo-7); text-decoration: none; }
+  @media (max-width: 600px) { .exam-toc { columns: 1; } }
+
+  /* toward-moed-b page */
+  .mb-intro { background: var(--indigo-1); border: 1px solid var(--indigo-3); border-radius: 14px; padding: 20px 24px; margin: 24px 0 30px; }
+  .mb-toc { columns: 2; gap: 20px; margin: 14px 0 30px; }
+  .mb-toc a { display: block; padding: 5px 0; font-size: 14px; color: var(--indigo-7); text-decoration: none; }
+  .mb-toc a:hover { text-decoration: underline; }
+  @media (max-width:600px){ .mb-toc { columns: 1; } }
+  .mb-topic { margin: 40px 0 0; padding-top: 22px; border-top: 2px solid var(--rule); }
+  .mb-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .mb-head h2 { margin: 0; }
+  .mb-from { font-size: 12.5px; font-weight: 700; color: var(--c-exercise-h); background: var(--c-exercise-bg); padding: 3px 12px; border-radius: 99px; }
+  .var-title { font-size: 16px; color: var(--indigo-7); margin: 26px 0 10px; }
+  .var-card { background: #fff; border: 1px solid var(--c-exercise-edge); border-radius: 12px; margin: 12px 0; overflow: hidden; }
+  .var-head { font-size: 12px; font-weight: 700; letter-spacing: .04em; color: #fff; background: var(--c-exercise-h); padding: 5px 16px; display: inline-block; border-bottom-left-radius: 10px; }
+  .var-q { padding: 16px 20px 4px; }
+  .var-card .reveal-btn { margin: 8px 20px 16px; }
+  .topic-link { display: inline-block; margin-top: 20px; font-size: 14px; font-weight: 700; color: var(--indigo-7); text-decoration: none; }
+  .topic-link:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -354,7 +407,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
   <div class="nav-label">2️⃣ שכבת התעבורה</div>
   <ul class="nav-list">
-    <li><a href="07-trans-udp.html" class="active" data-page="07"><span class="nav-num">2.1</span>UDP ומולטיפלקסינג</a></li>
+    <li><a href="07-trans-udp.html" data-page="07"><span class="nav-num">2.1</span>UDP ומולטיפלקסינג</a></li>
     <li><a href="08-trans-rdt.html" data-page="08"><span class="nav-num">2.2</span>העברה אמינה (RDT)</a></li>
     <li><a href="09-trans-tcp.html" data-page="09"><span class="nav-num">2.3</span>TCP — מבנה</a></li>
     <li><a href="10-trans-flow.html" data-page="10"><span class="nav-num">2.4</span>בקרת זרימה</a></li>
@@ -406,388 +459,553 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
     <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
-    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35" class="active"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
 </aside>
 
 <main>
-  <span class="page-eyebrow">פרק 2.1 · שכבת התעבורה</span>
-  <h1 class="page-title"><bdi dir="ltr">UDP</bdi> ו-<bdi dir="ltr">Multiplexing</bdi></h1>
-  <p class="page-subtitle">איך פאקטה מנותבת לסוקט הנכון, ולמה <bdi dir="ltr">UDP</bdi> בכלל קיים אם הוא לא אמין.</p>
+  <span class="page-eyebrow">🎯 הכנה · מועד ב׳</span>
+  <h1 class="page-title">לקראת מועד ב׳</h1>
+  <p class="page-subtitle">הרחבה מעמיקה על כל נושא שנבחן במועד א׳, מה מועד ב׳ עשוי לשנות בו, ווריאציות תרגול עם פתרונות מלאים.</p>
 
-  <div class="figure">
-    <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Multiplexing ו-Demultiplexing">
-      <defs>
-        <marker id="arrMux" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#b45309"/>
-        </marker>
-      </defs>
-      <g font-family="Assistant, sans-serif" font-size="11">
-        <!-- Title -->
-        <text x="180" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#b45309" direction="rtl">Multiplexing (צד שולח)</text>
-        <text x="540" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#b45309" direction="rtl">Demultiplexing (צד מקבל)</text>
-
-        <!-- Sender side: 3 apps -->
-        <rect x="40" y="40" width="60" height="30" rx="6" fill="#ecfdf5" stroke="#047857"/>
-        <text x="70" y="60" text-anchor="middle" font-size="10" fill="#047857" font-weight="700">App A</text>
-        <rect x="40" y="80" width="60" height="30" rx="6" fill="#ecfdf5" stroke="#047857"/>
-        <text x="70" y="100" text-anchor="middle" font-size="10" fill="#047857" font-weight="700">App B</text>
-        <rect x="40" y="120" width="60" height="30" rx="6" fill="#ecfdf5" stroke="#047857"/>
-        <text x="70" y="140" text-anchor="middle" font-size="10" fill="#047857" font-weight="700">App C</text>
-
-        <!-- Sockets -->
-        <circle cx="135" cy="55" r="8" fill="#fef9e7" stroke="#b45309"/>
-        <circle cx="135" cy="95" r="8" fill="#fef9e7" stroke="#b45309"/>
-        <circle cx="135" cy="135" r="8" fill="#fef9e7" stroke="#b45309"/>
-        <text x="120" y="170" font-size="9" fill="#78716c">sockets</text>
-
-        <!-- Transport box on sender -->
-        <rect x="160" y="40" width="160" height="120" rx="10" fill="#fef9e7" stroke="#b45309" stroke-width="2"/>
-        <text x="240" y="65" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700" direction="rtl">שכבת התעבורה</text>
-        <text x="240" y="83" text-anchor="middle" font-size="10" fill="#b45309" direction="rtl">איסוף + הוספת כותרת</text>
-
-        <!-- Outgoing single segment -->
-        <rect x="180" y="105" width="120" height="36" rx="4" fill="#fff" stroke="#b45309" stroke-width="1.5"/>
-        <text x="240" y="120" text-anchor="middle" font-size="9" font-family="JetBrains Mono, monospace" fill="#b45309">Header</text>
-        <text x="240" y="135" text-anchor="middle" font-size="9" font-family="JetBrains Mono, monospace" fill="#78716c">data</text>
-
-        <line x1="105" y1="55" x2="135" y2="55" stroke="#b45309" stroke-width="1"/>
-        <line x1="105" y1="95" x2="135" y2="95" stroke="#b45309" stroke-width="1"/>
-        <line x1="105" y1="135" x2="135" y2="135" stroke="#b45309" stroke-width="1"/>
-
-        <line x1="143" y1="55" x2="180" y2="115" stroke="#b45309" stroke-width="1.2"/>
-        <line x1="143" y1="95" x2="180" y2="120" stroke="#b45309" stroke-width="1.2"/>
-        <line x1="143" y1="135" x2="180" y2="125" stroke="#b45309" stroke-width="1.2"/>
-
-        <!-- Network -->
-        <line x1="320" y1="125" x2="400" y2="125" stroke="#475569" stroke-width="2" marker-end="url(#arrMux)"/>
-        <text x="360" y="145" text-anchor="middle" font-size="10" fill="#475569">Network</text>
-
-        <!-- Receiver side -->
-        <rect x="400" y="40" width="160" height="120" rx="10" fill="#fef9e7" stroke="#b45309" stroke-width="2"/>
-        <text x="480" y="65" text-anchor="middle" font-size="11" fill="#b45309" font-weight="700" direction="rtl">שכבת התעבורה</text>
-        <text x="480" y="83" text-anchor="middle" font-size="10" fill="#b45309" direction="rtl">פיזור לפי port</text>
-
-        <rect x="420" y="105" width="120" height="36" rx="4" fill="#fff" stroke="#b45309" stroke-width="1.5"/>
-        <text x="480" y="120" text-anchor="middle" font-size="9" font-family="JetBrains Mono, monospace" fill="#b45309">Header</text>
-        <text x="480" y="135" text-anchor="middle" font-size="9" font-family="JetBrains Mono, monospace" fill="#78716c">data</text>
-
-        <!-- Receiver sockets -->
-        <circle cx="585" cy="55" r="8" fill="#fef9e7" stroke="#b45309"/>
-        <circle cx="585" cy="95" r="8" fill="#fef9e7" stroke="#b45309"/>
-        <circle cx="585" cy="135" r="8" fill="#fef9e7" stroke="#b45309"/>
-
-        <!-- Receiver apps -->
-        <rect x="620" y="40" width="60" height="30" rx="6" fill="#ecfdf5" stroke="#047857"/>
-        <text x="650" y="60" text-anchor="middle" font-size="10" fill="#047857" font-weight="700">App X</text>
-        <rect x="620" y="80" width="60" height="30" rx="6" fill="#ecfdf5" stroke="#047857"/>
-        <text x="650" y="100" text-anchor="middle" font-size="10" fill="#047857" font-weight="700">App Y</text>
-        <rect x="620" y="120" width="60" height="30" rx="6" fill="#ecfdf5" stroke="#047857"/>
-        <text x="650" y="140" text-anchor="middle" font-size="10" fill="#047857" font-weight="700">App Z</text>
-
-        <line x1="540" y1="115" x2="585" y2="55" stroke="#b45309" stroke-width="1.2"/>
-        <line x1="540" y1="125" x2="585" y2="95" stroke="#b45309" stroke-width="1.2"/>
-        <line x1="540" y1="130" x2="585" y2="135" stroke="#b45309" stroke-width="1.2"/>
-
-        <line x1="593" y1="55" x2="620" y2="55" stroke="#b45309" stroke-width="1"/>
-        <line x1="593" y1="95" x2="620" y2="95" stroke="#b45309" stroke-width="1"/>
-        <line x1="593" y1="135" x2="620" y2="135" stroke="#b45309" stroke-width="1"/>
-
-        <!-- Bottom label -->
-        <text x="360" y="220" text-anchor="middle" font-size="12" fill="#1c1917" font-weight="700" direction="rtl">המפתח: ה-Port Number בכותרת</text>
-        <text x="360" y="240" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">בצד השולח — מוסיף לפי הסוקט; בצד המקבל — קורא ושולח לסוקט הנכון</text>
-      </g>
-    </svg>
-    <div class="cap">ערבוב הודעות מכמה אפליקציות (<bdi dir="ltr">Mux</bdi>) ופיזור ליעדים (<bdi dir="ltr">Demux</bdi>). המפתח: ה-<bdi dir="ltr">Port Number</bdi>.</div>
+  <div class="mb-intro">
+    🎯 <strong>ההיגיון מאחורי העמוד:</strong> מועד ב׳ כמעט תמיד בוחן את <strong>אותם נושאים</strong> של מועד א׳, אבל משנה מספרים, מהפך את כיוון השאלה, או מוסיף פיתול קטן. לכן לכל נושא כאן יש שלושה חלקים: <strong>ההרחבה</strong> (מה באמת צריך להבין), <strong>מה יכול להשתנות</strong> (הפיתולים הצפויים), ו<strong>וריאציות</strong> לתרגול. כל הפתרונות אומתו חישובית.
   </div>
 
-  <p class="lead">
-    שכבת התעבורה מספקת <strong>ערוץ לוגי בין אפליקציות</strong> (לא בין מחשבים — זו שכבת הרשת). שני פרוטוקולים: <strong>TCP</strong> (אמין, איטי) ו-<strong>UDP</strong> (מהיר, לא אמין). שניהם משתמשים ב-<strong>Multiplexing/Demultiplexing</strong> כדי לתת לכל אפליקציה את הסגמנטים שלה.
-  </p>
+  <h2>הנושאים</h2>
+  <div class="mb-toc">
+    <a href="#delays">השהיות: שידור מול התפשטות · שאלות 1–2</a><a href="#http">תזמון HTTP: מתמיד, לא-מתמיד ומקבילי · שאלה 3</a><a href="#frag">פרגמנטציה של IP · שאלה 4</a><a href="#aloha">Slotted ALOHA והסתברויות · שאלות 10–11</a><a href="#flow">בקרת זרימה ו-Receive Window · שאלה 14</a><a href="#subnet">כתובות, מסכות ו-Subnetting · שאלות 9, 20</a><a href="#link">שכבת הקישור: Hub, Switch ו-MAC · שאלות 6, 18</a><a href="#nettools">שכבת הרשת: TTL, ICMP, DHCP ו-BGP · שאלות 8, 9, 17</a><a href="#concepts">מושגים: UDP, עוגיות, DNS ומודל השכבות · שאלות 5, 13, 15, 19</a><a href="#sec">אבטחה: הצפנת זרם ו-XOR · שאלה 7</a>
+  </div>
 
-  <h2>תפקיד שכבת התעבורה</h2>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>צד השולח</div>
-    <div class="box-body">
-      <ol>
-        <li>מקבל הודעה משכבת האפליקציה דרך סוקט.</li>
-        <li>מפרק אותה ל<strong>צאנקים</strong> שנקראים <strong>סגמנטים</strong>.</li>
-        <li>מוסיף לכל סגמנט <strong>כותרת (<bdi dir="ltr">Header</bdi>) <bdi dir="ltr">Th</bdi></strong>.</li>
-        <li>שולח כל סגמנט לשכבת הרשת.</li>
-      </ol>
+  <section class="mb-topic" id="delays">
+    <div class="mb-head">
+      <h2>השהיות: שידור מול התפשטות</h2>
+      <span class="mb-from">שאלות 1–2 במועד א׳</span>
     </div>
-  </div>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>צד המקבל</div>
-    <div class="box-body">
-      <ol>
-        <li>מקבל את הסגמנטים משכבת הרשת.</li>
-        <li>בודק כותרת של כל סגמנט.</li>
-        <li>מסדר אותם בחזרה להודעה אחת.</li>
-        <li>מעביר את ההודעה לאפליקציה הנכונה דרך הסוקט שלה.</li>
-      </ol>
+    <div class="mb-deep"><p>ארבעה סוגי השהיה, וצריך לדעת מה כל אחת <em>תלויה בו</em> — כי שם נמצאות המלכודות:</p>
+<table>
+  <thead><tr><th>השהיה</th><th>נוסחה</th><th>תלויה ב־</th><th>לא תלויה ב־</th></tr></thead>
+  <tbody>
+    <tr><td><strong>שידור</strong> <bdi dir="ltr">(transmission)</bdi></td><td>$L/R$</td><td>גודל המנה, רוחב הפס</td><td>מרחק</td></tr>
+    <tr><td><strong>התפשטות</strong> <bdi dir="ltr">(propagation)</bdi></td><td>$d/s$</td><td>מרחק, מהירות בקו</td><td><strong>רוחב פס</strong></td></tr>
+    <tr><td><strong>עיבוד</strong></td><td>—</td><td>הנתב</td><td>—</td></tr>
+    <tr><td><strong>המתנה בתור</strong></td><td>—</td><td>העומס ברשת</td><td>—</td></tr>
+  </tbody>
+</table>
+<p>ב-<bdi dir="ltr">Store &amp; Forward</bdi> כל נתב חייב לקלוט את המנה <strong>במלואה</strong> לפני שהוא מתחיל להעביר אותה הלאה. לכן כל קטע בדרך מוסיף $d_{trans}$ נוסף.</p>
+<p>פיצול המידע ל-$P$ מנות מאפשר <strong>צנרת</strong> <bdi dir="ltr">(pipelining)</bdi>: בזמן שמנה 1 עוברת בקטע השני, מנה 2 כבר נשלחת בקטע הראשון. עם $N$ קטעים ו-$P$ מנות:</p>
+$$d_{trans}^{\text{total}} = (N + P - 1)\cdot \frac{L_{\text{מנה}}}{R}$$
+<p>ההתפשטות מתווספת <strong>פעם אחת</strong> על כל המרחק (הביט האחרון עדיין צריך לגמור את הדרך):</p>
+$$d_{\text{total}} = (N+P-1)\cdot\frac{L}{R} \;+\; \frac{d}{s}$$
+<p><strong>למה זה עובד:</strong> ככל שמפצלים ליותר מנות, $L$ של כל מנה קטן, והביטוי $(N+P-1)\cdot L/R$ שואף ל-$L_{\text{total}}/R$ — כלומר לזמן שידור של קטע <em>אחד</em>. הצנרת "מסתירה" את שאר הקטעים.</p></div>
+    <div class="box warn">
+      <div class="box-head"><span class="icon">🔄</span>מה מועד ב׳ יכול לשנות</div>
+      <div class="box-body"><ul>
+  <li>לשנות את מספר הקטעים $N$ (מספר הנתבים + 1) או את מספר המנות $P$.</li>
+  <li>לתת <strong>מנה אחת גדולה</strong> במקום פיצול — אז $P=1$ ואין צנרת: $d_{trans}=N\cdot L/R$. זו בדיוק המלכודת בשאלה 2.</li>
+  <li>לשנות רוחב פס <strong>בקטע אחד בלבד</strong> — אז חייבים לחשב כל קטע בנפרד ולא להכפיל.</li>
+  <li>לשאול "מה ישתנה" במקום מספר — ואז צריך רק לדעת מה תלוי במה.</li>
+</ul></div>
     </div>
-  </div>
-
-  <h2><bdi dir="ltr">Multiplexing</bdi> ו-<bdi dir="ltr">Demultiplexing</bdi></h2>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>מולטיפלקסינג · <bdi dir="ltr">Mux</bdi> (שולח)</div>
-    <div class="box-body">
-      <p><strong>איסוף וניהול</strong> נתונים מכמה סוקטים שונים. בכל מחשב רצות כמה אפליקציות במקביל (<bdi dir="ltr">Chrome, Spotify, Zoom</bdi>) — כולן רוצות לשלוח נתונים. שכבת התעבורה <strong>מאחדת את הזרמים</strong> ומוסיפה לכל סגמנט <strong>מזהה</strong> (<bdi dir="ltr">Port Number</bdi>) כדי שהצד המקבל ידע לחלק אותם.</p>
-    </div>
-  </div>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>די-מולטיפלקסינג · <bdi dir="ltr">Demux</bdi> (מקבל)</div>
-    <div class="box-body">
-      <p><strong>חלוקה לפי המזהה</strong>. צד המקבל קורא את ה-<bdi dir="ltr">Port Number</bdi> מהכותרת ושולח לסוקט המתאים לאפליקציה הרלוונטית.</p>
-      <p>איך זה עובד טכנית? המקבל מקבל <bdi dir="ltr">IP Datagrams</bdi> עם:</p>
-      <ul>
-        <li>כתובת <strong><bdi dir="ltr">IP</bdi> מקור</strong> וכתובת <strong><bdi dir="ltr">IP</bdi> יעד</strong> (בכותרת הרשת)</li>
-      </ul>
-      <p>כל <bdi dir="ltr">IP Datagram</bdi> מכיל סגמנט עם:</p>
-      <ul>
-        <li><strong><bdi dir="ltr">Port Number</bdi> מקור</strong> ו-<strong><bdi dir="ltr">Port Number</bdi> יעד</strong> (בכותרת התעבורה)</li>
-      </ul>
-      <p>הצירוף של הארבעה (<bdi dir="ltr">IP+Port × 2</bdi>) מזהה ייחודית את הקשר.</p>
-    </div>
-  </div>
-
-  <h2>שני סוגי <bdi dir="ltr">Demultiplexing</bdi></h2>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>1. Connectionless Demux (UDP)</div>
-    <div class="box-body">
-      <p>אין הקמת קשר ← הסוקט מזוהה רק ע״י <strong><bdi dir="ltr">Port Number</bdi> יעד</strong>.</p>
-      <p>בכל סגמנט <bdi dir="ltr">UDP</bdi>, צריך לכתוב רק:</p>
-      <ul>
-        <li><bdi dir="ltr">IP</bdi> של היעד</li>
-        <li><bdi dir="ltr">Port Number</bdi> של היעד</li>
-      </ul>
-      <p>צד המקבל בודק רק את ה-<bdi dir="ltr">Port Number</bdi> של היעד ושולח לסוקט המתאים. <strong><bdi dir="ltr">IP</bdi> המקור והפורט המקור — לא רלוונטיים</strong>.</p>
-      <p><strong>תוצאה:</strong> סגמנטים <strong>ממקורות שונים</strong> שמיועדים לאותו פורט יעד — <strong>כולם הולכים לאותו סוקט</strong>.</p>
-    </div>
-  </div>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>2. Connection-Oriented Demux (TCP)</div>
-    <div class="box-body">
-      <p>סוקט <bdi dir="ltr">TCP</bdi> מזוהה ע״י <strong>4 פרמטרים</strong> (4-tuple):</p>
-      <ol>
-        <li>כתובת <bdi dir="ltr">IP</bdi> מקור</li>
-        <li><bdi dir="ltr">Port Number</bdi> מקור</li>
-        <li>כתובת <bdi dir="ltr">IP</bdi> יעד</li>
-        <li><bdi dir="ltr">Port Number</bdi> יעד</li>
-      </ol>
-      <p>שרת <bdi dir="ltr">TCP</bdi> יכול לתמוך ב<strong>כמה חיבורים במקביל</strong> — כל חיבור מקבל סוקט משלו, מזוהה ע״י כל ה-<bdi dir="ltr">4-tuple</bdi>.</p>
-      <p><strong>דוגמה:</strong> אם שני לקוחות (<bdi dir="ltr">IP</bdi> שונים) פותחים <bdi dir="ltr">HTTPS</bdi> לאותו שרת — שני סוקטים נפרדים בשרת, גם שניהם על פורט 443.</p>
-    </div>
-  </div>
-
-  <table>
-    <thead>
-      <tr><th>תכונה</th><th>UDP Demux</th><th>TCP Demux</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>מזהה סוקט</td><td><bdi dir="ltr">Port Number</bdi> יעד בלבד</td><td>4 פרמטרים (<bdi dir="ltr">IP+Port × 2</bdi>)</td></tr>
-      <tr><td>חיבורים במקביל לאותו פורט</td><td>אותו סוקט לכולם</td><td>סוקט שונה לכל אחד</td></tr>
-      <tr><td>הקמת קשר</td><td>אין</td><td>3-Way HandShake</td></tr>
-    </tbody>
-  </table>
-
-  <div class="keypoint">
-    מולטיפלקסינג ודי-מולטיפלקסינג נעשים <strong>בכל השכבות</strong> — לא רק בתעבורה. בשכבת הרשת — דמולטיפלקסינג לפי <bdi dir="ltr">IP</bdi>. בשכבת הלינק — לפי <bdi dir="ltr">MAC</bdi>.
-  </div>
-
-  <h2>פרוטוקול <bdi dir="ltr">UDP</bdi></h2>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span><bdi dir="ltr">UDP</bdi> — תכונות</div>
-    <div class="box-body">
-      <p>פרוטוקול תעבורה <strong>הכי פשוט שיש</strong>. רק שולח סגמנטים — בלי שום הבטחות.</p>
-      <h4>מה הוא לא עושה</h4>
-      <ul>
-        <li>סגמנטים יכולים <strong>להגיע לא בסדר</strong>.</li>
-        <li>סגמנטים יכולים <strong>להיעלם בדרך</strong>.</li>
-        <li><strong>אין הקמת קשר</strong>.</li>
-        <li>אין בקרת זרימה או גודש.</li>
-        <li>לא מפרק את ההודעה (אם האפליקציה שלחה גוש — <bdi dir="ltr">UDP</bdi> שולח כגוש).</li>
-      </ul>
-      <h4>מה הוא כן עושה</h4>
-      <ul>
-        <li><strong>מולטיפלקסינג ודימולטיפלקסינג</strong> (לפי <bdi dir="ltr">Port</bdi>).</li>
-        <li><strong>Checksum</strong> — בדיקת שגיאות.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="box warn">
-    <div class="box-head"><span class="icon">⚠</span>אז למה בכלל צריך <bdi dir="ltr">UDP</bdi>?</div>
-    <div class="box-body">
-      <p>אם <bdi dir="ltr">UDP</bdi> כל כך "ריק" — אפשר היה להשתמש ב-<bdi dir="ltr">IP</bdi> ישירות?</p>
-      <p><strong>לא!</strong> בלי <bdi dir="ltr">UDP</bdi> (או <bdi dir="ltr">TCP</bdi>) לא היה אפשר להריץ <strong>כמה אפליקציות במקביל</strong> באותו מחשב. ה-<bdi dir="ltr">IP</bdi> <strong>שייך למחשב</strong>, לא לאפליקציה. <bdi dir="ltr">UDP</bdi> מוסיף את האלמנט הקריטי של <strong>Port Number</strong> שמאפשר ערוץ לוגי לכל אפליקציה.</p>
-      <h4>מתי משתמשים</h4>
-      <ul>
-        <li><strong>סטרימינג וידאו/אודיו</strong> — אובדן פריים בודד = רגע פיקסליזציה, נסבל.</li>
-        <li><strong>DNS</strong> — שאילתה קצרה, אם נכשלה — שולחים שוב.</li>
-        <li><strong>SNMP</strong> (ניהול רשת).</li>
-        <li><strong>גיימינג</strong> — מהירות > אמינות.</li>
-        <li><strong>HTTP/3</strong> — מבוסס <bdi dir="ltr">UDP</bdi> אבל מוסיף שכבת אמינות משלו (<bdi dir="ltr">QUIC</bdi>).</li>
-      </ul>
-    </div>
-  </div>
-
-  <h2>מבנה כותרת <bdi dir="ltr">UDP</bdi></h2>
-
-  <div class="figure">
-    <svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="כותרת UDP">
-      <g font-family="JetBrains Mono, monospace" font-size="11">
-        <!-- Bit ruler -->
-        <text x="60" y="20" text-anchor="middle" font-size="10" fill="#78716c">0</text>
-        <text x="180" y="20" text-anchor="middle" font-size="10" fill="#78716c">16</text>
-        <text x="300" y="20" text-anchor="middle" font-size="10" fill="#78716c">31</text>
-        <line x1="60" y1="25" x2="540" y2="25" stroke="#78716c" stroke-width="1"/>
-
-        <!-- Source port -->
-        <rect x="60" y="30" width="240" height="36" fill="#fef9e7" stroke="#b45309" stroke-width="1.5"/>
-        <text x="180" y="52" text-anchor="middle" font-size="12" fill="#b45309" font-weight="700">Source Port (16 bit)</text>
-
-        <!-- Dest port -->
-        <rect x="300" y="30" width="240" height="36" fill="#fef9e7" stroke="#b45309" stroke-width="1.5"/>
-        <text x="420" y="52" text-anchor="middle" font-size="12" fill="#b45309" font-weight="700">Dest Port (16 bit)</text>
-
-        <!-- Length -->
-        <rect x="60" y="70" width="240" height="36" fill="#fef9e7" stroke="#b45309" stroke-width="1.5"/>
-        <text x="180" y="92" text-anchor="middle" font-size="12" fill="#b45309" font-weight="700">Length (16 bit)</text>
-
-        <!-- Checksum -->
-        <rect x="300" y="70" width="240" height="36" fill="#fef9e7" stroke="#b45309" stroke-width="1.5"/>
-        <text x="420" y="92" text-anchor="middle" font-size="12" fill="#b45309" font-weight="700">Checksum (16 bit)</text>
-
-        <!-- Data -->
-        <rect x="60" y="110" width="480" height="36" fill="#fff" stroke="#78716c" stroke-width="1" stroke-dasharray="4,2"/>
-        <text x="300" y="132" text-anchor="middle" font-size="12" fill="#78716c" font-style="italic">Data (application message)</text>
-
-        <text x="20" y="50" font-size="10" fill="#475569" font-weight="700" direction="rtl">בתים 0-3</text>
-        <text x="20" y="92" font-size="10" fill="#475569" font-weight="700" direction="rtl">בתים 4-7</text>
-      </g>
-    </svg>
-    <div class="cap">כותרת <bdi dir="ltr">UDP</bdi> — רק 8 בתים. פשוטה ביותר: 2 פורטים, אורך, וצ׳קסום.</div>
-  </div>
-
-  <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>4 השדות בכותרת</div>
-    <div class="box-body">
-      <ul>
-        <li><strong>Source Port (16 bit):</strong> פורט המקור — מי שולח.</li>
-        <li><strong>Destination Port (16 bit):</strong> פורט היעד — לאן לשלוח (משתמש ל-<bdi dir="ltr">Demux</bdi>).</li>
-        <li><strong>Length (16 bit):</strong> אורך הסגמנט כולל (<bdi dir="ltr">header + data</bdi>) בבתים.</li>
-        <li><strong>Checksum (16 bit):</strong> לזיהוי שגיאות.</li>
-      </ul>
-      <p>סה״כ <strong>8 בתים</strong> בלבד. בהשוואה ל-<bdi dir="ltr">TCP</bdi> שיש לו 20+ בתים — <bdi dir="ltr">UDP</bdi> חוסך הרבה.</p>
-    </div>
-  </div>
-
-  <h2><bdi dir="ltr">Checksum</bdi> — זיהוי שגיאות</h2>
-
-  <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>איך עובד <bdi dir="ltr">Checksum</bdi></div>
-    <div class="box-body">
-      <h4>בצד השולח</h4>
-      <ol>
-        <li>מתייחס לתוכן הסגמנט (כולל <bdi dir="ltr">IP</bdi> מקור, <bdi dir="ltr">IP</bdi> יעד, וכותרת <bdi dir="ltr">UDP</bdi>) כ<strong>רצף של מילים בנות 16 ביט</strong>.</li>
-        <li><strong>סוכם את כל המילים</strong> (אריתמטיקה של משלים-ל-1).</li>
-        <li>אם יש <strong>carry</strong> — מוסיף אותו בחזרה לסכום.</li>
-        <li><strong>הופך את הביטים</strong> (משלים ל-1).</li>
-        <li>שם את התוצאה בשדה <bdi dir="ltr">Checksum</bdi>.</li>
-      </ol>
-      <h4>בצד המקבל</h4>
-      <ol>
-        <li>עושה <strong>אותו חישוב</strong> על מה שקיבל.</li>
-        <li>אם התוצאה = סכום הכל = <strong>FFFF</strong> — הכל תקין.</li>
-        <li>אם שונה — <strong>נתגלתה שגיאה</strong> והסגמנט נזרק.</li>
-      </ol>
-    </div>
-  </div>
-
-  <div class="box warn">
-    <div class="box-head"><span class="icon">⚠</span>מגבלות ה-<bdi dir="ltr">Checksum</bdi></div>
-    <div class="box-body">
-      <ul>
-        <li>מזהה <strong>שגיאות בודדות</strong>. אם שני ביטים התהפכו בדיוק כך שהסכום נשאר זהה — לא יזוהה.</li>
-        <li>UDP <strong>זורק</strong> סגמנטים פגומים. הוא לא יבקש שליחה חוזרת (לא אמין!).</li>
-        <li>זו רק בדיקת תקינות — לא אבטחה. אין הצפנה.</li>
-      </ul>
-    </div>
-  </div>
-
-  <h2>תרגיל</h2>
-
-  <div class="exercise-card">
-    <div class="exercise-q">
-      <span class="exercise-tag">תרגול · <bdi dir="ltr">Demux</bdi> של <bdi dir="ltr">UDP</bdi> מול <bdi dir="ltr">TCP</bdi></span>
-      <p>שרת רץ על <bdi dir="ltr">IP</bdi> <span class="term">132.66.10.5</span> ומאזין על פורט <span class="term">80</span>.</p>
-      <p>שני לקוחות שולחים בו-זמנית:</p>
-      <ul>
-        <li>לקוח <bdi dir="ltr">A</bdi>: <span class="term">131.100.5.5:54812 → 132.66.10.5:80</span></li>
-        <li>לקוח <bdi dir="ltr">B</bdi>: <span class="term">131.100.5.6:48211 → 132.66.10.5:80</span></li>
-      </ul>
-      <ol style="list-style: hebrew;">
-        <li>אם השרת משתמש ב-<bdi dir="ltr">UDP</bdi> — כמה סוקטים יש בשרת?</li>
-        <li>אם השרת משתמש ב-<bdi dir="ltr">TCP</bdi> — כמה סוקטים יש בשרת?</li>
-      </ol>
-    </div>
-    <button class="reveal-btn">הראה פתרון</button>
-    <div class="solution">
-      <div class="step">
-        <div class="step-label">סעיף א · <bdi dir="ltr">UDP</bdi></div>
-        <p><bdi dir="ltr">UDP demux</bdi> לפי <strong>פורט יעד בלבד</strong>. שני הלקוחות שולחים לאותו פורט (80) באותו <bdi dir="ltr">IP</bdi>. <strong>אותו סוקט</strong>.</p>
-        <p>השרת לא יבחין בין שני הלקוחות — שתי ההודעות מגיעות לאותו סוקט. <strong>1 סוקט בלבד.</strong></p>
+    <h3 class="var-title">תרגול וריאציות</h3>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 1</div>
+        <div class="var-q">מארח שולח <bdi dir="ltr">3,000</bdi> בתים המחולקים ל-<bdi dir="ltr">3</bdi> מנות שוות, דרך <bdi dir="ltr">3</bdi> נתבים (<bdi dir="ltr">4</bdi> קטעים). רוחב הפס <bdi dir="ltr">100 Mbit/s</bdi>, המרחק הכולל <bdi dir="ltr">600</bdi> ק"מ ומהירות ההתפשטות <bdi dir="ltr">200,000</bdi> ק"מ/שנייה. כמה זמן עד שכל המידע הגיע?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>מנה = <bdi dir="ltr">1000</bdi> בתים = <bdi dir="ltr">8000</bdi> ביט.</p>
+  $$d_{trans}=\frac{8000}{100\times10^6}=0.08\text{ ms}$$
+  $$(N+P-1)=(4+3-1)=6 \;\Rightarrow\; 6\times0.08=0.48\text{ ms}$$
+  $$d_{prop}=\frac{600}{200{,}000}=3\text{ ms}$$
+  <p><strong>סה"כ <bdi dir="ltr">3.48 ms</bdi></strong> — שים לב שכאן ההתפשטות היא <em>רוב</em> הזמן, הפוך משאלה 1.</p></div>
       </div>
-      <div class="step">
-        <div class="step-label">סעיף ב · <bdi dir="ltr">TCP</bdi></div>
-        <p><bdi dir="ltr">TCP demux</bdi> לפי <strong><bdi>4-tuple מלא</bdi></strong>. כל לקוח שונה (<bdi dir="ltr">IP</bdi> מקור שונה, פורט מקור שונה).</p>
-        <p>השרת ייצור <strong>סוקט נפרד</strong> לכל לקוח:</p>
-        <ul>
-          <li>סוקט ל-<bdi dir="ltr">A</bdi>: (131.100.5.5, 54812, 132.66.10.5, 80)</li>
-          <li>סוקט ל-<bdi dir="ltr">B</bdi>: (131.100.5.6, 48211, 132.66.10.5, 80)</li>
-        </ul>
-        <p><strong>2 סוקטים.</strong></p>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 2</div>
+        <div class="var-q">אותם נתונים של שאלה 1 במבחן (<bdi dir="ltr">2,000</bdi> בתים, <bdi dir="ltr">3</bdi> קטעים, <bdi dir="ltr">10 Mbit/s</bdi>, <bdi dir="ltr">440</bdi> ק"מ), אבל הכל נשלח ב<strong>מנה אחת</strong>. כמה זמן?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>בלי פיצול אין צנרת — כל קטע משדר את כל <bdi dir="ltr">16,000</bdi> הביטים:</p>
+  $$3\times\frac{16{,}000}{10\times10^6}=3\times1.6=4.8\text{ ms}$$
+  $$+\;d_{prop}=2.2\text{ ms}\;\Rightarrow\;\textbf{7.0 ms}$$
+  <p>לעומת <bdi dir="ltr">5.4 ms</bdi> עם שתי מנות — <strong>הפיצול חסך <bdi dir="ltr">1.6 ms</bdi></strong>. זה בדיוק העיקרון שמאחורי שאלה 2.</p></div>
       </div>
-      <div class="final-answer"><bdi dir="ltr">UDP = 1</bdi> סוקט · <bdi dir="ltr">TCP = 2</bdi> סוקטים. זה למה שרתי <bdi dir="ltr">Web</bdi> (<bdi dir="ltr">TCP</bdi>) יכולים לטפל באלפי לקוחות בו-זמנית — כל אחד בסוקט שלו.</div>
+    <a class="topic-link" href="01-delays.html">→ לפרק המלא: השהיות ברשת</a>
+  </section>
+  <section class="mb-topic" id="http">
+    <div class="mb-head">
+      <h2>תזמון <bdi dir="ltr">HTTP</bdi>: מתמיד, לא-מתמיד ומקבילי</h2>
+      <span class="mb-from">שאלה 3 במועד א׳</span>
     </div>
-  </div>
-
-  <div class="box summary">
-    <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
-    <div class="box-body">
-      <ul>
-        <li>שכבת התעבורה = ערוץ לוגי בין <strong>תהליכים</strong> (לא מחשבים)</li>
-        <li><strong>Mux</strong> (שולח): איסוף מכמה סוקטים והוספת <bdi dir="ltr">port</bdi></li>
-        <li><strong>Demux</strong> (מקבל): פיזור לסוקט הנכון לפי <bdi dir="ltr">port</bdi></li>
-        <li><bdi dir="ltr">UDP demux</bdi>: רק <strong><bdi dir="ltr">port</bdi> יעד</strong> ← כל המקורות לאותו סוקט</li>
-        <li>TCP demux: <strong><bdi>4-tuple מלא</bdi></strong> ← סוקט נפרד לכל חיבור</li>
-        <li><bdi dir="ltr">UDP</bdi>: מהיר, פשוט, לא אמין. שימושי לסטרימינג, <bdi dir="ltr">DNS</bdi>, גיימינג</li>
-        <li>כותרת <bdi dir="ltr">UDP</bdi>: <strong><bdi>8 בתים</bdi></strong> (src port, dst port, length, checksum)</li>
-        <li><strong>Checksum:</strong> בדיקת שגיאות פשוטה. אם פגום — הסגמנט נזרק</li>
-      </ul>
+    <div class="mb-deep"><p>כל חישוב זמן טעינה נשען על שלוש שאלות: <strong>כמה RTT לאובייקט? כמה אובייקטים? כמה במקביל?</strong></p>
+<table>
+  <thead><tr><th>גרסה</th><th>חיבור</th><th>עלות לאובייקט</th></tr></thead>
+  <tbody>
+    <tr><td><bdi dir="ltr">HTTP/1.0</bdi></td><td>לא-מתמיד — חיבור חדש לכל אובייקט</td><td><strong>2 RTT</strong> (handshake + בקשה/תשובה)</td></tr>
+    <tr><td><bdi dir="ltr">HTTP/1.1</bdi></td><td>מתמיד — חיבור אחד לכולם</td><td><strong>1 RTT</strong> (רק בקשה/תשובה)</td></tr>
+  </tbody>
+</table>
+<p><strong>המתכון הקבוע:</strong></p>
+<ol>
+  <li>דף הבסיס (<bdi dir="ltr">HTML</bdi>) — תמיד ראשון, כי בלעדיו לא יודעים אילו אובייקטים קיימים. עלותו לפי הגרסה (<bdi dir="ltr">2 RTT</bdi> ב-<bdi dir="ltr">1.0</bdi>).</li>
+  <li>מחלקים את האובייקטים לסבבים: $\lceil \text{אובייקטים} / \text{חיבורים מקבילים} \rceil$.</li>
+  <li>מכפילים את מספר הסבבים בעלות לאובייקט.</li>
+</ol>
+$$T = T_{\text{בסיס}} + \left\lceil \frac{n}{k} \right\rceil \times T_{\text{אובייקט}}$$
+<p>כאשר $n$ = מספר האובייקטים ו-$k$ = מספר החיבורים המקבילים. "גודל זניח" בשאלה = מתעלמים מ-$L/R$ ומחשבים רק <bdi dir="ltr">RTT</bdi>.</p></div>
+    <div class="box warn">
+      <div class="box-head"><span class="icon">🔄</span>מה מועד ב׳ יכול לשנות</div>
+      <div class="box-body"><ul>
+  <li>להחליף ל-<bdi dir="ltr">HTTP/1.1</bdi> מתמיד — אז כל אובייקט <bdi dir="ltr">1 RTT</bdi> במקום 2.</li>
+  <li>לשנות את מספר החיבורים המקבילים (או לומר "חיבור אחד" = סדרתי).</li>
+  <li>מספר אובייקטים שלא מתחלק יפה — צריך <strong>לעגל כלפי מעלה</strong> את מספר הסבבים.</li>
+  <li>להוסיף <bdi dir="ltr">DNS</bdi> או <bdi dir="ltr">proxy</bdi> לחישוב (במבחן ביקשו להתעלם — לא תמיד יבקשו).</li>
+</ul></div>
     </div>
-  </div>
-
-  <!-- chapter content ends above this line -->
+    <h3 class="var-title">תרגול וריאציות</h3>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 1</div>
+        <div class="var-q">אותו דף עם <bdi dir="ltr">9</bdi> אובייקטים ו-<bdi dir="ltr">RTT=1ms</bdi>, אבל הדפדפן תומך ב-<bdi dir="ltr">HTTP/1.1</bdi> מתמיד ופותח <strong>חיבור אחד</strong>. כמה זמן?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>מתמיד: ה-handshake משולם <strong>פעם אחת</strong>.</p>
+  <ul><li>דף הבסיס: <bdi dir="ltr">2 RTT</bdi> (handshake + בקשה).</li>
+      <li>9 אובייקטים על אותו חיבור: <bdi dir="ltr">9 × 1 RTT</bdi>.</li></ul>
+  $$2 + 9 = 11\text{ RTT} = \textbf{11 ms}$$
+  <p>מעניין: יותר מ-<bdi dir="ltr">8 ms</bdi> של הלא-מתמיד עם 3 חיבורים! <strong>מקביליות מנצחת התמדה</strong> כשיש הרבה אובייקטים קטנים.</p></div>
+      </div>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 2</div>
+        <div class="var-q">דף עם <bdi dir="ltr">6</bdi> אובייקטים, <bdi dir="ltr">HTTP/1.0</bdi>, <bdi dir="ltr">2</bdi> חיבורים מקבילים, <bdi dir="ltr">RTT=2ms</bdi>. כמה זמן?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>לא-מתמיד → <bdi dir="ltr">2 RTT</bdi> = <bdi dir="ltr">4 ms</bdi> לכל אובייקט.</p>
+  <ul><li>בסיס: <bdi dir="ltr">4 ms</bdi>.</li>
+      <li>סבבים: $\lceil 6/2 \rceil = 3$, כל אחד <bdi dir="ltr">4 ms</bdi> → <bdi dir="ltr">12 ms</bdi>.</li></ul>
+  $$4 + 12 = \textbf{16 ms}$$</div>
+      </div>
+    <a class="topic-link" href="03-app-http.html">→ לפרק המלא: HTTP ובקשות</a>
+  </section>
+  <section class="mb-topic" id="frag">
+    <div class="mb-head">
+      <h2>פרגמנטציה של <bdi dir="ltr">IP</bdi></h2>
+      <span class="mb-from">שאלה 4 במועד א׳</span>
+    </div>
+    <div class="mb-deep"><p>כשדאטהגרם גדול מה-<bdi dir="ltr">MTU</bdi> של הקו, הנתב מפצל אותו. שלושה כללים שמכתיבים הכל:</p>
+<div class="box formula"><div class="box-head"><span class="icon">🧮</span>שלושת הכללים</div><div class="box-body">
+<ol>
+  <li><strong>לכל פרגמנט כותרת משלו</strong> — הנתונים המקסימליים בפרגמנט הם $MTU - 20$.</li>
+  <li><strong>הנתונים בכל פרגמנט (חוץ מהאחרון) חייבים להיות כפולה של 8</strong> — מעגלים כלפי <em>מטה</em>.</li>
+  <li><strong>שדה ה-offset נמדד ביחידות של 8 בתים</strong> — לכן מחלקים ב-8.</li>
+</ol></div></div>
+<p>נוסחת ה-offset של הפרגמנט ה-$k$ (מספור מ-1):</p>
+$$\text{offset}_k = \frac{(k-1)\times \text{data\_per\_frag}}{8}$$
+<p>ומספר הפרגמנטים:</p>
+$$n = \left\lceil \frac{\text{total} - 20}{\text{data\_per\_frag}} \right\rceil$$
+<p><strong>שדה נוסף שנשאל עליו:</strong> דגל <bdi dir="ltr">MF</bdi> <bdi dir="ltr">(More Fragments)</bdi> = 1 בכל פרגמנט חוץ מהאחרון, ו-0 באחרון. כל הפרגמנטים חולקים את אותו <bdi dir="ltr">Identification</bdi>, וזה מה שמאפשר להרכיב אותם מחדש — <strong>רק ביעד הסופי</strong>, לא בנתבי הביניים.</p></div>
+    <div class="box warn">
+      <div class="box-head"><span class="icon">🔄</span>מה מועד ב׳ יכול לשנות</div>
+      <div class="box-body"><ul>
+  <li>לשאול על פרגמנט אחר (השני, הרביעי, האחרון).</li>
+  <li>לשאול <strong>כמה</strong> פרגמנטים ייווצרו, או מה <strong>גודל</strong> הפרגמנט האחרון.</li>
+  <li>לתת <bdi dir="ltr">MTU</bdi> שלא מתחלק יפה ב-8 — אז חובה לעגל כלפי מטה.</li>
+  <li>לשאול על ערך <bdi dir="ltr">MF</bdi> או <bdi dir="ltr">Identification</bdi> בפרגמנט מסוים.</li>
+</ul></div>
+    </div>
+    <h3 class="var-title">תרגול וריאציות</h3>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 1</div>
+        <div class="var-q">דאטהגרם <bdi dir="ltr">IP</bdi> בגודל <bdi dir="ltr">4,000</bdi> בתים (כולל כותרת <bdi dir="ltr">20</bdi>) עובר ברשת עם <bdi dir="ltr">MTU = 1,500</bdi>. כמה פרגמנטים ייווצרו, ומה ה-offset של כל אחד?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>נתונים לפרגמנט: $1500-20=1480$, וכפולה של 8 ($1480/8=185$ ✓).</p>
+  <p>סך הנתונים: $4000-20=3980$.</p>
+  $$n=\left\lceil\frac{3980}{1480}\right\rceil = 3 \text{ פרגמנטים}$$
+  <table><thead><tr><th>פרגמנט</th><th>נתונים</th><th>offset</th><th>MF</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><bdi dir="ltr">1480</bdi></td><td><bdi dir="ltr">0</bdi></td><td>1</td></tr>
+    <tr><td>2</td><td><bdi dir="ltr">1480</bdi></td><td><bdi dir="ltr">185</bdi></td><td>1</td></tr>
+    <tr><td>3</td><td><bdi dir="ltr">1020</bdi></td><td><bdi dir="ltr">370</bdi></td><td>0</td></tr>
+  </tbody></table></div>
+      </div>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 2</div>
+        <div class="var-q">חבילה בגודל <bdi dir="ltr">3,020</bdi> בתים, <bdi dir="ltr">MTU = 820</bdi>, כותרת <bdi dir="ltr">20</bdi>. מה ה-offset של הפרגמנט <strong>הרביעי</strong>?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>נתונים לפרגמנט: $820-20=800$ (כפולה של 8 ✓).</p>
+  $$\text{offset}_4=\frac{3\times800}{8}=\frac{2400}{8}=\textbf{300}$$
+  <p>(סך הנתונים <bdi dir="ltr">3000</bdi> → 4 פרגמנטים: <bdi dir="ltr">800, 800, 800, 600</bdi>.)</p></div>
+      </div>
+    <a class="topic-link" href="14-net-fragmentation.html">→ לפרק המלא: פרגמנטציה של IP</a>
+  </section>
+  <section class="mb-topic" id="aloha">
+    <div class="mb-head">
+      <h2><bdi dir="ltr">Slotted ALOHA</bdi> והסתברויות</h2>
+      <span class="mb-from">שאלות 10–11 במועד א׳</span>
+    </div>
+    <div class="mb-deep"><p>הרעיון: הזמן מחולק לסלוטים, וכל תחנה משדרת רק בתחילת סלוט. <strong>שידור מוצלח = בדיוק תחנה אחת משדרת.</strong> שתיים או יותר → התנגשות.</p>
+<p>אם $X$ תחנות, וכל אחת משדרת בהסתברות $p$ — ההסתברות ש<strong>תחנה מסוימת</strong> מצליחה:</p>
+$$P(\text{תחנה מסוימת}) = p\,(1-p)^{X-1}$$
+<p>וההסתברות שאיזושהי תחנה מצליחה (כלומר בדיוק אחת מבין $X$):</p>
+$$P(\text{הצלחה}) = X\,p\,(1-p)^{X-1}$$
+<p>עם $p = 1/X$ (הבחירה שממקסמת) מקבלים:</p>
+$$X\cdot\frac{1}{X}\left(1-\frac{1}{X}\right)^{X-1} = \left(1-\frac{1}{X}\right)^{X-1}$$
+<p>וכש-$X\to\infty$ הביטוי שואף ל-$1/e \approx 0.37$ — <strong>הניצולת המקסימלית של Slotted ALOHA</strong> היא כ-37%. (ב-<bdi dir="ltr">Pure ALOHA</bdi>, בלי סלוטים, זה חצי מזה: $1/2e \approx 0.18$.)</p>
+<div class="box warn"><div class="box-head"><span class="icon">⚠️</span>המלכודת בשאלות 10–11</div><div class="box-body">
+<p>המבחן ניסח את השאלה כך שתחנה אחת (או שתיים) משדרות <strong>בוודאות</strong>. תמיד לשאול קודם: <em>כמה תחנות משדרות בהכרח?</em></p>
+<ul><li><strong>אחת</strong> בוודאות → צריך שכל היתר <em>לא</em> ישדרו → מכפילים $(1-p)$ לכל אחת מהאחרות.</li>
+    <li><strong>שתיים</strong> בוודאות → התנגשות ודאית → ההסתברות היא <strong>0</strong>, ואז "כל התשובות האחרות אינן נכונות".</li></ul></div></div></div>
+    <div class="box warn">
+      <div class="box-head"><span class="icon">🔄</span>מה מועד ב׳ יכול לשנות</div>
+      <div class="box-body"><ul>
+  <li>לשנות את מספר התחנות שמשדרות בוודאות (אחת / שתיים / אף אחת).</li>
+  <li>לתת $p$ כללי במקום $1/X$ — ואז התשובה היא הביטוי המלא $X p (1-p)^{X-1}$.</li>
+  <li>לשאול על תחנה <em>מסוימת</em> במקום "איזושהי תחנה" — ההבדל הוא בגורם $X$.</li>
+  <li>לשאול על <bdi dir="ltr">Pure ALOHA</bdi> (חלון סיכון כפול) או על הניצולת המקסימלית.</li>
+</ul></div>
+    </div>
+    <h3 class="var-title">תרגול וריאציות</h3>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 1</div>
+        <div class="var-q">ב-<bdi dir="ltr">Slotted ALOHA</bdi> יש <bdi dir="ltr">X</bdi> תחנות פעילות, וכל אחת משדרת בסלוט בהסתברות <bdi dir="ltr">p</bdi> (לא בהכרח <bdi dir="ltr">1/X</bdi>). מה ההסתברות לשידור מוצלח בסלוט?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>שידור מוצלח = בדיוק אחת משדרת. בוחרים איזו (יש $X$ אפשרויות), היא משדרת ($p$), וכל היתר שותקות ($ (1-p)^{X-1}$):</p>
+  $$P = X\,p\,(1-p)^{X-1}$$
+  <p>אם מציבים $p=1/X$ מקבלים $\left(1-\frac{1}{X}\right)^{X-1}$ — הצורה שהופיעה במבחן.</p></div>
+      </div>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 2</div>
+        <div class="var-q">באותה רשת, מה ההסתברות שדווקא <strong>תחנה מספר 1</strong> תשדר בהצלחה בסלוט הבא (כל תחנה משדרת בהסתברות <bdi dir="ltr">1/X</bdi>)?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>עכשiv <em>לא</em> בוחרים איזו תחנה — היא נתונה. לכן <strong>אין גורם $X$</strong>:</p>
+  $$P = \frac{1}{X}\left(1-\frac{1}{X}\right)^{X-1}$$
+  <p>זו בדיוק ההסתברות הכללית חלקי $X$. <strong>הבחנה זו היא ההבדל בין שתי תשובות במבחן</strong> — קרא היטב אם שואלים על "תחנה מסוימת" או "שידור מוצלח".</p></div>
+      </div>
+    <a class="topic-link" href="21-link-aloha.html">→ לפרק המלא: ALOHA</a>
+  </section>
+  <section class="mb-topic" id="flow">
+    <div class="mb-head">
+      <h2>בקרת זרימה ו-<bdi dir="ltr">Receive Window</bdi></h2>
+      <span class="mb-from">שאלה 14 במועד א׳</span>
+    </div>
+    <div class="mb-deep"><p><strong>בקרת זרימה</strong> מגנה על ה<em>מקבל</em> מהצפה (בניגוד ל<strong>בקרת גודש</strong>, שמגנה על ה<em>רשת</em>). המקבל מודיע בכל <bdi dir="ltr">ACK</bdi> כמה מקום פנוי נשאר לו:</p>
+$$\text{RcvWindow} = \text{RcvBuffer} - \big(\text{LastByteRcvd} - \text{LastByteRead}\big)$$
+<ul>
+  <li><bdi dir="ltr">RcvBuffer</bdi> — גודל החוצץ הכולל.</li>
+  <li><bdi dir="ltr">LastByteRcvd</bdi> — הבית האחרון שהתקבל.</li>
+  <li><bdi dir="ltr">LastByteRead</bdi> — הבית האחרון שהאפליקציה כבר קראה (ופינתה מקום).</li>
+</ul>
+<p>הביטוי בסוגריים = כמות המידע ש<strong>יושב בחוצץ וטרם נקרא</strong>. השולח לא ישלח יותר מ-<bdi dir="ltr">RcvWindow</bdi> בתים שטרם אושרו.</p>
+<div class="box theory"><div class="box-head"><span class="icon">💡</span>איך קוראים את התרשים</div><div class="box-body">
+<p>בשאלות כאלה נותנים חוצץ מחולק למלבנים; המקווקווים = מידע שהתקבל, הריקים = מקום פנוי. סופרים את המלבנים התפוסים, מכפילים בגודל המלבן, ומחסרים מגודל החוצץ. <strong>שים לב לחורים</strong> — מידע שהגיע מחוץ לסדר עדיין תופס מקום בחוצץ.</p></div></div>
+<p><strong>מצב <bdi dir="ltr">RcvWindow = 0</bdi>:</strong> השולח עוצר. כדי לא להיתקע לנצח, הוא ממשיך לשלוח סגמנטים קטנטנים כדי לקבל עדכון כשיתפנה מקום.</p></div>
+    <div class="box warn">
+      <div class="box-head"><span class="icon">🔄</span>מה מועד ב׳ יכול לשנות</div>
+      <div class="box-body"><ul>
+  <li>לשנות את גודל החוצץ או את גודל המלבן בתרשים.</li>
+  <li>לשנות אילו מלבנים מקווקווים (יותר/פחות מידע בחוצץ).</li>
+  <li>לשאול מה יקרה אם האפליקציה קוראת <bdi dir="ltr">X</bdi> בתים — כמה יהיה ה-<bdi dir="ltr">RW</bdi> אז.</li>
+  <li>לשאול על ההבדל בין בקרת זרימה לבקרת גודש (שאלה מושגית קלאסית).</li>
+</ul></div>
+    </div>
+    <h3 class="var-title">תרגול וריאציות</h3>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 1</div>
+        <div class="var-q">חוצץ הקליטה הוא <bdi dir="ltr">20,000</bdi> בתים, כל מלבן <bdi dir="ltr">2,000</bdi> בתים, ו-<bdi dir="ltr">6</bdi> מלבנים תפוסים. מה ה-<bdi dir="ltr">Receive Window</bdi>?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution">$$\text{תפוס}=6\times2000=12{,}000$$
+  $$\text{RW}=20{,}000-12{,}000=\textbf{8{,}000}$$</div>
+      </div>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 2</div>
+        <div class="var-q">באותו מצב, האפליקציה קוראת <bdi dir="ltr">5,000</bdi> בתים מהחוצץ. מה ה-<bdi dir="ltr">RW</bdi> החדש שיפורסם?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>קריאה מפנה מקום — <bdi dir="ltr">LastByteRead</bdi> מתקדם:</p>
+  $$\text{תפוס}=12{,}000-5{,}000=7{,}000$$
+  $$\text{RW}=20{,}000-7{,}000=\textbf{13{,}000}$$
+  <p>זה בדיוק המנגנון: <strong>קצב הקריאה של האפליקציה קובע את קצב השליחה</strong>.</p></div>
+      </div>
+    <a class="topic-link" href="10-trans-flow.html">→ לפרק המלא: בקרת זרימה</a>
+  </section>
+  <section class="mb-topic" id="subnet">
+    <div class="mb-head">
+      <h2>כתובות, מסכות ו-<bdi dir="ltr">Subnetting</bdi></h2>
+      <span class="mb-from">שאלות 9, 20 במועד א׳</span>
+    </div>
+    <div class="mb-deep"><p>מסכה <bdi dir="ltr">/k</bdi> אומרת: $k$ הביטים השמאליים הם <strong>הרשת</strong>, ו-$32-k$ הנותרים הם <strong>המארח</strong>.</p>
+<table>
+  <thead><tr><th>שאלה</th><th>נוסחה</th></tr></thead>
+  <tbody>
+    <tr><td>כמה כתובות ברשת <bdi dir="ltr">/k</bdi>?</td><td>$2^{32-k}$</td></tr>
+    <tr><td>כמה מארחים שמישים?</td><td>$2^{32-k}-2$ (פחות רשת ו-broadcast)</td></tr>
+    <tr><td>כתובת הרשת</td><td><bdi dir="ltr">IP AND Mask</bdi></td></tr>
+    <tr><td>כמה תת-רשתות <bdi dir="ltr">/m</bdi> בתוך <bdi dir="ltr">/k</bdi>?</td><td>$2^{m-k}$</td></tr>
+  </tbody>
+</table>
+<p><strong>למה המארח צריך את המסכה</strong> (שאלה 9): כדי להחליט אם היעד נמצא באותה רשת. הוא מבצע <bdi dir="ltr">AND</bdi> בין כתובת היעד למסכה ומשווה לכתובת הרשת שלו:</p>
+<ul>
+  <li>זהה → היעד <strong>שכן</strong>, שולחים ישירות בשכבת הקישור (דרך <bdi dir="ltr">ARP</bdi>).</li>
+  <li>שונה → היעד <strong>רחוק</strong>, שולחים ל-<bdi dir="ltr">Default Gateway</bdi>.</li>
+</ul>
+<div class="box formula"><div class="box-head"><span class="icon">🧮</span>המסכה המשותפת הארוכה ביותר</div><div class="box-body">
+<p>כותבים את שתי הכתובות בבינארי וסופרים <strong>כמה ביטים שמאליים זהים</strong>. זה בדיוק ה-<bdi dir="ltr">/k</bdi>. קיצור דרך: עושים <bdi dir="ltr">XOR</bdi> בין האוקטטים השונים ומחפשים את הביט הגבוה הראשון שדולק.</p></div></div>
+<p><strong>VLSM (הקצאה א-סימטרית):</strong> כשצריך תת-רשתות בגדלים שונים — מקצים <strong>מהגדולה לקטנה</strong>, וכל תת-רשת מתחילה בכתובת שהיא <strong>כפולה של גודל הבלוק</strong> שלה ($2^{32-k}$).</p></div>
+    <div class="box warn">
+      <div class="box-head"><span class="icon">🔄</span>מה מועד ב׳ יכול לשנות</div>
+      <div class="box-body"><ul>
+  <li>לתת זוג כתובות אחר ולשאול את המסכה הארוכה ביותר.</li>
+  <li>לשאול כמה מארחים / כמה תת-רשתות (חשוב לזכור את ה-$-2$).</li>
+  <li>לתת מסכה ולבקש את כתובת הרשת או כתובת ה-broadcast.</li>
+  <li>שאלת <bdi dir="ltr">VLSM</bdi>: לחלק רשת לתת-רשתות בגדלים שונים ולבדוק איזו חלוקה חוקית.</li>
+  <li>טבלת ניתוב עם <bdi dir="ltr">Longest Prefix Match</bdi>.</li>
+</ul></div>
+    </div>
+    <h3 class="var-title">תרגול וריאציות</h3>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 1</div>
+        <div class="var-q">מהי המסכה הארוכה ביותר שבה <bdi dir="ltr">10.1.200.5</bdi> ו-<bdi dir="ltr">10.1.203.9</bdi> נמצאות באותה רשת?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>שני האוקטטים הראשונים זהים (<bdi dir="ltr">16</bdi> ביט). באוקטט השלישי:</p>
+  <p><bdi dir="ltr">200 = 11001000</bdi>, <bdi dir="ltr">203 = 11001011</bdi> — זהים ב-<strong>6 הביטים הראשונים</strong> (<bdi dir="ltr">110010</bdi>).</p>
+  $$16+6=22 \;\Rightarrow\; \textbf{/22} = \text{255.255.252.0}$$</div>
+      </div>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 2</div>
+        <div class="var-q">כמה מארחים שמישים יש ברשת <bdi dir="ltr">/26</bdi>, וכמה תת-רשתות <bdi dir="ltr">/28</bdi> אפשר ליצור בתוך <bdi dir="ltr">/24</bdi>?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p><strong>מארחים ב-/26:</strong></p>
+  $$2^{32-26}-2 = 2^{6}-2 = 64-2 = \textbf{62}$$
+  <p><strong>תת-רשתות /28 בתוך /24:</strong></p>
+  $$2^{28-24}=2^{4}=\textbf{16}$$</div>
+      </div>
+    <a class="topic-link" href="15-net-ip-addressing.html">→ לפרק המלא: כתובות IP</a>
+  </section>
+  <section class="mb-topic" id="link">
+    <div class="mb-head">
+      <h2>שכבת הקישור: <bdi dir="ltr">Hub</bdi>, <bdi dir="ltr">Switch</bdi> ו-<bdi dir="ltr">MAC</bdi></h2>
+      <span class="mb-from">שאלות 6, 18 במועד א׳</span>
+    </div>
+    <div class="mb-deep"><table>
+  <thead><tr><th></th><th><bdi dir="ltr">Hub</bdi></th><th><bdi dir="ltr">Switch</bdi></th><th><bdi dir="ltr">Router</bdi></th></tr></thead>
+  <tbody>
+    <tr><td>שכבה</td><td>1 (פיזית)</td><td>2 (קישור)</td><td>3 (רשת)</td></tr>
+    <tr><td>מסתכל על</td><td>ביטים בלבד</td><td>כתובת <bdi dir="ltr">MAC</bdi></td><td>כתובת <bdi dir="ltr">IP</bdi></td></tr>
+    <tr><td>תחומי התנגשות</td><td>אחד גדול</td><td>אחד לכל פורט</td><td>אחד לכל פורט</td></tr>
+    <tr><td>טבלאות</td><td>אין</td><td>נלמדת לבד (<bdi dir="ltr">self-learning</bdi>)</td><td>פרוטוקולי ניתוב</td></tr>
+    <tr><td><bdi dir="ltr">Plug &amp; Play</bdi></td><td>כן</td><td>כן</td><td>לא</td></tr>
+    <tr><td><bdi dir="ltr">Spanning Tree</bdi></td><td>לא</td><td><strong>כן</strong></td><td>לא</td></tr>
+  </tbody>
+</table>
+<p><strong>איך סוויץ׳ לומד</strong> (<bdi dir="ltr">self-learning</bdi>): כשמגיע פריים, הוא רושם "כתובת המקור נמצאת בפורט שממנו הגיע". אם היעד לא בטבלה — הוא עושה <bdi dir="ltr">flooding</bdi> לכל הפורטים חוץ מזה שממנו הגיע. רשומות פגות אחרי כמה דקות.</p>
+<div class="box warn"><div class="box-head"><span class="icon">⚠️</span><bdi dir="ltr">MAC</bdi> — קיצור עמוס</div><div class="box-body">
+<table><thead><tr><th>הקשר</th><th>פירוש</th><th>תפקיד</th></tr></thead>
+<tbody>
+<tr><td>שכבת הקישור</td><td><bdi dir="ltr">Media Access Control</bdi></td><td>כתובת חומרה של כרטיס הרשת (<bdi dir="ltr">48</bdi> ביט)</td></tr>
+<tr><td>אבטחה</td><td><bdi dir="ltr">Message Authentication Code</bdi></td><td>אימות שלמות ומקור ההודעה</td></tr>
+</tbody></table>
+<p>זו בדיוק שאלה 18 — <strong>שכבת הקישור + אבטחה</strong>, ולא שכבת הרשת.</p></div></div></div>
+    <div class="box warn">
+      <div class="box-head"><span class="icon">🔄</span>מה מועד ב׳ יכול לשנות</div>
+      <div class="box-body"><ul>
+  <li>לשאול על <bdi dir="ltr">Router</bdi> במקום <bdi dir="ltr">Hub</bdi>, או להשוות שלושתם.</li>
+  <li>תרגיל <bdi dir="ltr">self-learning</bdi>: סדרת שליחות, ולעקוב מה נכנס לטבלה ומתי יש <bdi dir="ltr">flooding</bdi>.</li>
+  <li>לשאול כמה תחומי התנגשות / תחומי broadcast יש בטופולוגיה נתונה.</li>
+  <li>לשאול על <bdi dir="ltr">ARP</bdi> — איך מגלים <bdi dir="ltr">MAC</bdi> מ-<bdi dir="ltr">IP</bdi>.</li>
+</ul></div>
+    </div>
+    <h3 class="var-title">תרגול וריאציות</h3>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 1</div>
+        <div class="var-q">רשת מחוברת דרך <bdi dir="ltr">Hub</bdi> אחד עם <bdi dir="ltr">8</bdi> מחשבים, ולעומתה רשת עם <bdi dir="ltr">Switch</bdi> אחד ו-<bdi dir="ltr">8</bdi> מחשבים. כמה תחומי התנגשות בכל אחת?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><ul>
+    <li><strong><bdi dir="ltr">Hub</bdi>:</strong> תחום התנגשות <strong>אחד</strong> — כולם חולקים את אותו מדיום, ושני משדרים בו-זמנית = התנגשות.</li>
+    <li><strong><bdi dir="ltr">Switch</bdi>:</strong> <strong>8</strong> תחומים — כל פורט מבודד. אפשר <bdi dir="ltr">8</bdi> שיחות במקביל בלי התנגשות.</li>
+  </ul>
+  <p>זה גם ההסבר לשאלה "מה קורה לרוחב הפס האפקטיבי": ב-<bdi dir="ltr">Hub</bdi> חולקים את הקו, ב-<bdi dir="ltr">Switch</bdi> כל אחד מקבל את המלוא.</p></div>
+      </div>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 2</div>
+        <div class="var-q">סוויץ׳ עם טבלה ריקה. <bdi dir="ltr">A</bdi> שולח ל-<bdi dir="ltr">B</bdi>, ואז <bdi dir="ltr">B</bdi> עונה ל-<bdi dir="ltr">A</bdi>. מה קורה בכל שלב?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><ol>
+    <li><strong><bdi dir="ltr">A→B</bdi>:</strong> הסוויץ׳ רושם <bdi dir="ltr">A</bdi> ← הפורט של <bdi dir="ltr">A</bdi>. את <bdi dir="ltr">B</bdi> הוא לא מכיר → <strong><bdi dir="ltr">flooding</bdi></strong> לכל הפורטים.</li>
+    <li><strong><bdi dir="ltr">B→A</bdi>:</strong> רושם <bdi dir="ltr">B</bdi> ← הפורט של <bdi dir="ltr">B</bdi>. את <bdi dir="ltr">A</bdi> הוא <em>כבר מכיר</em> → שולח <strong>רק לפורט של <bdi dir="ltr">A</bdi></strong>, בלי flooding.</li>
+  </ol>
+  <p>הכלל: <strong>לומדים מכתובת המקור, מחליטים לפי כתובת היעד.</strong></p></div>
+      </div>
+    <a class="topic-link" href="24-link-switches.html">→ לפרק המלא: סוויצ׳ים</a>
+  </section>
+  <section class="mb-topic" id="nettools">
+    <div class="mb-head">
+      <h2>שכבת הרשת: <bdi dir="ltr">TTL</bdi>, <bdi dir="ltr">ICMP</bdi>, <bdi dir="ltr">DHCP</bdi> ו-<bdi dir="ltr">BGP</bdi></h2>
+      <span class="mb-from">שאלות 8, 9, 17 במועד א׳</span>
+    </div>
+    <div class="mb-deep"><p><strong><bdi dir="ltr">TTL</bdi> ו-<bdi dir="ltr">Traceroute</bdi>:</strong> שדה ה-<bdi dir="ltr">TTL</bdi> יורד ב-1 בכל נתב. כשהוא מגיע ל-0 הנתב <strong>זורק את המנה ומחזיר <bdi dir="ltr">ICMP Time Exceeded</bdi></strong> — וההודעה הזאת חושפת את כתובת הנתב. ‏<bdi dir="ltr">Traceroute</bdi> שולח <bdi dir="ltr">TTL=1, 2, 3…</bdi> ובכל פעם מגלה את הנתב הבא. זה ההבדל מ-<bdi dir="ltr">Ping</bdi>, שמקבל מענה <strong>מהיעד בלבד</strong>.</p>
+<p><strong><bdi dir="ltr">DHCP</bdi> — ארבעת השלבים (<bdi dir="ltr">DORA</bdi>):</strong></p>
+<table><thead><tr><th>שלב</th><th>מי</th><th>איך</th></tr></thead>
+<tbody>
+<tr><td><bdi dir="ltr">Discover</bdi></td><td>לקוח</td><td><bdi dir="ltr">broadcast</bdi> — "יש כאן שרת?"</td></tr>
+<tr><td><bdi dir="ltr">Offer</bdi></td><td>שרת</td><td>מציע כתובת <bdi dir="ltr">IP</bdi></td></tr>
+<tr><td><bdi dir="ltr">Request</bdi></td><td>לקוח</td><td>מבקש את ההצעה (עדיין broadcast)</td></tr>
+<tr><td><bdi dir="ltr">ACK</bdi></td><td>שרת</td><td>מאשר, כולל <strong>מסכה</strong>, <bdi dir="ltr">gateway</bdi> ו-<bdi dir="ltr">DNS</bdi></td></tr>
+</tbody></table>
+<p><strong>ניתוב — פנימי מול חיצוני:</strong></p>
+<table><thead><tr><th></th><th>בתוך <bdi dir="ltr">AS</bdi> (<bdi dir="ltr">intra</bdi>)</th><th>בין <bdi dir="ltr">AS</bdi> (<bdi dir="ltr">inter</bdi>)</th></tr></thead>
+<tbody>
+<tr><td>פרוטוקולים</td><td><bdi dir="ltr">RIP</bdi> (DV), <bdi dir="ltr">OSPF</bdi> (LS), <bdi dir="ltr">EIGRP</bdi></td><td><strong><bdi dir="ltr">BGP</bdi></strong></td></tr>
+<tr><td>מטרה</td><td>המסלול <em>הקצר</em> ביותר</td><td><em>מדיניות</em> — עם מי מסכימים לעבוד</td></tr>
+</tbody></table>
+<p>‏<bdi dir="ltr">ICMP</bdi> אינו פרוטוקול ניתוב — הוא פרוטוקול הודעות בקרה ושגיאה (<bdi dir="ltr">Time Exceeded</bdi>, <bdi dir="ltr">Destination Unreachable</bdi>, <bdi dir="ltr">Echo</bdi>).</p></div>
+    <div class="box warn">
+      <div class="box-head"><span class="icon">🔄</span>מה מועד ב׳ יכול לשנות</div>
+      <div class="box-body"><ul>
+  <li>לשאול על <bdi dir="ltr">DV</bdi> מול <bdi dir="ltr">LS</bdi> — מי מכיר את כל הרשת, מי מדבר רק עם שכנים.</li>
+  <li>תרגיל <bdi dir="ltr">Longest Prefix Match</bdi> בטבלת ניתוב.</li>
+  <li>לשאול איזה שלב ב-<bdi dir="ltr">DORA</bdi> הוא <bdi dir="ltr">broadcast</bdi> ולמה.</li>
+  <li>לשאול מה <bdi dir="ltr">NAT</bdi> עושה ואיזו בעיה הוא פותר.</li>
+</ul></div>
+    </div>
+    <h3 class="var-title">תרגול וריאציות</h3>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 1</div>
+        <div class="var-q">בטבלת ניתוב יש שתי שורות: <bdi dir="ltr">192.168.0.0/16</bdi> <bdi dir="ltr" class="arw">←</bdi> פורט 1, ו-<bdi dir="ltr">192.168.5.0/24</bdi> <bdi dir="ltr" class="arw">←</bdi> פורט 2. לאן תנותב מנה ל-<bdi dir="ltr">192.168.5.77</bdi>?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>שתי השורות <strong>מתאימות</strong>: <bdi dir="ltr">192.168.5.77</bdi> נמצאת גם ב-<bdi dir="ltr">/16</bdi> וגם ב-<bdi dir="ltr">/24</bdi>.</p>
+  <p>הכלל <bdi dir="ltr">Longest Prefix Match</bdi> אומר לבחור את ההתאמה עם ה-prefix <strong>הארוך ביותר</strong>:</p>
+  <p><bdi dir="ltr">/24 &gt; /16</bdi> → <strong>פורט 2</strong>.</p>
+  <p>שים לב: <bdi dir="ltr">LPM</bdi> נכנס לפעולה <em>רק</em> כשיש יותר מהתאמה אחת.</p></div>
+      </div>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 2</div>
+        <div class="var-q">מדוע ההודעה הראשונה ב-<bdi dir="ltr">DHCP</bdi> נשלחת ב-<bdi dir="ltr">broadcast</bdi>?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>כי בשלב הזה ללקוח <strong>אין עדיין כתובת <bdi dir="ltr">IP</bdi></strong>, והוא גם <strong>לא יודע מי ואיפה שרת ה-<bdi dir="ltr">DHCP</bdi></strong>. אין לו למי לפנות ספציפית, אז הוא צועק לכל הרשת:</p>
+  <p>מקור <bdi dir="ltr">0.0.0.0</bdi>, יעד <bdi dir="ltr">255.255.255.255</bdi>.</p>
+  <p>גם ה-<bdi dir="ltr">Request</bdi> נשלח ב-broadcast — כדי שכל השרתים <em>האחרים</em> שהציעו כתובת ידעו שההצעה שלהם נדחתה.</p></div>
+      </div>
+    <a class="topic-link" href="13-net-intro.html">→ לפרק המלא: שכבת הרשת</a>
+  </section>
+  <section class="mb-topic" id="concepts">
+    <div class="mb-head">
+      <h2>מושגים: <bdi dir="ltr">UDP</bdi>, עוגיות, <bdi dir="ltr">DNS</bdi> ומודל השכבות</h2>
+      <span class="mb-from">שאלות 5, 13, 15, 19 במועד א׳</span>
+    </div>
+    <div class="mb-deep"><p><strong><bdi dir="ltr">UDP</bdi> מול <bdi dir="ltr">TCP</bdi>:</strong></p>
+<table><thead><tr><th></th><th><bdi dir="ltr">UDP</bdi></th><th><bdi dir="ltr">TCP</bdi></th></tr></thead>
+<tbody>
+<tr><td>חיבור</td><td>חסר חיבור</td><td><bdi dir="ltr">Connection Oriented</bdi> (3-way handshake)</td></tr>
+<tr><td>אמינות</td><td><strong><bdi dir="ltr">Best Effort</bdi></strong></td><td>אמין (<bdi dir="ltr">ACK</bdi> + שידור חוזר)</td></tr>
+<tr><td>סדר</td><td>לא מובטח</td><td>מובטח</td></tr>
+<tr><td>בקרת זרימה/גודש</td><td>אין</td><td>יש</td></tr>
+<tr><td>כותרת</td><td><bdi dir="ltr">8</bdi> בתים</td><td><bdi dir="ltr">20</bdi> בתים</td></tr>
+<tr><td>שימושים</td><td><bdi dir="ltr">DNS</bdi>, <bdi dir="ltr">DHCP</bdi>, וידאו, משחקים</td><td><bdi dir="ltr">HTTP</bdi>, <bdi dir="ltr">SMTP</bdi>, <bdi dir="ltr">FTP</bdi></td></tr>
+</tbody></table>
+<p><strong>עוגיות — ארבעת הרכיבים:</strong> (1) כותרת <bdi dir="ltr">Set-Cookie</bdi> בתגובה, (2) כותרת <bdi dir="ltr">Cookie</bdi> בבקשה, (3) קובץ אצל הלקוח, (4) מסד נתונים בשרת. <strong>השרת</strong> הוא זה שקובע ומייצר את התוכן; הלקוח רק שומר ומחזיר את המזהה.</p>
+<p><strong><bdi dir="ltr">DNS</bdi> — רקורסיבי מול איטרטיבי:</strong></p>
+<ul>
+  <li><strong>רקורסיבי:</strong> "תמצא לי הכל ותחזור אליי" — כך פונה המחשב ל-<bdi dir="ltr">Local Name Server</bdi>.</li>
+  <li><strong>איטרטיבי:</strong> "אני לא יודע, נסה את זה" — כך ה-<bdi dir="ltr">Local Name Server</bdi> פונה ל-<bdi dir="ltr">Root</bdi> ← <bdi dir="ltr">TLD</bdi> ← <bdi dir="ltr">Authoritative</bdi>.</li>
+</ul>
+<p>ה-<bdi dir="ltr">Local Name Server</bdi> <strong>כן</strong> שומר ב-<bdi dir="ltr">Cache</bdi> (עם <bdi dir="ltr">TTL</bdi>) — ולכן כל טענה עם "תמיד" או "אינו" בשאלה 5 הייתה שגויה.</p>
+<p><strong>מודל השכבות</strong> — היתרון אינו ביצועים אלא <strong>ניהול מורכבות</strong>: כל שכבה מסתירה את המימוש שלה, אפשר להחליף <bdi dir="ltr">WiFi</bdi> ב-<bdi dir="ltr">Ethernet</bdi> בלי לגעת ב-<bdi dir="ltr">HTTP</bdi>.</p></div>
+    <div class="box warn">
+      <div class="box-head"><span class="icon">🔄</span>מה מועד ב׳ יכול לשנות</div>
+      <div class="box-body"><ul>
+  <li>לשאול איזה פרוטוקול אפליקציה רץ מעל <bdi dir="ltr">UDP</bdi> ולמה דווקא הוא.</li>
+  <li>לשאול מה גודל כותרת <bdi dir="ltr">UDP</bdi> ומה השדות בה (<bdi dir="ltr">src port, dst port, length, checksum</bdi>).</li>
+  <li>לשאול על עוגיות מזווית פרטיות, או מה קורה כשהלקוח מוחק אותן.</li>
+  <li>שאלת <bdi dir="ltr">DNS</bdi> עם ספירת הודעות: כמה שאילתות נשלחות ברקורסיבי מול איטרטיבי.</li>
+</ul></div>
+    </div>
+    <h3 class="var-title">תרגול וריאציות</h3>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 1</div>
+        <div class="var-q">מדוע <bdi dir="ltr">DNS</bdi> משתמש ב-<bdi dir="ltr">UDP</bdi> ולא ב-<bdi dir="ltr">TCP</bdi>?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><ul>
+    <li>שאילתה ותשובה הן <strong>קצרות ונכנסות למנה אחת</strong> — אין צורך בפיצול או בהבטחת סדר.</li>
+    <li>‏<bdi dir="ltr">TCP</bdi> היה מוסיף <bdi dir="ltr">3-way handshake</bdi> = <bdi dir="ltr">1 RTT</bdi> נוסף לכל תרגום שם. עבור פעולה שקורית עשרות פעמים בטעינת דף — זה יקר מאוד.</li>
+    <li>אם התשובה אובדת, פשוט <strong>שולחים שוב</strong> — זול יותר מלתחזק חיבור.</li>
+  </ul>
+  <p>(‏<bdi dir="ltr">DNS</bdi> כן עובר ל-<bdi dir="ltr">TCP</bdi> כשהתשובה ארוכה מדי, למשל בהעברת אזור.)</p></div>
+      </div>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 2</div>
+        <div class="var-q">לקוח פונה ל-<bdi dir="ltr">Local Name Server</bdi> ומבקש <bdi dir="ltr">www.example.com</bdi>. השרת המקומי לא מכיר את השם ואין לו כלום ב-<bdi dir="ltr">Cache</bdi>. תאר את רצף השאילתות.</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><ol>
+    <li><strong>לקוח → <bdi dir="ltr">Local NS</bdi></strong> — שאילתה <strong>רקורסיבית</strong>.</li>
+    <li><strong><bdi dir="ltr">Local NS</bdi> → <bdi dir="ltr">Root</bdi></strong> — איטרטיבית. תשובה: "פנה לשרת ה-<bdi dir="ltr">TLD</bdi> של <bdi dir="ltr">com</bdi>".</li>
+    <li><strong><bdi dir="ltr">Local NS</bdi> → <bdi dir="ltr">TLD</bdi></strong> — תשובה: "פנה ל-<bdi dir="ltr">Authoritative</bdi> של <bdi dir="ltr">example.com</bdi>".</li>
+    <li><strong><bdi dir="ltr">Local NS</bdi> → <bdi dir="ltr">Authoritative</bdi></strong> — תשובה: כתובת ה-<bdi dir="ltr">IP</bdi>.</li>
+    <li><strong><bdi dir="ltr">Local NS</bdi> → לקוח</strong> — מחזיר את הכתובת, ו<strong>שומר ב-Cache</strong>.</li>
+  </ol>
+  <p>סה"כ <strong>4 שאילתות</strong> מהשרת המקומי + 1 מהלקוח. בפעם הבאה — 0, בזכות ה-Cache.</p></div>
+      </div>
+    <a class="topic-link" href="07-trans-udp.html">→ לפרק המלא: UDP</a>
+  </section>
+  <section class="mb-topic" id="sec">
+    <div class="mb-head">
+      <h2>אבטחה: הצפנת זרם ו-<bdi dir="ltr">XOR</bdi></h2>
+      <span class="mb-from">שאלה 7 במועד א׳</span>
+    </div>
+    <div class="mb-deep"><p><strong>הצפנת זרם</strong> (<bdi dir="ltr">Stream Cipher</bdi>): מייצרים <bdi dir="ltr">keystream</bdi> באורך ההודעה, ומבצעים <bdi dir="ltr">XOR</bdi> ביט-ביט.</p>
+$$c = m \oplus ks \qquad m = c \oplus ks$$
+<p>אותה פעולה מצפינה ומפענחת, כי $m \oplus ks \oplus ks = m$.</p>
+<table><thead><tr><th><bdi dir="ltr">a</bdi></th><th><bdi dir="ltr">b</bdi></th><th><bdi dir="ltr">a ⊕ b</bdi></th></tr></thead>
+<tbody>
+<tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td></tr>
+</tbody></table>
+<p>הכלל לזכור: <strong>שונים → 1, זהים → 0.</strong></p>
+<p><strong>סימטרי מול אסימטרי:</strong></p>
+<table><thead><tr><th></th><th>סימטרי</th><th>אסימטרי</th></tr></thead>
+<tbody>
+<tr><td>מפתחות</td><td>אחד משותף</td><td>ציבורי + פרטי</td></tr>
+<tr><td>דוגמאות</td><td><bdi dir="ltr">DES, 3DES, AES</bdi>, הצפנת זרם</td><td><bdi dir="ltr">RSA</bdi></td></tr>
+<tr><td>מהירות</td><td>מהיר</td><td>איטי</td></tr>
+<tr><td>הבעיה</td><td>איך מעבירים את המפתח?</td><td>פותר בדיוק את זה</td></tr>
+</tbody></table>
+<p><strong>סודיות מול אימות ב-<bdi dir="ltr">RSA</bdi>:</strong> מצפינים ב<strong>מפתח הציבורי של המקבל</strong> → סודיות. חותמים ב<strong>מפתח הפרטי של השולח</strong> → אימות וחתימה.</p></div>
+    <div class="box warn">
+      <div class="box-head"><span class="icon">🔄</span>מה מועד ב׳ יכול לשנות</div>
+      <div class="box-body"><ul>
+  <li>לתת <bdi dir="ltr">m</bdi> ו-<bdi dir="ltr">ks</bdi> אחרים, או לתת <bdi dir="ltr">c</bdi> ולבקש לפענח (אותה פעולה בדיוק!).</li>
+  <li>לתת <bdi dir="ltr">m</bdi> ו-<bdi dir="ltr">c</bdi> ולבקש את ה-<bdi dir="ltr">keystream</bdi> — גם זה <bdi dir="ltr">XOR</bdi>.</li>
+  <li>שאלת <bdi dir="ltr">RSA</bdi>: לחשב <bdi dir="ltr">n, φ(n)</bdi> ולמצוא <bdi dir="ltr">e</bdi> או <bdi dir="ltr">d</bdi>.</li>
+  <li>צופן קיסר עם הזזה נתונה (לשים לב לגלגול בסוף האלפבית).</li>
+  <li>לשאול איזה מפתח משמש לסודיות ואיזה לחתימה.</li>
+</ul></div>
+    </div>
+    <h3 class="var-title">תרגול וריאציות</h3>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 1</div>
+        <div class="var-q">הצפן את <bdi dir="ltr">m = 11001010</bdi> עם <bdi dir="ltr">ks = 01101101</bdi>.</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><table><tbody>
+  <tr><td><bdi dir="ltr">m</bdi></td><td class="mono">1 1 0 0 1 0 1 0</td></tr>
+  <tr><td><bdi dir="ltr">ks</bdi></td><td class="mono">0 1 1 0 1 1 0 1</td></tr>
+  <tr class="ok"><td><bdi dir="ltr">c</bdi></td><td class="mono">1 0 1 0 0 1 1 1</td></tr>
+  </tbody></table>
+  <p><strong><bdi dir="ltr">c = 10100111</bdi></strong> (שונים → 1, זהים → 0).</p></div>
+      </div>
+      <div class="exercise-card var-card">
+        <div class="var-head">וריאציה 2</div>
+        <div class="var-q">קיבלת <bdi dir="ltr">c = 10100111</bdi> ואתה יודע ש-<bdi dir="ltr">ks = 01101101</bdi>. מה ההודעה המקורית?</div>
+        <button class="reveal-btn">הראה פתרון</button>
+        <div class="solution"><p>הפענוח הוא <strong>אותה פעולה</strong>:</p>
+  <table><tbody>
+  <tr><td><bdi dir="ltr">c</bdi></td><td class="mono">1 0 1 0 0 1 1 1</td></tr>
+  <tr><td><bdi dir="ltr">ks</bdi></td><td class="mono">0 1 1 0 1 1 0 1</td></tr>
+  <tr class="ok"><td><bdi dir="ltr">m</bdi></td><td class="mono">1 1 0 0 1 0 1 0</td></tr>
+  </tbody></table>
+  <p><strong><bdi dir="ltr">m = 11001010</bdi></strong> — חזרנו למקור. זו התכונה שהופכת <bdi dir="ltr">XOR</bdi> לכל כך שימושי.</p></div>
+      </div>
+    <a class="topic-link" href="28-sec-crypto.html">→ לפרק המלא: הצפנה</a>
+  </section>
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="sum-app.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">סיכום — שכבת האפליקציה</span></a>
+  <a class="prev" href="34-exam-moed-a.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">שאלות ממבחן מועד א׳</span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
-  <a class="next" href="08-trans-rdt.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">העברה אמינה (<bdi dir="ltr">RDT</bdi>)</span></a>
 </nav>
-
 </main>
 
 </div>

@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,11 +414,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 3.6 · שכבת הרשת</span>
-  <h1 class="page-title">אלגוריתמי ניתוב — DV ו-LS</h1>
-  <p class="page-subtitle">איך ראוטרים בונים את הטבלאות שלהם — Bellman-Ford מבוזר ו-Dijkstra גלובלי.</p>
+  <h1 class="page-title">אלגוריתמי ניתוב — <bdi dir="ltr">DV</bdi> ו-<bdi dir="ltr">LS</bdi></h1>
+  <p class="page-subtitle">איך ראוטרים בונים את הטבלאות שלהם — <bdi dir="ltr">Bellman-Ford</bdi> מבוזר ו-<bdi dir="ltr">Dijkstra</bdi> גלובלי.</p>
 
   <p class="lead">
-    טבלת ה-Forwarding ב<strong>ראוטר נבנית ע״י אלגוריתם ניתוב</strong>. שתי גישות מנוגדות: <strong>Distance Vector</strong> — כל ראוטר יודע רק את השכנים שלו ומעדכן איטרטיבית (Bellman-Ford); <strong>Link State</strong> — כל ראוטר יודע את כל הטופולוגיה ומריץ Dijkstra. ב-DV יש בעיית "ספירה לאינסוף" בבשורות רעות.
+    טבלת ה-<bdi dir="ltr">Forwarding</bdi> ב<strong>ראוטר נבנית ע״י אלגוריתם ניתוב</strong>. שתי גישות מנוגדות: <strong>Distance Vector</strong> — כל ראוטר יודע רק את השכנים שלו ומעדכן איטרטיבית (<bdi dir="ltr">Bellman-Ford</bdi>); <strong>Link State</strong> — כל ראוטר יודע את כל הטופולוגיה ומריץ <bdi dir="ltr">Dijkstra</bdi>. ב-<bdi dir="ltr">DV</bdi> יש בעיית "ספירה לאינסוף" בבשורות רעות.
   </p>
 
   <h2>הצגת הבעיה</h2>
@@ -431,13 +435,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>‎2 גישות מנוגדות</div>
+    <div class="box-head"><span class="icon">📘</span>2 גישות מנוגדות</div>
     <div class="box-body">
       <table>
         <thead><tr><th>תכונה</th><th>Distance Vector</th><th>Link State</th></tr></thead>
         <tbody>
           <tr><td>מידע אצל הראוטר</td><td>רק וקטור מרחק לכל יעד</td><td>טופולוגיה מלאה של הרשת</td></tr>
-          <tr><td>מי שולח את המידע</td><td>כל אחד שולח לשכנים</td><td>כל אחד שולח לכולם (flooding)</td></tr>
+          <tr><td>מי שולח את המידע</td><td>כל אחד שולח לשכנים</td><td>כל אחד שולח לכולם (<bdi dir="ltr">flooding</bdi>)</td></tr>
           <tr><td>אלגוריתם</td><td>Bellman-Ford</td><td>Dijkstra</td></tr>
           <tr><td>פרוטוקול</td><td>RIP</td><td>OSPF</td></tr>
         </tbody>
@@ -445,7 +449,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     </div>
   </div>
 
-  <h2>Distance Vector — וקטור מרחק</h2>
+  <h2><bdi dir="ltr">Distance Vector</bdi> — וקטור מרחק</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הרעיון</div>
@@ -458,25 +462,25 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li>הרשת מתכנסת בסופו של דבר.</li>
       </ol>
       <div class="box formula">
-        <div class="box-head"><span class="icon">📐</span>נוסחת Bellman-Ford</div>
+        <div class="box-head"><span class="icon">📐</span>נוסחת <bdi dir="ltr">Bellman-Ford</bdi></div>
         <div class="box-body">
-          <p>העלות מ-X ל-Y:</p>
+          <p>העלות מ-<bdi dir="ltr">X</bdi> ל-<bdi dir="ltr">Y</bdi>:</p>
           $$d_X(Y) = \min_{v \in \text{neighbors}(X)} \{ c(X, v) + d_v(Y) \}$$
-          <p>אני בודק את כל השכנים שלי — אצל איזה מהם המסלול דרכי הזול ביותר ל-Y.</p>
+          <p>אני בודק את כל השכנים שלי — אצל איזה מהם המסלול דרכי הזול ביותר ל-<bdi dir="ltr">Y</bdi>.</p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="box example">
-    <div class="box-head"><span class="icon">💡</span>דוגמה — להגיע מ-U ל-Z</div>
+    <div class="box-head"><span class="icon">💡</span>דוגמה — להגיע מ-<bdi dir="ltr">U</bdi> ל-<bdi dir="ltr">Z</bdi></div>
     <div class="box-body">
-      <p>נניח שני שכנים של U: X ו-W.</p>
+      <p>נניח שני שכנים של <bdi dir="ltr">U</bdi>: <bdi dir="ltr">X</bdi> ו-<bdi dir="ltr">W</bdi>.</p>
       <ul>
-        <li>עלות מ-U ל-X = 2. עלות מ-X ל-Z = 3. סך הכל דרך X: <strong>5</strong>.</li>
-        <li>עלות מ-U ל-W = 4. עלות מ-W ל-Z = 3. סך הכל דרך W: <strong>7</strong>.</li>
+        <li>עלות מ-<bdi dir="ltr">U</bdi> ל-<bdi dir="ltr">X = 2</bdi>. עלות מ-<bdi dir="ltr">X</bdi> ל-<bdi dir="ltr">Z = 3</bdi>. סך הכל דרך <bdi dir="ltr">X</bdi>: <strong>5</strong>.</li>
+        <li>עלות מ-<bdi dir="ltr">U</bdi> ל-<bdi dir="ltr">W = 4</bdi>. עלות מ-<bdi dir="ltr">W</bdi> ל-<bdi dir="ltr">Z = 3</bdi>. סך הכל דרך <bdi dir="ltr">W</bdi>: <strong>7</strong>.</li>
       </ul>
-      <p>אז U יעדיף לעבור דרך X. הוא ייעדכן בטבלה: <span class="term purple">Z ← דרך X, עלות 5</span>.</p>
+      <p>אז <bdi dir="ltr">U</bdi> יעדיף לעבור דרך <bdi dir="ltr">X</bdi>. הוא ייעדכן בטבלה: <span class="term purple">Z ← דרך X, עלות 5</span>.</p>
     </div>
   </div>
 
@@ -488,7 +492,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <!-- New router E -->
         <circle cx="80" cy="120" r="20" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
         <text x="80" y="124" text-anchor="middle" font-size="11" fill="#047857" font-weight="700">E</text>
-        <text x="80" y="160" text-anchor="middle" font-size="9" fill="#047857">חדש!</text>
+        <text x="80" y="160" text-anchor="middle" font-size="9" fill="#047857" direction="rtl">חדש!</text>
 
         <!-- Router A -->
         <circle cx="200" cy="120" r="20" fill="#f5f3ff" stroke="#6d28d9" stroke-width="2"/>
@@ -517,8 +521,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <text x="550" y="110" text-anchor="middle" font-size="10" fill="#475569" font-weight="700">1</text>
 
         <!-- Title -->
-        <text x="360" y="40" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">בשורות טובות — מתכנס מהר (‎4 איטרציות)</text>
-        <text x="360" y="200" text-anchor="middle" font-size="10" fill="#78716c">המידע על E זורם משכן לשכן: T=1: A יודע · T=2: B · T=3: C · T=4: D</text>
+        <text x="360" y="40" text-anchor="middle" font-size="13" font-weight="700" fill="#047857" direction="rtl">בשורות טובות — מתכנס מהר (‎4 איטרציות)</text>
+        <text x="360" y="200" text-anchor="middle" font-size="10" fill="#78716c" direction="rtl">המידע על E זורם משכן לשכן: T=1: A יודע · T=2: B · T=3: C · T=4: D</text>
       </g>
     </svg>
   </div>
@@ -528,13 +532,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <p>כשמתחבר ראוטר חדש <strong>E</strong>, כל הראוטרים צריכים לדעת איך להגיע אליו. התהליך:</p>
       <ol>
-        <li><strong>T=0:</strong> רק E מכיר את עצמו. כל השאר: מרחק = אינסוף.</li>
-        <li><strong>T=1:</strong> A מקבל וקטור מ-E (עלות 0 ל-E). A מעדכן: d(E) = 1.</li>
-        <li><strong>T=2:</strong> B מקבל וקטור מ-A. B מעדכן: d(E) = 2.</li>
-        <li><strong>T=3:</strong> C מקבל מ-B. d(E) = 3.</li>
-        <li><strong>T=4:</strong> D מקבל מ-C. d(E) = 4.</li>
+        <li><strong>T=0:</strong> רק <bdi dir="ltr">E</bdi> מכיר את עצמו. כל השאר: מרחק = אינסוף.</li>
+        <li><strong>T=1:</strong> <bdi dir="ltr">A</bdi> מקבל וקטור מ-<bdi dir="ltr">E</bdi> (עלות 0 ל-<bdi dir="ltr">E</bdi>). <bdi dir="ltr">A</bdi> מעדכן: <bdi dir="ltr">d</bdi>(<bdi dir="ltr">E</bdi>) = 1.</li>
+        <li><strong>T=2:</strong> <bdi dir="ltr">B</bdi> מקבל וקטור מ-<bdi dir="ltr">A. B</bdi> מעדכן: <bdi dir="ltr">d</bdi>(<bdi dir="ltr">E</bdi>) = 2.</li>
+        <li><strong>T=3:</strong> <bdi dir="ltr">C</bdi> מקבל מ-<bdi dir="ltr">B. d</bdi>(<bdi dir="ltr">E</bdi>) = 3.</li>
+        <li><strong>T=4:</strong> <bdi dir="ltr">D</bdi> מקבל מ-<bdi dir="ltr">C. d</bdi>(<bdi dir="ltr">E</bdi>) = 4.</li>
       </ol>
-      <p>‎<strong>הרשת התכנסה ב-4 איטרציות</strong> — אורך המסלול. תגובה מצוינת.</p>
+      <p><strong>הרשת התכנסה ב-4 איטרציות</strong> — אורך המסלול. תגובה מצוינת.</p>
     </div>
   </div>
 
@@ -543,13 +547,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box warn">
     <div class="box-head"><span class="icon">⚠</span>הסרת ראוטר</div>
     <div class="box-body">
-      <p>נניח E התנתק. עכשיו אף אחד לא יכול להגיע אליו, אבל הראוטרים <strong>לא יודעים את זה</strong>.</p>
+      <p>נניח <bdi dir="ltr">E</bdi> התנתק. עכשיו אף אחד לא יכול להגיע אליו, אבל הראוטרים <strong>לא יודעים את זה</strong>.</p>
       <h4>מה קורה?</h4>
       <ol>
-        <li>A מאבד את החיבור ל-E. הוא יודע ש-d(E) = ∞ דרכו ישירות.</li>
-        <li>אבל ‎B חושב ‎d(E) = 2 (זה היה נכון בעבר!). A רואה את הוקטור של B ומעדכן: d(E) = 1 + 2 = <strong>3</strong>.</li>
-        <li>B רואה ש-A התעדכן ל-3. עכשיו B חושב ‎d(E) = 1 + 3 = <strong>4</strong>.</li>
-        <li>A רואה ‎d(E) של B = 4. מתעדכן ל-5. וכן הלאה...</li>
+        <li><bdi dir="ltr">A</bdi> מאבד את החיבור ל-<bdi dir="ltr">E</bdi>. הוא יודע ש-<bdi dir="ltr">d</bdi>(<bdi dir="ltr">E</bdi>) = ∞ דרכו ישירות.</li>
+        <li>אבל <bdi dir="ltr">B</bdi> חושב <bdi dir="ltr">d</bdi>(<bdi dir="ltr">E</bdi>) = 2 (זה היה נכון בעבר!). <bdi dir="ltr">A</bdi> רואה את הוקטור של <bdi dir="ltr">B</bdi> ומעדכן: <bdi dir="ltr">d</bdi>(<bdi dir="ltr">E</bdi>) = 1 + 2 = <strong>3</strong>.</li>
+        <li><bdi dir="ltr">B</bdi> רואה ש-<bdi dir="ltr">A</bdi> התעדכן ל-3. עכשיו <bdi dir="ltr">B</bdi> חושב <bdi dir="ltr">d</bdi>(<bdi dir="ltr">E</bdi>) = 1 + 3 = <strong>4</strong>.</li>
+        <li><bdi dir="ltr">A</bdi> רואה <bdi dir="ltr">d</bdi>(<bdi dir="ltr">E</bdi>) של <bdi dir="ltr">B = 4</bdi>. מתעדכן ל-5. וכן הלאה...</li>
       </ol>
       <p><strong>הספירה עולה לאט לאט — לאינסוף.</strong> כל ראוטר מסתמך על שכן שמסתמך עליו. <strong>לולאת מידע גרועה.</strong></p>
     </div>
@@ -558,19 +562,19 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הפתרון: הגדרת "אינסוף"</div>
     <div class="box-body">
-      <p>במקום לספור לאינסוף — מגדירים <strong>ערך מקסימלי</strong>. ב-RIP: <span class="term purple">16</span>.</p>
+      <p>במקום לספור לאינסוף — מגדירים <strong>ערך מקסימלי</strong>. ב-<bdi dir="ltr">RIP</bdi>: <span class="term purple">16</span>.</p>
       <p>כל מסלול שמגיע ל-16 נחשב <strong>"לא קיים"</strong>. הראוטר מבין שהאובייקט לא בר-השגה.</p>
       <h4>המחיר</h4>
-      <p>אי אפשר ליצור מסלולים שיוצרים יותר מ-15 קפיצות (hops). מגביל את גודל הרשת — אבל פותר את ספירה-לאינסוף.</p>
+      <p>אי אפשר ליצור מסלולים שיוצרים יותר מ-15 קפיצות (<bdi dir="ltr">hops</bdi>). מגביל את גודל הרשת — אבל פותר את ספירה-לאינסוף.</p>
     </div>
   </div>
 
-  <h2>Link State — לינק סטייט</h2>
+  <h2><bdi dir="ltr">Link State</bdi> — לינק סטייט</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הרעיון</div>
     <div class="box-body">
-      <p>במקום שכל ראוטר ידע רק את השכנים שלו — <strong>כל ראוטר יידע את כל הטופולוגיה</strong>. אחר כך כל אחד מריץ Dijkstra לוקאלית.</p>
+      <p>במקום שכל ראוטר ידע רק את השכנים שלו — <strong>כל ראוטר יידע את כל הטופולוגיה</strong>. אחר כך כל אחד מריץ <bdi dir="ltr">Dijkstra</bdi> לוקאלית.</p>
       <h4>איך בונים את הטופולוגיה?</h4>
       <p>באמצעות <strong>Flooding:</strong> כל ראוטר שולח לכל הרשת <em>מי השכנים שלו</em>. כל ראוטר מקבל הצהרות שכנות מכל הרשת ובונה גרף.</p>
       <h4>אחרי שיש גרף</h4>
@@ -579,9 +583,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>למה Link State נמנע מספירה-לאינסוף</div>
+    <div class="box-head"><span class="icon">📘</span>למה <bdi dir="ltr">Link State</bdi> נמנע מספירה-לאינסוף</div>
     <div class="box-body">
-      <p>כשראוטר מתנתק — כולם מקבלים flooding תוך זמן קצר. Dijkstra רץ מחדש על הגרף החדש (בלי הראוטר). מסלולים חדשים נמצאים תוך איטרציה אחת.</p>
+      <p>כשראוטר מתנתק — כולם מקבלים <bdi dir="ltr">flooding</bdi> תוך זמן קצר. <bdi dir="ltr">Dijkstra</bdi> רץ מחדש על הגרף החדש (בלי הראוטר). מסלולים חדשים נמצאים תוך איטרציה אחת.</p>
       <p>אין לולאת מידע — כי כל ראוטר יודע את הטופולוגיה <strong>בעצמו</strong>, לא מסתמך על שכן.</p>
     </div>
   </div>
@@ -593,9 +597,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <tr><th>תכונה</th><th>Distance Vector</th><th>Link State</th></tr>
     </thead>
     <tbody>
-      <tr><td>שליחת הודעות</td><td>רק לשכנים</td><td>לכל הרשת (flooding) — ‎O(N²)</td></tr>
-      <tr><td>גודל הודעה</td><td>וקטור עם N ערכים</td><td>רק שכנים מקומיים (קטן)</td></tr>
-      <tr><td>הסכמה לאחר שינוי</td><td>איטי, יכול להיות איטרציות רבות</td><td>O(N²) בגרוע</td></tr>
+      <tr><td>שליחת הודעות</td><td>רק לשכנים</td><td>לכל הרשת (<bdi dir="ltr">flooding</bdi>) — <bdi dir="ltr">O</bdi>(<bdi dir="ltr">N</bdi>²)</td></tr>
+      <tr><td>גודל הודעה</td><td>וקטור עם <bdi dir="ltr">N</bdi> ערכים</td><td>רק שכנים מקומיים (קטן)</td></tr>
+      <tr><td>הסכמה לאחר שינוי</td><td>איטי, יכול להיות איטרציות רבות</td><td><bdi dir="ltr">O</bdi>(<bdi dir="ltr">N</bdi>²) בגרוע</td></tr>
       <tr><td>בשורות רעות</td><td>בעיית ספירה-לאינסוף</td><td>אין בעיה</td></tr>
       <tr><td>זיכרון בראוטר</td><td>חסכוני (רק וקטור)</td><td>טופולוגיה מלאה — יותר זיכרון</td></tr>
       <tr><td>אבטחה</td><td>חלשה</td><td>חזקה יותר</td></tr>
@@ -606,14 +610,14 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגיל בית 4 · שאלה 3.ד · ערך אינסוף ב-RIP</span>
+      <span class="exercise-tag">תרגיל בית 4 · שאלה 3.ד · ערך אינסוף ב-<bdi dir="ltr">RIP</bdi></span>
       <p>בפרוטוקול <strong>RIP</strong> נקבע ערך <strong>16</strong> עבור הגדרת המושג "אינסוף". <strong>למה</strong> יש צורך להגדיר מושג של אינסוף בפרוטוקול?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">המוטיבציה — ספירה לאינסוף</div>
-        <p>RIP מבוסס על <strong>Distance Vector</strong>. כשראוטר ברשת מתנתק — נוצרת בעיית <strong>Count to Infinity:</strong></p>
+        <p><bdi dir="ltr">RIP</bdi> מבוסס על <strong>Distance Vector</strong>. כשראוטר ברשת מתנתק — נוצרת בעיית <strong>Count to Infinity:</strong></p>
         <ul>
           <li>שני ראוטרים מסתמכים זה על המידע של השני.</li>
           <li>כל אחד מהם מעלה לאט לאט את המרחק.</li>
@@ -622,44 +626,44 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </div>
       <div class="step">
         <div class="step-label">הפתרון: ערך אינסוף מוגדר</div>
-        <p>במקום לחכות שהמרחק יגיע למילון ערכים — מגדירים <strong>סף קבוע</strong>. ב-RIP זה <span class="term purple">16</span>.</p>
+        <p>במקום לחכות שהמרחק יגיע למילון ערכים — מגדירים <strong>סף קבוע</strong>. ב-<bdi dir="ltr">RIP</bdi> זה <span class="term purple">16</span>.</p>
         <p>כשהמרחק מגיע ל-16, הראוטר מבין: <strong>"זה לא בר-השגה"</strong> ומסיר את הרשומה מהטבלה.</p>
         <p>תוצאה: ספירת האינסוף מוגבלת — מסתיימת אחרי לכל היותר 16 איטרציות.</p>
       </div>
       <div class="step">
         <div class="step-label">המחיר</div>
-        <p>RIP יכול לעבוד רק ברשתות שבהן <strong>המסלול הארוך ביותר &lt; 16 קפיצות</strong>. ‎15 hops זה הגבול. ברשתות גדולות יותר — RIP לא מספיק.</p>
+        <p><bdi dir="ltr">RIP</bdi> יכול לעבוד רק ברשתות שבהן <strong>המסלול הארוך ביותר &<bdi dir="ltr">lt</bdi>; 16 קפיצות</strong>. <bdi dir="ltr">15 hops</bdi> זה הגבול. ברשתות גדולות יותר — <bdi dir="ltr">RIP</bdi> לא מספיק.</p>
       </div>
-      <div class="final-answer">ערך האינסוף נדרש כדי <strong>לעצור את ספירה-לאינסוף</strong> שמתרחשת בבשורות רעות (כשראוטר מתנתק). ‎16 הוא הסף ב-RIP. ברשתות גדולות יותר משתמשים ב-OSPF.</div>
+      <div class="final-answer">ערך האינסוף נדרש כדי <strong>לעצור את ספירה-לאינסוף</strong> שמתרחשת בבשורות רעות (כשראוטר מתנתק). 16 הוא הסף ב-<bdi dir="ltr">RIP</bdi>. ברשתות גדולות יותר משתמשים ב-<bdi dir="ltr">OSPF</bdi>.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · הרצת Bellman-Ford</span>
-      <p>נתון הראוטר X עם שני שכנים: Y ו-Z. עלות מ-X ל-Y: 2. עלות מ-X ל-Z: 7. Y שלח את הוקטור שלו: <span class="term">{Y: 0, A: 3, B: 5}</span>. Z שלח: <span class="term">{Z: 0, A: 1, B: 4}</span>. מה הוקטור החדש של X?</p>
+      <span class="exercise-tag">תרגול · הרצת <bdi dir="ltr">Bellman-Ford</bdi></span>
+      <p>נתון הראוטר <bdi dir="ltr">X</bdi> עם שני שכנים: <bdi dir="ltr">Y</bdi> ו-<bdi dir="ltr">Z</bdi>. עלות מ-<bdi dir="ltr">X</bdi> ל-<bdi dir="ltr">Y</bdi>: <bdi dir="ltr">2</bdi>. עלות מ-<bdi dir="ltr">X</bdi> ל-<bdi dir="ltr">Z</bdi>: <bdi dir="ltr">7. Y</bdi> שלח את הוקטור שלו: <span class="term">{Y: 0, A: 3, B: 5}</span>. <bdi dir="ltr">Z</bdi> שלח: <span class="term">{Z: 0, A: 1, B: 4}</span>. מה הוקטור החדש של <bdi dir="ltr">X</bdi>?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">הוקטור החדש של X</div>
-        <p>X לעצמו: 0.</p>
-        <p>X ל-Y: דרך Y ישירות = 2. (קצר יותר משום אפשרות אחרת.)</p>
-        <p>X ל-Z: דרך Z ישירות = 7. דרך Y: 2 + ? (Y לא הודיע על Z). אז 7.</p>
+        <div class="step-label">הוקטור החדש של <bdi dir="ltr">X</bdi></div>
+        <p><bdi dir="ltr">X</bdi> לעצמו: 0.</p>
+        <p><bdi dir="ltr">X</bdi> ל-<bdi dir="ltr">Y</bdi>: דרך <bdi dir="ltr">Y</bdi> ישירות = 2. (קצר יותר משום אפשרות אחרת.)</p>
+        <p><bdi dir="ltr">X</bdi> ל-<bdi dir="ltr">Z</bdi>: דרך <bdi dir="ltr">Z</bdi> ישירות = 7. דרך <bdi dir="ltr">Y</bdi>: <bdi dir="ltr">2</bdi> + ? (<bdi dir="ltr">Y</bdi> לא הודיע על <bdi dir="ltr">Z</bdi>). אז 7.</p>
       </div>
       <div class="step">
-        <div class="step-label">X ל-A</div>
-        <p>דרך Y: ‎2 + 3 = 5</p>
-        <p>דרך Z: ‎7 + 1 = 8</p>
-        <p>מינימום: <strong>5 דרך Y</strong></p>
+        <div class="step-label"><bdi dir="ltr">X</bdi> ל-<bdi dir="ltr">A</bdi></div>
+        <p>דרך <bdi dir="ltr">Y</bdi>: <bdi dir="ltr">2 + 3 = 5</bdi></p>
+        <p>דרך <bdi dir="ltr">Z</bdi>: <bdi dir="ltr">7 + 1 = 8</bdi></p>
+        <p>מינימום: <strong>5 דרך <bdi dir="ltr">Y</bdi></strong></p>
       </div>
       <div class="step">
-        <div class="step-label">X ל-B</div>
-        <p>דרך Y: ‎2 + 5 = 7</p>
-        <p>דרך Z: ‎7 + 4 = 11</p>
-        <p>מינימום: <strong>7 דרך Y</strong></p>
+        <div class="step-label"><bdi dir="ltr">X</bdi> ל-<bdi dir="ltr">B</bdi></div>
+        <p>דרך <bdi dir="ltr">Y</bdi>: <bdi dir="ltr">2 + 5 = 7</bdi></p>
+        <p>דרך <bdi dir="ltr">Z</bdi>: <bdi dir="ltr">7 + 4 = 11</bdi></p>
+        <p>מינימום: <strong>7 דרך <bdi dir="ltr">Y</bdi></strong></p>
       </div>
-      <div class="final-answer">הוקטור החדש של X: <span class="term">{X: 0, Y: 2, Z: 7, A: 5 (via Y), B: 7 (via Y)}</span>.</div>
+      <div class="final-answer">הוקטור החדש של <bdi dir="ltr">X</bdi>: <span class="term">{X: 0, Y: 2, Z: 7, A: 5 (via Y), B: 7 (via Y)}</span>.</div>
     </div>
   </div>
 
@@ -667,13 +671,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li><strong>Routing</strong> = אלגוריתמים לבניית טבלת ה-Forwarding</li>
-        <li><strong>Distance Vector:</strong> כל ראוטר יודע וקטור לכל יעד. Bellman-Ford. ‎פרוטוקול: RIP</li>
-        <li><strong>Link State:</strong> כל ראוטר יודע את כל הטופולוגיה. Dijkstra. ‎פרוטוקול: OSPF</li>
-        <li>DV מגיב מצוין לבשורות טובות (תוך אורך המסלול)</li>
-        <li>DV סובל מ-<strong>ספירה-לאינסוף</strong> בבשורות רעות ← פתרון: סף ‎16 ב-RIP</li>
-        <li>LS לא סובל מהבעיה — Dijkstra רץ מחדש על כל גרף</li>
-        <li>LS יקר יותר בהודעות (flooding) — אבל יותר אמין</li>
+        <li><strong>Routing</strong> = אלגוריתמים לבניית טבלת ה-<bdi dir="ltr">Forwarding</bdi></li>
+        <li><strong>Distance Vector:</strong> כל ראוטר יודע וקטור לכל יעד. <bdi dir="ltr">Bellman-Ford</bdi>. פרוטוקול: <bdi dir="ltr">RIP</bdi></li>
+        <li><strong>Link State:</strong> כל ראוטר יודע את כל הטופולוגיה. <bdi dir="ltr">Dijkstra</bdi>. פרוטוקול: <bdi dir="ltr">OSPF</bdi></li>
+        <li><bdi dir="ltr">DV</bdi> מגיב מצוין לבשורות טובות (תוך אורך המסלול)</li>
+        <li><bdi dir="ltr">DV</bdi> סובל מ-<strong>ספירה-לאינסוף</strong> בבשורות רעות ← פתרון: סף 16 ב-<bdi dir="ltr">RIP</bdi></li>
+        <li><bdi dir="ltr">LS</bdi> לא סובל מהבעיה — <bdi dir="ltr">Dijkstra</bdi> רץ מחדש על כל גרף</li>
+        <li><bdi dir="ltr">LS</bdi> יקר יותר בהודעות (<bdi dir="ltr">flooding</bdi>) — אבל יותר אמין</li>
       </ul>
     </div>
   </div>

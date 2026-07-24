@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" class="active" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,19 +414,19 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">✏️ תרגול · חזרה</span>
-  <h1 class="page-title">תרגול — IP, השהיות והצפנה</h1>
-  <p class="page-subtitle">שלושת נושאי החישוב והנימוק הגדולים של המבחן: עבודה עם ‎/x, כל סוגי ה-d, והצפנה בסגנון אליס ובוב. שיטה, ואז תרגילים עם פתרון מלא.</p>
+  <h1 class="page-title">תרגול — <bdi dir="ltr">IP</bdi>, השהיות והצפנה</h1>
+  <p class="page-subtitle">שלושת נושאי החישוב והנימוק הגדולים של המבחן: עבודה עם /<bdi dir="ltr">x</bdi>, כל סוגי ה-<bdi dir="ltr">d</bdi>, והצפנה בסגנון אליס ובוב. שיטה, ואז תרגילים עם פתרון מלא.</p>
 
-  <h2>חלק א׳ · כתובות IP לפי ה-‎/x</h2>
+  <h2>חלק א׳ · כתובות <bdi dir="ltr">IP</bdi> לפי ה-/<bdi dir="ltr">x</bdi></h2>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">🧭</span>השיטה: מה ה-‎/x באמת אומר</div>
+    <div class="box-head"><span class="icon">🧭</span>השיטה: מה ה-/<bdi dir="ltr">x</bdi> באמת אומר</div>
     <div class="box-body">
-      <p>ב-<span class="term">a.b.c.d/x</span>, המספר x אומר: <strong>x הביטים השמאליים = הרשת</strong> (זהים לכל המכשירים בסאבנט), והשאר — <span class="term">32 − x</span> ביטים — הם החלק של ה-host.</p>
+      <p>ב-<span class="term">a.b.c.d/x</span>, המספר <bdi dir="ltr">x</bdi> אומר: <strong><bdi dir="ltr">x</bdi> הביטים השמאליים = הרשת</strong> (זהים לכל המכשירים בסאבנט), והשאר — <span class="term">32 − x</span> ביטים — הם החלק של ה-<bdi dir="ltr">host</bdi>.</p>
       <ul>
-        <li><strong>כמה כתובות בבלוק:</strong> $2^{32-x}$. <strong>כמה hosts חוקיים:</strong> $2^{32-x} - 2$ (מורידים את כתובת הרשת — כל אפסים בחלק ה-host, ואת ה-broadcast — כל אחדות).</li>
-        <li><strong>המסכה:</strong> x אחדות ואז אפסים. ‏/26 ← ‏<span class="term">255.255.255.192</span>, ‏/22 ← ‏<span class="term">255.255.252.0</span>.</li>
-        <li><strong>כתובת הרשת:</strong> ‏<span class="term">IP AND Mask</span> — מאפסים את ביטי ה-host.</li>
+        <li><strong>כמה כתובות בבלוק:</strong> $2^{32-x}$. <strong>כמה <bdi dir="ltr">hosts</bdi> חוקיים:</strong> $2^{32-x} - 2$ (מורידים את כתובת הרשת — כל אפסים בחלק ה-<bdi dir="ltr">host</bdi>, ואת ה-<bdi dir="ltr">broadcast</bdi> — כל אחדות).</li>
+        <li><strong>המסכה:</strong> <bdi dir="ltr">x</bdi> אחדות ואז אפסים. /26 ← <span class="term">255.255.255.192</span>, /22 ← <span class="term">255.255.252.0</span>.</li>
+        <li><strong>כתובת הרשת:</strong> <span class="term">IP AND Mask</span> — מאפסים את ביטי ה-<bdi dir="ltr">host</bdi>.</li>
       </ul>
     </div>
   </div>
@@ -432,23 +436,23 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <p>לא חייבים בינארית מלאה. מזהים באיזה אוקטט "נופל" הגבול, ומחשבים את גודל הקפיצה:</p>
       <ul>
-        <li>x בין 25–32 ← האוקטט <strong>הרביעי</strong> מעניין. x בין 17–24 ← <strong>השלישי</strong>. x בין 9–16 ← <strong>השני</strong>.</li>
-        <li><strong>גודל בלוק</strong> באוקטט המעניין: $2^{\,8-(x \bmod 8)}$. למשל ‎/26: ‏<span class="term">x mod 8 = 2</span> ← בלוק של <span class="term">64</span> ← הרשתות מתחילות ב-<span class="term">0, 64, 128, 192</span>.</li>
-        <li>מוצאים לאיזה בלוק הכתובת שייכת: <strong>הכפולה הגדולה ביותר של גודל הבלוק שקטנה או שווה לערך</strong>. זו כתובת הרשת; ה-broadcast הוא תחילת הבלוק הבא פחות 1.</li>
+        <li><bdi dir="ltr">x</bdi> בין 25–32 ← האוקטט <strong>הרביעי</strong> מעניין. <bdi dir="ltr">x</bdi> בין 17–24 ← <strong>השלישי</strong>. <bdi dir="ltr">x</bdi> בין 9–16 ← <strong>השני</strong>.</li>
+        <li><strong>גודל בלוק</strong> באוקטט המעניין: $2^{\,8-(x \bmod 8)}$. למשל /26: <span class="term">x mod 8 = 2</span> ← בלוק של <span class="term">64</span> ← הרשתות מתחילות ב-<span class="term">0, 64, 128, 192</span>.</li>
+        <li>מוצאים לאיזה בלוק הכתובת שייכת: <strong>הכפולה הגדולה ביותר של גודל הבלוק שקטנה או שווה לערך</strong>. זו כתובת הרשת; ה-<bdi dir="ltr">broadcast</bdi> הוא תחילת הבלוק הבא פחות 1.</li>
       </ul>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · רשת, broadcast וטווח</span>
-      <p>נתונה הכתובת <span class="term">192.168.10.77/26</span>. מצאו: את המסכה, את כתובת הרשת, את כתובת ה-broadcast, את טווח הכתובות החוקיות ואת מספר ה-hosts.</p>
+      <span class="exercise-tag">תרגול · רשת, <bdi dir="ltr">broadcast</bdi> וטווח</span>
+      <p>נתונה הכתובת <span class="term">192.168.10.77/26</span>. מצאו: את המסכה, את כתובת הרשת, את כתובת ה-<bdi dir="ltr">broadcast</bdi>, את טווח הכתובות החוקיות ואת מספר ה-<bdi dir="ltr">hosts</bdi>.</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">שלב 1 · מסכה וגודל בלוק</div>
-        <p>‏/26 ← ‏26 אחדות: <span class="term">255.255.255.192</span>. האוקטט המעניין הוא הרביעי, גודל בלוק $2^{8-2} = 64$.</p>
+        <p>/26 ← 26 אחדות: <span class="term">255.255.255.192</span>. האוקטט המעניין הוא הרביעי, גודל בלוק $2^{8-2} = 64$.</p>
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · כתובת הרשת</div>
@@ -456,10 +460,10 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         $$\text{Network} = 192.168.10.64$$
       </div>
       <div class="step">
-        <div class="step-label">שלב 3 · broadcast וטווח</div>
-        <p>הבלוק הבא מתחיל ב-128, אז ה-broadcast הוא <span class="term">192.168.10.127</span>. הכתובות החוקיות:</p>
+        <div class="step-label">שלב <bdi dir="ltr">3 · broadcast</bdi> וטווח</div>
+        <p>הבלוק הבא מתחיל ב-128, אז ה-<bdi dir="ltr">broadcast</bdi> הוא <span class="term">192.168.10.127</span>. הכתובות החוקיות:</p>
         $$192.168.10.65 \;\text{—}\; 192.168.10.126$$
-        <p>מספר hosts: ‏$2^{6} - 2 = 62$.</p>
+        <p>מספר <bdi dir="ltr">hosts</bdi>: $2^{6} - 2 = 62$.</p>
       </div>
     </div>
   </div>
@@ -472,7 +476,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="solution">
       <div class="step">
         <div class="step-label">שלב 1 · האוקטט המעניין</div>
-        <p>‏/22: x בין 17–24 ← האוקטט <strong>השלישי</strong>. גודל בלוק: $2^{8-6} = 4$ ← בלוקים ב-<span class="term">0, 4, 8, 12, ...</span></p>
+        <p>/<bdi dir="ltr">22: x</bdi> בין 17–24 ← האוקטט <strong>השלישי</strong>. גודל בלוק: $2^{8-6} = 4$ ← בלוקים ב-<span class="term">0, 4, 8, 12, ...</span></p>
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · לאיזה בלוק כל כתובת שייכת</div>
@@ -481,13 +485,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </div>
       <div class="step">
         <div class="step-label">מסקנה</div>
-        <p><strong>כן</strong> — שתיהן בסאבנט <span class="term">172.16.4.0/22</span>. הן יכולות לתקשר ישירות בלי ראוטר (ועם ARP למציאת ה-MAC).</p>
+        <p><strong>כן</strong> — שתיהן בסאבנט <span class="term">172.16.4.0/22</span>. הן יכולות לתקשר ישירות בלי ראוטר (ועם <bdi dir="ltr">ARP</bdi> למציאת ה-<bdi dir="ltr">MAC</bdi>).</p>
       </div>
     </div>
   </div>
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · אילו כתובות חוקיות ל-host?</span>
+      <span class="exercise-tag">תרגול · אילו כתובות חוקיות ל-<bdi dir="ltr">host</bdi>?</span>
       <p>ברשת <span class="term">10.0.5.0/29</span> — אילו מהכתובות הבאות אפשר להקצות למחשב? נמקו לכל אחת.</p>
       <ol>
         <li><span class="term">10.0.5.0</span></li>
@@ -501,7 +505,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="solution">
       <div class="step">
         <div class="step-label">שלב 1 · גבולות הבלוק</div>
-        <p>‏/29 ← ‏3 ביטי host ← בלוק של $2^3 = 8$ כתובות: מ-<span class="term">10.0.5.0</span> (רשת) עד <span class="term">10.0.5.7</span> (broadcast). חוקיות: <span class="term">.1 — .6</span>.</p>
+        <p>/29 ← 3 ביטי <bdi dir="ltr">host</bdi> ← בלוק של $2^3 = 8$ כתובות: מ-<span class="term">10.0.5.0</span> (רשת) עד <span class="term">10.0.5.7</span> (<bdi dir="ltr">broadcast</bdi>). חוקיות: <span class="term">.1 — .6</span>.</p>
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · פסיקה לכל מועמדת</div>
@@ -509,7 +513,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
           <li><span class="term">10.0.5.0</span> — ❌ כתובת הרשת עצמה.</li>
           <li><span class="term">10.0.5.3</span> — ✅ בתוך הטווח.</li>
           <li><span class="term">10.0.5.6</span> — ✅ הכתובת החוקית האחרונה.</li>
-          <li><span class="term">10.0.5.7</span> — ❌ ‏broadcast (כל ביטי ה-host דלוקים).</li>
+          <li><span class="term">10.0.5.7</span> — ❌ <bdi dir="ltr">broadcast</bdi> (כל ביטי ה-<bdi dir="ltr">host</bdi> דלוקים).</li>
           <li><span class="term">10.0.5.8</span> — ❌ שייכת כבר לבלוק הבא (<span class="term">10.0.5.8/29</span>).</li>
         </ul>
       </div>
@@ -518,23 +522,23 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגול · חלוקה לסאבנטים</span>
-      <p>קיבלתם את הרשת <span class="term">192.168.1.0/24</span> וצריך לחלק אותה ל-<strong>4 סאבנטים שווים</strong>. מהו הפריפיקס החדש, מהם 4 הטווחים, וכמה hosts בכל אחד?</p>
+      <p>קיבלתם את הרשת <span class="term">192.168.1.0/24</span> וצריך לחלק אותה ל-<strong>4 סאבנטים שווים</strong>. מהו הפריפיקס החדש, מהם 4 הטווחים, וכמה <bdi dir="ltr">hosts</bdi> בכל אחד?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">שלב 1 · כמה ביטים להוסיף</div>
-        <p>‏4 סאבנטים ← צריך $\log_2 4 = 2$ ביטים נוספים לרשת: ‏<span class="term">/24 ← /26</span>. גודל בלוק: 64.</p>
+        <p>4 סאבנטים ← צריך $\log_2 4 = 2$ ביטים נוספים לרשת: <span class="term">/24 ← /26</span>. גודל בלוק: 64.</p>
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · ארבעת הטווחים</div>
         <ul>
-          <li><span class="term">192.168.1.0/26</span> — ‏.0 עד .63</li>
-          <li><span class="term">192.168.1.64/26</span> — ‏.64 עד .127</li>
-          <li><span class="term">192.168.1.128/26</span> — ‏.128 עד .191</li>
-          <li><span class="term">192.168.1.192/26</span> — ‏.192 עד .255</li>
+          <li><span class="term">192.168.1.0/26</span> — .0 עד .63</li>
+          <li><span class="term">192.168.1.64/26</span> — .64 עד .127</li>
+          <li><span class="term">192.168.1.128/26</span> — .128 עד .191</li>
+          <li><span class="term">192.168.1.192/26</span> — .192 עד .255</li>
         </ul>
-        <p>בכל סאבנט: $2^6 - 2 = 62$ ‏hosts (הראשון והאחרון בכל טווח הם רשת/broadcast).</p>
+        <p>בכל סאבנט: $2^6 - 2 = 62$ <bdi dir="ltr">hosts</bdi> (הראשון והאחרון בכל טווח הם רשת/<bdi dir="ltr">broadcast</bdi>).</p>
       </div>
     </div>
   </div>
@@ -546,46 +550,46 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">שלב 1 · כמה ביטי host צריך</div>
-        <p>דורשים $2^{h} - 2 \geq 500$. ‏$h=8$ נותן 254 — לא מספיק. ‏$h=9$ נותן $510$ — מספיק.</p>
+        <div class="step-label">שלב 1 · כמה ביטי <bdi dir="ltr">host</bdi> צריך</div>
+        <p>דורשים $2^{h} - 2 \geq 500$. $h=8$ נותן 254 — לא מספיק. $h=9$ נותן $510$ — מספיק.</p>
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · הפריפיקס</div>
         $$x = 32 - 9 = 23 \;\;\Rightarrow\;\; /23$$
-        <p>למשל <span class="term">10.20.0.0/23</span>: ‏512 כתובות, 510 חוקיות. בזבוז: ‏<span class="term">510 − 500 = 10</span> כתובות פנויות.</p>
-        <p><strong>מלכודת:</strong> לענות ‎/24 כי "500 קרוב ל-512"— ‏/24 נותן רק 254 ‏hosts.</p>
+        <p>למשל <span class="term">10.20.0.0/23</span>: 512 כתובות, 510 חוקיות. בזבוז: <span class="term">510 − 500 = 10</span> כתובות פנויות.</p>
+        <p><strong>מלכודת:</strong> לענות /24 כי "500 קרוב ל-512"— /24 נותן רק <bdi dir="ltr">254 hosts</bdi>.</p>
       </div>
     </div>
   </div>
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · Longest Prefix Match</span>
+      <span class="exercise-tag">תרגול · <bdi dir="ltr">Longest Prefix Match</bdi></span>
       <p>בטבלת הניתוב של ראוטר:</p>
       <ul>
-        <li><span class="term">200.23.16.0/21</span> ← ‏Interface 0</li>
-        <li><span class="term">200.23.24.0/22</span> ← ‏Interface 1</li>
-        <li><span class="term">200.23.24.0/24</span> ← ‏Interface 2</li>
-        <li>אחרת (default) ← ‏Interface 3</li>
+        <li><span class="term">200.23.16.0/21</span> ← Interface 0</li>
+        <li><span class="term">200.23.24.0/22</span> ← Interface 1</li>
+        <li><span class="term">200.23.24.0/24</span> ← Interface 2</li>
+        <li>אחרת (<bdi dir="ltr">default</bdi>) ← <bdi dir="ltr">Interface 3</bdi></li>
       </ul>
-      <p>לאן יישלחו פאקטות עם היעדים: ‏(א) <span class="term">200.23.20.130</span> ‏(ב) <span class="term">200.23.24.17</span> ‏(ג) <span class="term">200.23.26.100</span> ‏(ד) <span class="term">200.23.30.5</span>?</p>
+      <p>לאן יישלחו פאקטות עם היעדים: (א) <span class="term">200.23.20.130</span> (ב) <span class="term">200.23.24.17</span> (ג) <span class="term">200.23.26.100</span> (ד) <span class="term">200.23.30.5</span>?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">שלב 1 · לתרגם כל שורה לטווח</div>
         <ul>
-          <li>‏/21 ← בלוק 8 באוקטט השלישי: <span class="term">200.23.16.0 — 200.23.23.255</span></li>
-          <li>‏/22 ← בלוק 4: ‏<span class="term">200.23.24.0 — 200.23.27.255</span></li>
-          <li>‏/24 ← ‏<span class="term">200.23.24.0 — 200.23.24.255</span> בלבד</li>
+          <li>/21 ← בלוק 8 באוקטט השלישי: <span class="term">200.23.16.0 — 200.23.23.255</span></li>
+          <li>/22 ← בלוק 4: <span class="term">200.23.24.0 — 200.23.27.255</span></li>
+          <li>/24 ← <span class="term">200.23.24.0 — 200.23.24.255</span> בלבד</li>
         </ul>
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · הכלל: כשיש כמה התאמות — הפריפיקס הארוך מנצח</div>
         <ul>
-          <li>(א) ‏20 בטווח 16–23 ← מתאים רק ל-/21 ← <strong>Interface 0</strong></li>
-          <li>(ב) ‏24 מתאים גם ל-/22 וגם ל-/24 ← הארוך מנצח ← <strong>Interface 2</strong></li>
-          <li>(ג) ‏26 בטווח 24–27 אבל לא בטווח של /24 ← <strong>Interface 1</strong></li>
-          <li>(ד) ‏30 לא באף טווח ← ‏default ← <strong>Interface 3</strong></li>
+          <li>(א) 20 בטווח 16–23 ← מתאים רק ל-/21 ← <strong>Interface 0</strong></li>
+          <li>(ב) 24 מתאים גם ל-/22 וגם ל-/24 ← הארוך מנצח ← <strong>Interface 2</strong></li>
+          <li>(ג) 26 בטווח 24–27 אבל לא בטווח של /24 ← <strong>Interface 1</strong></li>
+          <li>(ד) 30 לא באף טווח ← <bdi dir="ltr">default</bdi> ← <strong>Interface 3</strong></li>
         </ul>
         <p>זה בדיוק איך ראוטר בוחר לאן להעביר: <strong>ההתאמה הספציפית ביותר תמיד גוברת</strong>.</p>
       </div>
@@ -593,19 +597,19 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   </div>
 
 
-  <h2>חלק ב׳ · חישובי ה-d — כל סוגי ההשהיה</h2>
+  <h2>חלק ב׳ · חישובי ה-<bdi dir="ltr">d</bdi> — כל סוגי ההשהיה</h2>
 
   <div class="box formula">
-    <div class="box-head"><span class="icon">📐</span>ארבעת ה-d + נוסחת הצינור</div>
+    <div class="box-head"><span class="icon">📐</span>ארבעת ה-<bdi dir="ltr">d</bdi> + נוסחת הצינור</div>
     <div class="box-body">
       <ul>
-        <li>$d_{proc}$ — עיבוד בראוטר (בדיקת header, לאן להעביר). בדרך כלל נתון או זניח.</li>
+        <li>$d_{proc}$ — עיבוד בראוטר (בדיקת <bdi dir="ltr">header</bdi>, לאן להעביר). בדרך כלל נתון או זניח.</li>
         <li>$d_{queue}$ — המתנה בתור. תלוי בעומס; אינטנסיביות: $\dfrac{L \cdot a}{R}$.</li>
         <li>$d_{trans} = \dfrac{L}{R}$ — הזמן לדחוף את כל הביטים אל הלינק.</li>
         <li>$d_{prop} = \dfrac{d}{s}$ — הזמן לביט לנסוע לאורך הלינק.</li>
       </ul>
       <p>סה"כ בצומת: $d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}$.</p>
-      <p><strong>Store-and-Forward על N לינקים</strong> (פאקטה אחת, לינקים זהים, בלי proc/queue): $N \cdot \dfrac{L}{R}$ + כל הפרופגיישנים. <strong>P פאקטות ברצף:</strong> $(N + P - 1) \cdot \dfrac{L}{R}$.</p>
+      <p><strong><bdi dir="ltr">Store-and-Forward</bdi> על <bdi dir="ltr">N</bdi> לינקים</strong> (פאקטה אחת, לינקים זהים, בלי <bdi dir="ltr">proc/queue</bdi>): $N \cdot \dfrac{L}{R}$ + כל הפרופגיישנים. <strong><bdi dir="ltr">P</bdi> פאקטות ברצף:</strong> $(N + P - 1) \cdot \dfrac{L}{R}$.</p>
     </div>
   </div>
 
@@ -613,11 +617,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">⚠️</span>מלכודות היחידות — כאן נופלים רוב הנקודות</div>
     <div class="box-body">
       <ul>
-        <li><strong>Bytes ← bits:</strong> ‏×8. ‏1500 Bytes = ‏12,000 bits. רוב ה-R נתונים ב-bits לשנייה.</li>
+        <li><strong>Bytes ← bits:</strong> ×<bdi dir="ltr">8. 1500 Bytes = 12,000 bits</bdi>. רוב ה-<bdi dir="ltr">R</bdi> נתונים ב-<bdi dir="ltr">bits</bdi> לשנייה.</li>
         <li><strong>Mbps</strong> = $10^6$ ביטים לשנייה (לא $2^{20}$).</li>
-        <li><strong>d מול s:</strong> ‏d = מרחק (km ← להמיר למטרים!), ‏s = מהירות התפשטות (בדרך כלל $2 \cdot 10^8$ או $2.5 \cdot 10^8$ m/s).</li>
-        <li>לפעמים נותנים <strong>גורם פרופגיישן הפוך</strong> (למשל µsec/km) — אז פשוט מכפילים במרחק, בלי לחלק.</li>
-        <li>‏$d_{trans}$ תלוי באורך הפאקטה אבל <strong>לא במרחק</strong>; ‏$d_{prop}$ תלוי במרחק אבל <strong>לא באורך הפאקטה</strong>.</li>
+        <li><strong><bdi dir="ltr">d</bdi> מול <bdi dir="ltr">s</bdi>:</strong> <bdi dir="ltr">d</bdi> = מרחק (<bdi dir="ltr">km</bdi> ← להמיר למטרים!), <bdi dir="ltr">s</bdi> = מהירות התפשטות (בדרך כלל $2 \cdot 10^8$ או $2.5 \cdot 10^8$ m/s).</li>
+        <li>לפעמים נותנים <strong>גורם פרופגיישן הפוך</strong> (למשל µ<bdi dir="ltr">sec/km</bdi>) — אז פשוט מכפילים במרחק, בלי לחלק.</li>
+        <li>$d_{trans}$ תלוי באורך הפאקטה אבל <strong>לא במרחק</strong>; $d_{prop}$ תלוי במרחק אבל <strong>לא באורך הפאקטה</strong>.</li>
       </ul>
     </div>
   </div>
@@ -625,13 +629,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגול · טרנסמישן + פרופגיישן</span>
-      <p>פאקטה של <span class="term">1500 Bytes</span> נשלחת על לינק ישיר: ‏<span class="term">R = 10 Mbps</span>, אורך <span class="term">2500 km</span>, מהירות התפשטות <span class="term">2.5 × 10⁸ m/s</span>. הזניחו עיבוד ותור. חשבו את $d_{trans}$, את $d_{prop}$ ואת ההשהיה הכוללת.</p>
+      <p>פאקטה של <span class="term">1500 Bytes</span> נשלחת על לינק ישיר: <span class="term">R = 10 Mbps</span>, אורך <span class="term">2500 km</span>, מהירות התפשטות <span class="term">2.5 × 10⁸ m/s</span>. הזניחו עיבוד ותור. חשבו את $d_{trans}$, את $d_{prop}$ ואת ההשהיה הכוללת.</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">שלב 1 · המרות</div>
-        <p>‏1500 Bytes ← ‏$1500 \times 8 = 12{,}000$ bits. ‏2500 km ← ‏$2.5 \times 10^6$ m.</p>
+        <p>1500 Bytes ← $1500 \times 8 = 12{,}000$ bits. 2500 km ← $2.5 \times 10^6$ m.</p>
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · טרנסמישן</div>
@@ -650,8 +654,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   </div>
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · Store-and-Forward</span>
-      <p>פאקטה של <span class="term">8000 bits</span> עוברת מ-A ל-B דרך <strong>שני ראוטרים</strong> (כלומר 3 לינקים), כל לינק <span class="term">R = 2 Mbps</span>. הזניחו פרופגיישן, עיבוד ותור. כמה זמן עד שהפאקטה כולה מגיעה ל-B?</p>
+      <span class="exercise-tag">תרגול · <bdi dir="ltr">Store-and-Forward</bdi></span>
+      <p>פאקטה של <span class="term">8000 bits</span> עוברת מ-<bdi dir="ltr">A</bdi> ל-<bdi dir="ltr">B</bdi> דרך <strong>שני ראוטרים</strong> (כלומר 3 לינקים), כל לינק <span class="term">R = 2 Mbps</span>. הזניחו פרופגיישן, עיבוד ותור. כמה זמן עד שהפאקטה כולה מגיעה ל-<bdi dir="ltr">B</bdi>?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
@@ -661,7 +665,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · העיקרון</div>
-        <p>Store-and-Forward: כל ראוטר חייב לקבל את <strong>הפאקטה כולה</strong> לפני שהוא משדר הלאה — אז משלמים את ה-$\frac{L}{R}$ מחדש על כל לינק:</p>
+        <p><bdi dir="ltr">Store-and-Forward</bdi>: כל ראוטר חייב לקבל את <strong>הפאקטה כולה</strong> לפני שהוא משדר הלאה — אז משלמים את ה-$\frac{L}{R}$ מחדש על כל לינק:</p>
         $$d = N \cdot \frac{L}{R} = 3 \times 4 = 12 \,\text{ms}$$
       </div>
     </div>
@@ -669,25 +673,25 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגול · כמה פאקטות בצינור</span>
-      <p>אותה רשת (3 לינקים, ‏<span class="term">L/R = 4 ms</span> לכל לינק), אבל עכשיו שולחים <strong>4 פאקטות ברצף</strong>. מתי הפאקטה האחרונה מסיימת להגיע?</p>
+      <p>אותה רשת (3 לינקים, <span class="term">L/R = 4 ms</span> לכל לינק), אבל עכשיו שולחים <strong>4 פאקטות ברצף</strong>. מתי הפאקטה האחרונה מסיימת להגיע?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
         <div class="step-label">שלב 1 · אינטואיציה של צינור</div>
-        <p>הפאקטה הראשונה מגיעה אחרי $N \cdot \frac{L}{R} = 12$ ‏ms. מכאן, בכל $\frac{L}{R}$ נוסף "נפלטת" פאקטה נוספת מהצד השני — הלינקים עובדים במקביל.</p>
+        <p>הפאקטה הראשונה מגיעה אחרי $N \cdot \frac{L}{R} = 12$ <bdi dir="ltr">ms</bdi>. מכאן, בכל $\frac{L}{R}$ נוסף "נפלטת" פאקטה נוספת מהצד השני — הלינקים עובדים במקביל.</p>
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · הנוסחה</div>
         $$d = (N + P - 1) \cdot \frac{L}{R} = (3 + 4 - 1) \times 4 = 24 \,\text{ms}$$
-        <p>בדיקת שפיות: ‏12 ‏ms לראשונה + ‏3 פאקטות נוספות × ‏4 ‏ms = ‏24 ‏ms. ✓</p>
+        <p>בדיקת שפיות: <bdi dir="ltr">12 ms</bdi> לראשונה + 3 פאקטות נוספות × <bdi dir="ltr">4 ms = 24 ms</bdi>. ✓</p>
       </div>
     </div>
   </div>
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגול · אינטנסיביות תעבורה (התור)</span>
-      <p>לראוטר מגיעות בממוצע <span class="term">a = 500</span> פאקטות בשנייה, כל אחת באורך <span class="term">L = 2000 bits</span>. קצב היציאה: ‏<span class="term">R = 1.5 Mbps</span>. חשבו את אינטנסיביות התעבורה והסבירו מה יקרה לתור. מה היה קורה עם ‏<span class="term">a = 800</span>?</p>
+      <p>לראוטר מגיעות בממוצע <span class="term">a = 500</span> פאקטות בשנייה, כל אחת באורך <span class="term">L = 2000 bits</span>. קצב היציאה: <span class="term">R = 1.5 Mbps</span>. חשבו את אינטנסיביות התעבורה והסבירו מה יקרה לתור. מה היה קורה עם <span class="term">a = 800</span>?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
@@ -698,10 +702,10 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <div class="step">
         <div class="step-label">שלב 2 · פירוש</div>
         <p>הכללים: קרוב ל-0 ← תור זניח; מתקרב ל-1 ← ההשהיה מזנקת; <strong>גדול מ-1 ← נכנס יותר ממה שיוצא</strong>, התור גדל בלי גבול (ובפועל — פאקטות נזרקות).</p>
-        <p>‏0.67 ← עומס בינוני, תור מורגש אבל יציב.</p>
+        <p>0.67 ← עומס בינוני, תור מורגש אבל יציב.</p>
       </div>
       <div class="step">
-        <div class="step-label">שלב 3 · עם a = 800</div>
+        <div class="step-label">שלב 3 · עם <bdi dir="ltr">a = 800</bdi></div>
         $$\frac{2000 \times 800}{1.5 \times 10^6} \approx 1.07 > 1$$
         <p>גירעון קבוע — התור מתפוצץ. זו התשובה שהמבחן מחפש: <strong>לזהות שהיחס עבר את 1</strong>.</p>
       </div>
@@ -709,7 +713,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   </div>
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · מתי d_trans = d_prop?</span>
+      <span class="exercise-tag">תרגול · מתי <bdi dir="ltr">d_trans = d_prop</bdi>?</span>
       <p>לינק באורך <span class="term">120 km</span>, מהירות התפשטות <span class="term">2.4 × 10⁸ m/s</span>, קצב <span class="term">R = 1 Mbps</span>. מה צריך להיות אורך הפאקטה כדי ש-$d_{trans} = d_{prop}$?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
@@ -719,9 +723,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         $$d_{prop} = \frac{1.2 \times 10^5}{2.4 \times 10^8} = 5 \times 10^{-4} \,\text{s} = 0.5 \,\text{ms}$$
       </div>
       <div class="step">
-        <div class="step-label">שלב 2 · משוואה על L</div>
+        <div class="step-label">שלב 2 · משוואה על <bdi dir="ltr">L</bdi></div>
         $$\frac{L}{R} = d_{prop} \;\Rightarrow\; L = R \cdot d_{prop} = 10^6 \times 5 \times 10^{-4} = 500 \,\text{bits}$$
-        <p>דרך אגב, ‏$R \cdot d_{prop}$ זה בדיוק "כמה ביטים נמצאים על הלינק בו-זמנית" (Bandwidth-Delay Product).</p>
+        <p>דרך אגב, $R \cdot d_{prop}$ זה בדיוק "כמה ביטים נמצאים על הלינק בו-זמנית" (<bdi dir="ltr">Bandwidth-Delay Product</bdi>).</p>
       </div>
     </div>
   </div>
@@ -733,7 +737,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box theory">
     <div class="box-head"><span class="icon">🎭</span>השחקנים והסימונים</div>
     <div class="box-body">
-      <p><strong>אליס</strong> רוצה לשלוח הודעה, <strong>בוב</strong> אמור לקבל אותה, ו<strong>טרודי</strong> (Intruder) מנסה לצוטט, לזייף או להתחזות. לכל צד יש זוג מפתחות: $PK$ ציבורי (כולם מכירים) ו-$SK$ פרטי (רק הבעלים).</p>
+      <p><strong>אליס</strong> רוצה לשלוח הודעה, <strong>בוב</strong> אמור לקבל אותה, ו<strong>טרודי</strong> (<bdi dir="ltr">Intruder</bdi>) מנסה לצוטט, לזייף או להתחזות. לכל צד יש זוג מפתחות: $PK$ ציבורי (כולם מכירים) ו-$SK$ פרטי (רק הבעלים).</p>
       <p>שני כללי הזהב — מהם נגזר הכול:</p>
       <ul>
         <li><strong>סודיות</strong> (שרק בוב יקרא): מצפינים עם <strong>$PK_B$ — הציבורי של המקבל</strong>. רק $SK_B$ פותח.</li>
@@ -789,8 +793,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <p>אליס שולחת את הזוג $(M, \sigma)$. אימות ← המפתח <strong>הפרטי של השולחת</strong> — ההיפך הגמור מסודיות, וכאן הולכות רוב הנקודות במבחן.</p>
       </div>
       <div class="step">
-        <div class="step-label">סעיף 2 · למה Hash</div>
-        <p>יעילות: הצפנה אסימטרית איטית (פי ~1000 מסימטרית), אז חותמים על תקציר קצר וקבוע-אורך במקום על כל ההודעה. ה-Hash גם מבטיח שלמות — שינוי ביט אחד ב-$M$ משנה את התקציר לגמרי.</p>
+        <div class="step-label">סעיף 2 · למה <bdi dir="ltr">Hash</bdi></div>
+        <p>יעילות: הצפנה אסימטרית איטית (פי ~1000 מסימטרית), אז חותמים על תקציר קצר וקבוע-אורך במקום על כל ההודעה. ה-<bdi dir="ltr">Hash</bdi> גם מבטיח שלמות — שינוי ביט אחד ב-$M$ משנה את התקציר לגמרי.</p>
       </div>
       <div class="step">
         <div class="step-label">סעיף 3 · האימות אצל בוב</div>
@@ -830,13 +834,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגול · מפתח סשן (הצפנה היברידית)</span>
-      <p>אליס ובוב צריכים להעביר <strong>קובץ של 2GB</strong> בצורה מאובטחת. למה לא מצפינים את כולו ב-RSA? תארו את הפרוטוקול המלא שהם יריצו בפועל (רמז: זה בדיוק מה ש-SSL עושה).</p>
+      <p>אליס ובוב צריכים להעביר <strong>קובץ של <bdi dir="ltr">2GB</bdi></strong> בצורה מאובטחת. למה לא מצפינים את כולו ב-<bdi dir="ltr">RSA</bdi>? תארו את הפרוטוקול המלא שהם יריצו בפועל (רמז: זה בדיוק מה ש-<bdi dir="ltr">SSL</bdi> עושה).</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">שלב 1 · למה לא RSA על הכול</div>
-        <p>אסימטרי איטי בסדרי גודל מסימטרי. על 2GB זה לא מעשי. אז משתמשים באסימטרי רק בשביל <strong>לתאם מפתח</strong>, ובסימטרי (AES) בשביל הדאטה.</p>
+        <div class="step-label">שלב 1 · למה לא <bdi dir="ltr">RSA</bdi> על הכול</div>
+        <p>אסימטרי איטי בסדרי גודל מסימטרי. על <bdi dir="ltr">2GB</bdi> זה לא מעשי. אז משתמשים באסימטרי רק בשביל <strong>לתאם מפתח</strong>, ובסימטרי (<bdi dir="ltr">AES</bdi>) בשביל הדאטה.</p>
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · הפרוטוקול</div>
@@ -847,8 +851,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         </ol>
       </div>
       <div class="step">
-        <div class="step-label">הקשר ל-SSL</div>
-        <p>זה בדיוק ה-Handshake של SSL/TLS: Premaster Secret מוצפן עם $PK_{Server}$ מתוך התעודה, שני הצדדים גוזרים ממנו $K_{session}$, וכל תעבורת ה-HTTP מוצפנת סימטרית. <a href="30-sec-ssl.html">פרק 6.4</a> לפירוט.</p>
+        <div class="step-label">הקשר ל-<bdi dir="ltr">SSL</bdi></div>
+        <p>זה בדיוק ה-<bdi dir="ltr">Handshake</bdi> של <bdi dir="ltr">SSL/TLS</bdi>: <bdi dir="ltr">Premaster Secret</bdi> מוצפן עם $PK_{Server}$ מתוך התעודה, שני הצדדים גוזרים ממנו $K_{session}$, וכל תעבורת ה-<bdi dir="ltr">HTTP</bdi> מוצפנת סימטרית. <a href="30-sec-ssl.html">פרק 6.4</a> לפירוט.</p>
       </div>
     </div>
   </div>
@@ -859,7 +863,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <ol>
         <li>האם בוב יצליח לפענח את ההודעה?</li>
         <li>האם ההצפנה הזו מוכיחה שההודעה מאליס? למה?</li>
-        <li>מה חסר כדי שבוב יוכל לסמוך על הזהות, ואיזו בעיה נוספת פותרת תעודה (Certificate)?</li>
+        <li>מה חסר כדי שבוב יוכל לסמוך על הזהות, ואיזו בעיה נוספת פותרת תעודה (<bdi dir="ltr">Certificate</bdi>)?</li>
       </ol>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
@@ -870,17 +874,17 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </div>
       <div class="step">
         <div class="step-label">סעיף 2 · ולמה זה לא מוכיח כלום</div>
-        <p>‏$PK_B$ <strong>ציבורי</strong> — כל אחד בעולם, כולל טרודי, יכול להצפין איתו. סודיות עונה על "מי יכול לקרוא", לא על "מי כתב". זו הנקודה שהתרגיל הזה בודק.</p>
+        <p>$PK_B$ <strong>ציבורי</strong> — כל אחד בעולם, כולל טרודי, יכול להצפין איתו. סודיות עונה על "מי יכול לקרוא", לא על "מי כתב". זו הנקודה שהתרגיל הזה בודק.</p>
       </div>
       <div class="step">
         <div class="step-label">סעיף 3 · מה חסר</div>
-        <p><strong>חתימה:</strong> $Enc(SK_A, Hash(M))$ — את זה טרודי לא מסוגלת לייצר. אבל נשארת פרצה אחת: מאיפה בוב יודע ש-$PK_A$ שיש לו באמת שייך לאליס? טרודי יכולה לפרסם מפתח משלה בשם "אליס" (Man-in-the-Middle). את זה פותרת <strong>תעודה</strong> — גוף מהימן (CA) שחותם על הקישור בין הזהות למפתח הציבורי.</p>
+        <p><strong>חתימה:</strong> $Enc(SK_A, Hash(M))$ — את זה טרודי לא מסוגלת לייצר. אבל נשארת פרצה אחת: מאיפה בוב יודע ש-$PK_A$ שיש לו באמת שייך לאליס? טרודי יכולה לפרסם מפתח משלה בשם "אליס" (<bdi dir="ltr">Man-in-the-Middle</bdi>). את זה פותרת <strong>תעודה</strong> — גוף מהימן (<bdi dir="ltr">CA</bdi>) שחותם על הקישור בין הזהות למפתח הציבורי.</p>
       </div>
     </div>
   </div>
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">תרגול · Brute Force על צופן החלפה</span>
+      <span class="exercise-tag">תרגול · <bdi dir="ltr">Brute Force</bdi> על צופן החלפה</span>
       <p>אליס ובוב משתמשים בצופן החלפה מונו-אלפביתי מעל אלפבית של <span class="term">22 אותיות</span> (נניח, עברית). טרודי יירטה הודעה קצרה שמופיעות בה <strong>5 אותיות שונות</strong> בלבד.</p>
       <ol>
         <li>כמה מפתחות אפשריים טרודי צריכה לשקול (רק על האותיות שמופיעות)?</li>
@@ -897,15 +901,15 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <div class="step">
         <div class="step-label">סעיף 2 · הממוצע</div>
         $$\frac{3{,}160{,}080}{2} = 1{,}580{,}040$$
-        <p>הכלל מדף הנוסחאות: ב-brute force בודקים <strong>בממוצע חצי ממרחב המפתחות</strong>. ולמסקנה המעשית — מרחב של מיליונים בודדים הוא כלום למחשב; לכן צריך מפתחות של 128+ ביט.</p>
+        <p>הכלל מדף הנוסחאות: ב-<bdi dir="ltr">brute force</bdi> בודקים <strong>בממוצע חצי ממרחב המפתחות</strong>. ולמסקנה המעשית — מרחב של מיליונים בודדים הוא כלום למחשב; לכן צריך מפתחות של 128+ ביט.</p>
       </div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">מבחני עבר · Nonce</span>
-      <p>למדנו על מנגנון nonce. איזו התקפה הוא נועד למנוע? הסבירו גם <em>איך</em>.</p>
+      <span class="exercise-tag">מבחני עבר · <bdi dir="ltr">Nonce</bdi></span>
+      <p>למדנו על מנגנון <bdi dir="ltr">nonce</bdi>. איזו התקפה הוא נועד למנוע? הסבירו גם <em>איך</em>.</p>
       <ol>
         <li>Playback Attack</li>
         <li>DDoS Attack</li>
@@ -921,14 +925,14 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </div>
       <div class="step">
         <div class="step-label">ההסבר</div>
-        <p>ב-Playback טרודי מקליטה הודעת אימות אמיתית ומשדרת אותה שוב. ה-nonce (מספר חד-פעמי) הופך כל התחברות לאתגר טרי: בוב שולח $R$ חדש, אליס מחזירה $Enc(K, R)$ — והקלטה ישנה עונה על $R$ הלא-נכון. DoS/DDoS הן התקפות הצפה — לא קשורות לאימות.</p>
+        <p>ב-<bdi dir="ltr">Playback</bdi> טרודי מקליטה הודעת אימות אמיתית ומשדרת אותה שוב. ה-<bdi dir="ltr">nonce</bdi> (מספר חד-פעמי) הופך כל התחברות לאתגר טרי: בוב שולח $R$ חדש, אליס מחזירה $Enc(K, R)$ — והקלטה ישנה עונה על $R$ הלא-נכון. <bdi dir="ltr">DoS/DDoS</bdi> הן התקפות הצפה — לא קשורות לאימות.</p>
       </div>
     </div>
   </div>
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">מבחני עבר · יצירת מפתחות RSA</span>
-      <p>בוב משתמש בהצפנת RSA עם הראשוניים $p = 5$, ‏$q = 7$, והמפתח הפרטי שלו הוא $d = 29$. מהו המפתח הציבורי $(e, n)$?</p>
+      <span class="exercise-tag">מבחני עבר · יצירת מפתחות <bdi dir="ltr">RSA</bdi></span>
+      <p>בוב משתמש בהצפנת <bdi dir="ltr">RSA</bdi> עם הראשוניים $p = 5$, $q = 7$, והמפתח הפרטי שלו הוא $d = 29$. מהו המפתח הציבורי $(e, n)$?</p>
       <ol>
         <li>$(5, 35)$</li>
         <li>$(29, 35)$</li>
@@ -939,18 +943,18 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
       <div class="step">
-        <div class="step-label">שלב 1 · n ו-φ</div>
+        <div class="step-label">שלב <bdi dir="ltr">1 · n</bdi> ו-φ</div>
         $$n = p \cdot q = 35, \qquad \varphi(n) = (p-1)(q-1) = 4 \cdot 6 = 24$$
       </div>
       <div class="step">
-        <div class="step-label">שלב 2 · התנאי על e</div>
+        <div class="step-label">שלב 2 · התנאי על <bdi dir="ltr">e</bdi></div>
         <p>צריך $e \cdot d \equiv 1 \pmod{24}$. מפשטים: $29 \equiv 5 \pmod{24}$, אז מחפשים $e$ עם $5e \equiv 1 \pmod{24}$:</p>
         $$e = 5: \quad 5 \cdot 5 = 25 \equiv 1 \pmod{24} \;\checkmark$$
         <p><strong>התשובה: 1 — $(5, 35)$.</strong></p>
       </div>
       <div class="step">
         <div class="step-label">למה 2 היא המלכודת</div>
-        <p>גם $e=29$ מקיים את הקונגרואנציה ($29 \equiv 5$), אבל הוא נופל בתנאי הטווח $1 \lt e \lt \varphi(n) = 24$. ותשובה 3 היא מלכודת הפוכה: ‏$e$ נכון אבל $n$ הוחלף ב-$\varphi(n)$ — המפתח הציבורי תמיד עם $n$, לא עם $\varphi$.</p>
+        <p>גם $e=29$ מקיים את הקונגרואנציה ($29 \equiv 5$), אבל הוא נופל בתנאי הטווח $1 \lt e \lt \varphi(n) = 24$. ותשובה 3 היא מלכודת הפוכה: $e$ נכון אבל $n$ הוחלף ב-$\varphi(n)$ — המפתח הציבורי תמיד עם $n$, לא עם $\varphi$.</p>
       </div>
     </div>
   </div>
@@ -963,30 +967,30 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="solution">
       <div class="step">
         <div class="step-label">שלב 1 · הכלל</div>
-        <p>"הקלאסי" = הזזה של <strong>3 קדימה</strong>, עם גלגול בסוף האלפבית (X→A, Y→B, Z→C).</p>
+        <p>"הקלאסי" = הזזה של <strong>3 קדימה</strong>, עם גלגול בסוף האלפבית (<bdi dir="ltr">X</bdi>→<bdi dir="ltr">A, Y</bdi>→<bdi dir="ltr">B, Z</bdi>→<bdi dir="ltr">C</bdi>).</p>
       </div>
       <div class="step">
         <div class="step-label">שלב 2 · אות-אות</div>
         <ul>
-          <li><span class="term">HI</span>: H→K, I→L ← ‏<span class="term">KL</span></li>
-          <li><span class="term">HOW</span>: H→K, O→R, W→Z ← ‏<span class="term">KRZ</span></li>
-          <li><span class="term">ARE</span>: A→D, R→U, E→H ← ‏<span class="term">DUH</span></li>
-          <li><span class="term">YOU</span>: ‏<strong>Y→B (גלגול!)</strong>, O→R, U→X ← ‏<span class="term">BRX</span></li>
+          <li><span class="term">HI</span>: H→K, I→L ← <span class="term">KL</span></li>
+          <li><span class="term">HOW</span>: H→K, O→R, W→Z ← <span class="term">KRZ</span></li>
+          <li><span class="term">ARE</span>: A→D, R→U, E→H ← <span class="term">DUH</span></li>
+          <li><span class="term">YOU</span>: <strong><bdi dir="ltr">Y</bdi>→<bdi dir="ltr">B</bdi> (גלגול!)</strong>, O→R, U→X ← <span class="term">BRX</span></li>
         </ul>
         $$\text{KL KRZ DUH BRX}$$
-        <p>המלכודת הקבועה: לשכוח את הגלגול ב-Y. מסיח שמתחיל ב-<span class="term">JK</span> = הזזה של 1 בלבד — בדיקה מהירה של האות הראשונה מפילה אותו.</p>
+        <p>המלכודת הקבועה: לשכוח את הגלגול ב-<bdi dir="ltr">Y</bdi>. מסיח שמתחיל ב-<span class="term">JK</span> = הזזה של 1 בלבד — בדיקה מהירה של האות הראשונה מפילה אותו.</p>
       </div>
     </div>
   </div>
   <div class="exercise-card">
     <div class="exercise-q">
-      <span class="exercise-tag">מבחני עבר · תפקיד ה-MAC</span>
-      <p>Message Authentication Code (MAC) משמש ל:</p>
+      <span class="exercise-tag">מבחני עבר · תפקיד ה-<bdi dir="ltr">MAC</bdi></span>
+      <p><bdi dir="ltr">Message Authentication Code</bdi> (<bdi dir="ltr">MAC</bdi>) משמש ל:</p>
       <ol>
         <li>זיהוי שההודעה לא שונתה בדרך.</li>
         <li>זיהוי מי כתב את ההודעה.</li>
         <li>הצפנת ההודעה.</li>
-        <li>‏1 ו-2 נכונות.</li>
+        <li>1 ו-2 נכונות.</li>
       </ol>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
@@ -997,7 +1001,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </div>
       <div class="step">
         <div class="step-label">ההסבר</div>
-        <p>‏$MAC = Hash(M + s)$ עם סוד משותף $s$: כל שינוי ב-$M$ משנה את התוצאה (שלמות), ורק מי שמחזיק ב-$s$ יכול לייצר אותה (אימות). מה שהוא <em>לא</em> עושה: הצפנה — ההודעה עוברת גלויה (לכן 3 שגויה), ואי-הכחשה — בשביל זה צריך חתימה עם מפתח פרטי.</p>
+        <p>$MAC = Hash(M + s)$ עם סוד משותף $s$: כל שינוי ב-$M$ משנה את התוצאה (שלמות), ורק מי שמחזיק ב-$s$ יכול לייצר אותה (אימות). מה שהוא <em>לא</em> עושה: הצפנה — ההודעה עוברת גלויה (לכן 3 שגויה), ואי-הכחשה — בשביל זה צריך חתימה עם מפתח פרטי.</p>
       </div>
     </div>
   </div>
@@ -1006,11 +1010,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום מהיר לשני החלקים</div>
     <div class="box-body">
       <ul>
-        <li><strong>‏/x:</strong> גודל בלוק $= 2^{8-(x \bmod 8)}$ באוקטט המעניין; רשת = תחילת הבלוק; ‏broadcast = סוף הבלוק; ‏hosts $= 2^{32-x}-2$; בניתוב — הפריפיקס הארוך מנצח.</li>
-        <li><strong>הצפנה:</strong> סודיות = $PK$ של המקבל; חתימה = $SK$ של השולח (על ה-Hash); נפחים גדולים = מפתח סשן סימטרי; זהות של מפתח ציבורי = תעודה.</li>
-        <li><strong>d:</strong> ‏$d_{trans} = L/R$, ‏$d_{prop} = d/s$; ‏Store-and-Forward: ‏$(N+P-1) \cdot L/R$; תור: ‏$La/R$ מעל 1 = אסון. ותמיד — <strong>bytes ×8</strong>.</li>
+        <li><strong>/x:</strong> גודל בלוק $= 2^{8-(x \bmod 8)}$ באוקטט המעניין; רשת = תחילת הבלוק; <bdi dir="ltr">broadcast</bdi> = סוף הבלוק; <bdi dir="ltr">hosts</bdi> $= 2^{32-x}-2$; בניתוב — הפריפיקס הארוך מנצח.</li>
+        <li><strong>הצפנה:</strong> סודיות = $PK$ של המקבל; חתימה = $SK$ של השולח (על ה-<bdi dir="ltr">Hash</bdi>); נפחים גדולים = מפתח סשן סימטרי; זהות של מפתח ציבורי = תעודה.</li>
+        <li><strong>d:</strong> $d_{trans} = L/R$, $d_{prop} = d/s$; Store-and-Forward: $(N+P-1) \cdot L/R$; תור: $La/R$ מעל 1 = אסון. ותמיד — <strong>bytes ×8</strong>.</li>
       </ul>
-      <p>עוד על התאוריה: <a href="15-net-ip-addressing.html">כתובות IP</a> ו-<a href="01-delays.html">השהיות ברשת</a>. לתרגול נוסף — <a href="https://eliorch.github.io/comque" target="_blank" rel="noopener"><strong>אתר השאלות</strong></a>.</p>
+      <p>עוד על התאוריה: <a href="15-net-ip-addressing.html">כתובות <bdi dir="ltr">IP</bdi></a> ו-<a href="01-delays.html">השהיות ברשת</a>. לתרגול נוסף — <a href="https://eliorch.github.io/comque" target="_blank" rel="noopener"><strong>אתר השאלות</strong></a>.</p>
     </div>
   </div>
 

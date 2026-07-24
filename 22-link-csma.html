@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -410,11 +414,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
 <main>
   <span class="page-eyebrow">פרק 4.3 · שכבת הקישור</span>
-  <h1 class="page-title">CSMA, CSMA/CD ו-Ethernet</h1>
-  <p class="page-subtitle">"תקשיב לפני שתדבר" — איך ‎Ethernet מגיע ל-‎95% ניצולת.</p>
+  <h1 class="page-title"><bdi dir="ltr">CSMA, CSMA/CD</bdi> ו-<bdi dir="ltr">Ethernet</bdi></h1>
+  <p class="page-subtitle">"תקשיב לפני שתדבר" — איך <bdi dir="ltr">Ethernet</bdi> מגיע ל-<bdi dir="ltr">95%</bdi> ניצולת.</p>
 
   <p class="lead">
-    הבעיה ב-ALOHA: השולח <strong>לא מקשיב</strong> לפני שמתחיל לשדר. <strong>CSMA</strong> מוסיף האזנה לפני שידור. <strong>CSMA/CD</strong> מוסיף בדיקת התנגשות במהלך השידור ועצירה אם זוהתה. Ethernet משתמש ב-CSMA/CD ומשיג ‎95% ניצולת. גודל מינימלי של פריים = ‎64 בתים.
+    הבעיה ב-<bdi dir="ltr">ALOHA</bdi>: השולח <strong>לא מקשיב</strong> לפני שמתחיל לשדר. <strong>CSMA</strong> מוסיף האזנה לפני שידור. <strong>CSMA/CD</strong> מוסיף בדיקת התנגשות במהלך השידור ועצירה אם זוהתה. <bdi dir="ltr">Ethernet</bdi> משתמש ב-<bdi dir="ltr">CSMA/CD</bdi> ומשיג <bdi dir="ltr">95%</bdi> ניצולת. גודל מינימלי של פריים = 64 בתים.
   </p>
 
   <h2>CSMA — Carrier Sense Multiple Access</h2>
@@ -427,8 +431,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li>אם פנוי — <strong>שלח</strong>.</li>
         <li>אם תפוס — שתי אופציות:
           <ul>
-            <li><strong>Persistent-1 (חמדן):</strong> מחכה שיתפנה ושולח <strong>מיד</strong>.</li>
-            <li><strong>Non-Persistent (סבלני):</strong> מחכה זמן <strong>אקראי</strong>, ואז בודק שוב.</li>
+            <li><strong><bdi dir="ltr">Persistent-1</bdi> (חמדן):</strong> מחכה שיתפנה ושולח <strong>מיד</strong>.</li>
+            <li><strong><bdi dir="ltr">Non-Persistent</bdi> (סבלני):</strong> מחכה זמן <strong>אקראי</strong>, ואז בודק שוב.</li>
           </ul>
         </li>
       </ol>
@@ -450,12 +454,12 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box warn">
     <div class="box-head"><span class="icon">⚠</span>Propagation Delay</div>
     <div class="box-body">
-      <p>גם עם CSMA, יש עוד התנגשויות. <strong>בגלל propagation delay</strong>.</p>
+      <p>גם עם <bdi dir="ltr">CSMA</bdi>, יש עוד התנגשויות. <strong>בגלל <bdi dir="ltr">propagation delay</bdi></strong>.</p>
       <h4>תרחיש</h4>
       <ol>
-        <li>תחנה A מתחילה לשדר. הסיגנל מתפשט בכבל.</li>
-        <li>תחנה B (רחוקה) מקשיבה. <strong>הסיגנל של A עדיין לא הגיע אליה</strong> — לא יודעת ש-A משדרת.</li>
-        <li>B מחליטה לשדר.</li>
+        <li>תחנה <bdi dir="ltr">A</bdi> מתחילה לשדר. הסיגנל מתפשט בכבל.</li>
+        <li>תחנה <bdi dir="ltr">B</bdi> (רחוקה) מקשיבה. <strong>הסיגנל של <bdi dir="ltr">A</bdi> עדיין לא הגיע אליה</strong> — לא יודעת ש-<bdi dir="ltr">A</bdi> משדרת.</li>
+        <li><bdi dir="ltr">B</bdi> מחליטה לשדר.</li>
         <li>הסיגנלים מתערבבים באמצע. <strong>התנגשות</strong>.</li>
       </ol>
       <p>הפתרון: זיהוי התנגשות תוך כדי שידור — <strong>Collision Detection (CD)</strong>.</p>
@@ -470,19 +474,19 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <p>השולח <strong>מאזין לעצמו תוך כדי שידור</strong>. אם מה שהוא שומע שונה ממה שהוא משדר — היתה התנגשות.</p>
       <p>אז במקום להמשיך עד הסוף ולבזבז זמן — <strong>עוצר את השידור מיד</strong> (Abort).</p>
       <h4>אנלוגיה לבני אדם</h4>
-      <p>שני אנשים מתחילים לדבר באותו זמן. בלי CD: שניהם ממשיכים לדבר ‎10 דקות, אף אחד לא הבין כלום. עם CD: שניהם עוצרים מיד, מחייכים, אחד מבקש סליחה ומתחיל מחדש.</p>
+      <p>שני אנשים מתחילים לדבר באותו זמן. בלי <bdi dir="ltr">CD</bdi>: שניהם ממשיכים לדבר 10 דקות, אף אחד לא הבין כלום. עם <bdi dir="ltr">CD</bdi>: שניהם עוצרים מיד, מחייכים, אחד מבקש סליחה ומתחיל מחדש.</p>
     </div>
   </div>
 
   <h2>איך המקבל יודע שהיתה התנגשות?</h2>
 
   <div class="box warn">
-    <div class="box-head"><span class="icon">⚠</span>בעיה: השולח עצר, אז אין CRC</div>
+    <div class="box-head"><span class="icon">⚠</span>בעיה: השולח עצר, אז אין <bdi dir="ltr">CRC</bdi></div>
     <div class="box-body">
-      <p>בלי CD: המקבל יודע שהיתה התנגשות כי ה-CRC לא תואם.</p>
-      <p>עם CD: השולח עצר ב<strong>אמצע הפריים</strong>. ה-CRC כלל לא נשלח. המקבל לא יודע.</p>
-      <h4>הפתרון: JAM Signal</h4>
-      <p>כל מי שזיהה התנגשות שולח <strong><bdi>48 ביט (או 32 ביט) של "רעש"</bdi></strong> — JAM Signal. ככה כל הרשת יודעת שהיתה התנגשות.</p>
+      <p>בלי <bdi dir="ltr">CD</bdi>: המקבל יודע שהיתה התנגשות כי ה-<bdi dir="ltr">CRC</bdi> לא תואם.</p>
+      <p>עם <bdi dir="ltr">CD</bdi>: השולח עצר ב<strong>אמצע הפריים</strong>. ה-<bdi dir="ltr">CRC</bdi> כלל לא נשלח. המקבל לא יודע.</p>
+      <h4>הפתרון: <bdi dir="ltr">JAM Signal</bdi></h4>
+      <p>כל מי שזיהה התנגשות שולח <strong><bdi>48 ביט (או 32 ביט) של "רעש"</bdi></strong> — <bdi dir="ltr">JAM Signal</bdi>. ככה כל הרשת יודעת שהיתה התנגשות.</p>
     </div>
   </div>
 
@@ -492,14 +496,14 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">⚠</span>למה צריך גודל מינימלי?</div>
     <div class="box-body">
       <p>כדי שהשולח יזהה התנגשות — הוא חייב להיות <strong>עדיין משדר</strong> כשהסיגנל המתנגש מגיע אליו.</p>
-      <p>בתרחיש הגרוע ביותר: שני שולחים בקצוות מנוגדים של הכבל. הסיגנל של אחד מגיע לשני אחרי <strong>פעמיים propagation delay</strong> (הלוך וחזור).</p>
+      <p>בתרחיש הגרוע ביותר: שני שולחים בקצוות מנוגדים של הכבל. הסיגנל של אחד מגיע לשני אחרי <strong>פעמיים <bdi dir="ltr">propagation delay</bdi></strong> (הלוך וחזור).</p>
       <p>אז:</p>
       <div class="box formula">
         <div class="box-head"><span class="icon">📐</span>תנאי קריטי</div>
         <div class="box-body">
           $$d_{trans} \geq 2 \cdot d_{prop}$$
-          <p>זמן הטרנסמישן (שליחה) חייב להיות גדול ‎לפחות <strong>פעמיים</strong> ה-propagation delay.</p>
-          <p>נזכור: $d_{trans} = L/R$ (L = גודל פריים, R = רוחב פס). אז:</p>
+          <p>זמן הטרנסמישן (שליחה) חייב להיות גדול לפחות <strong>פעמיים</strong> ה-<bdi dir="ltr">propagation delay</bdi>.</p>
+          <p>נזכור: $d_{trans} = L/R$ (<bdi dir="ltr">L</bdi> = גודל פריים, <bdi dir="ltr">R</bdi> = רוחב פס). אז:</p>
           $$\frac{L}{R} \geq 2 \cdot d_{prop} \implies L \geq 2 \cdot R \cdot d_{prop}$$
         </div>
       </div>
@@ -507,15 +511,15 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   </div>
 
   <div class="box theory">
-    <div class="box-head"><span class="icon">📘</span>גודל מינימלי סטנדרטי ב-Ethernet</div>
+    <div class="box-head"><span class="icon">📘</span>גודל מינימלי סטנדרטי ב-<bdi dir="ltr">Ethernet</bdi></div>
     <div class="box-body">
-      <p>בהנחות הסטנדרטיות (10 Mbps Ethernet, פרופוגיישן טיפוסי), חישוב מגיע ל:</p>
+      <p>בהנחות הסטנדרטיות (<bdi dir="ltr">10 Mbps Ethernet</bdi>, פרופוגיישן טיפוסי), חישוב מגיע ל:</p>
       <p><strong><bdi>64 בתים = 512 ביטים</bdi></strong> — גודל הפריים המינימלי.</p>
       <p>אם הדאטה קטנה יותר — מוסיפים <strong>padding</strong>.</p>
     </div>
   </div>
 
-  <h2>Binary Exponential Backoff — איך מחכים</h2>
+  <h2><bdi dir="ltr">Binary Exponential Backoff</bdi> — איך מחכים</h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הרעיון: יותר התנגשויות = יותר זמן המתנה</div>
@@ -526,39 +530,39 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <li>הרבה התנגשויות ← עומס. ממתינים זמן ארוך יותר.</li>
       </ul>
       <h4>נוסחה</h4>
-      <p>אחרי <strong>n התנגשויות</strong>, התחנה מגרילה ערך אקראי K מתוך הטווח:</p>
+      <p>אחרי <strong><bdi dir="ltr">n</bdi> התנגשויות</strong>, התחנה מגרילה ערך אקראי <bdi dir="ltr">K</bdi> מתוך הטווח:</p>
       $$K \in \{0, 1, 2, ..., 2^n - 1\}$$
-      <p>(כש-n גדל, הטווח גדל אקספוננציאלית.)</p>
+      <p>(כש-<bdi dir="ltr">n</bdi> גדל, הטווח גדל אקספוננציאלית.)</p>
       <p>זמן ההמתנה = <strong>K × 512 bit times</strong>.</p>
-      <p>ב-Ethernet בקצב 10 Mbps: 512 bit times = ‎51.2 μs.</p>
+      <p>ב-<bdi dir="ltr">Ethernet</bdi> בקצב <bdi dir="ltr">10 Mbps: 512 bit times = 51.2</bdi> μ<bdi dir="ltr">s</bdi>.</p>
       <h4>תקרה</h4>
-      <p>אחרי <strong>10 התנגשויות</strong>, ‎K המקסימלי מגיע ל-1023. זמן המתנה מקסימלי:</p>
+      <p>אחרי <strong>10 התנגשויות</strong>, <bdi dir="ltr">K</bdi> המקסימלי מגיע ל-1023. זמן המתנה מקסימלי:</p>
       $$1023 \times 51.2 \, \mu\text{s} \approx 50 \, \text{ms}$$
-      <p>אחרי <strong>16 התנגשויות</strong> — מוותרים על הפריים (drop).</p>
+      <p>אחרי <strong>16 התנגשויות</strong> — מוותרים על הפריים (<bdi dir="ltr">drop</bdi>).</p>
     </div>
   </div>
 
-  <h2>פרוטוקול Ethernet</h2>
+  <h2>פרוטוקול <bdi dir="ltr">Ethernet</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>תכונות עיקריות</div>
     <div class="box-body">
       <ul>
-        <li><strong>אין slots</strong> — כל אחד יכול להתחיל מתי שרוצה (אחרי האזנה).</li>
+        <li><strong>אין <bdi dir="ltr">slots</bdi></strong> — כל אחד יכול להתחיל מתי שרוצה (אחרי האזנה).</li>
         <li><strong>אם תפוס — לא משדר.</strong></li>
-        <li><strong>אם מזהה התנגשות — עוצר ושולח JAM.</strong></li>
-        <li><strong>אחרי התנגשות — Binary Exponential Backoff.</strong></li>
+        <li><strong>אם מזהה התנגשות — עוצר ושולח <bdi dir="ltr">JAM</bdi>.</strong></li>
+        <li><strong>אחרי התנגשות — <bdi dir="ltr">Binary Exponential Backoff</bdi>.</strong></li>
         <li><strong>אין הקמת קשר</strong> (connectionless).</li>
-        <li><strong>לא אמין</strong> — אין ACKs ברמת Ethernet. אמינות = TCP.</li>
+        <li><strong>לא אמין</strong> — אין <bdi dir="ltr">ACKs</bdi> ברמת <bdi dir="ltr">Ethernet</bdi>. אמינות = <bdi dir="ltr">TCP</bdi>.</li>
       </ul>
     </div>
   </div>
 
   <div class="keypoint">
-    <strong>ניצולת Ethernet מגיעה ל-95%</strong> בזכות שילוב CSMA + CD + Persistent-1. עוצרים מהר בהתנגשות ← לא מבזבזים זמן. גישה חמדנית ← מנצלים את הערוץ. Binary backoff ← מתאדפט לעומס.
+    <strong>ניצולת <bdi dir="ltr">Ethernet</bdi> מגיעה ל-<bdi dir="ltr">95%</bdi></strong> בזכות שילוב <bdi dir="ltr">CSMA + CD + Persistent-1</bdi>. עוצרים מהר בהתנגשות ← לא מבזבזים זמן. גישה חמדנית ← מנצלים את הערוץ. <bdi dir="ltr">Binary backoff</bdi> ← מתאדפט לעומס.
   </div>
 
-  <h2>מבנה Ethernet Frame</h2>
+  <h2>מבנה <bdi dir="ltr">Ethernet Frame</bdi></h2>
 
   <div class="figure">
     <svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ethernet frame">
@@ -588,34 +592,34 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <text x="630" y="78" text-anchor="middle" font-size="9" fill="#be123c">4 b</text>
       </g>
     </svg>
-    <div class="cap">מבנה פריים Ethernet — שדות לפי הסדר.</div>
+    <div class="cap">מבנה פריים <bdi dir="ltr">Ethernet</bdi> — שדות לפי הסדר.</div>
   </div>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>השדות (לפי הרצאה 15)</div>
     <div class="box-body">
       <ul>
-        <li><strong>Preamble</strong> (8 בתים): השבעה הראשונים <span class="term">10101010</span>, האחרון <span class="term">10101011</span>. ‎מטרה: <strong>סנכרון השעונים</strong> בין השולח למקבל.</li>
-        <li><strong>Dest MAC</strong> (6 בתים): כתובת ה-MAC של המקבל. <strong>למה ראשון אחרי ה-Preamble?</strong> כי המקבל רוצה לדעת קודם אם זה אליו לפני שממשיך לקרוא.</li>
-        <li><strong>Src MAC</strong> (6 בתים): כתובת ה-MAC של השולח.</li>
-        <li><strong>Type</strong> (2 בתים): איזה פרוטוקול נמצא מעלינו (IPv4, IPv6, ARP...).</li>
-        <li><strong>Data:</strong> נתונים, ‎46-1500 בתים. אם הנתונים קצרים יותר — padding.</li>
+        <li><strong>Preamble</strong> (8 בתים): השבעה הראשונים <span class="term">10101010</span>, האחרון <span class="term">10101011</span>. מטרה: <strong>סנכרון השעונים</strong> בין השולח למקבל.</li>
+        <li><strong>Dest MAC</strong> (6 בתים): כתובת ה-<bdi dir="ltr">MAC</bdi> של המקבל. <strong>למה ראשון אחרי ה-<bdi dir="ltr">Preamble</bdi>?</strong> כי המקבל רוצה לדעת קודם אם זה אליו לפני שממשיך לקרוא.</li>
+        <li><strong>Src MAC</strong> (6 בתים): כתובת ה-<bdi dir="ltr">MAC</bdi> של השולח.</li>
+        <li><strong>Type</strong> (2 בתים): איזה פרוטוקול נמצא מעלינו (<bdi dir="ltr">IPv4, IPv6, ARP</bdi>...).</li>
+        <li><strong>Data:</strong> נתונים, 46-1500 בתים. אם הנתונים קצרים יותר — <bdi dir="ltr">padding</bdi>.</li>
         <li><strong>CRC</strong> (4 בתים): בדיקת שגיאות.</li>
       </ul>
     </div>
   </div>
 
-  <h2>סיכום פרוטוקולי MAC</h2>
+  <h2>סיכום פרוטוקולי <bdi dir="ltr">MAC</bdi></h2>
 
   <table>
     <thead>
       <tr><th>פרוטוקול</th><th>האזנה לפני שידור?</th><th>זיהוי התנגשות?</th><th>ניצולת</th></tr>
     </thead>
     <tbody>
-      <tr><td>ALOHA</td><td>לא</td><td>בדיעבד</td><td>‎18%</td></tr>
-      <tr><td>Slotted ALOHA</td><td>לא</td><td>בדיעבד</td><td>‎37%</td></tr>
+      <tr><td>ALOHA</td><td>לא</td><td>בדיעבד</td><td><bdi dir="ltr">18%</bdi></td></tr>
+      <tr><td>Slotted ALOHA</td><td>לא</td><td>בדיעבד</td><td><bdi dir="ltr">37%</bdi></td></tr>
       <tr><td>CSMA</td><td>כן</td><td>בדיעבד</td><td>בינוני</td></tr>
-      <tr><td>CSMA/CD (Ethernet)</td><td>כן</td><td>תוך כדי + JAM</td><td><strong><bdi>95%</bdi></strong></td></tr>
+      <tr><td>CSMA/CD (Ethernet)</td><td>כן</td><td>תוך כדי + <bdi dir="ltr">JAM</bdi></td><td><strong><bdi>95%</bdi></strong></td></tr>
     </tbody>
   </table>
 
@@ -630,26 +634,26 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="solution">
       <div class="step">
         <div class="step-label">ההבדל המרכזי</div>
-        <p>ב-ALOHA, השולח <strong>פשוט שולח</strong> מבלי לבדוק אם הערוץ פנוי או תפוס.</p>
-        <p>ב-CSMA, השולח <strong>מקשיב לערוץ לפני שמתחיל לשדר</strong>. אם הערוץ תפוס — הוא לא ינסה לשדר ויחכה.</p>
+        <p>ב-<bdi dir="ltr">ALOHA</bdi>, השולח <strong>פשוט שולח</strong> מבלי לבדוק אם הערוץ פנוי או תפוס.</p>
+        <p>ב-<bdi dir="ltr">CSMA</bdi>, השולח <strong>מקשיב לערוץ לפני שמתחיל לשדר</strong>. אם הערוץ תפוס — הוא לא ינסה לשדר ויחכה.</p>
       </div>
       <div class="step">
         <div class="step-label">למה זה מוריד התנגשויות</div>
-        <p>ב-ALOHA, התנגשות תקרה אם מישהו מתחיל לשדר בזמן שאחר כבר משדר. כיוון שאין בדיקה — זה קורה הרבה.</p>
-        <p>ב-CSMA, רק אם <strong>שניהם התחילו בערך באותו רגע</strong> (לפני שהסיגנל הגיע מהראשון לשני) — תהיה התנגשות. זה מצומצם ל<strong>חלון propagation delay</strong>, שהוא בדרך כלל קטן מאוד יחסית למשך השליחה.</p>
+        <p>ב-<bdi dir="ltr">ALOHA</bdi>, התנגשות תקרה אם מישהו מתחיל לשדר בזמן שאחר כבר משדר. כיוון שאין בדיקה — זה קורה הרבה.</p>
+        <p>ב-<bdi dir="ltr">CSMA</bdi>, רק אם <strong>שניהם התחילו בערך באותו רגע</strong> (לפני שהסיגנל הגיע מהראשון לשני) — תהיה התנגשות. זה מצומצם ל<strong>חלון <bdi dir="ltr">propagation delay</bdi></strong>, שהוא בדרך כלל קטן מאוד יחסית למשך השליחה.</p>
       </div>
       <div class="step">
-        <div class="step-label">למה לא 100%</div>
-        <p>בגלל ה-propagation delay — תחנה רחוקה אולי לא תקלוט עדיין את השידור של תחנה אחרת. CSMA לא מספיק טוב לבד — צריך גם CD (לזהות התנגשות תוך כדי).</p>
+        <div class="step-label">למה לא <bdi dir="ltr">100%</bdi></div>
+        <p>בגלל ה-<bdi dir="ltr">propagation delay</bdi> — תחנה רחוקה אולי לא תקלוט עדיין את השידור של תחנה אחרת. <bdi dir="ltr">CSMA</bdi> לא מספיק טוב לבד — צריך גם <bdi dir="ltr">CD</bdi> (לזהות התנגשות תוך כדי).</p>
       </div>
-      <div class="final-answer">CSMA <strong>מאזין לפני שמשדר</strong>. אם הערוץ תפוס — לא ינסה. ההתנגשויות מצטמצמות לחלון propagation delay בלבד. ניצולת גבוהה משמעותית מ-ALOHA.</div>
+      <div class="final-answer">CSMA <strong>מאזין לפני שמשדר</strong>. אם הערוץ תפוס — לא ינסה. ההתנגשויות מצטמצמות לחלון <bdi dir="ltr">propagation delay</bdi> בלבד. ניצולת גבוהה משמעותית מ-<bdi dir="ltr">ALOHA</bdi>.</div>
     </div>
   </div>
 
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגול · גודל פריים מינימלי</span>
-      <p>נתון: רוחב פס R = 100 Mbps. Propagation delay = 6 ms. מה הגודל המינימלי של פריים ב-CSMA/CD?</p>
+      <p>נתון: רוחב פס <bdi dir="ltr">R = 100 Mbps. Propagation delay = 6 ms</bdi>. מה הגודל המינימלי של פריים ב-<bdi dir="ltr">CSMA/CD</bdi>?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
     <div class="solution">
@@ -660,9 +664,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       </div>
       <div class="step">
         <div class="step-label">הצבת ערכים</div>
-        <p>‎2 × 6 ms = 12 ms = 0.012 sec</p>
+        <p>2 × 6 ms = 12 ms = 0.012 sec</p>
         $$L \geq 100 \times 10^6 \times 0.012 = 1.2 \times 10^6 \text{ ביטים}$$
-        <p>בבתים: ‎1.2 × 10⁶ / 8 = <strong>150,000 בתים</strong>.</p>
+        <p>בבתים: 1.2 × 10⁶ / 8 = <strong>150,000 בתים</strong>.</p>
       </div>
       <div class="final-answer">הגודל המינימלי של הפריים: <strong>150,000 בתים</strong> (1.2 מיליון ביטים). זה הרבה — כי הלינק ארוך והמהירות גבוהה. בכבל קצר זה היה הרבה פחות.</div>
     </div>
@@ -673,13 +677,13 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-body">
       <ul>
         <li><strong>CSMA:</strong> <em>תקשיב לפני שתשלח</em>. אם תפוס — לא משדר</li>
-        <li>Persistent-1 (חמדן) vs Non-Persistent (סבלני)</li>
-        <li>בגלל propagation delay — עדיין יש התנגשויות ← <strong>CSMA/CD</strong></li>
+        <li><bdi dir="ltr">Persistent-1</bdi> (חמדן) <bdi dir="ltr">vs Non-Persistent</bdi> (סבלני)</li>
+        <li>בגלל <bdi dir="ltr">propagation delay</bdi> — עדיין יש התנגשויות ← <strong>CSMA/CD</strong></li>
         <li><strong>CSMA/CD:</strong> מזהה התנגשות תוך כדי שידור ← <strong>עוצר</strong> + JAM signal</li>
-        <li>גודל פריים מינימלי: <strong>L ≥ 2 · R · d_prop</strong> (ב-Ethernet סטנדרטי: 64 בתים)</li>
-        <li><strong>Binary Exponential Backoff:</strong> K אקראי בטווח [0, 2^n − 1], זמן = K × 512 bit times</li>
-        <li><strong>Ethernet:</strong> CSMA/CD + Persistent-1. ‎ניצולת <strong>95%</strong></li>
-        <li>אין הקמת קשר, אין ACK. ‎אמינות = TCP מעל</li>
+        <li>גודל פריים מינימלי: <strong>L ≥ 2 · R · d_prop</strong> (ב-<bdi dir="ltr">Ethernet</bdi> סטנדרטי: 64 בתים)</li>
+        <li><strong>Binary Exponential Backoff:</strong> <bdi dir="ltr">K</bdi> אקראי בטווח [0, 2^<bdi dir="ltr">n</bdi> − 1], זמן = <bdi dir="ltr">K × 512 bit times</bdi></li>
+        <li><strong>Ethernet:</strong> <bdi dir="ltr">CSMA/CD + Persistent-1</bdi>. ניצולת <strong><bdi dir="ltr">95%</bdi></strong></li>
+        <li>אין הקמת קשר, אין <bdi dir="ltr">ACK</bdi>. אמינות = <bdi dir="ltr">TCP</bdi> מעל</li>
       </ul>
     </div>
   </div>

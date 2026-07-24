@@ -317,6 +317,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <a href="31-cheatsheet.html" data-label="Cheat Sheet — נוסחאות וטבלאות"><span class="r-num">31</span><span>Cheat Sheet — נוסחאות וטבלאות</span></a>
     <a href="32-practice-cidr-delays.html" data-label="תרגול — IP, השהיות והצפנה"><span class="r-num">32</span><span>תרגול — IP, השהיות והצפנה</span></a>
     <a href="33-summary-glossary.html" data-label="סיכום כללי · נוסחאות ומילון"><span class="r-num">33</span><span>סיכום כללי · נוסחאות ומילון</span></a>
+    <a href="34-exam-moed-a.html" data-label="שאלות ממבחן מועד א'"><span class="r-num">34</span><span>שאלות ממבחן מועד א'</span></a>
+    <a href="35-toward-moed-b.html" data-label="לקראת מועד ב׳ — הרחבות ווריאציות"><span class="r-num">35</span><span>לקראת מועד ב׳ — הרחבות ווריאציות</span></a>
     <a href="sum-app.html" data-label="מה היה לנו בשכבת האפליקציה"><span class="r-num">•</span><span>מה היה לנו בשכבת האפליקציה</span></a>
     <a href="sum-link.html" data-label="מה היה לנו בשכבת הקישור"><span class="r-num">•</span><span>מה היה לנו בשכבת הקישור</span></a>
     <a href="sum-net.html" data-label="מה היה לנו בשכבת הרשת"><span class="r-num">•</span><span>מה היה לנו בשכבת הרשת</span></a>
@@ -403,6 +405,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="31-cheatsheet.html" data-page="31"><span class="nav-num">📋</span>דף נוסחאות</a></li>
     <li><a href="32-practice-cidr-delays.html" data-page="32"><span class="nav-num">✏️</span>תרגול IP · d · הצפנה</a></li>
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
+    <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
+    <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
@@ -419,11 +423,11 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box theory">
     <div class="box-head"><span class="icon">📘</span>הצפנה עם מפתח ציבורי</div>
     <div class="box-body">
-      <p>נזכיר את הכלל המרכזי מ-RSA:</p>
+      <p>נזכיר את הכלל המרכזי מ-<bdi dir="ltr">RSA</bdi>:</p>
       <ul>
-        <li>אם אני רוצה <strong>לשלוח מידע סודי</strong> למישהו (X) ← אצפין עם <strong>PK_X</strong> (המפתח הציבורי שלו).</li>
-        <li>רק X, עם <strong>SK_X</strong> (המפתח הפרטי שלו), יכול לפענח.</li>
-        <li>אף תוקף ברשת לא יוכל לקרוא — אין לו ‎SK_X.</li>
+        <li>אם אני רוצה <strong>לשלוח מידע סודי</strong> למישהו (<bdi dir="ltr">X</bdi>) ← אצפין עם <strong>PK_X</strong> (המפתח הציבורי שלו).</li>
+        <li>רק <bdi dir="ltr">X</bdi>, עם <strong>SK_X</strong> (המפתח הפרטי שלו), יכול לפענח.</li>
+        <li>אף תוקף ברשת לא יוכל לקרוא — אין לו <bdi dir="ltr">SK_X</bdi>.</li>
       </ul>
     </div>
   </div>
@@ -433,8 +437,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="exercise-card">
     <div class="exercise-q">
       <span class="exercise-tag">תרגיל בית 4 · שאלה 5.ב</span>
-      <p>אליס משתמשת ב-public-key cryptography. ‎יש לה זוג מפתחות (PK, SK), אבל ה-SK שמור במחשב שלה <strong>מוצפן עם סיסמה</strong> שהיא זוכרת בעל-פה.</p>
-      <p>אליס חוששת ש<strong>תשכח את הסיסמה</strong>. ‎היא רוצה לחלוק את הסיסמה עם עורך-הדין שלה <strong>יובב</strong>, שגם משתמש ב-public-key crypto.</p>
+      <p>אליס משתמשת ב-<bdi dir="ltr">public-key cryptography</bdi>. יש לה זוג מפתחות (<bdi dir="ltr">PK, SK</bdi>), אבל ה-<bdi dir="ltr">SK</bdi> שמור במחשב שלה <strong>מוצפן עם סיסמה</strong> שהיא זוכרת בעל-פה.</p>
+      <p>אליס חוששת ש<strong>תשכח את הסיסמה</strong>. היא רוצה לחלוק את הסיסמה עם עורך-הדין שלה <strong>יובב</strong>, שגם משתמש ב-<bdi dir="ltr">public-key crypto</bdi>.</p>
       <p>מה אליס תשלח ליובב, ובאיזה אופן, כדי לחלוק את הסיסמה <strong>בדיסקרטיות</strong>?</p>
     </div>
     <button class="reveal-btn">הראה פתרון</button>
@@ -443,26 +447,26 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         <div class="step-label">הדרישות</div>
         <ul>
           <li>הסיסמה צריכה להגיע ליובב.</li>
-          <li>‎<strong>רק יובב</strong> יוכל לקרוא אותה.</li>
+          <li><strong>רק יובב</strong> יוכל לקרוא אותה.</li>
           <li>אסור שאף אחד אחר ברשת יוכל לקרוא.</li>
         </ul>
       </div>
       <div class="step">
         <div class="step-label">הפתרון</div>
-        <p>אליס תצפין את הסיסמה <strong>עם המפתח הציבורי של יובב</strong> (PK_יובב), ותשלח לו את התוצאה.</p>
+        <p>אליס תצפין את הסיסמה <strong>עם המפתח הציבורי של יובב</strong> (<bdi dir="ltr">PK</bdi>_יובב), ותשלח לו את התוצאה.</p>
         <pre><code>אליס מחשבת:  c = Encrypt(PK_יובב, סיסמה)
 אליס שולחת ליובב:  c</code></pre>
       </div>
       <div class="step">
         <div class="step-label">למה זה עובד</div>
         <ul>
-          <li>PK_יובב ציבורי — לכן אליס יודעת אותו.</li>
-          <li>הצפנה עם PK ניתן לפענח <strong>רק עם SK</strong>.</li>
-          <li>רק יובב יודע את ‎SK_יובב — לכן רק הוא יכול לפענח.</li>
-          <li>אם תוקף יקלוט את c — לא יוכל לקרוא ללא ‎SK_יובב.</li>
+          <li><bdi dir="ltr">PK</bdi>_יובב ציבורי — לכן אליס יודעת אותו.</li>
+          <li>הצפנה עם <bdi dir="ltr">PK</bdi> ניתן לפענח <strong>רק עם <bdi dir="ltr">SK</bdi></strong>.</li>
+          <li>רק יובב יודע את <bdi dir="ltr">SK</bdi>_יובב — לכן רק הוא יכול לפענח.</li>
+          <li>אם תוקף יקלוט את <bdi dir="ltr">c</bdi> — לא יוכל לקרוא ללא <bdi dir="ltr">SK</bdi>_יובב.</li>
         </ul>
       </div>
-      <div class="final-answer">אליס שולחת ליובב את הסיסמה כשהיא <strong>מוצפנת עם PK_יובב</strong>. רק יובב יכול לפענח עם SK שלו.</div>
+      <div class="final-answer">אליס שולחת ליובב את הסיסמה כשהיא <strong>מוצפנת עם <bdi dir="ltr">PK</bdi>_יובב</strong>. רק יובב יכול לפענח עם <bdi dir="ltr">SK</bdi> שלו.</div>
     </div>
   </div>
 
@@ -474,18 +478,18 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <div class="box warn">
         <div class="box-head"><span class="icon">⚠</span></div>
         <div class="box-body">
-          <p>נניח Alice הצפינה הודעה ל-Bob עם PK_Bob. רק Bob יכול לפענח. <strong>סודיות מוצלחת</strong>. אבל:</p>
+          <p>נניח <bdi dir="ltr">Alice</bdi> הצפינה הודעה ל-<bdi dir="ltr">Bob</bdi> עם <bdi dir="ltr">PK_Bob</bdi>. רק <bdi dir="ltr">Bob</bdi> יכול לפענח. <strong>סודיות מוצלחת</strong>. אבל:</p>
           <ul>
-            <li><strong>איך Bob יודע שזה Alice ששלחה?</strong></li>
-            <li><strong>איך Bob יודע שההודעה לא שונתה?</strong></li>
+            <li><strong>איך <bdi dir="ltr">Bob</bdi> יודע שזה <bdi dir="ltr">Alice</bdi> ששלחה?</strong></li>
+            <li><strong>איך <bdi dir="ltr">Bob</bdi> יודע שההודעה לא שונתה?</strong></li>
           </ul>
         </div>
       </div>
 
-      <h3>Hash Functions — בסיס לחתימה</h3>
+      <h3><bdi dir="ltr">Hash Functions</bdi> — בסיס לחתימה</h3>
       <div class="box theory">
         <div class="box-body">
-          <p>Hash = פונקציה שמייצרת "טביעת אצבע" קצרה ממסמך באורך כלשהו.</p>
+          <p><bdi dir="ltr">Hash</bdi> = פונקציה שמייצרת "טביעת אצבע" קצרה ממסמך באורך כלשהו.</p>
           <ul>
             <li><strong>חד-כיוונית:</strong> אי אפשר להפוך — מהטביעה לא ניתן לשחזר את המסמך.</li>
             <li><strong>קבועה באורך:</strong> תמיד פלט באותו גודל.</li>
@@ -493,8 +497,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
           </ul>
           <h4>אלגוריתמים</h4>
           <ul>
-            <li><strong>MD5 (128 ביט):</strong> נשבר.</li>
-            <li><strong>SHA-1 (160 ביט):</strong> נשבר.</li>
+            <li><strong><bdi dir="ltr">MD5</bdi> (128 ביט):</strong> נשבר.</li>
+            <li><strong><bdi dir="ltr">SHA-1</bdi> (160 ביט):</strong> נשבר.</li>
             <li><strong>SHA-256, SHA-3:</strong> סטנדרטים מודרניים.</li>
           </ul>
         </div>
@@ -502,24 +506,24 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 
       <h3>תהליך החתימה</h3>
       <div class="box theory">
-        <div class="box-head"><span class="icon">📘</span>צד השולח (Alice)</div>
+        <div class="box-head"><span class="icon">📘</span>צד השולח (<bdi dir="ltr">Alice</bdi>)</div>
         <div class="box-body">
           <ol>
-            <li>Alice מחשבת <strong>hash</strong> של ההודעה: <span class="term">h = H(M)</span>.</li>
-            <li>Alice מצפינה את ה-hash עם <strong>המפתח הפרטי שלה:</strong> <span class="term">s = Enc(SK_Alice, h)</span>. זו ה<strong>חתימה</strong>.</li>
-            <li>Alice שולחת ל-Bob: <strong>(M, s)</strong>.</li>
+            <li><bdi dir="ltr">Alice</bdi> מחשבת <strong>hash</strong> של ההודעה: <span class="term">h = H(M)</span>.</li>
+            <li><bdi dir="ltr">Alice</bdi> מצפינה את ה-<bdi dir="ltr">hash</bdi> עם <strong>המפתח הפרטי שלה:</strong> <span class="term">s = Enc(SK_Alice, h)</span>. זו ה<strong>חתימה</strong>.</li>
+            <li><bdi dir="ltr">Alice</bdi> שולחת ל-<bdi dir="ltr">Bob</bdi>: <strong>(M, s)</strong>.</li>
           </ol>
         </div>
       </div>
 
       <div class="box theory">
-        <div class="box-head"><span class="icon">📘</span>צד המקבל (Bob)</div>
+        <div class="box-head"><span class="icon">📘</span>צד המקבל (<bdi dir="ltr">Bob</bdi>)</div>
         <div class="box-body">
           <ol>
-            <li>Bob מקבל (M, s).</li>
-            <li>Bob מחשב <strong>hash משלו:</strong> <span class="term">h' = H(M)</span>.</li>
-            <li>Bob מפענח את החתימה עם <strong>PK_Alice (ציבורי):</strong> <span class="term">h = Dec(PK_Alice, s)</span>.</li>
-            <li>Bob משווה: ‎<strong>h == h' ?</strong>
+            <li><bdi dir="ltr">Bob</bdi> מקבל (<bdi dir="ltr">M, s</bdi>).</li>
+            <li><bdi dir="ltr">Bob</bdi> מחשב <strong><bdi dir="ltr">hash</bdi> משלו:</strong> <span class="term">h' = H(M)</span>.</li>
+            <li><bdi dir="ltr">Bob</bdi> מפענח את החתימה עם <strong><bdi dir="ltr">PK_Alice</bdi> (ציבורי):</strong> <span class="term">h = Dec(PK_Alice, s)</span>.</li>
+            <li><bdi dir="ltr">Bob</bdi> משווה: <strong>h == h' ?</strong>
               <ul>
                 <li>כן ← <strong>חתימה תקפה</strong>.</li>
                 <li>לא ← <strong>נדחה</strong>.</li>
@@ -536,8 +540,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
         </thead>
         <tbody>
           <tr><td>מטרה</td><td>סודיות</td><td>אותנטיות + שלמות</td></tr>
-          <tr><td>מי מצפין</td><td>השולח, עם <strong>PK של המקבל</strong></td><td>השולח, עם <strong>SK שלו</strong></td></tr>
-          <tr><td>מי מפענח</td><td>המקבל, עם <strong>SK שלו</strong></td><td>המקבל, עם <strong>PK של השולח</strong></td></tr>
+          <tr><td>מי מצפין</td><td>השולח, עם <strong><bdi dir="ltr">PK</bdi> של המקבל</strong></td><td>השולח, עם <strong><bdi dir="ltr">SK</bdi> שלו</strong></td></tr>
+          <tr><td>מי מפענח</td><td>המקבל, עם <strong><bdi dir="ltr">SK</bdi> שלו</strong></td><td>המקבל, עם <strong><bdi dir="ltr">PK</bdi> של השולח</strong></td></tr>
         </tbody>
       </table>
     </div>
@@ -549,30 +553,30 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
   <div class="box theory">
     <div class="box-head"><span class="icon">🔏</span>אימות בלי מפתח ציבורי</div>
     <div class="box-body">
-      <p>כשלאליס ובוב כבר יש <strong>סוד משותף</strong> $s$, אפשר לאמת הודעות בזול, בלי RSA: אליס מחשבת $MAC = Hash(M + s)$ ומצרפת להודעה. בוב, שמכיר את $s$, מחשב אותו דבר ומשווה.</p>
+      <p>כשלאליס ובוב כבר יש <strong>סוד משותף</strong> $s$, אפשר לאמת הודעות בזול, בלי <bdi dir="ltr">RSA</bdi>: אליס מחשבת $MAC = Hash(M + s)$ ומצרפת להודעה. בוב, שמכיר את $s$, מחשב אותו דבר ומשווה.</p>
       <p>מה זה נותן? <strong>שניים במחיר אחד:</strong></p>
       <ul>
-        <li><strong>שלמות (Integrity)</strong> — כל שינוי ב-$M$ משנה את ה-Hash.</li>
-        <li><strong>אימות מקור (Authentication)</strong> — רק מי שמחזיק ב-$s$ יכול היה לייצר את ה-MAC.</li>
+        <li><strong>שלמות (<bdi dir="ltr">Integrity</bdi>)</strong> — כל שינוי ב-$M$ משנה את ה-<bdi dir="ltr">Hash</bdi>.</li>
+        <li><strong>אימות מקור (<bdi dir="ltr">Authentication</bdi>)</strong> — רק מי שמחזיק ב-$s$ יכול היה לייצר את ה-<bdi dir="ltr">MAC</bdi>.</li>
       </ul>
       <p>מה זה <em>לא</em> נותן: <strong>סודיות</strong> — ההודעה עוברת גלויה; ו<strong>אי-הכחשה</strong> — גם בוב מחזיק ב-$s$, אז הוא לא יכול להוכיח לצד שלישי שדווקא אליס כתבה (בניגוד לחתימה דיגיטלית, שבה רק לאליס יש $SK_A$).</p>
-      <p>⚠️ <strong>ואל תתבלבלו:</strong> באבטחה MAC = ‏Message Authentication Code. בשכבה 2, ‏MAC = כתובת חומרה. אותו קיצור, עולמות שונים — המבחן יודע את זה.</p>
+      <p>⚠️ <strong>ואל תתבלבלו:</strong> באבטחה <bdi dir="ltr">MAC = Message Authentication Code</bdi>. בשכבה <bdi dir="ltr">2, MAC</bdi> = כתובת חומרה. אותו קיצור, עולמות שונים — המבחן יודע את זה.</p>
     </div>
   </div>
 
-  <h2>Nonce — ההגנה מפני Playback Attack</h2>
+  <h2><bdi dir="ltr">Nonce</bdi> — ההגנה מפני <bdi dir="ltr">Playback Attack</bdi></h2>
 
   <div class="box theory">
     <div class="box-head"><span class="icon">🎬</span>ההתקפה: הקלט ושדר מחדש</div>
     <div class="box-body">
-      <p>‏<strong>Playback (Replay) Attack:</strong> טרודי לא צריכה לפצח כלום — היא <strong>מקליטה</strong> הודעת אימות לגיטימית של אליס (למשל "אני אליס" + סיסמה מוצפנת) ופשוט <strong>משדרת אותה שוב</strong> מאוחר יותר. ההודעה אותנטית לגמרי... רק לא חיה.</p>
-      <p><strong>הפתרון — Nonce</strong> (<em>Number used ONCE</em>): מספר חד-פעמי שבוב מגריל לכל התחברות.</p>
+      <p><strong>Playback (Replay) Attack:</strong> טרודי לא צריכה לפצח כלום — היא <strong>מקליטה</strong> הודעת אימות לגיטימית של אליס (למשל "אני אליס" + סיסמה מוצפנת) ופשוט <strong>משדרת אותה שוב</strong> מאוחר יותר. ההודעה אותנטית לגמרי... רק לא חיה.</p>
+      <p><strong>הפתרון — <bdi dir="ltr">Nonce</bdi></strong> (<em>Number used ONCE</em>): מספר חד-פעמי שבוב מגריל לכל התחברות.</p>
       <ol>
         <li>אליס: "אני אליס".</li>
-        <li>בוב שולח אתגר: nonce טרי $R$.</li>
+        <li>בוב שולח אתגר: <bdi dir="ltr">nonce</bdi> טרי $R$.</li>
         <li>אליס מחזירה את $R$ מוצפן במפתח (המשותף או הפרטי שלה): $Enc(K, R)$.</li>
       </ol>
-      <p>הקלטה ישנה של טרודי חסרת ערך — היא מכילה תשובה ל-$R$ <strong>אחר</strong>. ההצפנה מוכיחה זהות, וה-nonce מוכיח שהתשובה נוצרה <strong>עכשיו</strong>. (על אותו עיקרון בנויים גם ה-nonces ב-SSL Handshake.)</p>
+      <p>הקלטה ישנה של טרודי חסרת ערך — היא מכילה תשובה ל-$R$ <strong>אחר</strong>. ההצפנה מוכיחה זהות, וה-<bdi dir="ltr">nonce</bdi> מוכיח שהתשובה נוצרה <strong>עכשיו</strong>. (על אותו עיקרון בנויים גם ה-<bdi dir="ltr">nonces</bdi> ב-<bdi dir="ltr">SSL Handshake</bdi>.)</p>
     </div>
   </div>
 
@@ -580,9 +584,9 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="box-head"><span class="icon">📌</span>סיכום הפרק</div>
     <div class="box-body">
       <ul>
-        <li>הצפנה למישהו = ‎Encrypt עם <strong>PK של המקבל</strong></li>
-        <li>רק המקבל, עם ‎SK שלו, יכול לפענח</li>
-        <li><strong>תשובה לשאלה 5.ב:</strong> אליס תצפין את הסיסמה עם PK_יובב ותשלח לו</li>
+        <li>הצפנה למישהו = <bdi dir="ltr">Encrypt</bdi> עם <strong><bdi dir="ltr">PK</bdi> של המקבל</strong></li>
+        <li>רק המקבל, עם <bdi dir="ltr">SK</bdi> שלו, יכול לפענח</li>
+        <li><strong>תשובה לשאלה 5.ב:</strong> אליס תצפין את הסיסמה עם <bdi dir="ltr">PK</bdi>_יובב ותשלח לו</li>
       </ul>
     </div>
   </div>
