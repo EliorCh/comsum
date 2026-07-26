@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>מה היה לנו באבטחה וקריפטוגרפיה · מבוא לתקשורת מחשבים</title>
+<title>מבחן לדוגמה · מבוא לתקשורת מחשבים</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -231,7 +231,16 @@ main p, .box-body p, .box-body li, main li, .step p, .exercise-q p {
   direction: rtl; unicode-bidi: isolate; text-align: right;
 }
 
-/* ===== ui-fixes-v5 ===== */
+  /* summary-glossary page */
+  .gloss-search { width:100%; padding:11px 16px; font-family:var(--sans); font-size:15px;
+    border:1.5px solid var(--indigo-3); border-radius:10px; margin-bottom:16px; }
+  .gloss-search:focus { outline:none; border-color:var(--indigo-7); }
+  .gloss-table td.gt { font-family:var(--mono); font-weight:700; color:#be185d;
+    text-align:center; direction:ltr; unicode-bidi:isolate; }
+  .gloss-table td { text-align:right; vertical-align:top; }
+  .gloss-table { font-size:14.5px; }
+
+  /* ===== ui-fixes-v5 ===== */
 /* toggle no longer overlaps titles */
 body:not(.nav-hidden) .sidebar .brand { padding-top: 40px; }   /* clear the button when menu open */
 .menu-toggle { top: 12px; inset-inline-start: 12px; }
@@ -274,6 +283,55 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
 .search-results .r-num { font-family: var(--mono, monospace); font-size: 12px; color: var(--indigo-7, #4f46e5); font-weight: 700; min-width: 34px; }
 .search-empty { padding: 22px; text-align: center; color: var(--ink-mute, #78716c); }
 .search-hint { padding: 9px 22px; font-size: 12px; color: var(--ink-mute, #78716c); background: var(--rule-soft, #f1efe9); }
+
+  /* exam page */
+  .exam-intro { background: var(--indigo-1); border: 1px solid var(--indigo-3); border-radius: 14px; padding: 20px 24px; margin: 24px 0 32px; }
+  .exam-q { background: #fff; border: 1px solid var(--rule); border-radius: 14px; margin: 20px 0; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .exam-q-head { display: flex; align-items: center; gap: 12px; padding: 13px 22px; background: var(--c-summary-bg); border-bottom: 1px solid var(--rule-soft); flex-wrap: wrap; }
+  .exam-qnum { font-family: var(--serif); font-weight: 700; font-size: 17px; color: var(--indigo-9); }
+  .exam-topic { font-size: 12.5px; font-weight: 700; color: var(--c-exercise-h); background: var(--c-exercise-bg); padding: 3px 12px; border-radius: 99px; }
+  .exam-q-body { padding: 20px 24px; }
+  .exam-q-body ol { margin: 12px 26px; }
+  .exam-ans { font-size: 16px; background: var(--c-example-bg); border: 1px solid var(--c-example-edge); color: var(--c-example-h); padding: 10px 16px; border-radius: 10px; margin-bottom: 16px; font-weight: 600; }
+  .solution h4 { font-size: 15px; color: var(--indigo-7); margin: 18px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--rule-soft); }
+  .topic-link { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 700; color: var(--indigo-7); text-decoration: none; }
+  .topic-link:hover { text-decoration: underline; }
+  .exam-options { list-style: none; margin: 16px 0 0; padding: 0; }
+  .exam-options .opt { display: flex; gap: 10px; align-items: baseline; padding: 8px 14px; margin: 6px 0;
+    border: 1px solid var(--rule-soft); border-radius: 9px; background: #fdfdfc; font-size: 15px; }
+  .exam-options .opt-l { font-family: var(--serif); font-weight: 700; color: var(--indigo-7); min-width: 20px; }
+  .exam-options .opt-t { flex: 1; }
+  /* the correct option is only highlighted once the solution is revealed */
+  .exercise-card.open .exam-options .opt.correct { background: var(--c-example-bg);
+    border-color: var(--c-example-h); font-weight: 600; }
+  .exercise-card.open .exam-options .opt.correct .opt-l { color: var(--c-example-h); }
+  .exercise-card.open .exam-options .opt.correct::after { content: '✓'; color: var(--c-example-h); font-weight: 900; }
+  .exam-toc { columns: 2; gap: 20px; margin: 16px 0; }
+  .exam-toc a { display: block; padding: 5px 0; font-size: 14px; color: var(--indigo-7); text-decoration: none; }
+  @media (max-width: 600px) { .exam-toc { columns: 1; } }
+
+  /* sim-exam page (shares exam-q styles) */
+  .exam-intro { background: var(--indigo-1); border: 1px solid var(--indigo-3); border-radius: 14px; padding: 20px 24px; margin: 24px 0 32px; }
+  .exam-q { background: #fff; border: 1px solid var(--rule); border-radius: 14px; margin: 20px 0; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .exam-q-head { display: flex; align-items: center; gap: 12px; padding: 13px 22px; background: var(--c-summary-bg); border-bottom: 1px solid var(--rule-soft); flex-wrap: wrap; }
+  .exam-qnum { font-family: var(--serif); font-weight: 700; font-size: 17px; color: var(--indigo-9); }
+  .exam-topic { font-size: 12.5px; font-weight: 700; color: var(--c-exercise-h); background: var(--c-exercise-bg); padding: 3px 12px; border-radius: 99px; }
+  .exam-q-body { padding: 20px 24px; }
+  .opt-list { list-style: none; margin: 14px 0 4px; padding: 0; }
+  .opt { display: flex; gap: 10px; align-items: baseline; padding: 8px 14px; margin: 6px 0;
+    border: 1px solid var(--rule-soft); border-radius: 9px; }
+  .opt-l { font-family: var(--serif); font-weight: 700; color: var(--indigo-7); min-width: 20px; }
+  .opt-t { flex: 1; }
+  .exercise-card.open .opt.correct { background: var(--c-example-bg); border-color: var(--c-example-h); font-weight: 600; }
+  .exercise-card.open .opt.correct .opt-l { color: var(--c-example-h); }
+  .exercise-card.open .opt.correct::after { content: '✓'; color: var(--c-example-h); font-weight: 900; }
+  .exam-ans { font-size: 16px; background: var(--c-example-bg); border: 1px solid var(--c-example-edge); color: var(--c-example-h); padding: 10px 16px; border-radius: 10px; margin-bottom: 16px; font-weight: 600; }
+  .solution h4 { font-size: 15px; color: var(--indigo-7); margin: 18px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--rule-soft); }
+  .topic-link { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 700; color: var(--indigo-7); text-decoration: none; }
+  .topic-link:hover { text-decoration: underline; }
+  .exam-toc { columns: 2; gap: 20px; margin: 16px 0; }
+  .exam-toc a { display: block; padding: 5px 0; font-size: 14px; color: var(--indigo-7); text-decoration: none; }
+  @media (max-width: 600px) { .exam-toc { columns: 1; } }
 </style>
 </head>
 <body>
@@ -398,7 +456,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="28-sec-crypto.html" data-page="28"><span class="nav-num">6.2</span>הצפנה סימטרית/אסימטרית</a></li>
     <li><a href="29-sec-signatures.html" data-page="29"><span class="nav-num">6.3</span>חתימה דיגיטלית</a></li>
     <li><a href="30-sec-ssl.html" data-page="30"><span class="nav-num">6.4</span>SSL/TLS</a></li>
-    <li><a href="sum-sec.html" class="active" data-page="sum-sec"><span class="nav-num">📌</span>סיכום השכבה</a></li>
+    <li><a href="sum-sec.html" data-page="sum-sec"><span class="nav-num">📌</span>סיכום השכבה</a></li>
   </ul>
 
   <div class="nav-label">📋 חזרה</div>
@@ -408,71 +466,597 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <li><a href="33-summary-glossary.html" data-page="33"><span class="nav-num">📚</span>סיכום ומילון</a></li>
     <li><a href="34-exam-moed-a.html" data-page="34"><span class="nav-num">📄</span>שאלות ממבחן מועד א'</a></li>
     <li><a href="35-toward-moed-b.html" data-page="35"><span class="nav-num">🎯</span>לקראת מועד ב׳</a></li>
-    <li><a href="36-sim-exam.html" data-page="36"><span class="nav-num">📝</span>מבחן לדוגמה</a></li>
+    <li><a href="36-sim-exam.html" data-page="36" class="active"><span class="nav-num">📝</span>מבחן לדוגמה</a></li>
     <li><a href="https://eliorch.github.io/comque" target="_blank" rel="noopener" data-page="comque"><span class="nav-num">🎯</span>אתר השאלות</a></li>
   </ul>
 
 </aside>
 
 <main>
-  <span class="page-eyebrow">📌 סיכום שכבה · 🔐 אבטחה וקריפטוגרפיה</span>
-  <h1 class="page-title">מה היה לנו באבטחה וקריפטוגרפיה</h1>
-  <p class="page-subtitle">ארבעה פרקים בדקה אחת — מהאיומים ועד הפתרון המלא של <bdi dir="ltr">SSL/TLS</bdi>.</p>
+  <span class="page-eyebrow">📝 מבחן דוגמה</span>
+  <h1 class="page-title">מבחן לדוגמה</h1>
+  <p class="page-subtitle">מבחן שלם של 20 שאלות חדשות בשפה ובסגנון של מועד א', על אותם נושאים — אף שאלה אינה זהה למקור. כל התשובות המספריות אומתו חישובית.</p>
 
-<div class="box theory">
-  <div class="box-head"><span class="icon">🗺️</span>מפת השכבה</div>
-  <div class="box-body">
-    <table>
-      <thead><tr><th>פרק</th><th>שורה תחתונה</th></tr></thead>
-      <tbody>
-      <tr><td><a href="27-sec-threats.html"><strong>6.1</strong> · איומים</a></td><td>מה יכול להשתבש: <bdi dir="ltr">Packet Sniffing</bdi> (האזנה), <bdi dir="ltr">IP Spoofing</bdi> (התחזות), <bdi dir="ltr">DoS/DDoS</bdi> (הצפה). המסגרת: שלשת <bdi dir="ltr">CIA</bdi>.</td></tr>
-      <tr><td><a href="28-sec-crypto.html"><strong>6.2</strong> · הצפנה סימטרית/אסימטרית</a></td><td>סימטרי (<bdi dir="ltr">DES/AES</bdi>): מפתח אחד משותף, מהיר, בעיית הפצת מפתח. אסימטרי (<bdi dir="ltr">RSA</bdi>): זוג <bdi dir="ltr">PK/SK</bdi>, איטי פי ~1000.</td></tr>
-      <tr><td><a href="29-sec-signatures.html"><strong>6.3</strong> · חתימה דיגיטלית</a></td><td>הוכחת זהות ושלמות: חותמים על ה-<bdi dir="ltr">Hash</bdi> של ההודעה עם המפתח <strong>הפרטי</strong>; כל אחד מאמת עם הציבורי.</td></tr>
-      <tr><td><a href="30-sec-ssl.html"><strong>6.4</strong> · SSL/TLS</a></td><td>השילוב בפועל: <bdi dir="ltr">RSA</bdi> להחלפת מפתח סשן, <bdi dir="ltr">AES</bdi> להצפנת הנתונים. יושב בין האפליקציה לתעבורה — הבסיס של <bdi dir="ltr">HTTPS</bdi>.</td></tr>
-      </tbody>
-    </table>
+  <div class="exam-intro">
+    📝 <strong>איך להשתמש בזה:</strong> פתור את כל המבחן כמו בתנאי אמת — בלי לפתוח פתרונות — ורק אז בדוק. השאלות בנויות בדיוק בשפה ובמבנה של מועד א' (5 מסיחים, אותם נושאים), אבל עם נתונים וניסוחים חדשים, בדיוק כמו שמועד ב' משנה. אם משהו קשה — כל שאלה מקושרת לפרק המלא.
+    <br><br>
+    ⚠️ <strong>הבהרה:</strong> זהו מבחן <em>שנבנה על ידי Claude</em> להתאמן עליו, לא מבחן רשמי של הקורס. השתמש בו לתרגול ההבנה.
   </div>
-</div>
-<div class="box formula">
-  <div class="box-head"><span class="icon">📐</span>הנוסחאות והכללים של השכבה</div>
-  <div class="box-body">
 
-    <ul>
-      <li><strong>הצפנה אל <bdi dir="ltr">X</bdi>:</strong> <span class="term">Enc(PK_X, M)</span> — עם המפתח <em>הציבורי</em> של המקבל.</li>
-      <li><strong>חתימה:</strong> <span class="term">Enc(SK_שלי, Hash(M))</span> — עם המפתח <em>הפרטי</em> של השולח. הפוך מהצפנה!</li>
-      <li><strong><bdi dir="ltr">Brute Force</bdi> על החלפה מונו-אלפביתית:</strong> שפה עם $n$ אותיות, $k$ מופיעות בטקסט: $\frac{n!}{(n-k)!}$ מפתחות; בממוצע בודקים חצי.</li>
-      <li><strong>DES:</strong> 56 ביט (חלש). <strong>AES:</strong> 128/256. <strong>RSA:</strong> 2048.</li>
-      <li><strong>RSA keygen:</strong> $n = pq$, $\varphi = (p-1)(q-1)$, $e \cdot d \equiv 1 \pmod{\varphi}$, $1 \lt e \lt \varphi$.</li>
-    </ul>
+  <h2>ניווט מהיר</h2>
+  <div class="exam-toc">
+    <a href="#q1">שאלה 1 · Store & Forward</a><a href="#q2">שאלה 2 · שינוי פרמטרים</a><a href="#q3">שאלה 3 · HTTP</a><a href="#q4">שאלה 4 · פרגמנטציה</a><a href="#q5">שאלה 5 · DNS</a><a href="#q6">שאלה 6 · Switch מול Hub</a><a href="#q7">שאלה 7 · Stream Cipher</a><a href="#q8">שאלה 8 · ICMP</a><a href="#q9">שאלה 9 · DHCP</a><a href="#q10">שאלה 10 · Slotted ALOHA</a><a href="#q11">שאלה 11 · Slotted ALOHA</a><a href="#q12">שאלה 12 · IPv4</a><a href="#q13">שאלה 13 · Cookies</a><a href="#q14">שאלה 14 · Receive Window</a><a href="#q15">שאלה 15 · מודל השכבות</a><a href="#q16">שאלה 16 · Wireshark</a><a href="#q17">שאלה 17 · ניתוב פנימי</a><a href="#q18">שאלה 18 · MAC</a><a href="#q19">שאלה 19 · TCP</a><a href="#q20">שאלה 20 · Subnetting</a>
   </div>
-</div>
-<div class="box warn">
-  <div class="box-head"><span class="icon">⚠️</span>טעויות נפוצות במבחן</div>
-  <div class="box-body">
 
-    <ul>
-      <li>הצפנה = מפתח ציבורי של <strong>המקבל</strong>; חתימה = מפתח פרטי של <strong>השולח</strong>. רוב הנקודות במבחן הולכות לאיבוד כאן.</li>
-      <li><bdi dir="ltr">MAC</bdi> בהקשר אבטחה = <bdi dir="ltr">Message Authentication Code</bdi> — נותן שלמות + אימות (לא סודיות!), ולא כתובת החומרה משכבה 2.</li>
-      <li><bdi dir="ltr">Nonce</bdi> מונע <strong>Playback Attack</strong> — הקלטה של אימות ישן לא עונה על אתגר טרי.</li>
-      <li><bdi dir="ltr">SSL</bdi> לא מחליף את <bdi dir="ltr">TCP</bdi> — הוא רץ <strong>מעליו</strong>, בין האפליקציה לתעבורה.</li>
-      <li>אסימטרי לא "יותר טוב" — הוא איטי מדי לנפחים גדולים; לכן תמיד משלבים (היברידי).</li>
-    </ul>
+  <div class="exam-q exercise-card" id="q1">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 1</span>
+      <span class="exam-topic">השהיות · Store & Forward</span>
+    </div>
+    <div class="exam-q-body">
+      מארח <bdi dir="ltr">A</bdi> שולח <bdi dir="ltr">4,500</bdi> בתים למארח <bdi dir="ltr">B</bdi> דרך שני נתבים <bdi dir="ltr">R1</bdi> ו-<bdi dir="ltr">R2</bdi>, כשהמידע מחולק ל-<bdi dir="ltr">3</bdi> מנות שוות. רוחב הפס לאורך כל המסלול <bdi dir="ltr">15 Mbit/sec</bdi>, אורך המסלול הכולל <bdi dir="ltr">300</bdi> ק"מ ומהירות ההתפשטות <bdi dir="ltr">250,000</bdi> ק"מ/שנייה. הנתבים עובדים ב-<bdi dir="ltr">Store &amp; Forward</bdi>. כמה זמן עובר מתחילת השליחה ועד שכל המידע הגיע ל-<bdi dir="ltr">B</bdi>?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">4.0 ms</bdi></span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">6.4 ms</bdi></span></li>
+        <li class="opt correct"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">5.2 ms</bdi></span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">4.8 ms</bdi></span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">3.6 ms</bdi></span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ג'</strong></div>
+      <h4>פתרון</h4>
+      <p>מנה = <bdi dir="ltr">1500</bdi> בתים = <bdi dir="ltr">12,000</bdi> ביט. <bdi dir="ltr">3</bdi> קטעים, <bdi dir="ltr">3</bdi> מנות.</p>
+ $$d_{trans}=\frac{12{,}000}{15\times10^6}=0.8\text{ ms}$$
+ $$(N+P-1)\,d_{trans}=(3+3-1)\times0.8=5\times0.8=4.0\text{ ms}$$
+ $$d_{prop}=\frac{300}{250{,}000}=1.2\text{ ms}$$
+ <p><strong>סה"כ <bdi dir="ltr">5.2 ms</bdi></strong>.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>אותה נוסחה כמו במבחן: $(N+P-1)\cdot L/R + d/s$. הצנרת נותנת $(N+P-1)$ צעדים, וההתפשטות מתווספת פעם אחת. שים לב ש-$P=N=3$ כאן, ולכן המקדם הוא $5$.</p>
+      <a class="topic-link" href="01-delays.html">→ לפרק המלא: השהיות ברשת</a>
+    </div>
   </div>
-</div>
-<div class="box summary">
-  <div class="box-head"><span class="icon">🎯</span>ומכאן — לתרגול</div>
-  <div class="box-body">
-    <p>סגרת את התאוריה של פרקי האבטחה? עכשיו שאלות. <a href="https://eliorch.github.io/comque" target="_blank" rel="noopener"><strong>אתר השאלות</strong></a> מרכז שאלות מבחן לתרגול, ו<a href="31-cheatsheet.html">דף הנוסחאות</a> מרכז את כל מה שצריך לזכור בעל-פה.</p>
+  <div class="exam-q exercise-card" id="q2">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 2</span>
+      <span class="exam-topic">השהיות · שינוי פרמטרים</span>
+    </div>
+    <div class="exam-q-body">
+      ביחס לשאלה 1, בוב מכפיל את מהירות ההתפשטות בקו ל-<bdi dir="ltr">500,000</bdi> ק"מ/שנייה (חומר קו אחר), ומשאיר את כל השאר. כיצד ישתנו עיכובי השידור וההתפשטות?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t">שניהם יקטנו.</span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t">עיכוב השידור יקטן, עיכוב ההתפשטות לא ישתנה.</span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t">עיכוב השידור יגדל, עיכוב ההתפשטות יקטן.</span></li>
+        <li class="opt correct"><span class="opt-l">ד.</span><span class="opt-t">עיכוב השידור לא ישתנה, עיכוב ההתפשטות יקטן.</span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t">שניהם לא ישתנו.</span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ד'</strong></div>
+      <h4>פתרון</h4>
+      <p>מהירות ההתפשטות משפיעה <strong>רק על ההתפשטות</strong>: $d_{prop}=d/s$. הכפלת $s$ מקטינה אותה בחצי (מ-<bdi dir="ltr">1.2</bdi> ל-<bdi dir="ltr">0.6 ms</bdi>).</p>
+ <p>עיכוב השידור תלוי ב-$L/R$ בלבד — לא במהירות ההתפשטות — ולכן <strong>לא משתנה</strong>.</p>
+ <p>תשובה <strong>ד'</strong>.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>ההיפוך של שאלה 2 במבחן: שם שינו רוחב פס (שמשפיע על שידור), כאן משנים מהירות התפשטות (שמשפיעה על התפשטות). כל פרמטר נוגע רק ברכיב שלו — זו הבחנה שחוזרת שוב ושוב.</p>
+      <a class="topic-link" href="01-delays.html">→ לפרק המלא: השהיות ברשת</a>
+    </div>
   </div>
-</div>
+  <div class="exam-q exercise-card" id="q3">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 3</span>
+      <span class="exam-topic">שכבת אפליקציה · HTTP</span>
+    </div>
+    <div class="exam-q-body">
+      דפדפן טוען דף <bdi dir="ltr">Web</bdi> עם <bdi dir="ltr">5</bdi> אובייקטים באותו שרת, כל אחד בגודל זניח. ה-<bdi dir="ltr">RTT</bdi> הוא <bdi dir="ltr">1.5ms</bdi>, והדפדפן משתמש ב-<bdi dir="ltr">HTTP/1.1</bdi> עם <strong>חיבור מתמיד אחד</strong> (ללא צנרת). כמה זמן נדרש להצגת הדף במלואו (מתעלמים מ-<bdi dir="ltr">DNS</bdi>)?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">6 ms</bdi></span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">7.5 ms</bdi></span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">9 ms</bdi></span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">15 ms</bdi></span></li>
+        <li class="opt correct"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">10.5 ms</bdi></span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ה'</strong></div>
+      <h4>פתרון</h4>
+      <p><bdi dir="ltr">HTTP/1.1</bdi> מתמיד: ה-<bdi dir="ltr">handshake</bdi> משולם פעם אחת.</p>
+ <ul><li>דף הבסיס: <bdi dir="ltr">2 RTT</bdi> (handshake + בקשה/תשובה).</li>
+     <li>5 אובייקטים סדרתית על אותו חיבור: <bdi dir="ltr">5 × 1 RTT</bdi>.</li></ul>
+ $$2 + 5 = 7\text{ RTT} = 7 \times 1.5 = 10.5\text{ ms}$$
+      <h4>הרחבה — על הנושא</h4>
+      <p>ההבדל מהמבחן: שם היה <bdi dir="ltr">HTTP/1.0</bdi> לא-מתמיד (2 RTT לאובייקט) עם 3 חיבורים מקבילים. כאן מתמיד (1 RTT לאובייקט) אבל חיבור אחד סדרתי. תמיד לזהות: כמה RTT לאובייקט (גרסה) וכמה במקביל.</p>
+      <a class="topic-link" href="03-app-http.html">→ לפרק המלא: HTTP ובקשות</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q4">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 4</span>
+      <span class="exam-topic">שכבת רשת · פרגמנטציה</span>
+    </div>
+    <div class="exam-q-body">
+      חבילת <bdi dir="ltr">IP</bdi> בגודל <bdi dir="ltr">2,500</bdi> בתים (כולל כותרת <bdi dir="ltr">20</bdi> בתים) עוברת ברשת עם <bdi dir="ltr">MTU = 500</bdi> בתים. מה ה-<bdi dir="ltr">offset</bdi> של הפרגמנט <strong>השני</strong>?
+
+      <ul class="opt-list">
+        <li class="opt correct"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">60</bdi></span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">480</bdi></span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">500</bdi></span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">120</bdi></span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">240</bdi></span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>א'</strong></div>
+      <h4>פתרון</h4>
+      <p>נתונים לפרגמנט: $500-20=480$ (כפולה של 8 ✓, $480/8=60$).</p>
+ <p>פרגמנט 1: בתים 0–479 (offset 0). פרגמנט 2 מתחיל בבית 480.</p>
+ $$\text{offset}_2 = \frac{480}{8} = 60$$
+      <h4>הרחבה — על הנושא</h4>
+      <p>אותם שלושה כללים: נתונים = $MTU-20$, כפולה של 8, ו-offset ביחידות של 8. הפעם ביקשו את הפרגמנט השני במקום השלישי — צריך רק להיזהר מאיזה פרגמנט מדובר.</p>
+      <a class="topic-link" href="14-net-fragmentation.html">→ לפרק המלא: פרגמנטציה של IP</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q5">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 5</span>
+      <span class="exam-topic">שכבת אפליקציה · DNS</span>
+    </div>
+    <div class="exam-q-body">
+      איזו מהטענות הבאות נכונה לגבי <bdi dir="ltr">DNS Caching</bdi>?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t">שרתי <bdi dir="ltr">Root</bdi> אינם שומרים תשובות ב-<bdi dir="ltr">Cache</bdi> לעולם.</span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t">רשומה ב-<bdi dir="ltr">Cache</bdi> נשמרת לנצח עד שהשרת מופעל מחדש.</span></li>
+        <li class="opt correct"><span class="opt-l">ג.</span><span class="opt-t">כל רשומה ב-<bdi dir="ltr">Cache</bdi> נשמרת למשך זמן מוגבל שנקבע ע"י ה-<bdi dir="ltr">TTL</bdi>.</span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t">רק שרת ה-<bdi dir="ltr">Authoritative</bdi> רשאי לשמור ב-<bdi dir="ltr">Cache</bdi>.</span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t">‏<bdi dir="ltr">Caching</bdi> מבוצע רק בצד הלקוח, לא בשרתי השמות.</span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ג'</strong></div>
+      <h4>פתרון</h4>
+      <p><strong>ג' — כל רשומה נשמרת למשך ה-<bdi dir="ltr">TTL</bdi>.</strong></p>
+ <p>כשרשומת <bdi dir="ltr">DNS</bdi> נכנסת ל-<bdi dir="ltr">Cache</bdi>, מצורף לה זמן חיים (<bdi dir="ltr">TTL</bdi>) שקובע כמה זמן היא תקפה. אחרי שהזמן חולף — הרשומה נמחקת ויש לשאול מחדש.</p>
+ <p>שאר הטענות שגויות: כל שרת (כולל <bdi dir="ltr">Local</bdi>) שומר ב-Cache, לא רק Authoritative, והשמירה זמנית ולא לנצח.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>בדיוק כמו שאלה 5 במבחן — טענה על <bdi dir="ltr">DNS</bdi> עם מלכודות של "תמיד/לעולם/רק". הפעם הנושא הוא <bdi dir="ltr">Caching</bdi> ו-<bdi dir="ltr">TTL</bdi>. הכלל: כל שרת שומר, השמירה זמנית לפי TTL, וזה מה שמזרז את המערכת.</p>
+      <a class="topic-link" href="06-app-dns.html">→ לפרק המלא: DNS ותרגום שמות</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q6">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 6</span>
+      <span class="exam-topic">שכבת קישור · Switch מול Hub</span>
+    </div>
+    <div class="exam-q-body">
+      מה מהבאים <strong>נכון</strong> לגבי <bdi dir="ltr">Hub</bdi> אך <strong>לא</strong> לגבי <bdi dir="ltr">Switch</bdi>?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t">לומד את כתובות ה-<bdi dir="ltr">MAC</bdi> של המחוברים אליו.</span></li>
+        <li class="opt correct"><span class="opt-l">ב.</span><span class="opt-t">כל המחוברים אליו נמצאים באותו תחום התנגשות (<bdi dir="ltr">collision domain</bdi>).</span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t">מעביר פריים רק לפורט של היעד.</span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t">מפעיל <bdi dir="ltr">Spanning Tree Protocol</bdi>.</span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t">מפריד בין תחומי התנגשות.</span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ב'</strong></div>
+      <h4>פתרון</h4>
+      <p><strong>ב' — ב-<bdi dir="ltr">Hub</bdi> כל המחוברים באותו תחום התנגשות.</strong></p>
+ <p>ה-<bdi dir="ltr">Hub</bdi> משכפל כל ביט לכל הפורטים, ולכן שני משדרים בו-זמנית = התנגשות. כל הפורטים חולקים תחום התנגשות <strong>אחד</strong>.</p>
+ <p>ה-<bdi dir="ltr">Switch</bdi> דווקא <strong>מפריד</strong> — כל פורט הוא תחום נפרד. כל שאר הטענות (לומד MAC, מעביר רק ליעד, STP, מפריד תחומים) נכונות ל-<bdi dir="ltr">Switch</bdi> ולא ל-Hub.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>הפוך משאלה 6 במבחן (שם שאלו מה יש בסוויץ' ולא ב-Hub). אותו נושא, כיוון הפוך. הליבה: Hub = שכבה 1 טיפש, תחום התנגשות אחד; Switch = שכבה 2 חכם, תחום לכל פורט.</p>
+      <a class="topic-link" href="24-link-switches.html">→ לפרק המלא: סוויצ׳ים</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q7">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 7</span>
+      <span class="exam-topic">אבטחה · Stream Cipher</span>
+    </div>
+    <div class="exam-q-body">
+      בהצפנת <bdi dir="ltr">Stream Cipher</bdi>, ה-<bdi dir="ltr">ciphertext</bdi> שהתקבל הוא <bdi dir="ltr">c = 11000110</bdi> וה-<bdi dir="ltr">keystream</bdi> הוא <bdi dir="ltr">ks = 01011010</bdi>. מהי ההודעה המקורית <bdi dir="ltr">m</bdi>?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">01011010</bdi></span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">11011100</bdi></span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">00111001</bdi></span></li>
+        <li class="opt correct"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">10011100</bdi></span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">11000110</bdi></span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ד'</strong></div>
+      <h4>פתרון</h4>
+      <p>הפענוח הוא אותה פעולת <bdi dir="ltr">XOR</bdi>: $m = c \oplus ks$.</p>
+ <table><tbody>
+   <tr><td><bdi dir="ltr">c</bdi></td><td class="mono">1 1 0 0 0 1 1 0</td></tr>
+   <tr><td><bdi dir="ltr">ks</bdi></td><td class="mono">0 1 0 1 1 0 1 0</td></tr>
+   <tr class="ok"><td><bdi dir="ltr">m</bdi></td><td class="mono">1 0 0 1 1 1 0 0</td></tr>
+ </tbody></table>
+ <p><strong><bdi dir="ltr">m = 10011100</bdi></strong>.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>הפעם נותנים <bdi dir="ltr">c</bdi> ומבקשים <bdi dir="ltr">m</bdi> — במקום להצפין, לפענח. אבל זו <em>אותה פעולה בדיוק</em>, כי $c \oplus ks = (m \oplus ks) \oplus ks = m$. זו התכונה היפה של XOR.</p>
+      <a class="topic-link" href="28-sec-crypto.html">→ לפרק המלא: הצפנה</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q8">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 8</span>
+      <span class="exam-topic">שכבת רשת · ICMP</span>
+    </div>
+    <div class="exam-q-body">
+      מחשב שולח <bdi dir="ltr">Ping</bdi> לכתובת <bdi dir="ltr">IP</bdi> של שרת, אך מקבל בחזרה הודעת <bdi dir="ltr">Destination Unreachable</bdi>. מאיזה סוג היא ההודעה שהתקבלה?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">TCP</bdi></span></li>
+        <li class="opt correct"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">ICMP</bdi></span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">UDP</bdi></span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">ARP</bdi></span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">DNS</bdi></span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ב'</strong></div>
+      <h4>פתרון</h4>
+      <p><strong>ב' — <bdi dir="ltr">ICMP</bdi>.</strong></p>
+ <p>‏<bdi dir="ltr">ICMP</bdi> הוא פרוטוקול הודעות הבקרה והשגיאה של שכבת הרשת. הן <bdi dir="ltr">Echo Request/Reply</bdi> (שזה בעצם <bdi dir="ltr">Ping</bdi>), והן <bdi dir="ltr">Destination Unreachable</bdi> ו-<bdi dir="ltr">Time Exceeded</bdi> — כולן הודעות <bdi dir="ltr">ICMP</bdi>.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>קרוב לשאלה 8 במבחן (Traceroute/ICMP), אבל דרך הודעת שגיאה אחרת. הרעיון זהה: כל הודעות הבקרה של שכבת הרשת — Echo, Time Exceeded, Destination Unreachable — הן ICMP.</p>
+      <a class="topic-link" href="13-net-intro.html">→ לפרק המלא: שכבת הרשת</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q9">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 9</span>
+      <span class="exam-topic">שכבת רשת · DHCP</span>
+    </div>
+    <div class="exam-q-body">
+      בפרוטוקול <bdi dir="ltr">DHCP</bdi>, מדוע הודעת ה-<bdi dir="ltr">Discover</bdi> הראשונה של הלקוח נשלחת ב-<bdi dir="ltr">broadcast</bdi>?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t">כי הלקוח רוצה שכל המחשבים ברשת יידעו שהוא הצטרף.</span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t">כי <bdi dir="ltr">broadcast</bdi> מהיר יותר משליחה רגילה.</span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t">כי הפרוטוקול אוסר על שליחת <bdi dir="ltr">unicast</bdi> בשכבת הקישור.</span></li>
+        <li class="opt correct"><span class="opt-l">ד.</span><span class="opt-t">כי ללקוח עדיין אין כתובת <bdi dir="ltr">IP</bdi> והוא אינו יודע מיהו שרת ה-<bdi dir="ltr">DHCP</bdi>.</span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t">כי שרת ה-<bdi dir="ltr">DHCP</bdi> נמצא תמיד ברשת אחרת.</span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ד'</strong></div>
+      <h4>פתרון</h4>
+      <p><strong>ד' — אין ללקוח <bdi dir="ltr">IP</bdi>, והוא לא יודע מי/איפה השרת.</strong></p>
+ <p>בשלב ה-<bdi dir="ltr">Discover</bdi> ללקוח אין עדיין כתובת ואין לו שום דרך לדעת את כתובת שרת ה-<bdi dir="ltr">DHCP</bdi>. לכן הוא שולח למקור <bdi dir="ltr">0.0.0.0</bdi> ויעד <bdi dir="ltr">255.255.255.255</bdi> — "מי כאן שרת DHCP?".</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>מבוסס על שאלה 9 במבחן (DHCP והמסכה), אבל בהיבט אחר — למה broadcast. הרעיון של DORA: שני השלבים הראשונים (Discover, Request) הם broadcast כי אין עדיין תקשורת ממוענת.</p>
+      <a class="topic-link" href="16-net-dhcp.html">→ לפרק המלא: DHCP</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q10">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 10</span>
+      <span class="exam-topic">שכבת קישור · Slotted ALOHA</span>
+    </div>
+    <div class="exam-q-body">
+      ברשת <bdi dir="ltr">Slotted ALOHA</bdi> יש <bdi dir="ltr">X</bdi> תחנות פעילות, וכל אחת משדרת בסלוט בהסתברות <bdi dir="ltr">p</bdi> (כללי). מה ההסתברות שדווקא <strong>תחנה מסוימת נתונה</strong> תשדר בהצלחה בסלוט?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t">$X\,p\,(1-p)^{X-1}$</span></li>
+        <li class="opt correct"><span class="opt-l">ג.</span><span class="opt-t">$p\,(1-p)^{X-1}$</span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t">$(1-p)^{X}$</span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t">$X\,p\,(1-p)^{X}$</span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ג'</strong></div>
+      <h4>פתרון</h4>
+      <p>עבור <strong>תחנה מסוימת</strong>: היא משדרת ($p$), וכל היתר ($X-1$ תחנות) <strong>לא</strong> משדרות:</p>
+ $$P = p\,(1-p)^{X-1}$$
+ <p>אין כאן גורם $X$ — כי לא בוחרים "איזו" תחנה, היא נתונה מראש. (הגורם $X$ מופיע רק כששואלים על "איזושהי תחנה מצליחה".)</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>ההבחנה הקריטית מ-ALOHA: "תחנה מסוימת" (בלי $X$) מול "שידור מוצלח כלשהו" (עם $X$). זו בדיוק המלכודת שהפרידה בין שתי תשובות במבחן. קרא היטב על מה שואלים.</p>
+      <a class="topic-link" href="21-link-aloha.html">→ לפרק המלא: ALOHA</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q11">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 11</span>
+      <span class="exam-topic">שכבת קישור · Slotted ALOHA</span>
+    </div>
+    <div class="exam-q-body">
+      ברשת <bdi dir="ltr">Slotted ALOHA</bdi>, בסלוט הבא <strong>שלוש</strong> תחנות ישדרו בוודאות (הסתברות 1), ויתר התחנות לא ישדרו. מה ההסתברות לשידור מוצלח בסלוט זה?
+
+      <ul class="opt-list">
+        <li class="opt correct"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">0</bdi></span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t">$\left(1-\frac{1}{3}\right)^{3}$</span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t">$\frac{1}{3}$</span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t">$3\cdot\frac{1}{3}$</span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">1</bdi></span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>א'</strong></div>
+      <h4>פתרון</h4>
+      <p><strong>א' — הסתברות <bdi dir="ltr">0</bdi>.</strong></p>
+ <p>שידור מוצלח דורש <strong>בדיוק תחנה אחת</strong> משדרת. אם <strong>שלוש</strong> תחנות משדרות בוודאות באותו סלוט — הן מתנגשות זו בזו תמיד. התנגשות ודאית = שידור מוצלח בהסתברות <strong>0</strong>.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>וריאציה של שאלה 11 במבחן (שם היו "שתיים"). הכלל: אם המצב מכריח יותר מתחנה אחת לשדר בוודאות → התנגשות ודאית → הסתברות הצלחה 0. תמיד לספור כמה תחנות משדרות "בוודאות".</p>
+      <a class="topic-link" href="21-link-aloha.html">→ לפרק המלא: ALOHA</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q12">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 12</span>
+      <span class="exam-topic">שכבת רשת · IPv4</span>
+    </div>
+    <div class="exam-q-body">
+      מהו מספר הביטים בכתובת <bdi dir="ltr">IPv4</bdi>?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">128</bdi> ביטים.</span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">64</bdi> ביטים.</span></li>
+        <li class="opt correct"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">32</bdi> ביטים.</span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">16</bdi> ביטים.</span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">48</bdi> ביטים.</span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ג'</strong></div>
+      <h4>פתרון</h4>
+      <p><strong>ג' — <bdi dir="ltr">32</bdi> ביטים.</strong></p>
+ <p>כתובת <bdi dir="ltr">IPv4</bdi> היא <bdi dir="ltr">32</bdi> ביט = 4 אוקטטים (למשל <bdi dir="ltr">192.168.1.1</bdi>), ומכאן $2^{32}\approx4.3$ מיליארד כתובות. לשם השוואה <bdi dir="ltr">IPv6</bdi> היא <bdi dir="ltr">128</bdi> ביט, ו-<bdi dir="ltr">MAC</bdi> היא <bdi dir="ltr">48</bdi> ביט.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>ההיפוך של שאלה 12 במבחן (ששאלה על IPv6=128). כדאי לזכור את כל המספרים: IPv4=32, IPv6=128, MAC=48, פורט=16.</p>
+      <a class="topic-link" href="15-net-ip-addressing.html">→ לפרק המלא: כתובות IP</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q13">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 13</span>
+      <span class="exam-topic">שכבת אפליקציה · Cookies</span>
+    </div>
+    <div class="exam-q-body">
+      בפרוטוקול <bdi dir="ltr">HTTP</bdi>, באיזו כותרת שולח <strong>השרת</strong> ללקוח עוגייה חדשה?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">Cookie:</bdi></span></li>
+        <li class="opt correct"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">Set-Cookie:</bdi></span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">Host:</bdi></span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">Content-Type:</bdi></span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">Authorization:</bdi></span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ב'</strong></div>
+      <h4>פתרון</h4>
+      <p><strong>ב' — <bdi dir="ltr">Set-Cookie:</bdi></strong></p>
+ <p>מנגנון העוגיות: השרת שולח בתגובה כותרת <bdi dir="ltr">Set-Cookie</bdi> עם המזהה. הלקוח שומר אותו, ובכל בקשה עתידית מחזיר אותו בכותרת <bdi dir="ltr">Cookie</bdi> (בלי <bdi dir="ltr">Set-</bdi>).</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>מבוסס על שאלה 13 במבחן (עוגיות), אבל ממוקד במנגנון הכותרות. שני הכיוונים: <bdi dir="ltr">Set-Cookie</bdi> (שרת→לקוח, יוצר) ו-<bdi dir="ltr">Cookie</bdi> (לקוח→שרת, מחזיר).</p>
+      <a class="topic-link" href="05-app-cookies.html">→ לפרק המלא: עוגיות</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q14">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 14</span>
+      <span class="exam-topic">שכבת תעבורה · Receive Window</span>
+    </div>
+    <div class="exam-q-body">
+      חוצץ הקליטה של <bdi dir="ltr">B</bdi> באורך <bdi dir="ltr">16,000</bdi> בתים. כל מלבן בתרשים = <bdi dir="ltr">2,000</bdi> בתים, ו-<bdi dir="ltr">5</bdi> מלבנים תפוסים במידע שטרם נקרא. מה ערכו של <bdi dir="ltr">Receive Window</bdi> באישור שישלח <bdi dir="ltr">B</bdi>?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">16,000</bdi></span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">10,000</bdi></span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">5,000</bdi></span></li>
+        <li class="opt correct"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">6,000</bdi></span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">2,000</bdi></span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ד'</strong></div>
+      <h4>פתרון</h4>
+      <p><bdi dir="ltr">RcvWindow</bdi> = המקום הפנוי בחוצץ.</p>
+ $$\text{תפוס}=5\times2000=10{,}000$$
+ $$\text{RW}=16{,}000-10{,}000=6{,}000$$
+      <h4>הרחבה — על הנושא</h4>
+      <p>אותה שאלה כמו 14 במבחן, נתונים אחרים. הנוסחה: $\text{RcvBuffer}-(\text{LastByteRcvd}-\text{LastByteRead})$ — כלומר גודל החוצץ פחות מה שיושב בו וטרם נקרא.</p>
+      <a class="topic-link" href="10-trans-flow.html">→ לפרק המלא: בקרת זרימה</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q15">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 15</span>
+      <span class="exam-topic">כללי · מודל השכבות</span>
+    </div>
+    <div class="exam-q-body">
+      מהו העיקרון המרכזי שמאפשר להחליף טכנולוגיית שכבה פיזית (למשל <bdi dir="ltr">WiFi</bdi> ב-<bdi dir="ltr">Ethernet</bdi>) מבלי לשנות את יישומי ה-<bdi dir="ltr">HTTP</bdi> שרצים מעליה?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t">שיתוף עומסים בין שרתים.</span></li>
+        <li class="opt correct"><span class="opt-l">ב.</span><span class="opt-t">הפרדה בין שכבות (<bdi dir="ltr">layering</bdi>) והסתרת מימוש מאחורי ממשק מוגדר.</span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t">שימוש בהצפנה מקצה לקצה.</span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t">ניתוב לפי <bdi dir="ltr">Longest Prefix Match</bdi>.</span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t">דחיסה של הנתונים בשכבת התעבורה.</span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ב'</strong></div>
+      <h4>פתרון</h4>
+      <p><strong>ב' — הפרדה בין שכבות והסתרת מימוש.</strong></p>
+ <p>כל שכבה מספקת שירות לשכבה שמעליה דרך <strong>ממשק מוגדר</strong>, ומסתירה את המימוש שלה. לכן אפשר להחליף את המימוש של שכבה אחת (WiFi↔Ethernet) בלי לגעת בשכבות האחרות — הן רואות רק את הממשק, לא את מה שקורה מתחת.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>מבוסס על שאלה 15 במבחן (יתרון מודל השכבות), אבל דרך דוגמה קונקרטית. היתרון אינו ביצועים אלא <strong>מודולריות</strong> — היכולת להחליף רכיב בלי לשבור את השאר.</p>
+      <a class="topic-link" href="00-intro.html">→ לפרק המלא: מבוא</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q16">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 16</span>
+      <span class="exam-topic">כלים · Wireshark</span>
+    </div>
+    <div class="exam-q-body">
+      ב-<bdi dir="ltr">Wireshark</bdi> הוקלדה בשורת הפילטר המילה <bdi dir="ltr">tcp</bdi>. איזה פרוטוקול <strong>בוודאות לא</strong> יופיע בעמודת הפרוטוקול בתוצאות?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">HTTP</bdi></span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">TLS</bdi></span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">TCP</bdi></span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">FTP</bdi></span></li>
+        <li class="opt correct"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">DNS</bdi></span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ה'</strong></div>
+      <h4>פתרון</h4>
+      <p><strong>ה' — <bdi dir="ltr">DNS</bdi>.</strong></p>
+ <p>הפילטר <bdi dir="ltr">tcp</bdi> מציג רק מנות שרצות מעל <bdi dir="ltr">TCP</bdi>. ‏<bdi dir="ltr">DNS</bdi> רץ כמעט תמיד מעל <bdi dir="ltr">UDP</bdi> — ולכן לא יעבור את הפילטר.</p>
+ <p>לעומתו, <bdi dir="ltr">HTTP</bdi>, <bdi dir="ltr">TLS</bdi> ו-<bdi dir="ltr">FTP</bdi> רצים מעל <bdi dir="ltr">TCP</bdi> ו<strong>כן</strong> יופיעו (השכבה הגבוהה מוצגת). <bdi dir="ltr">TCP</bdi> עצמו יופיע כשאין רובד גבוה יותר לפענח.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>מבוסס על שאלה 16 במבחן (Wireshark), אבל עם פילטר <bdi dir="ltr">tcp</bdi> ובשאלה הפוכה — מה <em>לא</em> יופיע. הרעיון: הפילטר בורר לפי שכבת התעבורה, אבל התווית המוצגת היא של השכבה הגבוהה ביותר.</p>
+      <a class="topic-link" href="07-trans-udp.html">→ לפרק המלא: UDP</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q17">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 17</span>
+      <span class="exam-topic">שכבת רשת · ניתוב פנימי</span>
+    </div>
+    <div class="exam-q-body">
+      איזה פרוטוקול משמש לניתוב <strong>בתוך</strong> מערכת אוטונומית (<bdi dir="ltr">intra-AS</bdi>) ומבוסס על אלגוריתם <bdi dir="ltr">Link State</bdi>?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">BGP</bdi></span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">RIP</bdi></span></li>
+        <li class="opt correct"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">OSPF</bdi></span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">ICMP</bdi></span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">DHCP</bdi></span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ג'</strong></div>
+      <h4>פתרון</h4>
+      <p><strong>ג' — <bdi dir="ltr">OSPF</bdi>.</strong></p>
+ <ul>
+   <li><bdi dir="ltr">OSPF</bdi> — פנימי (<bdi dir="ltr">intra-AS</bdi>), מבוסס <bdi dir="ltr">Link State</bdi> (כל נתב מכיר את כל הטופולוגיה).</li>
+   <li><bdi dir="ltr">RIP</bdi> — גם פנימי, אבל <bdi dir="ltr">Distance Vector</bdi> (מדבר רק עם שכנים).</li>
+   <li><bdi dir="ltr">BGP</bdi> — חיצוני (<bdi dir="ltr">inter-AS</bdi>).</li>
+   <li><bdi dir="ltr">ICMP</bdi>/<bdi dir="ltr">DHCP</bdi> — כלל לא פרוטוקולי ניתוב.</li>
+ </ul>
+      <h4>הרחבה — על הנושא</h4>
+      <p>המשלים של שאלה 17 במבחן (ששאלה על BGP החיצוני). כאן מבקשים את הפנימי מבוסס Link State = OSPF. חשוב להבחין: intra מול inter, ו-LS מול DV.</p>
+      <a class="topic-link" href="19-net-ospf-bgp.html">→ לפרק המלא: OSPF ו-BGP</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q18">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 18</span>
+      <span class="exam-topic">שכבת קישור · MAC</span>
+    </div>
+    <div class="exam-q-body">
+      מהו אורכה של כתובת <bdi dir="ltr">MAC</bdi> (<bdi dir="ltr">Media Access Control</bdi>)?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">32</bdi> ביט.</span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">64</bdi> ביט.</span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">128</bdi> ביט.</span></li>
+        <li class="opt correct"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">48</bdi> ביט.</span></li>
+        <li class="opt"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">16</bdi> ביט.</span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ד'</strong></div>
+      <h4>פתרון</h4>
+      <p><strong>ד' — <bdi dir="ltr">48</bdi> ביט.</strong></p>
+ <p>כתובת <bdi dir="ltr">MAC</bdi> היא <bdi dir="ltr">48</bdi> ביט (6 בתים), נכתבת בדרך כלל כ-6 זוגות הקסה, למשל <bdi dir="ltr">00:1A:2B:3C:4D:5E</bdi>. חצי מהביטים (<bdi dir="ltr">OUI</bdi>) מזהים את היצרן.</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>מבוסס על שאלה 18 במבחן (ראשי התיבות MAC), אבל בהיבט טכני — האורך. חשוב לא לבלבל: <bdi dir="ltr">MAC</bdi> = 48 ביט (שכבה 2), <bdi dir="ltr">IPv4</bdi> = 32 ביט (שכבה 3).</p>
+      <a class="topic-link" href="23-link-mac-arp.html">→ לפרק המלא: כתובות MAC</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q19">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 19</span>
+      <span class="exam-topic">שכבת תעבורה · TCP</span>
+    </div>
+    <div class="exam-q-body">
+      קשר <bdi dir="ltr">TCP</bdi> הינו:
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t">כל התשובות האחרות אינן נכונות.</span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">Best Effort</bdi> (ללא אמינות).</span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t">חסר חיבור (<bdi dir="ltr">Connectionless</bdi>).</span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t">משדר תמיד ב-<bdi dir="ltr">broadcast</bdi>.</span></li>
+        <li class="opt correct"><span class="opt-l">ה.</span><span class="opt-t">מכוון-חיבור (<bdi dir="ltr">Connection Oriented</bdi>) ואמין.</span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ה'</strong></div>
+      <h4>פתרון</h4>
+      <p><strong>ה' — מכוון-חיבור ואמין.</strong></p>
+ <p>‏<bdi dir="ltr">TCP</bdi> יוצר חיבור לפני שליחת נתונים (<bdi dir="ltr">3-way handshake</bdi>), מבטיח <strong>אמינות</strong> (אישורים ושידור חוזר), שומר על <strong>סדר</strong>, ומספק בקרת זרימה וגודש. זה בדיוק ההפך מ-<bdi dir="ltr">UDP</bdi> (Best Effort, חסר חיבור).</p>
+      <h4>הרחבה — על הנושא</h4>
+      <p>ההפך משאלה 19 במבחן (ששאלה על UDP=Best Effort). כאן שואלים על TCP. כדאי לדעת את שני העמודים של הטבלה: TCP אמין ומכוון-חיבור, UDP מהיר ו-Best Effort.</p>
+      <a class="topic-link" href="09-trans-tcp.html">→ לפרק המלא: TCP</a>
+    </div>
+  </div>
+  <div class="exam-q exercise-card" id="q20">
+    <div class="exam-q-head">
+      <span class="exam-qnum">שאלה 20</span>
+      <span class="exam-topic">שכבת רשת · Subnetting</span>
+    </div>
+    <div class="exam-q-body">
+      כתובות ה-<bdi dir="ltr">IP</bdi> <bdi dir="ltr">172.20.100.7</bdi> ו-<bdi dir="ltr">172.20.105.200</bdi> נמצאות באותה רשת. מהי מסכת הרשת <strong>הארוכה ביותר</strong> שמאפשרת זאת?
+
+      <ul class="opt-list">
+        <li class="opt"><span class="opt-l">א.</span><span class="opt-t"><bdi dir="ltr">255.255.255.0</bdi></span></li>
+        <li class="opt"><span class="opt-l">ב.</span><span class="opt-t"><bdi dir="ltr">255.255.252.0</bdi></span></li>
+        <li class="opt"><span class="opt-l">ג.</span><span class="opt-t"><bdi dir="ltr">255.255.248.0</bdi></span></li>
+        <li class="opt"><span class="opt-l">ד.</span><span class="opt-t"><bdi dir="ltr">255.255.128.0</bdi></span></li>
+        <li class="opt correct"><span class="opt-l">ה.</span><span class="opt-t"><bdi dir="ltr">255.255.240.0</bdi></span></li>
+      </ul>
+    </div>
+    <button class="reveal-btn">הראה פתרון</button>
+    <div class="solution">
+      <div class="exam-ans">התשובה הנכונה: <strong>ה'</strong></div>
+      <h4>פתרון</h4>
+      <p>ההבדל באוקטט השלישי: <bdi dir="ltr">100</bdi> מול <bdi dir="ltr">105</bdi>.</p>
+ <p>בבינארי: <bdi dir="ltr">100 = 01100100</bdi>, <bdi dir="ltr">105 = 01101001</bdi> — זהים ב-<strong>4 הביטים הראשונים</strong> (<bdi dir="ltr">0110</bdi>), ונבדלים בביט החמישי.</p>
+ $$16 + 4 = 20 \;\Rightarrow\; \text{/20} = 255.255.240.0$$
+      <h4>הרחבה — על הנושא</h4>
+      <p>אותה שאלה כמו 20 במבחן, זוג כתובות אחר. השיטה: לכתוב את האוקטט השונה בבינארי, לספור כמה ביטים שמאליים משותפים, ולהוסיף ל-16. כאן 4 ביטים משותפים → /20.</p>
+      <a class="topic-link" href="15-net-ip-addressing.html">→ לפרק המלא: כתובות IP</a>
+    </div>
+  </div>
 
 
 <nav class="pager" aria-label="ניווט בין נושאים">
-  <a class="prev" href="30-sec-ssl.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">SSL/TLS</span></a>
+  <a class="prev" href="35-toward-moed-b.html"><span class="dir">הקודם <bdi dir="ltr" class="arw">→</bdi></span><span class="name">לקראת מועד ב׳</span></a>
   <a class="home" href="index.html"><span class="dir">⌂ דף הבית</span><span class="name">כל הנושאים</span></a>
-  <a class="next" href="32-practice-cidr-delays.html"><span class="dir"><bdi dir="ltr" class="arw">←</bdi> הבא</span><span class="name">תרגול — <bdi dir="ltr">IP</bdi>, השהיות והצפנה</span></a>
 </nav>
-
 </main>
 
 </div>
