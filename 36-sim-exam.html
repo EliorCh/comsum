@@ -508,11 +508,12 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <div class="solution">
       <div class="exam-ans">התשובה הנכונה: <strong>ג'</strong></div>
       <h4>פתרון</h4>
-      <p>מנה = <bdi dir="ltr">1500</bdi> בתים = <bdi dir="ltr">12,000</bdi> ביט. <bdi dir="ltr">3</bdi> קטעים, <bdi dir="ltr">3</bdi> מנות.</p>
+      <p><strong>מספר הקטעים:</strong> <bdi dir="ltr">2</bdi> נתבים = <bdi dir="ltr">3</bdi> קטעים (<bdi dir="ltr">A→R1→R2→B</bdi>). המידע מחולק ל-<bdi dir="ltr">3</bdi> מנות, כל מנה = <bdi dir="ltr">1500</bdi> בתים = <bdi dir="ltr">12,000</bdi> ביט.</p>
  $$d_{trans}=\frac{12{,}000}{15\times10^6}=0.8\text{ ms}$$
  $$(N+P-1)\,d_{trans}=(3+3-1)\times0.8=5\times0.8=4.0\text{ ms}$$
  $$d_{prop}=\frac{300}{250{,}000}=1.2\text{ ms}$$
  <p><strong>סה"כ <bdi dir="ltr">5.2 ms</bdi></strong>.</p>
+ <div class="box warn"><div class="box-head"><span class="icon">⚠️</span>למה לא סופרים את כותרת ה-<bdi dir="ltr">IP</bdi> כאן?</div><div class="box-body"><p>בשאלות <strong>השהיות</strong> הגודל הנתון ("<bdi dir="ltr">4,500</bdi> בתים מחולק ל-<bdi dir="ltr">3</bdi> מנות") הוא גודל המנה על הקו — לא מוסיפים לו כותרת. שים לב שאילו היינו מוסיפים <bdi dir="ltr">20</bdi> בתים לכל מנה, היינו מקבלים <bdi dir="ltr">5.25 ms</bdi>, ערך שלא מופיע בכלל במסיחים — סימן שהשאלה לא מתכוונת לזה. הכותרת קריטית דווקא בשאלות <strong>פרגמנטציה</strong>, שם כל פרגמנט מקבל כותרת <bdi dir="ltr">20</bdi> בתים משלו וזה משנה את החישוב.</p></div></div>
       <h4>הרחבה — על הנושא</h4>
       <p>אותה נוסחה כמו במבחן: $(N+P-1)\cdot L/R + d/s$. הצנרת נותנת $(N+P-1)$ צעדים, וההתפשטות מתווספת פעם אחת. שים לב ש-$P=N=3$ כאן, ולכן המקדם הוא $5$.</p>
       <a class="topic-link" href="01-delays.html">→ לפרק המלא: השהיות ברשת</a>
@@ -796,7 +797,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <p><strong>א' — הסתברות <bdi dir="ltr">0</bdi>.</strong></p>
  <p>שידור מוצלח דורש <strong>בדיוק תחנה אחת</strong> משדרת. אם <strong>שלוש</strong> תחנות משדרות בוודאות באותו סלוט — הן מתנגשות זו בזו תמיד. התנגשות ודאית = שידור מוצלח בהסתברות <strong>0</strong>.</p>
       <h4>הרחבה — על הנושא</h4>
-      <p>וריאציה של שאלה 11 במבחן (שם היו "שתיים"). הכלל: אם המצב מכריח יותר מתחנה אחת לשדר בוודאות → התנגשות ודאית → הסתברות הצלחה 0. תמיד לספור כמה תחנות משדרות "בוודאות".</p>
+      <p>וריאציה של שאלה 11 במבחן (שם היו "שתיים"). הכלל: אם המצב מכריח יותר מתחנה אחת לשדר בוודאות <bdi dir="ltr" class="arw">←</bdi> התנגשות ודאית <bdi dir="ltr" class="arw">←</bdi> הסתברות הצלחה 0. תמיד לספור כמה תחנות משדרות "בוודאות".</p>
       <a class="topic-link" href="21-link-aloha.html">→ לפרק המלא: ALOHA</a>
     </div>
   </div>
@@ -850,7 +851,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <p><strong>ב' — <bdi dir="ltr">Set-Cookie:</bdi></strong></p>
  <p>מנגנון העוגיות: השרת שולח בתגובה כותרת <bdi dir="ltr">Set-Cookie</bdi> עם המזהה. הלקוח שומר אותו, ובכל בקשה עתידית מחזיר אותו בכותרת <bdi dir="ltr">Cookie</bdi> (בלי <bdi dir="ltr">Set-</bdi>).</p>
       <h4>הרחבה — על הנושא</h4>
-      <p>מבוסס על שאלה 13 במבחן (עוגיות), אבל ממוקד במנגנון הכותרות. שני הכיוונים: <bdi dir="ltr">Set-Cookie</bdi> (שרת→לקוח, יוצר) ו-<bdi dir="ltr">Cookie</bdi> (לקוח→שרת, מחזיר).</p>
+      <p>מבוסס על שאלה 13 במבחן (עוגיות), אבל ממוקד במנגנון הכותרות. שני הכיוונים: <bdi dir="ltr">Set-Cookie</bdi> (שרת <bdi dir="ltr" class="arw">←</bdi> לקוח, יוצר) ו-<bdi dir="ltr">Cookie</bdi> (לקוח <bdi dir="ltr" class="arw">←</bdi> שרת, מחזיר).</p>
       <a class="topic-link" href="05-app-cookies.html">→ לפרק המלא: עוגיות</a>
     </div>
   </div>
@@ -1047,7 +1048,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
  <p>בבינארי: <bdi dir="ltr">100 = 01100100</bdi>, <bdi dir="ltr">105 = 01101001</bdi> — זהים ב-<strong>4 הביטים הראשונים</strong> (<bdi dir="ltr">0110</bdi>), ונבדלים בביט החמישי.</p>
  $$16 + 4 = 20 \;\Rightarrow\; \text{/20} = 255.255.240.0$$
       <h4>הרחבה — על הנושא</h4>
-      <p>אותה שאלה כמו 20 במבחן, זוג כתובות אחר. השיטה: לכתוב את האוקטט השונה בבינארי, לספור כמה ביטים שמאליים משותפים, ולהוסיף ל-16. כאן 4 ביטים משותפים → /20.</p>
+      <p>אותה שאלה כמו 20 במבחן, זוג כתובות אחר. השיטה: לכתוב את האוקטט השונה בבינארי, לספור כמה ביטים שמאליים משותפים, ולהוסיף ל-16. כאן 4 ביטים משותפים <bdi dir="ltr" class="arw">←</bdi> /20.</p>
       <a class="topic-link" href="15-net-ip-addressing.html">→ לפרק המלא: כתובות IP</a>
     </div>
   </div>

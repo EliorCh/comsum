@@ -480,7 +480,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <p><strong>זמן שידור למנה בקטע אחד:</strong></p>
     $$d_{trans} = \frac{8000}{10 \times 10^6} = 0.8\text{ ms}$$
     <p><strong>עם Store &amp; Forward ופיצול למנות</strong> (צנרת/pipelining), הנוסחה היא:</p>
-    $$(N + P - 1)\cdot d_{trans} = (3 + 2 - 1)\cdot 0.8 = 5 \times 0.8 = 3.2\text{ ms}$$
+    $$(N + P - 1)\cdot d_{trans} = (3 + 2 - 1)\cdot 0.8 = 4 \times 0.8 = 3.2\text{ ms}$$
     <p><strong>זמן התפשטות</strong> (המנה האחרונה עוברת את כל המרחק):</p>
     $$d_{prop} = \frac{440}{200{,}000} = 2.2\text{ ms}$$
     <p><strong>סה"כ:</strong> $3.2 + 2.2 = 5.4$ ms.</p>
@@ -518,7 +518,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <p>הפסד הצנרת (‎+1.6 ms) גדול מהחיסכון בהכפלת הקו (‎−0.8 ms). הרווח נטו שלילי.</p>
       <h4>הרחבה — על הנושא</h4>
       
-    <p>זו אחת השאלות הכי מלמדות במבחן, כי היא מכריחה אותך <strong>לחשב ולא לנחש</strong>. האינטואיציה אומרת "הגדלנו רוחב פס → הכל יימהר", אבל שני עקרונות מתנגשים:</p>
+    <p>זו אחת השאלות הכי מלמדות במבחן, כי היא מכריחה אותך <strong>לחשב ולא לנחש</strong>. האינטואיציה אומרת "הגדלנו רוחב פס <bdi dir="ltr" class="arw">←</bdi> הכל יימהר", אבל שני עקרונות מתנגשים:</p>
     <p><strong>1. צנרת (pipelining) שווה יותר מרוחב פס בקטע בודד.</strong> חלוקה ל-$P$ מנות על $N$ קטעים נותנת $(N+P-1)\cdot d_{trans}$ במקום $N\cdot d_{trans}$ למנה שלמה. ככל שיש יותר מנות, ה"זנב" מתקצר — הקטעים עובדים <em>במקביל</em>. ביטול הפיצול מחזיר אותנו לעבודה סדרתית.</p>
     <p><strong>2. רוחב פס לא נוגע בהתפשטות.</strong> $d_{prop} = \frac{\text{מרחק}}{\text{מהירות}}$ — שום שינוי בקו לא ישנה אותה. רק שינוי מרחק או תווך פיזי.</p>
     <p><strong>הכלל למועד ב':</strong> כשמשנים כמה פרמטרים בו-זמנית — תמיד לחשב את שני המצבים במספרים ולהשוות. שאלות מסוג "כיצד ישתנה" כמעט תמיד מסתירות שינוי אחד שמושך לכיוון ההפוך.</p>
@@ -601,7 +601,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <li>"מבצע תמיד שאילתות רקורסיביות מול ה-<bdi dir="ltr">Root</bdi>" — <strong>לא נכון.</strong> מול ה-Root השאילתות בדרך כלל <strong>איטרטיביות</strong>.</li>
     </ul>
       <h4>הרחבה — על הנושא</h4>
-      <p>ה-<bdi dir="ltr">Local Name Server</bdi> הוא ה"מתווך" של תחנת הקצה. הוא מקבל שאילתה <strong>רקורסיבית</strong> מהמחשב ("תמצא לי הכל"), אבל מבצע מולה הרשת שאילתות <strong>איטרטיביות</strong> (Root → TLD → Authoritative), כל אחת מחזירה הפניה לשלב הבא. הוא שומר תוצאות ב-Cache עם TTL. כל טענה חד-משמעית מדי ("תמיד", "ישירות", "אינו") היא בדרך כלל שגויה — לכן "כל האחרות לא נכונות".</p>
+      <p>ה-<bdi dir="ltr">Local Name Server</bdi> הוא ה"מתווך" של תחנת הקצה. הוא מקבל שאילתה <strong>רקורסיבית</strong> מהמחשב ("תמצא לי הכל"), אבל מבצע מולה הרשת שאילתות <strong>איטרטיביות</strong> (Root <bdi dir="ltr" class="arw">←</bdi> TLD <bdi dir="ltr" class="arw">←</bdi> Authoritative), כל אחת מחזירה הפניה לשלב הבא. הוא שומר תוצאות ב-Cache עם TTL. כל טענה חד-משמעית מדי ("תמיד", "ישירות", "אינו") היא בדרך כלל שגויה — לכן "כל האחרות לא נכונות".</p>
       <a class="topic-link" href="06-app-dns.html">→ לפרק המלא: DNS ותרגום שמות</a>
     </div>
   </div>
@@ -652,7 +652,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     </table>
     <p><strong>התוצאה:</strong> <bdi dir="ltr">11011011</bdi> — תשובה <strong>ה'</strong>.</p>
       <h4>הרחבה — על הנושא</h4>
-      <p>‏XOR הוא הלב של הצפנת זרם: <bdi dir="ltr">0⊕0=0, 1⊕1=0, 0⊕1=1, 1⊕0=1</bdi> (שונים→1, זהים→0). היופי: אותה פעולה בדיוק מפענחת — $c \oplus ks = m$, כי $m \oplus ks \oplus ks = m$. הביטחון תלוי לגמרי בכך שה-keystream אקראי, סודי, ולא חוזר על עצמו.</p>
+      <p>‏XOR הוא הלב של הצפנת זרם: <bdi dir="ltr">0⊕0=0, 1⊕1=0, 0⊕1=1, 1⊕0=1</bdi> (שונים <bdi dir="ltr" class="arw">←</bdi> 1, זהים <bdi dir="ltr" class="arw">←</bdi> 0). היופי: אותה פעולה בדיוק מפענחת — $c \oplus ks = m$, כי $m \oplus ks \oplus ks = m$. הביטחון תלוי לגמרי בכך שה-keystream אקראי, סודי, ולא חוזר על עצמו.</p>
       <a class="topic-link" href="28-sec-crypto.html">→ לפרק המלא: הצפנה</a>
     </div>
   </div>
@@ -675,7 +675,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <p>המנגנון של <bdi dir="ltr">Traceroute</bdi>:</p>
     <ol>
       <li>שולחים מנה עם <bdi dir="ltr">TTL = 1</bdi>. הנתב הראשון מוריד ל-<bdi dir="ltr">0</bdi>, <strong>זורק</strong> את המנה, ומחזיר <bdi dir="ltr">ICMP Time Exceeded</bdi> — וכך נחשפת כתובתו.</li>
-      <li>שולחים <bdi dir="ltr">TTL = 2</bdi> → הנתב השני נחשף. וכן הלאה, עד היעד.</li>
+      <li>שולחים <bdi dir="ltr">TTL = 2</bdi> <bdi dir="ltr" class="arw">←</bdi> הנתב השני נחשף. וכן הלאה, עד היעד.</li>
     </ol>
     <p><strong>למה לא ג' (<bdi dir="ltr">ICMP Ping</bdi>)?</strong> ‏<bdi dir="ltr">Ping</bdi> הוא <bdi dir="ltr">Echo Request/Reply</bdi> — הוא בודק אם יעד <em>חי</em>, ולא גורם לנתבי-ביניים להגיב. מה שמייצר את התגובות הוא <strong>פקיעת ה-TTL</strong>. הודעת ה-ICMP היא ה<em>תוצאה</em>; השאלה שואלת מהו ה<strong>מנגנון</strong>, וזה ה-TTL.</p>
       <h4>הרחבה — על הנושא</h4>
@@ -709,16 +709,16 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <p><strong>א' — כדי להחליט אם כתובת ה-<bdi dir="ltr">IP</bdi> שאליה הוא שולח נמצאת איתו באותה רשת.</strong></p>
     <p>המארח מבצע <bdi dir="ltr">AND</bdi> בין כתובת היעד למסכה, ומשווה לכתובת הרשת שלו:</p>
     <ul>
-      <li><strong>זהה</strong> → היעד באותה רשת מקומית: שולחים <strong>ישירות</strong> (דרך <bdi dir="ltr">ARP</bdi> + שכבת הקישור).</li>
-      <li><strong>שונה</strong> → היעד מחוץ לרשת: שולחים ל-<bdi dir="ltr">Default Gateway</bdi>.</li>
+      <li><strong>זהה</strong> <bdi dir="ltr" class="arw">←</bdi> היעד באותה רשת מקומית: שולחים <strong>ישירות</strong> (דרך <bdi dir="ltr">ARP</bdi> + שכבת הקישור).</li>
+      <li><strong>שונה</strong> <bdi dir="ltr" class="arw">←</bdi> היעד מחוץ לרשת: שולחים ל-<bdi dir="ltr">Default Gateway</bdi>.</li>
     </ul>
     <p><strong>למה לא ה' (כתובת ההפצה)?</strong> נכון שאפשר לחשב <bdi dir="ltr">broadcast</bdi> מהמסכה, אבל זו <em>תוצאת לוואי</em> ולא הסיבה שבגללה כל מארח חייב את המסכה. בלי מסכה מארח לא יכול לשלוח שום דבר החוצה נכון — זו ההחלטה הבסיסית ביותר בכל שליחה.</p>
       <h4>הרחבה — על הנושא</h4>
       
     <p>כל שליחה של מנה מתחילה בשאלה אחת: <strong>"האם היעד שכן שלי, או רחוק?"</strong> זו ההחלטה שמכתיבה הכל:</p>
     <ul>
-      <li><strong>שכן</strong> → צריך את ה-<bdi dir="ltr">MAC</bdi> של היעד עצמו (בקשת <bdi dir="ltr">ARP</bdi> ליעד), ושולחים אליו פריים ישירות.</li>
-      <li><strong>רחוק</strong> → צריך את ה-<bdi dir="ltr">MAC</bdi> של <em>הראוטר</em> (ARP לגייטוויי), והפריים נשלח לראוטר עם <bdi dir="ltr">IP</bdi> יעד של המחשב המרוחק.</li>
+      <li><strong>שכן</strong> <bdi dir="ltr" class="arw">←</bdi> צריך את ה-<bdi dir="ltr">MAC</bdi> של היעד עצמו (בקשת <bdi dir="ltr">ARP</bdi> ליעד), ושולחים אליו פריים ישירות.</li>
+      <li><strong>רחוק</strong> <bdi dir="ltr" class="arw">←</bdi> צריך את ה-<bdi dir="ltr">MAC</bdi> של <em>הראוטר</em> (ARP לגייטוויי), והפריים נשלח לראוטר עם <bdi dir="ltr">IP</bdi> יעד של המחשב המרוחק.</li>
     </ul>
     <p>שים לב לעדינות: כתובת ה-<bdi dir="ltr">IP</bdi> ביעד הפריים <strong>לא משתנה</strong>, אבל כתובת ה-<bdi dir="ltr">MAC</bdi> כן — וזה בדיוק ההבדל בין כתובת לוגית גלובלית לכתובת פיזית מקומית.</p>
     <p><strong>מה DHCP נותן ולמה כל פריט:</strong> כתובת IP (מי אני), מסכת רשת (מי שכן שלי), <bdi dir="ltr">Default Gateway</bdi> (לאן לשלוח את הרחוקים), ושרת <bdi dir="ltr">DNS</bdi> (איך לתרגם שמות). ארבעתם נדרשים כדי לתפקד.</p>
@@ -766,7 +766,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <p>אם <strong>שתי</strong> תחנות משדרות בוודאות (הסתברות 1) באותו סלוט — הן <strong>מתנגשות זו בזו תמיד</strong>. שתי תחנות בו-זמנית = התנגשות מובטחת = שידור מוצלח בהסתברות <strong>0</strong>.</p>
     <p>אף אחד מהביטויים המוצעים (ב'–ה') לא שווה 0, ולכן התשובה הנכונה היא "כל האחרות לא נכונות".</p>
       <h4>הרחבה — על הנושא</h4>
-      <p>מלכודת נהדרת: וריאציה קטנה בניסוח משנה את התשובה לגמרי. שידור מוצלח ב-ALOHA דורש <strong>בדיוק אחת</strong>. אם המצב מכריח <strong>שתיים</strong> לשדר בוודאות — התנגשות ודאית, הסתברות הצלחה 0. תמיד לקרוא בזהירות כמה תחנות משדרות "בוודאות": אחת → חשב את ההסתברות; שתיים+ → הצלחה בלתי אפשרית.</p>
+      <p>מלכודת נהדרת: וריאציה קטנה בניסוח משנה את התשובה לגמרי. שידור מוצלח ב-ALOHA דורש <strong>בדיוק אחת</strong>. אם המצב מכריח <strong>שתיים</strong> לשדר בוודאות — התנגשות ודאית, הסתברות הצלחה 0. תמיד לקרוא בזהירות כמה תחנות משדרות "בוודאות": אחת <bdi dir="ltr" class="arw">←</bdi> חשב את ההסתברות; שתיים+ <bdi dir="ltr" class="arw">←</bdi> הצלחה בלתי אפשרית.</p>
       <a class="topic-link" href="21-link-aloha.html">→ לפרק המלא: ALOHA</a>
     </div>
   </div>
@@ -823,7 +823,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
       <li>קובץ עוגיות אצל הלקוח, מנוהל על ידי הדפדפן.</li>
       <li>מסד נתונים ב<strong>אחורי</strong> השרת — שם יושב המידע שהמזהה מצביע עליו.</li>
     </ol>
-    <p><strong>הזרימה בפועל:</strong> ביקור ראשון → השרת מייצר <bdi dir="ltr">ID</bdi> ייחודי, פותח רשומה במסד, ושולח <bdi dir="ltr">Set-Cookie: ID=1678</bdi>. ביקור הבא → הדפדפן שולח <bdi dir="ltr">Cookie: ID=1678</bdi>, והשרת שולף את הרשומה. כך נוצרת "זהות" מעל פרוטוקול שלא זוכר.</p>
+    <p><strong>הזרימה בפועל:</strong> ביקור ראשון <bdi dir="ltr" class="arw">←</bdi> השרת מייצר <bdi dir="ltr">ID</bdi> ייחודי, פותח רשומה במסד, ושולח <bdi dir="ltr">Set-Cookie: ID=1678</bdi>. ביקור הבא <bdi dir="ltr" class="arw">←</bdi> הדפדפן שולח <bdi dir="ltr">Cookie: ID=1678</bdi>, והשרת שולף את הרשומה. כך נוצרת "זהות" מעל פרוטוקול שלא זוכר.</p>
     <p><strong>למועד ב':</strong> שים לב אם השאלה שואלת "היכן <em>נקבע</em>" (השרת), "היכן <em>נשמר</em> אצל המשתמש" (הלקוח/הדפדפן), או "היכן נשמר <em>המידע</em>" (מסד הנתונים). שלוש שאלות שונות עם שלוש תשובות שונות.</p>
       <a class="topic-link" href="05-app-cookies.html">→ לפרק המלא: עוגיות</a>
     </div>
@@ -920,7 +920,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     </ul>
       <h4>הרחבה — על הנושא</h4>
       
-    <p><bdi dir="ltr">Wireshark</bdi> עובד לפי <strong>פענוח שכבתי</strong>: הוא מקלף מנה שכבה-שכבה (Ethernet → IP → UDP → …) ומתייג בעמודת "Protocol" את הרובד <strong>הגבוה ביותר</strong> שהוא זיהה. זו הנקודה המרכזית של השאלה.</p>
+    <p><bdi dir="ltr">Wireshark</bdi> עובד לפי <strong>פענוח שכבתי</strong>: הוא מקלף מנה שכבה-שכבה (Ethernet <bdi dir="ltr" class="arw">←</bdi> IP <bdi dir="ltr" class="arw">←</bdi> UDP <bdi dir="ltr" class="arw">←</bdi> …) ומתייג בעמודת "Protocol" את הרובד <strong>הגבוה ביותר</strong> שהוא זיהה. זו הנקודה המרכזית של השאלה.</p>
     <p><strong>ההבחנה בין פילטר לתצוגה:</strong></p>
     <ul>
       <li><strong>פילטר</strong> <bdi dir="ltr">udp</bdi> = "הראה לי מנות שיש בהן שכבת UDP" — כולל את כל מה שרץ מעליה.</li>
@@ -986,7 +986,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     <p>זו שאלת "קיצור עמוס" — אותן שלוש אותיות, שני עולמות. שווה לוודא שאתה מפריד ביניהם חד:</p>
     <p><strong>1. <bdi dir="ltr">MAC = Media Access Control</bdi> (שכבה 2).</strong> שני מובנים משלימים: (א) <em>כתובת</em> — מזהה ייחודי של 48 ביט, שנצרב בכרטיס הרשת, שלושת הבתים הראשונים הם <bdi dir="ltr">OUI</bdi> של היצרן. (ב) <em>תת-שכבה</em> — הפרוטוקולים שמחליטים מי משדר מתי על מדיום משותף: <bdi dir="ltr">ALOHA</bdi>, <bdi dir="ltr">CSMA/CD</bdi>, <bdi dir="ltr">TDMA</bdi>, <bdi dir="ltr">FDMA</bdi>.</p>
     <p><strong>2. <bdi dir="ltr">MAC = Message Authentication Code</bdi> (אבטחה).</strong> מחושב מההודעה יחד עם מפתח סודי משותף: $\text{MAC} = H(m + s)$. הנמען מחשב מחדש ומשווה. נותן <strong>שלמות</strong> (ההודעה לא שונתה) ו<strong>אימות</strong> (רק מי שמחזיק במפתח יכל לייצר אותו) — אבל <strong>לא</strong> סודיות ו<strong>לא</strong> אי-התכחשות (בשביל אי-התכחשות צריך חתימה דיגיטלית עם מפתח פרטי).</p>
-    <p><strong>למועד ב':</strong> אם השאלה מזכירה פריים, כרטיס רשת, <bdi dir="ltr">ARP</bdi> או סוויץ' → Media Access Control. אם היא מזכירה מפתח, גיבוב, שלמות או אימות → Message Authentication Code. ושים לב שהתשובה כאן היא על ה<em>הקשרים</em> שבהם למדנו את הקיצור, לא על מה הוא עושה.</p>
+    <p><strong>למועד ב':</strong> אם השאלה מזכירה פריים, כרטיס רשת, <bdi dir="ltr">ARP</bdi> או סוויץ' <bdi dir="ltr" class="arw">←</bdi> Media Access Control. אם היא מזכירה מפתח, גיבוב, שלמות או אימות <bdi dir="ltr" class="arw">←</bdi> Message Authentication Code. ושים לב שהתשובה כאן היא על ה<em>הקשרים</em> שבהם למדנו את הקיצור, לא על מה הוא עושה.</p>
       <a class="topic-link" href="23-link-mac-arp.html">→ לפרק המלא: כתובות MAC</a>
     </div>
   </div>
@@ -1036,7 +1036,7 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     $$/22 = 255.255.252.0$$
     <p>תשובה <strong>ב'</strong>.</p>
       <h4>הרחבה — על הנושא</h4>
-      <p>כדי למצוא את המסכה המשותפת הארוכה ביותר, כותבים את שתי הכתובות בבינארי ומוצאים כמה ביטים <strong>שמאליים</strong> משותפים. ככל שיותר ביטים משותפים → מסכה ארוכה יותר → רשת קטנה יותר. כאן ההבדל מתחיל בביט ה-23, אז /22 היא הארוכה ביותר ששתיהן עדיין באותה רשת. אימות: <bdi dir="ltr">192.168.44.0/22</bdi> מכסה <bdi dir="ltr">192.168.44.0</bdi> עד <bdi dir="ltr">192.168.47.255</bdi> — ושתי הכתובות בפנים.</p>
+      <p>כדי למצוא את המסכה המשותפת הארוכה ביותר, כותבים את שתי הכתובות בבינארי ומוצאים כמה ביטים <strong>שמאליים</strong> משותפים. ככל שיותר ביטים משותפים <bdi dir="ltr" class="arw">←</bdi> מסכה ארוכה יותר <bdi dir="ltr" class="arw">←</bdi> רשת קטנה יותר. כאן ההבדל מתחיל בביט ה-23, אז /22 היא הארוכה ביותר ששתיהן עדיין באותה רשת. אימות: <bdi dir="ltr">192.168.44.0/22</bdi> מכסה <bdi dir="ltr">192.168.44.0</bdi> עד <bdi dir="ltr">192.168.47.255</bdi> — ושתי הכתובות בפנים.</p>
       <a class="topic-link" href="15-net-ip-addressing.html">→ לפרק המלא: כתובות IP</a>
     </div>
   </div>

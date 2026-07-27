@@ -514,9 +514,10 @@ $$d_{\text{total}} = (N+P-1)\cdot\frac{L}{R} \;+\; \frac{d}{s}$$
     <h3 class="var-title">תרגול וריאציות</h3>
       <div class="exercise-card var-card">
         <div class="var-head">וריאציה 1</div>
-        <div class="var-q">מארח שולח <bdi dir="ltr">3,000</bdi> בתים המחולקים ל-<bdi dir="ltr">3</bdi> מנות שוות, דרך <bdi dir="ltr">3</bdi> נתבים (<bdi dir="ltr">4</bdi> קטעים). רוחב הפס <bdi dir="ltr">100 Mbit/s</bdi>, המרחק הכולל <bdi dir="ltr">600</bdi> ק"מ ומהירות ההתפשטות <bdi dir="ltr">200,000</bdi> ק"מ/שנייה. כמה זמן עד שכל המידע הגיע?</div>
+        <div class="var-q">מארח שולח <bdi dir="ltr">3,000</bdi> בתים המחולקים ל-<bdi dir="ltr">3</bdi> מנות שוות, דרך <bdi dir="ltr">3</bdi> נתבים. רוחב הפס <bdi dir="ltr">100 Mbit/s</bdi>, המרחק הכולל <bdi dir="ltr">600</bdi> ק"מ ומהירות ההתפשטות <bdi dir="ltr">200,000</bdi> ק"מ/שנייה. כמה זמן עד שכל המידע הגיע?</div>
         <button class="reveal-btn">הראה פתרון</button>
-        <div class="solution"><p>מנה = <bdi dir="ltr">1000</bdi> בתים = <bdi dir="ltr">8000</bdi> ביט.</p>
+        <div class="solution"><p><strong>מספר הקטעים:</strong> <bdi dir="ltr">3</bdi> נתבים יוצרים <bdi dir="ltr">4</bdi> קטעים (<bdi dir="ltr">A→R1→R2→R3→B</bdi>) — כלומר $N=4$. מספר המנות $P=3$.</p>
+  <p>מנה = <bdi dir="ltr">1000</bdi> בתים = <bdi dir="ltr">8000</bdi> ביט.</p>
   $$d_{trans}=\frac{8000}{100\times10^6}=0.08\text{ ms}$$
   $$(N+P-1)=(4+3-1)=6 \;\Rightarrow\; 6\times0.08=0.48\text{ ms}$$
   $$d_{prop}=\frac{600}{200{,}000}=3\text{ ms}$$
@@ -524,9 +525,10 @@ $$d_{\text{total}} = (N+P-1)\cdot\frac{L}{R} \;+\; \frac{d}{s}$$
       </div>
       <div class="exercise-card var-card">
         <div class="var-head">וריאציה 2</div>
-        <div class="var-q">אותם נתונים של שאלה 1 במבחן (<bdi dir="ltr">2,000</bdi> בתים, <bdi dir="ltr">3</bdi> קטעים, <bdi dir="ltr">10 Mbit/s</bdi>, <bdi dir="ltr">440</bdi> ק"מ), אבל הכל נשלח ב<strong>מנה אחת</strong>. כמה זמן?</div>
+        <div class="var-q">מארח שולח <bdi dir="ltr">2,000</bdi> בתים למארח <bdi dir="ltr">B</bdi> דרך <bdi dir="ltr">2</bdi> נתבים, רוחב הפס לאורך כל המסלול <bdi dir="ltr">10 Mbit/s</bdi>, אורך המסלול הכולל <bdi dir="ltr">440</bdi> ק"מ, ומהירות ההתפשטות <bdi dir="ltr">200,000</bdi> ק"מ/שנייה. הפעם כל המידע נשלח ב<strong>מנה אחת</strong> (ללא פיצול). כמה זמן עד שכל המידע הגיע?</div>
         <button class="reveal-btn">הראה פתרון</button>
-        <div class="solution"><p>בלי פיצול אין צנרת — כל קטע משדר את כל <bdi dir="ltr">16,000</bdi> הביטים:</p>
+        <div class="solution"><p><strong>מספר הקטעים:</strong> <bdi dir="ltr">2</bdi> נתבים = <bdi dir="ltr">3</bdi> קטעים ($N=3$). כל המידע (<bdi dir="ltr">16,000</bdi> ביט) במנה אחת.</p>
+  <p>בלי פיצול אין צנרת — כל קטע משדר את כל <bdi dir="ltr">16,000</bdi> הביטים:</p>
   $$3\times\frac{16{,}000}{10\times10^6}=3\times1.6=4.8\text{ ms}$$
   $$+\;d_{prop}=2.2\text{ ms}\;\Rightarrow\;\textbf{7.0 ms}$$
   <p>לעומת <bdi dir="ltr">5.4 ms</bdi> עם שתי מנות — <strong>הפיצול חסך <bdi dir="ltr">1.6 ms</bdi></strong>. זה בדיוק העיקרון שמאחורי שאלה 2.</p></div>
@@ -578,9 +580,9 @@ $$T = T_{\text{בסיס}} + \left\lceil \frac{n}{k} \right\rceil \times T_{\text
         <div class="var-head">וריאציה 2</div>
         <div class="var-q">דף עם <bdi dir="ltr">6</bdi> אובייקטים, <bdi dir="ltr">HTTP/1.0</bdi>, <bdi dir="ltr">2</bdi> חיבורים מקבילים, <bdi dir="ltr">RTT=2ms</bdi>. כמה זמן?</div>
         <button class="reveal-btn">הראה פתרון</button>
-        <div class="solution"><p>לא-מתמיד → <bdi dir="ltr">2 RTT</bdi> = <bdi dir="ltr">4 ms</bdi> לכל אובייקט.</p>
+        <div class="solution"><p>לא-מתמיד <bdi dir="ltr" class="arw">←</bdi> <bdi dir="ltr">2 RTT</bdi> = <bdi dir="ltr">4 ms</bdi> לכל אובייקט.</p>
   <ul><li>בסיס: <bdi dir="ltr">4 ms</bdi>.</li>
-      <li>סבבים: $\lceil 6/2 \rceil = 3$, כל אחד <bdi dir="ltr">4 ms</bdi> → <bdi dir="ltr">12 ms</bdi>.</li></ul>
+      <li>סבבים: $\lceil 6/2 \rceil = 3$, כל אחד <bdi dir="ltr">4 ms</bdi> <bdi dir="ltr" class="arw">←</bdi> <bdi dir="ltr">12 ms</bdi>.</li></ul>
   $$4 + 12 = \textbf{16 ms}$$</div>
       </div>
     <a class="topic-link" href="03-app-http.html">→ לפרק המלא: HTTP ובקשות</a>
@@ -632,7 +634,7 @@ $$n = \left\lceil \frac{\text{total} - 20}{\text{data\_per\_frag}} \right\rceil$
         <button class="reveal-btn">הראה פתרון</button>
         <div class="solution"><p>נתונים לפרגמנט: $820-20=800$ (כפולה של 8 ✓).</p>
   $$\text{offset}_4=\frac{3\times800}{8}=\frac{2400}{8}=\textbf{300}$$
-  <p>(סך הנתונים <bdi dir="ltr">3000</bdi> → 4 פרגמנטים: <bdi dir="ltr">800, 800, 800, 600</bdi>.)</p></div>
+  <p>(סך הנתונים <bdi dir="ltr">3000</bdi> <bdi dir="ltr" class="arw">←</bdi> 4 פרגמנטים: <bdi dir="ltr">800, 800, 800, 600</bdi>.)</p></div>
       </div>
     <a class="topic-link" href="14-net-fragmentation.html">→ לפרק המלא: פרגמנטציה של IP</a>
   </section>
@@ -641,7 +643,7 @@ $$n = \left\lceil \frac{\text{total} - 20}{\text{data\_per\_frag}} \right\rceil$
       <h2><bdi dir="ltr">Slotted ALOHA</bdi> והסתברויות</h2>
       <span class="mb-from">שאלות 10–11 במועד א׳</span>
     </div>
-    <div class="mb-deep"><p>הרעיון: הזמן מחולק לסלוטים, וכל תחנה משדרת רק בתחילת סלוט. <strong>שידור מוצלח = בדיוק תחנה אחת משדרת.</strong> שתיים או יותר → התנגשות.</p>
+    <div class="mb-deep"><p>הרעיון: הזמן מחולק לסלוטים, וכל תחנה משדרת רק בתחילת סלוט. <strong>שידור מוצלח = בדיוק תחנה אחת משדרת.</strong> שתיים או יותר <bdi dir="ltr" class="arw">←</bdi> התנגשות.</p>
 <p>אם $X$ תחנות, וכל אחת משדרת בהסתברות $p$ — ההסתברות ש<strong>תחנה מסוימת</strong> מצליחה:</p>
 $$P(\text{תחנה מסוימת}) = p\,(1-p)^{X-1}$$
 <p>וההסתברות שאיזושהי תחנה מצליחה (כלומר בדיוק אחת מבין $X$):</p>
@@ -651,8 +653,8 @@ $$X\cdot\frac{1}{X}\left(1-\frac{1}{X}\right)^{X-1} = \left(1-\frac{1}{X}\right)
 <p>וכש-$X\to\infty$ הביטוי שואף ל-$1/e \approx 0.37$ — <strong>הניצולת המקסימלית של Slotted ALOHA</strong> היא כ-37%. (ב-<bdi dir="ltr">Pure ALOHA</bdi>, בלי סלוטים, זה חצי מזה: $1/2e \approx 0.18$.)</p>
 <div class="box warn"><div class="box-head"><span class="icon">⚠️</span>המלכודת בשאלות 10–11</div><div class="box-body">
 <p>המבחן ניסח את השאלה כך שתחנה אחת (או שתיים) משדרות <strong>בוודאות</strong>. תמיד לשאול קודם: <em>כמה תחנות משדרות בהכרח?</em></p>
-<ul><li><strong>אחת</strong> בוודאות → צריך שכל היתר <em>לא</em> ישדרו → מכפילים $(1-p)$ לכל אחת מהאחרות.</li>
-    <li><strong>שתיים</strong> בוודאות → התנגשות ודאית → ההסתברות היא <strong>0</strong>, ואז "כל התשובות האחרות אינן נכונות".</li></ul></div></div></div>
+<ul><li><strong>אחת</strong> בוודאות <bdi dir="ltr" class="arw">←</bdi> צריך שכל היתר <em>לא</em> ישדרו <bdi dir="ltr" class="arw">←</bdi> מכפילים $(1-p)$ לכל אחת מהאחרות.</li>
+    <li><strong>שתיים</strong> בוודאות <bdi dir="ltr" class="arw">←</bdi> התנגשות ודאית <bdi dir="ltr" class="arw">←</bdi> ההסתברות היא <strong>0</strong>, ואז "כל התשובות האחרות אינן נכונות".</li></ul></div></div></div>
     <div class="box warn">
       <div class="box-head"><span class="icon">🔄</span>מה מועד ב׳ יכול לשנות</div>
       <div class="box-body"><ul>
@@ -742,8 +744,8 @@ $$\text{RcvWindow} = \text{RcvBuffer} - \big(\text{LastByteRcvd} - \text{LastByt
 </table>
 <p><strong>למה המארח צריך את המסכה</strong> (שאלה 9): כדי להחליט אם היעד נמצא באותה רשת. הוא מבצע <bdi dir="ltr">AND</bdi> בין כתובת היעד למסכה ומשווה לכתובת הרשת שלו:</p>
 <ul>
-  <li>זהה → היעד <strong>שכן</strong>, שולחים ישירות בשכבת הקישור (דרך <bdi dir="ltr">ARP</bdi>).</li>
-  <li>שונה → היעד <strong>רחוק</strong>, שולחים ל-<bdi dir="ltr">Default Gateway</bdi>.</li>
+  <li>זהה <bdi dir="ltr" class="arw">←</bdi> היעד <strong>שכן</strong>, שולחים ישירות בשכבת הקישור (דרך <bdi dir="ltr">ARP</bdi>).</li>
+  <li>שונה <bdi dir="ltr" class="arw">←</bdi> היעד <strong>רחוק</strong>, שולחים ל-<bdi dir="ltr">Default Gateway</bdi>.</li>
 </ul>
 <div class="box formula"><div class="box-head"><span class="icon">🧮</span>המסכה המשותפת הארוכה ביותר</div><div class="box-body">
 <p>כותבים את שתי הכתובות בבינארי וסופרים <strong>כמה ביטים שמאליים זהים</strong>. זה בדיוק ה-<bdi dir="ltr">/k</bdi>. קיצור דרך: עושים <bdi dir="ltr">XOR</bdi> בין האוקטטים השונים ומחפשים את הביט הגבוה הראשון שדולק.</p></div></div>
@@ -827,8 +829,8 @@ $$\text{RcvWindow} = \text{RcvBuffer} - \big(\text{LastByteRcvd} - \text{LastByt
         <div class="var-q">סוויץ׳ עם טבלה ריקה. <bdi dir="ltr">A</bdi> שולח ל-<bdi dir="ltr">B</bdi>, ואז <bdi dir="ltr">B</bdi> עונה ל-<bdi dir="ltr">A</bdi>. מה קורה בכל שלב?</div>
         <button class="reveal-btn">הראה פתרון</button>
         <div class="solution"><ol>
-    <li><strong><bdi dir="ltr">A→B</bdi>:</strong> הסוויץ׳ רושם <bdi dir="ltr">A</bdi> ← הפורט של <bdi dir="ltr">A</bdi>. את <bdi dir="ltr">B</bdi> הוא לא מכיר → <strong><bdi dir="ltr">flooding</bdi></strong> לכל הפורטים.</li>
-    <li><strong><bdi dir="ltr">B→A</bdi>:</strong> רושם <bdi dir="ltr">B</bdi> ← הפורט של <bdi dir="ltr">B</bdi>. את <bdi dir="ltr">A</bdi> הוא <em>כבר מכיר</em> → שולח <strong>רק לפורט של <bdi dir="ltr">A</bdi></strong>, בלי flooding.</li>
+    <li><strong><bdi dir="ltr">A→B</bdi>:</strong> הסוויץ׳ רושם <bdi dir="ltr">A</bdi> <bdi dir="ltr" class="arw">←</bdi> הפורט של <bdi dir="ltr">A</bdi>. את <bdi dir="ltr">B</bdi> הוא לא מכיר <bdi dir="ltr" class="arw">←</bdi> <strong><bdi dir="ltr">flooding</bdi></strong> לכל הפורטים.</li>
+    <li><strong><bdi dir="ltr">B→A</bdi>:</strong> רושם <bdi dir="ltr">B</bdi> <bdi dir="ltr" class="arw">←</bdi> הפורט של <bdi dir="ltr">B</bdi>. את <bdi dir="ltr">A</bdi> הוא <em>כבר מכיר</em> <bdi dir="ltr" class="arw">←</bdi> שולח <strong>רק לפורט של <bdi dir="ltr">A</bdi></strong>, בלי flooding.</li>
   </ol>
   <p>הכלל: <strong>לומדים מכתובת המקור, מחליטים לפי כתובת היעד.</strong></p></div>
       </div>
@@ -871,7 +873,7 @@ $$\text{RcvWindow} = \text{RcvBuffer} - \big(\text{LastByteRcvd} - \text{LastByt
         <button class="reveal-btn">הראה פתרון</button>
         <div class="solution"><p>שתי השורות <strong>מתאימות</strong>: <bdi dir="ltr">192.168.5.77</bdi> נמצאת גם ב-<bdi dir="ltr">/16</bdi> וגם ב-<bdi dir="ltr">/24</bdi>.</p>
   <p>הכלל <bdi dir="ltr">Longest Prefix Match</bdi> אומר לבחור את ההתאמה עם ה-prefix <strong>הארוך ביותר</strong>:</p>
-  <p><bdi dir="ltr">/24 &gt; /16</bdi> → <strong>פורט 2</strong>.</p>
+  <p><bdi dir="ltr">/24 &gt; /16</bdi> <bdi dir="ltr" class="arw">←</bdi> <strong>פורט 2</strong>.</p>
   <p>שים לב: <bdi dir="ltr">LPM</bdi> נכנס לפעולה <em>רק</em> כשיש יותר מהתאמה אחת.</p></div>
       </div>
       <div class="exercise-card var-card">
@@ -903,7 +905,7 @@ $$\text{RcvWindow} = \text{RcvBuffer} - \big(\text{LastByteRcvd} - \text{LastByt
 <p><strong><bdi dir="ltr">DNS</bdi> — רקורסיבי מול איטרטיבי:</strong></p>
 <ul>
   <li><strong>רקורסיבי:</strong> "תמצא לי הכל ותחזור אליי" — כך פונה המחשב ל-<bdi dir="ltr">Local Name Server</bdi>.</li>
-  <li><strong>איטרטיבי:</strong> "אני לא יודע, נסה את זה" — כך ה-<bdi dir="ltr">Local Name Server</bdi> פונה ל-<bdi dir="ltr">Root</bdi> ← <bdi dir="ltr">TLD</bdi> ← <bdi dir="ltr">Authoritative</bdi>.</li>
+  <li><strong>איטרטיבי:</strong> "אני לא יודע, נסה את זה" — כך ה-<bdi dir="ltr">Local Name Server</bdi> פונה ל-<bdi dir="ltr">Root</bdi> <bdi dir="ltr" class="arw">←</bdi> <bdi dir="ltr">TLD</bdi> <bdi dir="ltr" class="arw">←</bdi> <bdi dir="ltr">Authoritative</bdi>.</li>
 </ul>
 <p>ה-<bdi dir="ltr">Local Name Server</bdi> <strong>כן</strong> שומר ב-<bdi dir="ltr">Cache</bdi> (עם <bdi dir="ltr">TTL</bdi>) — ולכן כל טענה עם "תמיד" או "אינו" בשאלה 5 הייתה שגויה.</p>
 <p><strong>מודל השכבות</strong> — היתרון אינו ביצועים אלא <strong>ניהול מורכבות</strong>: כל שכבה מסתירה את המימוש שלה, אפשר להחליף <bdi dir="ltr">WiFi</bdi> ב-<bdi dir="ltr">Ethernet</bdi> בלי לגעת ב-<bdi dir="ltr">HTTP</bdi>.</p></div>
@@ -933,11 +935,11 @@ $$\text{RcvWindow} = \text{RcvBuffer} - \big(\text{LastByteRcvd} - \text{LastByt
         <div class="var-q">לקוח פונה ל-<bdi dir="ltr">Local Name Server</bdi> ומבקש <bdi dir="ltr">www.example.com</bdi>. השרת המקומי לא מכיר את השם ואין לו כלום ב-<bdi dir="ltr">Cache</bdi>. תאר את רצף השאילתות.</div>
         <button class="reveal-btn">הראה פתרון</button>
         <div class="solution"><ol>
-    <li><strong>לקוח → <bdi dir="ltr">Local NS</bdi></strong> — שאילתה <strong>רקורסיבית</strong>.</li>
-    <li><strong><bdi dir="ltr">Local NS</bdi> → <bdi dir="ltr">Root</bdi></strong> — איטרטיבית. תשובה: "פנה לשרת ה-<bdi dir="ltr">TLD</bdi> של <bdi dir="ltr">com</bdi>".</li>
-    <li><strong><bdi dir="ltr">Local NS</bdi> → <bdi dir="ltr">TLD</bdi></strong> — תשובה: "פנה ל-<bdi dir="ltr">Authoritative</bdi> של <bdi dir="ltr">example.com</bdi>".</li>
-    <li><strong><bdi dir="ltr">Local NS</bdi> → <bdi dir="ltr">Authoritative</bdi></strong> — תשובה: כתובת ה-<bdi dir="ltr">IP</bdi>.</li>
-    <li><strong><bdi dir="ltr">Local NS</bdi> → לקוח</strong> — מחזיר את הכתובת, ו<strong>שומר ב-Cache</strong>.</li>
+    <li><strong>לקוח <bdi dir="ltr" class="arw">←</bdi> <bdi dir="ltr">Local NS</bdi></strong> — שאילתה <strong>רקורסיבית</strong>.</li>
+    <li><strong><bdi dir="ltr">Local NS</bdi> <bdi dir="ltr" class="arw">←</bdi> <bdi dir="ltr">Root</bdi></strong> — איטרטיבית. תשובה: "פנה לשרת ה-<bdi dir="ltr">TLD</bdi> של <bdi dir="ltr">com</bdi>".</li>
+    <li><strong><bdi dir="ltr">Local NS</bdi> <bdi dir="ltr" class="arw">←</bdi> <bdi dir="ltr">TLD</bdi></strong> — תשובה: "פנה ל-<bdi dir="ltr">Authoritative</bdi> של <bdi dir="ltr">example.com</bdi>".</li>
+    <li><strong><bdi dir="ltr">Local NS</bdi> <bdi dir="ltr" class="arw">←</bdi> <bdi dir="ltr">Authoritative</bdi></strong> — תשובה: כתובת ה-<bdi dir="ltr">IP</bdi>.</li>
+    <li><strong><bdi dir="ltr">Local NS</bdi> <bdi dir="ltr" class="arw">←</bdi> לקוח</strong> — מחזיר את הכתובת, ו<strong>שומר ב-Cache</strong>.</li>
   </ol>
   <p>סה"כ <strong>4 שאילתות</strong> מהשרת המקומי + 1 מהלקוח. בפעם הבאה — 0, בזכות ה-Cache.</p></div>
       </div>
@@ -956,7 +958,7 @@ $$c = m \oplus ks \qquad m = c \oplus ks$$
 <tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr>
 <tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td></tr>
 </tbody></table>
-<p>הכלל לזכור: <strong>שונים → 1, זהים → 0.</strong></p>
+<p>הכלל לזכור: <strong>שונים <bdi dir="ltr" class="arw">←</bdi> 1, זהים <bdi dir="ltr" class="arw">←</bdi> 0.</strong></p>
 <p><strong>סימטרי מול אסימטרי:</strong></p>
 <table><thead><tr><th></th><th>סימטרי</th><th>אסימטרי</th></tr></thead>
 <tbody>
@@ -965,7 +967,7 @@ $$c = m \oplus ks \qquad m = c \oplus ks$$
 <tr><td>מהירות</td><td>מהיר</td><td>איטי</td></tr>
 <tr><td>הבעיה</td><td>איך מעבירים את המפתח?</td><td>פותר בדיוק את זה</td></tr>
 </tbody></table>
-<p><strong>סודיות מול אימות ב-<bdi dir="ltr">RSA</bdi>:</strong> מצפינים ב<strong>מפתח הציבורי של המקבל</strong> → סודיות. חותמים ב<strong>מפתח הפרטי של השולח</strong> → אימות וחתימה.</p></div>
+<p><strong>סודיות מול אימות ב-<bdi dir="ltr">RSA</bdi>:</strong> מצפינים ב<strong>מפתח הציבורי של המקבל</strong> <bdi dir="ltr" class="arw">←</bdi> סודיות. חותמים ב<strong>מפתח הפרטי של השולח</strong> <bdi dir="ltr" class="arw">←</bdi> אימות וחתימה.</p></div>
     <div class="box warn">
       <div class="box-head"><span class="icon">🔄</span>מה מועד ב׳ יכול לשנות</div>
       <div class="box-body"><ul>
@@ -986,7 +988,7 @@ $$c = m \oplus ks \qquad m = c \oplus ks$$
   <tr><td><bdi dir="ltr">ks</bdi></td><td class="mono">0 1 1 0 1 1 0 1</td></tr>
   <tr class="ok"><td><bdi dir="ltr">c</bdi></td><td class="mono">1 0 1 0 0 1 1 1</td></tr>
   </tbody></table>
-  <p><strong><bdi dir="ltr">c = 10100111</bdi></strong> (שונים → 1, זהים → 0).</p></div>
+  <p><strong><bdi dir="ltr">c = 10100111</bdi></strong> (שונים <bdi dir="ltr" class="arw">←</bdi> 1, זהים <bdi dir="ltr" class="arw">←</bdi> 0).</p></div>
       </div>
       <div class="exercise-card var-card">
         <div class="var-head">וריאציה 2</div>
