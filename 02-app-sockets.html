@@ -916,7 +916,8 @@ body:not(.nav-hidden) .menu-toggle:hover { background: rgba(255,255,255,.24); }
     const tw = Math.min(tip.offsetWidth, vw - 2 * margin);
     tip.style.maxWidth = (vw - 2 * margin) + 'px';
     let left = r.left + r.width / 2 - tw / 2;
-    left = Math.max(margin, Math.min(left, vw - tw - margin));
+    const rb = (function(){var m=document.querySelector('.mta-menu'),q=m&&m.getBoundingClientRect();return q&&q.width&&q.left>r.right?Math.min(q.left,vw):vw})();
+    left = Math.max(margin, Math.min(left, rb - tw - margin));
     const th = tip.offsetHeight;
     let top = r.top - th - gap;
     if (top < margin) { top = r.bottom + gap; tip.classList.add('below'); }
